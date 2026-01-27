@@ -9,7 +9,7 @@ Year,Event/Development,People/Organizations,Category,Source,Link,Event Weight
 1964,ELIZA natural language processing program,Joseph Weizenbaum (MIT),Foundation Models,Original,https://engineering.purdue.edu/~ece495nl/protected/weizenbaum1966.pdf,
 1968,"Shakey robot with NLP, vision, reasoning",Charles Rosen (Stanford/DARPA),Autonomous Systems,Original,https://www.darpa.mil/node/2097,
 1968,Convolutional neural network concept,Hubel & Wiesel,Generative AI,Original,https://www.cns.nyu.edu/~tony/vns/readings/hubel-wiesel-1968.pdf,
-1969,Book on perceptrons (limiting perspectives),Minsky & Papert,Research Breakthroughs,Original,https://rodsmith.nz/wp-content/uploads/Minsky-and-Papert-Perceptrons.pdf,
+1969,"Perceptrons book proves XOR problem unsolvable by single-layer nets (AI winter begins)",Minsky & Papert,Research Breakthroughs,Original,https://rodsmith.nz/wp-content/uploads/Minsky-and-Papert-Perceptrons.pdf,
 1969,Kaissa chess program developed,Russia,Autonomous Systems,Original,https://en.wikipedia.org/wiki/Kaissa,
 1970,Speech recognition research begins,Raj Reddy,Foundation Models,Original,https://apps.dtic.mil/sti/tr/pdf/ADA027844.pdf,
 1973,"""Artificial Intelligence: A General Survey"" (critical report)",James Lighthill,Research Breakthroughs,Original,https://rodsmith.nz/wp-content/uploads/Lighthill_1973_Report.pdf,
