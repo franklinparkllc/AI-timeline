@@ -8,10 +8,9 @@ An interactive, beautiful HTML timeline visualization of AI and ML developments 
 AI-timeline/
 ├── data/
 │   └── AI_Timeline_1940-2025.csv    # Source CSV data (maintain this)
-├── src/
-│   ├── index.html                    # Generated HTML timeline
-│   ├── styles.css                    # Timeline styling
-│   └── script.js                     # Interactive functionality
+├── index.html                    # Generated HTML timeline
+├── styles.css                    # Timeline styling
+├── script.js                     # Interactive functionality
 ├── scripts/
 │   └── generate_timeline.py         # Script to generate HTML from CSV
 └── README.md                         # This file
@@ -28,8 +27,8 @@ AI-timeline/
    ```
 
 3. **Open the timeline:**
-   - Open `src/index.html` in your web browser
-   - Or serve it with a local server: `python -m http.server 8000` (then visit http://localhost:8000/src/)
+   - Open `index.html` in your web browser
+   - Or serve it with a local server: `python -m http.server 8000` (then visit http://localhost:8000/)
 
 ## Data Format
 
