@@ -150,7 +150,7 @@ def main():
     # Paths
     project_root = Path(__file__).parent.parent
     csv_path = project_root / "data" / "AI_Timeline_1940-2025.csv"
-    output_path = project_root / "src" / "index.html"
+    output_path = project_root / "index.html"
     
     # Create directories if they don't exist
     output_path.parent.mkdir(parents=True, exist_ok=True)
