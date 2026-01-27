@@ -30,15 +30,29 @@ AI-timeline/
    - Open `index.html` in your web browser
    - Or serve it with a local server: `python -m http.server 8000` (then visit http://localhost:8000/)
 
+## Category Taxonomy
+
+Events are organized using an **Industry & Impact-focused taxonomy** with 8 key categories:
+
+1. **Research Breakthroughs** - Academic papers, fundamental discoveries, algorithms, theory
+2. **Foundation Models** - LLMs, transformers, large-scale pre-training, NLP systems
+3. **AI Products** - Consumer apps, assistants, tools, platforms, adoption metrics
+4. **Generative AI** - Text-to-image, text-to-video, GANs, diffusion models, multimodal
+5. **Enterprise & Developer Tools** - Frameworks, APIs, coding assistants, development platforms
+6. **Hardware & Infrastructure** - GPUs, TPUs, custom chips, compute clusters
+7. **Autonomous Systems** - Self-driving cars, robots, agents, game-playing AI
+8. **Governance & Society** - Regulation, ethics, safety research, business developments
+
+This taxonomy provides a clear narrative for understanding AI's evolution from research to real-world impact.
+
 ## Data Format
 
 The CSV file should have the following columns:
 - **Year**: The year of the event
 - **Event/Development**: Description of the event
 - **People/Organizations**: Key people or organizations involved
-- **Category**: Category of the event (e.g., Neural Networks, NLP, Theory, etc.)
+- **Category**: Category of the event (must be one of the 8 taxonomy categories above)
 - **Source**: Source of the information
-- **New Entry**: Whether this is a new entry (Yes/No)
 - **Link**: URL to more information about the event (optional)
 - **Event Weight**: Significance/weight of the event for filtering (optional, e.g., "High", "Medium", "Low")
 
