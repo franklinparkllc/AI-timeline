@@ -52,7 +52,7 @@ header h1 {
 /* Horizontal Scrollable Timeline */
 .timeline-wrapper {
     overflow-x: auto;
-    padding: 250px 0; /* Increased padding for multi-level */
+    padding: 320px 0; /* Increased from 250px to 320px to prevent card cutoff */
     cursor: grab;
     scrollbar-width: thin;
     scrollbar-color: var(--accent) transparent;

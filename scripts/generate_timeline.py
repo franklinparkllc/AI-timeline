@@ -68,12 +68,12 @@ def generate_html(events, output_path):
                 <div class="filter-box">
                     <select id="categoryFilter">
                         <option value="">All Categories</option>
-    """
+"""
     
     for category in categories:
         html += f'                        <option value="{category}">{category}</option>\n'
     
-    html += """                    </select>
+    html += f"""                    </select>
                 </div>
                 
                 <div class="year-navigation">
@@ -90,7 +90,7 @@ def generate_html(events, output_path):
         <div class="timeline-wrapper" id="timelineWrapper">
             <div class="timeline" id="timeline">
 """
-    
+
     # Group events by year
     events_by_year = {}
     for event in events:
