@@ -20,7 +20,6 @@ def read_csv_data(csv_path):
                 'people': row['People/Organizations'].strip(),
                 'category': row['Category'].strip(),
                 'source': row['Source'].strip(),
-                'newEntry': row.get('New Entry', '').strip().lower() == 'yes',
                 'link': row.get('Link', '').strip(),
                 'eventWeight': row.get('Event Weight', '').strip()
             }
@@ -36,9 +35,6 @@ def generate_html(events, output_path):
     
     # Get unique categories for filtering
     categories = sorted(set(e['category'] for e in events if e['category']))
-    
-    # Get unique event weights for filtering
-    event_weights = sorted(set(e['eventWeight'] for e in events if e['eventWeight']), reverse=True)
     
     # Get year range
     years = [e['year'] for e in events if e['year']]
@@ -60,39 +56,30 @@ def generate_html(events, output_path):
             <p class="subtitle">Key Developments from {min_year} to {max_year}</p>
         </header>
         
-        <div class="controls">
-            <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Search events, people, or organizations...">
-            </div>
-            
-            <div class="filter-box">
-                <label for="categoryFilter">Filter by Category:</label>
-                <select id="categoryFilter">
-                    <option value="">All Categories</option>
-"""
+        <div class="controls-container">
+            <button class="controls-toggle" id="controlsToggle" title="Filter & Search">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="2" y1="14" x2="6" y2="14"></line><line x1="10" y1="8" x2="14" y2="8"></line><line x1="18" y1="16" x2="22" y2="16"></line></svg>
+            </button>
+            <div class="controls" id="controlsMenu">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search events...">
+                </div>
+                
+                <div class="filter-box">
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+    """
     
     for category in categories:
-        html += f'                    <option value="{category}">{category}</option>\n'
+        html += f'                        <option value="{category}">{category}</option>\n'
     
-    html += """                </select>
-            </div>
-            
-            <div class="filter-box">
-                <label for="weightFilter">Filter by Event Weight:</label>
-                <select id="weightFilter">
-                    <option value="">All Weights</option>
-"""
-    
-    for weight in event_weights:
-        html += f'                    <option value="{weight}">{weight}</option>\n'
-    
-    html += """                </select>
-            </div>
-            
-            <div class="year-navigation">
-                <label for="yearJump">Jump to Year:</label>
-                <input type="number" id="yearJump" min="1940" max="2025" placeholder="Year">
-                <button id="jumpBtn">Go</button>
+    html += """                    </select>
+                </div>
+                
+                <div class="year-navigation">
+                    <input type="number" id="yearJump" min="1940" max="2025" placeholder="Year">
+                    <button id="jumpBtn">Go</button>
+                </div>
             </div>
         </div>
         
@@ -100,7 +87,8 @@ def generate_html(events, output_path):
             <span id="eventCount">{len(events)}</span> events displayed
         </div>
         
-        <div class="timeline" id="timeline">
+        <div class="timeline-wrapper" id="timelineWrapper">
+            <div class="timeline" id="timeline">
 """
     
     # Group events by year
@@ -118,27 +106,24 @@ def generate_html(events, output_path):
         html += f'                <div class="year-marker">{year}</div>\n'
         html += '                <div class="year-events">\n'
         
-        for event in year_events:
-            new_class = ' new-entry' if event['newEntry'] else ''
+        for i, event in enumerate(year_events):
             weight_attr = f' data-weight="{event["eventWeight"]}"' if event['eventWeight'] else ''
-            html += f'                    <div class="event-card{new_class}" data-category="{event["category"]}"{weight_attr}>\n'
+            # Assign level (0, 1, 2) to alternate vertical positions
+            level = i % 3
+            html += f'                    <div class="event-card level-{level}" data-category="{event["category"]}"{weight_attr}>\n'
             html += f'                        <div class="event-content">\n'
             html += f'                            <h3 class="event-title">{event["event"]}</h3>\n'
             
             if event['people']:
-                html += f'                            <p class="event-people"><strong>People/Organizations:</strong> {event["people"]}</p>\n'
+                html += f'                            <p class="event-people">{event["people"]}</p>\n'
             
             html += f'                            <div class="event-meta">\n'
             html += f'                                <span class="event-category">{event["category"]}</span>\n'
-            if event['source']:
-                html += f'                                <span class="event-source">{event["source"]}</span>\n'
-            if event['eventWeight']:
-                html += f'                                <span class="event-weight">Weight: {event["eventWeight"]}</span>\n'
             html += '                            </div>\n'
             
             if event['link']:
                 html += f'                            <div class="event-link">\n'
-                html += f'                                <a href="{event["link"]}" target="_blank" rel="noopener noreferrer">Learn More →</a>\n'
+                html += f'                                <a href="{event["link"]}" target="_blank" rel="noopener noreferrer">Details →</a>\n'
                 html += '                            </div>\n'
             
             html += '                        </div>\n'
@@ -147,7 +132,8 @@ def generate_html(events, output_path):
         html += '                </div>\n'
         html += '            </div>\n'
     
-    html += """        </div>
+    html += """            </div>
+        </div>
     </div>
     
     <script src="script.js"></script>

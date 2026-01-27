@@ -3,11 +3,26 @@
 document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('searchInput');
     const categoryFilter = document.getElementById('categoryFilter');
-    const weightFilter = document.getElementById('weightFilter');
     const yearJump = document.getElementById('yearJump');
     const jumpBtn = document.getElementById('jumpBtn');
     const eventCount = document.getElementById('eventCount');
-    const timeline = document.getElementById('timeline');
+    const timelineWrapper = document.getElementById('timelineWrapper');
+    const controlsToggle = document.getElementById('controlsToggle');
+    const controlsMenu = document.getElementById('controlsMenu');
+    
+    // Toggle controls menu
+    controlsToggle.addEventListener('click', () => {
+        controlsToggle.classList.toggle('active');
+        controlsMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!controlsToggle.contains(e.target) && !controlsMenu.contains(e.target)) {
+            controlsToggle.classList.remove('active');
+            controlsMenu.classList.remove('active');
+        }
+    });
     
     let allEventCards = Array.from(document.querySelectorAll('.event-card'));
     let allYearSections = Array.from(document.querySelectorAll('.timeline-year'));
@@ -18,24 +33,21 @@ document.addEventListener('DOMContentLoaded', function() {
         eventCount.textContent = visibleCount;
     }
     
-    // Filter events based on search, category, and weight
+    // Filter events based on search and category
     function filterEvents() {
         const searchTerm = searchInput.value.toLowerCase().trim();
         const selectedCategory = categoryFilter.value;
-        const selectedWeight = weightFilter ? weightFilter.value : '';
         
         let visibleCount = 0;
         
         allEventCards.forEach(card => {
             const eventText = card.textContent.toLowerCase();
             const cardCategory = card.getAttribute('data-category');
-            const cardWeight = card.getAttribute('data-weight') || '';
             
             const matchesSearch = !searchTerm || eventText.includes(searchTerm);
             const matchesCategory = !selectedCategory || cardCategory === selectedCategory;
-            const matchesWeight = !selectedWeight || cardWeight === selectedWeight;
             
-            if (matchesSearch && matchesCategory && matchesWeight) {
+            if (matchesSearch && matchesCategory) {
                 card.classList.remove('hidden');
                 visibleCount++;
             } else {
@@ -49,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const hasVisibleEvents = Array.from(yearEvents).some(card => !card.classList.contains('hidden'));
             
             if (hasVisibleEvents) {
-                yearSection.style.display = 'block';
+                yearSection.style.display = 'flex';
             } else {
                 yearSection.style.display = 'none';
             }
@@ -81,26 +93,51 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
             
             // Highlight the year marker briefly
             const yearMarker = targetSection.querySelector('.year-marker');
-            yearMarker.style.transform = 'scale(1.2)';
-            yearMarker.style.transition = 'transform 0.3s ease';
+            yearMarker.style.color = 'var(--accent)';
+            yearMarker.style.transform = 'translateX(-50%) scale(1.5)';
+            yearMarker.style.transition = 'all 0.3s ease';
             
             setTimeout(() => {
-                yearMarker.style.transform = 'scale(1)';
-            }, 500);
+                yearMarker.style.color = 'var(--year-color)';
+                yearMarker.style.transform = 'translateX(-50%) scale(1)';
+            }, 1000);
         }
     }
     
+    // Drag to scroll functionality
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    timelineWrapper.addEventListener('mousedown', (e) => {
+        isDown = true;
+        timelineWrapper.classList.add('active');
+        startX = e.pageX - timelineWrapper.offsetLeft;
+        scrollLeft = timelineWrapper.scrollLeft;
+    });
+    timelineWrapper.addEventListener('mouseleave', () => {
+        isDown = false;
+        timelineWrapper.classList.remove('active');
+    });
+    timelineWrapper.addEventListener('mouseup', () => {
+        isDown = false;
+        timelineWrapper.classList.remove('active');
+    });
+    timelineWrapper.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - timelineWrapper.offsetLeft;
+        const walk = (x - startX) * 2; // Scroll speed
+        timelineWrapper.scrollLeft = scrollLeft - walk;
+    });
+
     // Event listeners
     searchInput.addEventListener('input', filterEvents);
     categoryFilter.addEventListener('change', filterEvents);
-    if (weightFilter) {
-        weightFilter.addEventListener('change', filterEvents);
-    }
-    
     jumpBtn.addEventListener('click', jumpToYear);
     yearJump.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
@@ -110,64 +147,4 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize
     updateEventCount();
-    
-    // Add smooth scroll behavior for better UX
-    const yearMarkers = document.querySelectorAll('.year-marker');
-    yearMarkers.forEach(marker => {
-        marker.style.cursor = 'pointer';
-        marker.addEventListener('click', function() {
-            const yearSection = this.closest('.timeline-year');
-            yearSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        });
-    });
-    
-    // Add keyboard shortcuts
-    document.addEventListener('keydown', function(e) {
-        // Ctrl/Cmd + F focuses search
-        if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
-            e.preventDefault();
-            searchInput.focus();
-        }
-    });
-    
-    // Highlight search terms
-    function highlightSearchTerms() {
-        const searchTerm = searchInput.value.trim();
-        if (!searchTerm) {
-            // Remove all highlights
-            allEventCards.forEach(card => {
-                const title = card.querySelector('.event-title');
-                if (title) {
-                    title.innerHTML = title.textContent;
-                }
-            });
-            return;
-        }
-        
-        const regex = new RegExp(`(${searchTerm})`, 'gi');
-        
-        allEventCards.forEach(card => {
-            const title = card.querySelector('.event-title');
-            if (title) {
-                const text = title.textContent;
-                title.innerHTML = text.replace(regex, '<mark>$1</mark>');
-            }
-        });
-    }
-    
-    searchInput.addEventListener('input', function() {
-        filterEvents();
-        highlightSearchTerms();
-    });
-    
-    // Add CSS for mark highlighting
-    const style = document.createElement('style');
-    style.textContent = `
-        mark {
-            background-color: #fef08a;
-            padding: 2px 4px;
-            border-radius: 3px;
-        }
-    `;
-    document.head.appendChild(style);
 });
