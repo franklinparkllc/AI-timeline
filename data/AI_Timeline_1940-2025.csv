@@ -66,40 +66,51 @@ Year,Event/Development,People/Organizations,Category,Source,Link,Event Weight
 1998,Reinforcement Learning textbook (widely influential),Richard Sutton; Andrew Barto,Research Breakthroughs,Added,https://en.wikipedia.org/wiki/Reinforcement_Learning:_An_Introduction,7
 1998,Minerva and Pearl robots,Sebastian Thrun (CMU),Autonomous Systems,Original,https://www.cs.cmu.edu/~thrun/papers/thrun.icra_minerva.pdf,4
 1999,Sony AIBO consumer robot,Sony,Autonomous Systems,Original,https://www.sony.com/en/SonyInfo/News/Press/199905/99-046/,4
-2000,KISMET emotional robot,Breazeal,Autonomous Systems,Original,https://web.media.mit.edu/~cynthiab/research/robots/kismet/overview/overview.html,
-2001,Echo state network developed,Herbert Jaeger,Research Breakthroughs,Original,https://www.ai.rug.nl/minds/uploads/EchoStatesTechRep.pdf,
-2001,"""Neural Probabilistic Language Model""",Yoshua Bengio,Foundation Models,Original,https://www-labs.iro.umontreal.ca/~vincentp/Publications/lm_nips2000.pdf,
-2002,iRobot Roomba autonomous floor cleaning robot,iRobot,Autonomous Systems,Original,https://media.irobot.com/2002-09-18-iRobot-Introduces-Roomba-Intelligent-FloorVac-The-First-Automatic-Floor-Cleaner-In-The-U-S,
-2004,DARPA Grand Challenge for autonomous vehicles,DARPA,Autonomous Systems,Original,https://media.irobot.com/2002-09-18-iRobot-Introduces-Roomba-Intelligent-FloorVac-The-First-Automatic-Floor-Cleaner-In-The-U-S,
-2005,Blue Brain project to simulate brain,EPFL Lausanne,Research Breakthroughs,Original,,
-2005,GPUs used to implement neural networks,Patrice Simard,Hardware & Infrastructure,Original,,
-2006,Deep Belief Network,Geoffrey Hinton,Research Breakthroughs,Original,,
-2006,Deep Boltzmann Machines,Hinton and Salakhutdinov,Research Breakthroughs,Original,,
-2006,Geoffrey Hinton's foundational deep learning papers,Geoffrey Hinton,Research Breakthroughs,Added,,
-2007,Stacked Auto-Encoders,Yoshua Bengio,Research Breakthroughs,Original,,
-2007,Checkers game solved,Jonathan Schaeffer et al.,Autonomous Systems,Original,,
-2007,Robot Operating System (ROS) developed,Morgan Quigley,Autonomous Systems,Original,,
-2008,Neuromorphic processor project launched,Dharmendra Modha (IBM),Hardware & Infrastructure,Original,,
-2008,Open Advancement of Question Answering (OAQA) initiative,IBM and Carnegie Mellon,Foundation Models,Original,,
-2009,ImageNet database of human-tagged images unveiled,Fei-fei Li,Generative AI,Original,,
-2009,Google autonomous car project begins,Google,Autonomous Systems,Original,,
-2009,Bitcoin/blockchain introduced,Satoshi Nakamoto,Research Breakthroughs,Added,,
-2010,DeepMind founded,Demis Hassabis et al.,Governance & Society,Original,,
-2011,IBM's Watson defeats humans on Jeopardy!,IBM,Foundation Models,Original,,
-2011,Siri digital assistant introduced,Apple,AI Products,Original,,
-2012,Google digital assistant launched,Google,AI Products,Original,,
-2012,AlexNet wins ImageNet competition dramatically,"Alex Krizhevsky, Ilya Sutskever, Geoffrey Hinton",Generative AI,Original,,
-2012,ImageNet breakthrough marks beginning of deep learning era,Multiple researchers,Generative AI,Added,,
-2013,VICARIOUS breaks CAPTCHA test,VICARIOUS,Generative AI,Original,,
-2014,"Generative Adversarial Neural Networks (GANs) introduced, revolutionary architecture",Ian Goodfellow,Generative AI,Original,,
-2014,Microsoft Cortana digital assistant,Microsoft,AI Products,Original,,
-2014,Amazon Alexa digital assistant,Amazon,AI Products,Original,,
-2014,Facebook DeepFace facial recognition,Facebook,Generative AI,Original,,
-2014,DeepMind acquired by Google,Google/DeepMind,Governance & Society,Added,,
-2015,AlphaGo beats professional Go player on full 19x19 board,DeepMind,Autonomous Systems,Original,,
-2015,Google self-driving car crosses 1 million miles driven,Google,Autonomous Systems,Original,,
-2015,"Deep reinforcement learning paper in Nature (Atari games, DQN)","Mnih, Kavukcuoglu, Silver et al. (DeepMind)",Research Breakthroughs,Original,,
-2016,AlphaGo defeats Lee Sedol (world champion),DeepMind,Autonomous Systems,Added,,
+2000,KISMET emotional robot,Cynthia Breazeal (MIT),Autonomous Systems,Original,https://web.media.mit.edu/~cynthiab/research/robots/kismet/overview/overview.html,4
+2001,Echo state network developed,Herbert Jaeger (Jacobs_University_Bremen),Research Breakthroughs,Original,https://www.ai.rug.nl/minds/uploads/EchoStatesTechRep.pdf,6
+2001,Random Forests introduced,Leo Breiman (UC Berkeley),Research Breakthroughs,Added,https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf,9
+2001,Conditional Random Fields (CRFs) introduced,"John Lafferty; Andrew McCallum; Fernando Pereira",Research Breakthroughs,Added,https://www.cs.cornell.edu/courses/cs6784/2010sp/lecture/10-LaffertyEtAl01.pdf,8
+2001,"Neural Probabilistic Language Model",Yoshua Bengio (Université_de_Montréal),Foundation Models,Original,https://www-labs.iro.umontreal.ca/~vincentp/Publications/lm_nips2000.pdf,7
+2002,iRobot Roomba autonomous floor cleaning robot,iRobot,Autonomous Systems,Original,https://media.irobot.com/2002-09-18-iRobot-Introduces-Roomba-Intelligent-FloorVac-The-First-Automatic-Floor-Cleaner-In-The-U-S,4
+2003,Latent Dirichlet Allocation (LDA) topic modeling,"David Blei; Andrew Ng; Michael Jordan",Research Breakthroughs,Added,https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf,8
+2004,DARPA Grand Challenge for autonomous vehicles,DARPA,Autonomous Systems,Original,https://en.wikipedia.org/wiki/DARPA_Grand_Challenge,6
+2005,Blue Brain Project launched (brain simulation neuroscience),Henry Markram (EPFL),Research Breakthroughs,Original,https://bluebrain.epfl.ch/,4
+2007,CUDA introduced for general-purpose GPU computing,NVIDIA,Hardware & Infrastructure,Added,https://en.wikipedia.org/wiki/CUDA,7
+2006,Deep Belief Nets (DBNs) revive deep learning,"Geoffrey Hinton; Simon Osindero; Yee-Whye Teh (University of Toronto)",Research Breakthroughs,Original,https://www.cs.toronto.edu/~hinton/absps/ncfast.pdf,9
+2007,GPUs enable large-scale neural network training (early deep learning acceleration),NVIDIA; researchers,Hardware & Infrastructure,Original,https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units,6
+2009,Deep Boltzmann Machines (DBMs),"Ruslan Salakhutdinov; Geoffrey Hinton",Research Breakthroughs,Original,https://proceedings.mlr.press/v5/salakhutdinov09a/salakhutdinov09a.pdf,7
+2007,Stacked Auto-Encoders,Yoshua Bengio (Université_de_Montréal),Research Breakthroughs,Original,https://en.wikipedia.org/wiki/Autoencoder,6
+2007,Checkers game solved (perfect play leads to draw),Jonathan Schaeffer et al. (University of Alberta),Autonomous Systems,Original,https://webdocs.cs.ualberta.ca/~chinook/publications/solving_checkers.html,6
+2009,Robot Operating System (ROS) presented and broadly released,"Morgan Quigley; Willow Garage; Stanford (STAIR)",Autonomous Systems,Original,https://ai.stanford.edu/~mquigley/papers/icra2009-ros.pdf,6
+2008,Neuromorphic computing program (SyNAPSE) launched,Dharmendra Modha (IBM),Hardware & Infrastructure,Original,https://en.wikipedia.org/wiki/SyNAPSE,6
+2008,Open Advancement of Question Answering (OAQA) initiative,IBM; Carnegie Mellon University,Enterprise & Developer Tools,Original,https://en.wikipedia.org/wiki/Watson_(computer)#Development,4
+2009,ImageNet dataset introduced,"Jia Deng; Wei Dong; Richard Socher; Li-Jia Li; Kai Li; Fei-Fei Li (Princeton)",Research Breakthroughs,Original,https://www.image-net.org/static_files/papers/imagenet_cvpr09.pdf,9
+2009,Google self-driving car project begins (internal),Google; Sebastian Thrun (Stanford/Google),Autonomous Systems,Original,https://waymo.com/blog/2020/04/in-the-drivers-seat-1000-mile-challenge,6
+2009,Bitcoin/blockchain introduced (largely outside AI timeline),Satoshi Nakamoto,Governance & Society,Added,https://en.wikipedia.org/wiki/Bitcoin,0
+2010,DeepMind incorporated,Demis Hassabis; Shane Legg; Mustafa Suleyman (DeepMind),Governance & Society,Original,https://find-and-update.company-information.service.gov.uk/company/07386350,6
+2011,IBM Watson defeats humans on Jeopardy!,IBM (DeepQA),Research Breakthroughs,Original,https://www.ibm.com/history/watson-jeopardy,7
+2011,Siri digital assistant introduced,Apple,AI Products,Original,https://www.apple.com/newsroom/2011/10/04Apple-Launches-iPhone-4S-iOS-5-iCloud/,5
+2012,Google Now digital assistant launched,Google,AI Products,Original,https://en.wikipedia.org/wiki/Google_Now,5
+2012,Deep neural networks transform speech recognition,"Geoffrey Hinton; George Dahl; Abdel-rahman Mohamed",Research Breakthroughs,Added,https://www.cs.toronto.edu/~hinton/absps/DNN-2012-proof.pdf,7
+2012,AlexNet wins ImageNet (deep CNN breakthrough),"Alex Krizhevsky; Ilya Sutskever; Geoffrey Hinton (University of Toronto)",Research Breakthroughs,Original,https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf,10
+2012,"Deep learning surge in computer vision (post-ImageNet)",Multiple researchers,Research Breakthroughs,Added,,6
+2013,word2vec popularizes neural word embeddings,"Tomas Mikolov; Kai Chen; Greg Corrado; Jeffrey Dean (Google)",Research Breakthroughs,Added,https://arxiv.org/abs/1301.3781,9
+2013,Vicarious claims major CAPTCHA success (not peer-reviewed),Vicarious,Governance & Society,Original,https://www.bbc.com/news/technology-24710209,0
+2014,DeepFace achieves near-human face verification,"Yaniv Taigman; Ming Yang; Marc'Aurelio Ranzato; Lior Wolf (Facebook/TAU)",Research Breakthroughs,Original,https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Taigman_DeepFace_Closing_the_2014_CVPR_paper.pdf,7
+2014,Generative Adversarial Networks (GANs) introduced,"Ian Goodfellow; Jean Pouget-Abadie; Mehdi Mirza; et al.",Generative AI,Original,https://arxiv.org/abs/1406.2661,10
+2014,Seq2Seq learning with neural networks,"Ilya Sutskever; Oriol Vinyals; Quoc Le (Google)",Research Breakthroughs,Added,https://arxiv.org/abs/1409.3215,9
+2014,Neural machine translation attention mechanism,"Dzmitry Bahdanau; Kyunghyun Cho; Yoshua Bengio",Research Breakthroughs,Added,https://arxiv.org/abs/1409.0473,9
+2014,Microsoft Cortana digital assistant announced,Microsoft,AI Products,Original,https://blogs.windows.com/windowsexperience/2014/04/02/cortana-yes-and-many-many-other-great-features-coming-in-windows-phone-8-1/,4
+2014,Amazon Echo/Alexa announced,Amazon (Lab126),AI Products,Original,https://en.wikipedia.org/wiki/Amazon_Echo,5
+2014,Google acquires DeepMind,Google/DeepMind,Governance & Society,Added,https://www.bbc.com/news/technology-25908379,6
+2015,OpenAI founded (nonprofit),OpenAI,Governance & Society,Added,https://techcrunch.com/2015/12/11/non-profit-openai-launches-with-backing-from-elon-musk-and-sam-altman/,7
+2015,"DQN in Nature (human-level Atari control)","Volodymyr Mnih; Koray Kavukcuoglu; David Silver; et al. (DeepMind)",Research Breakthroughs,Original,https://storage.googleapis.com/deepmind-data/assets/papers/DeepMindNature14236Paper.pdf,10
+2015,ResNet enables very deep CNNs,"Kaiming He; Xiangyu Zhang; Shaoqing Ren; Jian Sun (Microsoft Research)",Research Breakthroughs,Added,https://arxiv.org/abs/1512.03385,9
+2015,TensorFlow open-sourced,Google,Enterprise & Developer Tools,Added,https://opensource.googleblog.com/2015/11/tensorflow-googles-latest-machine.html,8
+2015,AlphaGo defeats a pro player (Fan Hui match; announced 2016),DeepMind,Autonomous Systems,Original,http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html,9
+2015,Google self-driving cars surpass 1M autonomous miles,Google (Self-Driving Car Project),Autonomous Systems,Original,https://venturebeat.com/ai/googles-self-driving-cars-have-driven-over-1-million-miles/,6
+2016,AlphaGo defeats Lee Sedol (world champion),DeepMind,Autonomous Systems,Added,https://googleblog.blogspot.com/2016/01/alphago-machine-learning-game-go.html,10
+2016,WaveNet generative model for raw audio,DeepMind,Generative AI,Added,https://arxiv.org/abs/1609.03499,8
 2017,PyTorch and TensorFlow key development frameworks,Meta/Facebook and Google,Enterprise & Developer Tools,Original,,
 2017,Libratus defeats professional poker players,CMU,Autonomous Systems,Original,,
 2017,"""Attention is all you need"" paper introduces Transformers","Vaswani et al. (Google Brain, Google Research)",Foundation Models,Original,,
