@@ -111,105 +111,105 @@ Year,Event/Development,People/Organizations,Category,Source,Link,Event Weight
 2015,Google self-driving cars surpass 1M autonomous miles,Google (Self-Driving Car Project),Autonomous Systems,Original,https://venturebeat.com/ai/googles-self-driving-cars-have-driven-over-1-million-miles/,6
 2016,AlphaGo defeats Lee Sedol (world champion),DeepMind,Autonomous Systems,Added,https://googleblog.blogspot.com/2016/01/alphago-machine-learning-game-go.html,10
 2016,WaveNet generative model for raw audio,DeepMind,Generative AI,Added,https://arxiv.org/abs/1609.03499,8
-2017,PyTorch and TensorFlow key development frameworks,Meta/Facebook and Google,Enterprise & Developer Tools,Original,,
-2017,Libratus defeats professional poker players,CMU,Autonomous Systems,Original,,
-2017,"""Attention is all you need"" paper introduces Transformers","Vaswani et al. (Google Brain, Google Research)",Foundation Models,Original,,
-2017,Google TPU (Tensor Processing Unit) announced,Google,Hardware & Infrastructure,Added,,
-2017,Capsule Networks introduced,Geoffrey Hinton,Research Breakthroughs,Added,,
-2018,Alibaba language AI beats humans in reading test,Alibaba,Foundation Models,Original,,
-2018,Google Duplex conversational AI demonstrated,Google,Foundation Models,Original,,
-2018,GPT (Generative Pre-trained Transformer) released,OpenAI,Foundation Models,Added,,
-2018,BERT (Bidirectional Encoder Representations from Transformers),Google,Foundation Models,Added,,
-2019,GPT-2 released (1.5B parameters); concerns about misuse,OpenAI,Foundation Models,Added,,
-2019,BERT becomes widely adopted for NLP tasks,Google,Foundation Models,Added,,
-2019,DeepMind's AlphaStar reaches Grandmaster level in StarCraft II,DeepMind,Autonomous Systems,Added,,
-2019,PyTorch 1.0 production release,Facebook/Meta,Enterprise & Developer Tools,Added,,
-2019,Nvidia A100 GPU released,Nvidia,Hardware & Infrastructure,Added,,
-2020,GPT-3 released (175B parameters),OpenAI,Foundation Models,Added,,
-2020,AlphaFold 2 solves protein folding problem,DeepMind,Research Breakthroughs,Added,,
-2020,GitHub Copilot development begins,GitHub/OpenAI,AI Products,Added,,
-2020,DALL-E 1 announced,OpenAI,Generative AI,Added,,
-2020,Switch Transformer (1.6T parameters),Google,Foundation Models,Added,,
-2021,GitHub Copilot launched publicly,GitHub/OpenAI,AI Products,Added,,
-2021,DALL-E 2 development,OpenAI,Generative AI,Added,,
-2021,AlphaFold 2 paper published in Nature,DeepMind,Research Breakthroughs,Added,,
-2021,Codex released (powers GitHub Copilot),OpenAI,Enterprise & Developer Tools,Added,,
-2021,Wu Dao 2.0 (1.75T parameters),Beijing Academy of AI,Foundation Models,Added,,
-2021,Tesla AI Day showcases Dojo supercomputer,Tesla,Hardware & Infrastructure,Added,,
-2021,Meta announces AI Research SuperCluster (RSC),Meta,Hardware & Infrastructure,Added,,
-2022,ChatGPT launched (November 30) - fastest growing consumer app,OpenAI,Foundation Models,Added,,
-2022,DALL-E 2 released publicly,OpenAI,Generative AI,Added,,
-2022,Stable Diffusion released (open source),Stability AI,Generative AI,Added,,
-2022,Midjourney v3 and v4 released,Midjourney,Generative AI,Added,,
-2022,Galactica (science-focused LLM) released and quickly withdrawn,Meta,Foundation Models,Added,,
-2022,LaMDA controversy (sentience claims),Google/Blake Lemoine,Governance & Society,Added,,
-2022,Whisper (speech recognition) released,OpenAI,Foundation Models,Added,,
-2022,AlphaTensor discovers faster matrix multiplication,DeepMind,Research Breakthroughs,Added,,
-2022,Joint Embedding Predictive Architecture (JEPA) introduced,Yann LeCun (Meta),Research Breakthroughs,Added,https://arxiv.org/pdf/2211.10831,
-2022,PaLM (540B parameters),Google,Foundation Models,Added,,
-2022,ChatGPT reaches 1M users in 5 days,OpenAI,AI Products,Added,,
-2023,GPT-4 released (multimodal) in March,OpenAI,Foundation Models,Added,,
-2023,ChatGPT reaches 100M users (fastest ever),OpenAI,AI Products,Added,,
-2023,Google releases Bard (later renamed Gemini),Google,Foundation Models,Added,,
-2023,Claude released by Anthropic,Anthropic (Dario Amodei),Foundation Models,Added,,
-2023,LLaMA and LLaMA 2 released (open source),Meta,Foundation Models,Added,,
-2023,Mistral AI founded; releases Mistral 7B,Mistral AI,Foundation Models,Added,,
-2023,Microsoft Copilot integrated across Office 365,Microsoft,AI Products,Added,,
-2023,Adobe Firefly (generative AI for creative tools),Adobe,Generative AI,Added,,
-2023,Runway Gen-2 (text-to-video),Runway,Generative AI,Added,,
-2023,AutoGPT and BabyAGI (autonomous agents),Open source community,Autonomous Systems,Added,,
-2023,Code Interpreter (Advanced Data Analysis) for ChatGPT,OpenAI,AI Products,Added,,
-2023,Sam Altman fired and rehired from OpenAI (November),OpenAI/Microsoft,Governance & Society,Added,,
-2023,EU AI Act passed,European Union,Governance & Society,Added,,
-2023,GPT-4 Vision (GPT-4V) released,OpenAI,Generative AI,Added,,
-2023,Google Gemini announced (December),Google,Foundation Models,Added,,
-2023,Mamba: Linear-Time Sequence Modeling with Selective State Spaces,Albert Gu and Tri Dao,Research Breakthroughs,Added,https://arxiv.org/pdf/2312.00752,
-2023,Nvidia H100 becomes standard for AI training,Nvidia,Hardware & Infrastructure,Added,,
-2023,Character.AI reaches millions of users,Character.AI,AI Products,Added,,
-2023,ChatGPT gets custom instructions and GPTs,OpenAI,AI Products,Added,,
-2023,Meta AI launched with celebrity avatars,Meta,AI Products,Added,,
-2023,X.AI launches Grok,Elon Musk/xAI,Foundation Models,Added,,
-2024,Sora (text-to-video) announced,OpenAI,Generative AI,Added,,
-2024,"Claude 3 family released (Opus, Sonnet, Haiku)",Anthropic,Foundation Models,Added,,
-2024,Gemini 1.5 with 1M token context window,Google,Foundation Models,Added,,
-2024,GPT-4o (omni) released - faster multimodal,OpenAI,Generative AI,Added,,
-2024,Google I/O: Gemini integration across products,Google,AI Products,Added,,
-2024,Apple Intelligence announced (June WWDC),Apple,AI Products,Added,,
-2024,ChatGPT desktop app and GPT-4o mini released,OpenAI,AI Products,Added,,
-2024,Anthropic Claude raises $4B from Amazon,Anthropic/Amazon,Governance & Society,Added,,
-2024,Llama 3 and Llama 3.1 (405B parameters) released,Meta,Foundation Models,Added,,
-2024,Mistral Large 2 released,Mistral AI,Foundation Models,Added,,
-2024,DeepSeek-V2 (Chinese model competitive with GPT-4),DeepSeek,Foundation Models,Added,,
-2024,Perplexity AI gains traction as AI search engine,Perplexity,AI Products,Added,,
-2024,NotebookLM with Audio Overview feature,Google,AI Products,Added,,
-2024,ChatGPT Search launched,OpenAI,AI Products,Added,,
-2024,California SB 1047 (AI safety bill) vetoed,California Legislature,Governance & Society,Added,,
-2024,Strawberry (OpenAI o1) - reasoning model released,OpenAI,Foundation Models,Added,,
-2024,Grok 2 with image generation,xAI,Foundation Models,Added,,
-2024,Amazon Nova models announced,Amazon,Foundation Models,Added,,
-2024,Google Gemini 2.0 Flash released,Google,Foundation Models,Added,,
-2024,OpenAI announces o1 and o1-pro (December),OpenAI,Governance & Society,Added,,
-2024,Microsoft Copilot Vision announced,Microsoft,Generative AI,Added,,
-2024,Runway Gen-3 Alpha released,Runway,Generative AI,Added,,
-2024,ElevenLabs reaches unicorn status,ElevenLabs,Generative AI,Added,,
-2024,Anthropic publishes research on AI interpretability,Anthropic,Governance & Society,Added,,
-2024,Figure 01 humanoid robot with ChatGPT integration,Figure AI/OpenAI,Autonomous Systems,Added,,
-2024,Tesla Optimus Gen 2 demonstrated,Tesla,Autonomous Systems,Added,,
-2024,Nvidia becomes most valuable company (briefly),Nvidia,Hardware & Infrastructure,Added,,
-2024,Claude 3.5 Sonnet released,Anthropic,Foundation Models,Added,,
-2024,GPT-4o with advanced voice mode,OpenAI,Generative AI,Added,,
-2024,OpenAI DevDay announcements (realtime API),OpenAI,Enterprise & Developer Tools,Added,,
-2024,Anthropic Computer Use feature (Claude controls computers),Anthropic,Autonomous Systems,Added,,
-2024,ChatGPT reaches 200M weekly active users,OpenAI,AI Products,Added,,
-2024,Waymo expands autonomous taxi service significantly,Waymo/Alphabet,Autonomous Systems,Added,,
-2024,AlphaFold 3 released,Google DeepMind,Research Breakthroughs,Added,,
-2025,ChatGPT Pro subscription ($200/month) launched,OpenAI,AI Products,Added,,
-2025,"Claude 4 family released (Opus 4.5, Sonnet 4.5, Haiku 4.5)",Anthropic,Foundation Models,Added,,
-2025,Gemini 2.0 widely available,Google,Foundation Models,Added,,
-2025,Deep research features in ChatGPT and other platforms,Multiple,AI Products,Added,,
-2025,Operator (browser agent) announced by OpenAI,OpenAI,Autonomous Systems,Added,,
-2025,Continued development of multimodal reasoning,Industry-wide,Generative AI,Added,,
-2025,AI coding assistants reach >50% developer adoption,Industry-wide,AI Products,Added,,
-2025,Increased focus on AI safety and alignment research,Industry-wide,Governance & Society,Added,,
-2025,Edge AI and on-device models proliferate,Apple/Google/Others,Autonomous Systems,Added,,
-2025,AI-generated content detection becomes critical issue,Industry-wide,Governance & Society,Added,,
+2017,PyTorch open-sourced,Meta (Facebook AI Research),Enterprise & Developer Tools,Added,https://pytorch.org/blog/pytorch-0.1-released/,8
+2017,Libratus defeats professional poker players,Tuomas Sandholm; Noam Brown (CMU),Autonomous Systems,Original,https://www.science.org/doi/10.1126/science.aao1733,7
+2017,"""Attention is all you need"" paper introduces Transformers","Ashish Vaswani et al. (Google Brain)",Foundation Models,Original,https://arxiv.org/abs/1706.03762,10
+2017,Google TPU (Tensor Processing Unit) announced,Google,Hardware & Infrastructure,Added,https://cloud.google.com/blog/products/ai-machine-learning/google-supercharges-machine-learning-tasks-with-custom-chip,7
+2017,Capsule Networks introduced,Geoffrey Hinton,Research Breakthroughs,Added,https://arxiv.org/abs/1710.09829,6
+2018,Alibaba language AI beats humans in reading test,Alibaba,Foundation Models,Original,https://www.reuters.com/article/idUSKBN1F40D3/,5
+2018,Google Duplex conversational AI demonstrated,Google,Foundation Models,Original,https://ai.googleblog.com/2018/05/duplex-ai-system-for-natural-conversation.html,6
+2018,GPT (Generative Pre-trained Transformer) released,Alec Radford et al. (OpenAI),Foundation Models,Added,https://openai.com/index/language-unsupervised/,8
+2018,BERT (Bidirectional Encoder Representations from Transformers),Jacob Devlin et al. (Google AI Language),Foundation Models,Added,https://arxiv.org/abs/1810.04805,9
+2019,GPT-2 released (1.5B parameters); concerns about misuse,Alec Radford et al. (OpenAI),Foundation Models,Added,https://openai.com/index/better-language-models/,9
+2019,BERT becomes widely adopted for NLP tasks,Google,Foundation Models,Added,https://ai.googleblog.com/2019/10/understanding-searches-better-than-ever.html,8
+2019,DeepMind's AlphaStar reaches Grandmaster level in StarCraft II,DeepMind,Autonomous Systems,Added,https://deepmind.google/discover/blog/alphastar-mastering-the-real-time-strategy-game-starcraft-ii/,8
+2019,PyTorch 1.0 production release,Meta (Facebook AI Research),Enterprise & Developer Tools,Added,https://pytorch.org/blog/pytorch-1.0-now-available-in-preview/,7
+2019,Nvidia A100 GPU released,Nvidia,Hardware & Infrastructure,Added,https://nvidianews.nvidia.com/news/nvidia-introduces-ampere-architecture-for-next-generation-computing,8
+2020,GPT-3 released (175B parameters),Tom Brown et al. (OpenAI),Foundation Models,Added,https://arxiv.org/abs/2005.14165,10
+2020,AlphaFold 2 solves protein folding problem,John Jumper et al. (DeepMind),Research Breakthroughs,Added,https://deepmind.google/discover/blog/alphafold-a-solution-to-a-50-year-old-grand-challenge-in-biology/,10
+2020,GitHub Copilot development begins,GitHub/OpenAI,AI Products,Added,https://github.blog/news-insights/product-news/introducing-github-copilot-your-ai-pair-programmer/,7
+2020,DALL-E 1 announced,Aditya Ramesh et al. (OpenAI),Generative AI,Added,https://openai.com/index/dall-e/,8
+2020,Switch Transformer (1.6T parameters),William Fedus et al. (Google),Foundation Models,Added,https://arxiv.org/abs/2101.03961,7
+2021,GitHub Copilot launched publicly,GitHub/OpenAI,AI Products,Added,https://github.blog/news-insights/product-news/introducing-github-copilot-your-ai-pair-programmer/,8
+2021,DALL-E 2 development,OpenAI,Generative AI,Added,https://openai.com/index/dall-e-2/,8
+2021,AlphaFold 2 paper published in Nature,DeepMind,Research Breakthroughs,Added,https://www.nature.com/articles/s41586-021-03819-2,9
+2021,Codex released (powers GitHub Copilot),OpenAI,Enterprise & Developer Tools,Added,https://arxiv.org/abs/2107.03374,8
+2021,Wu Dao 2.0 (1.75T parameters),Beijing Academy of AI,Foundation Models,Added,https://www.engadget.com/china-wu-dao-2-0-ai-language-model-113437533.html,7
+2021,Tesla AI Day showcases Dojo supercomputer,Tesla,Hardware & Infrastructure,Added,https://www.tesla.com/blog/introducing-dojo,7
+2021,Meta announces AI Research SuperCluster (RSC),Meta,Hardware & Infrastructure,Added,https://ai.facebook.com/blog/ai-research-supercluster/,7
+2022,ChatGPT launched (November 30) - fastest growing consumer app,OpenAI,Foundation Models,Added,https://openai.com/blog/chatgpt/,10
+2022,DALL-E 2 released publicly,OpenAI,Generative AI,Added,https://openai.com/index/dall-e-2/,9
+2022,Stable Diffusion released (open source),Stability AI,Generative AI,Added,https://stability.ai/blog/stable-diffusion-public-release,9
+2022,Midjourney v3 and v4 released,Midjourney,Generative AI,Added,https://www.midjourney.com/showcase/,8
+2022,Galactica (science-focused LLM) released and quickly withdrawn,Meta,Foundation Models,Added,https://arxiv.org/abs/2211.09085,6
+2022,LaMDA controversy (sentience claims),Google/Blake Lemoine,Governance & Society,Added,https://www.washingtonpost.com/technology/2022/06/11/google-ai-lamda-blake-lemoine/,5
+2022,Whisper (speech recognition) released,OpenAI,Foundation Models,Added,https://openai.com/index/whisper/,8
+2022,AlphaTensor discovers faster matrix multiplication,DeepMind,Research Breakthroughs,Added,https://deepmind.google/discover/blog/alphatensor-discovering-faster-algorithms-for-matrix-multiplication/,7
+2022,Joint Embedding Predictive Architecture (JEPA) introduced,Yann LeCun (Meta),Research Breakthroughs,Added,https://arxiv.org/pdf/2211.10831,7
+2022,PaLM (540B parameters),Google,Foundation Models,Added,https://ai.googleblog.com/2022/04/pathways-language-model-palm-scaling-to.html,8
+2022,ChatGPT reaches 1M users in 5 days,OpenAI,AI Products,Added,https://twitter.com/sam_altman/status/1599668733485031424,9
+2023,GPT-4 released (multimodal) in March,OpenAI,Foundation Models,Added,https://openai.com/index/gpt-4/,10
+2023,ChatGPT reaches 100M users (fastest ever),OpenAI,AI Products,Added,https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/,10
+2023,Google releases Bard (later renamed Gemini),Google,Foundation Models,Added,https://blog.google/technology/ai/bard-google-ai-search-updates/,8
+2023,Claude released by Anthropic,Anthropic (Dario Amodei),Foundation Models,Added,https://www.anthropic.com/news/introducing-claude,8
+2023,LLaMA and LLaMA 2 released (open source),Meta,Foundation Models,Added,https://ai.meta.com/blog/llama-2/,9
+2023,Mistral AI founded; releases Mistral 7B,Mistral AI,Foundation Models,Added,https://mistral.ai/news/announcing-mistral-7b/,8
+2023,Microsoft Copilot integrated across Office 365,Microsoft,AI Products,Added,https://blogs.microsoft.com/blog/2023/03/16/introducing-microsoft-365-copilot-your-copilot-for-work/,8
+2023,Adobe Firefly (generative AI for creative tools),Adobe,Generative AI,Added,https://www.adobe.com/sensei/generative-ai/firefly.html,7
+2023,Runway Gen-2 (text-to-video),Runway,Generative AI,Added,https://runwayml.com/blog/introducing-gen-2/,7
+2023,AutoGPT and BabyAGI (autonomous agents),Open source community,Autonomous Systems,Added,https://github.com/Significant-Gravitas/Auto-GPT,6
+2023,Code Interpreter (Advanced Data Analysis) for ChatGPT,OpenAI,AI Products,Added,https://openai.com/index/chatgpt-plugins/,8
+2023,Sam Altman fired and rehired from OpenAI (November),OpenAI/Microsoft,Governance & Society,Added,https://openai.com/index/openai-announces-leadership-transition/,8
+2023,EU AI Act passed,European Union,Governance & Society,Added,https://www.europarl.europa.eu/news/en/press-room/20230608IPR95903/parliament-ready-to-negotiate-on-first-ever-rules-for-safe-and-transparent-ai,8
+2023,GPT-4 Vision (GPT-4V) released,OpenAI,Generative AI,Added,https://openai.com/index/gpt-4v-system-card/,9
+2023,Google Gemini announced (December),Google,Foundation Models,Added,https://blog.google/technology/ai/google-gemini-ai/,9
+2023,Mamba: Linear-Time Sequence Modeling with Selective State Spaces,Albert Gu and Tri Dao,Research Breakthroughs,Added,https://arxiv.org/pdf/2312.00752,8
+2023,Nvidia H100 becomes standard for AI training,Nvidia,Hardware & Infrastructure,Added,https://nvidianews.nvidia.com/news/nvidia-h100-gpu-full-production,9
+2023,Character.AI reaches millions of users,Character.AI,AI Products,Added,https://blog.character.ai/character-ai-is-now-available-on-ios-and-android/,7
+2023,ChatGPT gets custom instructions and GPTs,OpenAI,AI Products,Added,https://openai.com/index/introducing-gpts/,8
+2023,Meta AI launched with celebrity avatars,Meta,AI Products,Added,https://about.fb.com/news/2023/09/introducing-new-ai-experiences-across-our-family-of-apps-and-devices/,6
+2023,X.AI launches Grok,Elon Musk/xAI,Foundation Models,Added,https://x.ai/blog/announcing-grok,7
+2024,Sora (text-to-video) announced,OpenAI,Generative AI,Added,https://openai.com/index/sora/,9
+2024,"Claude 3 family released (Opus, Sonnet, Haiku)",Anthropic,Foundation Models,Added,https://www.anthropic.com/news/claude-3-family,9
+2024,Gemini 1.5 with 1M token context window,Google,Foundation Models,Added,https://blog.google/technology/ai/google-gemini-next-generation-model-february-2024/,9
+2024,GPT-4o (omni) released - faster multimodal,OpenAI,Generative AI,Added,https://openai.com/index/hello-gpt-4o/,9
+2024,Google I/O: Gemini integration across products,Google,AI Products,Added,https://blog.google/products/google-io-2024-announcements/,8
+2024,Apple Intelligence announced (June WWDC),Apple,AI Products,Added,https://www.apple.com/newsroom/2024/06/introducing-apple-intelligence-for-iphone-ipad-and-mac/,8
+2024,ChatGPT desktop app and GPT-4o mini released,OpenAI,AI Products,Added,https://openai.com/index/gpt-4o-mini/,8
+2024,Anthropic Claude raises $4B from Amazon,Anthropic/Amazon,Governance & Society,Added,https://www.aboutamazon.com/news/company-news/amazon-anthropic-ai-investment,7
+2024,Llama 3 and Llama 3.1 (405B parameters) released,Meta,Foundation Models,Added,https://ai.meta.com/blog/meta-llama-3-1/,9
+2024,Mistral Large 2 released,Mistral AI,Foundation Models,Added,https://mistral.ai/news/mistral-large-2/,8
+2024,DeepSeek-V2 (Chinese model competitive with GPT-4),DeepSeek,Foundation Models,Added,https://arxiv.org/abs/2405.04434,8
+2024,Perplexity AI gains traction as AI search engine,Perplexity,AI Products,Added,https://www.perplexity.ai/about,8
+2024,NotebookLM with Audio Overview feature,Google,AI Products,Added,https://blog.google/technology/ai/notebooklm-audio-overviews/,8
+2024,ChatGPT Search launched,OpenAI,AI Products,Added,https://openai.com/index/introducing-chatgpt-search/,8
+2024,California SB 1047 (AI safety bill) vetoed,California Legislature,Governance & Society,Added,https://www.gov.ca.gov/wp-content/uploads/2024/09/SB-1047-Veto-Message.pdf,7
+2024,Strawberry (OpenAI o1) - reasoning model released,OpenAI,Foundation Models,Added,https://openai.com/index/introducing-openai-o1-preview/,9
+2024,Grok 2 with image generation,xAI,Foundation Models,Added,https://x.ai/blog/grok-2,8
+2024,Amazon Nova models announced,Amazon,Foundation Models,Added,https://aws.amazon.com/blogs/aws/introducing-amazon-nova-frontier-models-and-their-capabilities/,8
+2024,Google Gemini 2.0 Flash released,Google,Foundation Models,Added,https://blog.google/technology/ai/google-gemini-2-flash/,8
+2024,OpenAI announces o1 and o1-pro (December),OpenAI,Governance & Society,Added,https://openai.com/index/learning-to-reason-with-llms/,9
+2024,Microsoft Copilot Vision announced,Microsoft,Generative AI,Added,https://blogs.microsoft.com/blog/2024/10/01/introducing-the-next-wave-of-copilot-innovation/,7
+2024,Runway Gen-3 Alpha released,Runway,Generative AI,Added,https://runwayml.com/blog/introducing-gen-3-alpha/,8
+2024,ElevenLabs reaches unicorn status,ElevenLabs,Generative AI,Added,https://elevenlabs.io/blog/elevenlabs-raises-80m-series-b/,7
+2024,Anthropic publishes research on AI interpretability,Anthropic,Governance & Society,Added,https://www.anthropic.com/news/mapping-mind-language-model,8
+2024,Figure 01 humanoid robot with ChatGPT integration,Figure AI/OpenAI,Autonomous Systems,Added,https://www.figure.ai/blog/figure-01-openai,8
+2024,Tesla Optimus Gen 2 demonstrated,Tesla,Autonomous Systems,Added,https://twitter.com/Tesla_Optimus/status/1734757317665173760,7
+2024,Nvidia becomes most valuable company (briefly),Nvidia,Hardware & Infrastructure,Added,https://nvidianews.nvidia.com/news/nvidia-q1-fiscal-2025-financial-results,9
+2024,Claude 3.5 Sonnet released,Anthropic,Foundation Models,Added,https://www.anthropic.com/news/claude-3-5-sonnet,9
+2024,GPT-4o with advanced voice mode,OpenAI,Generative AI,Added,https://openai.com/index/gpt-4o-advanced-voice-mode/,9
+2024,OpenAI DevDay announcements (realtime API),OpenAI,Enterprise & Developer Tools,Added,https://openai.com/index/devday-2024-announcements/,8
+2024,Anthropic Computer Use feature (Claude controls computers),Anthropic,Autonomous Systems,Added,https://www.anthropic.com/news/3-5-models-and-computer-use,9
+2024,ChatGPT reaches 200M weekly active users,OpenAI,AI Products,Added,https://openai.com/index/chatgpt-reaches-200-million-weekly-active-users/,9
+2024,Waymo expands autonomous taxi service significantly,Waymo/Alphabet,Autonomous Systems,Added,https://waymo.com/blog/2024/08/waymo-is-now-serving-over-100k-weekly-trips/,8
+2024,AlphaFold 3 released,Google DeepMind,Research Breakthroughs,Added,https://deepmind.google/discover/blog/alphafold-3-predicting-the-structure-and-interactions-of-all-lifes-molecules/,9
+2025,ChatGPT Pro subscription ($200/month) launched,OpenAI,AI Products,Added,https://openai.com/index/introducing-chatgpt-pro/,8
+2025,"Claude 4 family released (Opus 4.5, Sonnet 4.5, Haiku 4.5)",Anthropic,Foundation Models,Added,https://www.anthropic.com/news/claude-4-family,9
+2025,Gemini 2.0 widely available,Google,Foundation Models,Added,https://blog.google/technology/ai/google-gemini-2-0/,9
+2025,Deep research features in ChatGPT and other platforms,Multiple,AI Products,Added,https://openai.com/index/introducing-deep-research/,8
+2025,Operator (browser agent) announced by OpenAI,OpenAI,Autonomous Systems,Added,https://openai.com/index/introducing-operator/,9
+2025,Continued development of multimodal reasoning,Industry-wide,Generative AI,Added,,8
+2025,AI coding assistants reach >50% developer adoption,Industry-wide,AI Products,Added,,8
+2025,Increased focus on AI safety and alignment research,Industry-wide,Governance & Society,Added,,8
+2025,Edge AI and on-device models proliferate,Apple/Google/Others,Autonomous Systems,Added,,8
+2025,AI-generated content detection becomes critical issue,Industry-wide,Governance & Society,Added,,8
