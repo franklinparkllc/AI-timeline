@@ -203,13 +203,15 @@ Year,Event/Development,People/Organizations,Category,Source,Link,Event Weight
 2024,ChatGPT reaches 200M weekly active users,OpenAI,AI Products,Added,https://openai.com/index/chatgpt-reaches-200-million-weekly-active-users/,9
 2024,Waymo expands autonomous taxi service significantly,Waymo/Alphabet,Autonomous Systems,Added,https://waymo.com/blog/2024/08/waymo-is-now-serving-over-100k-weekly-trips/,8
 2024,AlphaFold 3 released,Google DeepMind,Research Breakthroughs,Added,https://deepmind.google/discover/blog/alphafold-3-predicting-the-structure-and-interactions-of-all-lifes-molecules/,9
+2025,DeepSeek R1 reasoning model (open source),DeepSeek,Foundation Models,Added,https://github.com/deepseek-ai/DeepSeek-R1,10
 2025,ChatGPT Pro subscription ($200/month) launched,OpenAI,AI Products,Added,https://openai.com/index/introducing-chatgpt-pro/,8
 2025,"Claude 4 family released (Opus 4.5, Sonnet 4.5, Haiku 4.5)",Anthropic,Foundation Models,Added,https://www.anthropic.com/news/claude-4-family,9
 2025,Gemini 2.0 widely available,Google,Foundation Models,Added,https://blog.google/technology/ai/google-gemini-2-0/,9
 2025,Deep research features in ChatGPT and other platforms,Multiple,AI Products,Added,https://openai.com/index/introducing-deep-research/,8
 2025,Operator (browser agent) announced by OpenAI,OpenAI,Autonomous Systems,Added,https://openai.com/index/introducing-operator/,9
-2025,Continued development of multimodal reasoning,Industry-wide,Generative AI,Added,,8
-2025,AI coding assistants reach >50% developer adoption,Industry-wide,AI Products,Added,,8
-2025,Increased focus on AI safety and alignment research,Industry-wide,Governance & Society,Added,,8
-2025,Edge AI and on-device models proliferate,Apple/Google/Others,Autonomous Systems,Added,,8
-2025,AI-generated content detection becomes critical issue,Industry-wide,Governance & Society,Added,,8
+2025,Gemini Robotics brings AI into physical world,Google DeepMind,Autonomous Systems,Added,https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/,8
+2025,WeatherNext 2 advanced weather forecasting,Google,Research Breakthroughs,Added,https://ai.google/advancing-ai/research/,7
+2025,SIMA 2 AI agent for 3D worlds,Google DeepMind,Autonomous Systems,Added,https://ai.google/advancing-ai/research/,7
+2025,Genie 3 interactive world model,Google DeepMind,Generative AI,Added,https://ai.google/advancing-ai/research/,8
+2026,Prism AI-native workspace for scientists,OpenAI,AI Products,Added,https://openai.com/index/introducing-prism/,8
+2026,GPT-5.2 powers advanced scientific reasoning,OpenAI,Foundation Models,Added,https://openai.com/index/introducing-prism/,9
