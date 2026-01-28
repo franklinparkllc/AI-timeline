@@ -12,7 +12,8 @@ AI-timeline/
 ├── styles.css                    # Timeline styling
 ├── script.js                     # Interactive functionality
 ├── scripts/
-│   └── generate_timeline.py         # Script to generate HTML from CSV
+│   ├── generate_timeline.py         # Script to generate HTML from CSV
+│   └── normalize_csv.py             # Re-quote CSV columns (prevents link/weight bleed)
 └── README.md                         # This file
 ```
 
@@ -95,6 +96,15 @@ Then regenerate the timeline with: python scripts/generate_timeline.py
 2. Add a new row with the event details
 3. Run `python scripts/generate_timeline.py` to regenerate the HTML
 4. Refresh your browser to see the updates
+
+### Fixing Link / Weight Bleed (CSV quoting)
+
+The CSV stores **Link** and **Event Weight** in quoted columns so URLs that contain commas don’t spill into the weight column. If you edit the CSV in Excel or another tool that strips quotes:
+
+1. Run `python scripts/normalize_csv.py` to re-quote all columns.
+2. Then run `python scripts/generate_timeline.py` as usual.
+
+The generator also sanitizes link and weight values when reading, so any existing bleed is corrected when the HTML is built.
 
 ## Requirements
 

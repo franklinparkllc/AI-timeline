@@ -7,21 +7,50 @@ import os
 import json
 from pathlib import Path
 
+def _sanitize_link(link):
+    """Ensure link is a single URL; strip any trailing comma + weight that bled in."""
+    if not link:
+        return ''
+    link = link.strip()
+    # If link ends with comma + digits (weight bled in), remove it
+    if link and link[-1].isdigit():
+        i = len(link) - 1
+        while i >= 0 and link[i].isdigit():
+            i -= 1
+        if i >= 0 and link[i] == ',':
+            link = link[:i].strip()
+    return link if link.startswith(('http://', 'https://')) else link
+
+def _sanitize_weight(weight):
+    """Ensure weight is a single number (0-10); drop any URL fragment that bled in."""
+    if not weight:
+        return ''
+    weight = weight.strip()
+    # Take only leading digits
+    digits = []
+    for c in weight:
+        if c.isdigit():
+            digits.append(c)
+        elif digits:
+            break
+    return ''.join(digits) if digits else ''
+
 def read_csv_data(csv_path):
     """Read timeline data from CSV file"""
     events = []
     with open(csv_path, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
-            # Clean up the data
+            link = row.get('Link', '').strip()
+            weight = row.get('Event Weight', '').strip()
             event = {
                 'year': int(row['Year']) if row['Year'].strip() else None,
                 'event': row['Event/Development'].strip(),
                 'people': row['People/Organizations'].strip(),
                 'category': row['Category'].strip(),
                 'source': row['Source'].strip(),
-                'link': row.get('Link', '').strip(),
-                'eventWeight': row.get('Event Weight', '').strip()
+                'link': _sanitize_link(link),
+                'eventWeight': _sanitize_weight(weight)
             }
             if event['year']:
                 events.append(event)

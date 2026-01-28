@@ -415,7 +415,7 @@ header h1 {
     gap: 8px;
 }
 
-/* Parallax Background Logo */
+/* Parallax Background Logo – refined watermark, centered on timeline */
 .parallax-bg {
     position: fixed;
     top: 0;
@@ -428,17 +428,35 @@ header h1 {
     background-color: var(--bg);
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* Shifted to right */
-    padding-right: 5%; /* Padding from right edge */
+    justify-content: flex-end;
+    padding-right: clamp(2%, 40px, 6%);
+    /* Offset so logo center aligns with timeline (below header/controls) */
+    padding-top: 12vh;
+    box-sizing: border-box;
+}
+
+/* Gradient mask: logo fades in from the right; left side (behind cards) is softer */
+.parallax-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, var(--bg) 0%, var(--bg) 25%, transparent 55%, transparent 100%);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .bg-logo {
-    width: 100%; /* Increased size */
-    max-width: 1200px; /* Increased max-width */
-    opacity: 0.15;
-    filter: grayscale(100%) brightness(0.8);
+    max-width: min(900px, 55vw);
+    max-height: 70vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    object-position: right center;
+    opacity: 0.16;
+    filter: grayscale(100%) brightness(0.88);
+    mix-blend-mode: luminosity;
     will-change: transform;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.2s ease;
 }
 
 .significance-label {
