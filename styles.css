@@ -398,6 +398,100 @@ header h1 {
     color: var(--year-color);
 }
 
+/* Significance Slider Widget */
+.significance-control {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 100;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(52, 152, 219, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    width: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Parallax Background Logo */
+.parallax-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+    background-color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Shifted to right */
+    padding-right: 5%; /* Padding from right edge */
+}
+
+.bg-logo {
+    width: 100%; /* Increased size */
+    max-width: 1200px; /* Increased max-width */
+    opacity: 0.15;
+    filter: grayscale(100%) brightness(0.8);
+    will-change: transform;
+    transition: opacity 0.3s ease;
+}
+
+.significance-label {
+    display: none;
+}
+
+#significanceValue {
+    display: none;
+}
+
+#significanceSlider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 4px;
+    background: var(--bg);
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+    margin: 8px 0;
+}
+
+#significanceSlider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#significanceSlider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: var(--accent);
+    border: 2px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.significance-ticks {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.55rem;
+    color: var(--year-color);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
 .hidden {
     display: none;
 }

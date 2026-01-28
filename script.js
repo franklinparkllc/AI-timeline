@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const timelineWrapper = document.getElementById('timelineWrapper');
     const controlsToggle = document.getElementById('controlsToggle');
     const controlsMenu = document.getElementById('controlsMenu');
+    const significanceSlider = document.getElementById('significanceSlider');
+    const parallaxLogo = document.getElementById('parallaxLogo');
     
     // Toggle controls menu
     controlsToggle.addEventListener('click', () => {
@@ -33,21 +35,24 @@ document.addEventListener('DOMContentLoaded', function() {
         eventCount.textContent = visibleCount;
     }
     
-    // Filter events based on search and category
+    // Filter events based on search, category and significance
     function filterEvents() {
         const searchTerm = searchInput.value.toLowerCase().trim();
         const selectedCategory = categoryFilter.value;
+        const minSignificance = parseInt(significanceSlider.value);
         
         let visibleCount = 0;
         
         allEventCards.forEach(card => {
             const eventText = card.textContent.toLowerCase();
             const cardCategory = card.getAttribute('data-category');
+            const cardWeight = parseInt(card.getAttribute('data-weight') || '0');
             
             const matchesSearch = !searchTerm || eventText.includes(searchTerm);
             const matchesCategory = !selectedCategory || cardCategory === selectedCategory;
+            const matchesSignificance = cardWeight >= minSignificance;
             
-            if (matchesSearch && matchesCategory) {
+            if (matchesSearch && matchesCategory && matchesSignificance) {
                 card.classList.remove('hidden');
                 visibleCount++;
             } else {
@@ -67,7 +72,10 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        eventCount.textContent = visibleCount;
+        // Update the event count display
+        if (eventCount) {
+            eventCount.textContent = visibleCount;
+        }
     }
     
     // Jump to specific year
@@ -135,9 +143,21 @@ document.addEventListener('DOMContentLoaded', function() {
         timelineWrapper.scrollLeft = scrollLeft - walk;
     });
 
+    // Parallax effect for the background logo based on horizontal scroll
+    timelineWrapper.addEventListener('scroll', () => {
+        const scrollPercentage = timelineWrapper.scrollLeft / (timelineWrapper.scrollWidth - timelineWrapper.clientWidth);
+        // Move logo slightly in the opposite direction or at a slower rate
+        // Adjusted moveX calculation to account for right-aligned starting position
+        const moveX = (scrollPercentage - 0.5) * 150; 
+        if (parallaxLogo) {
+            parallaxLogo.style.transform = `translateX(${moveX}px)`;
+        }
+    });
+
     // Event listeners
     searchInput.addEventListener('input', filterEvents);
     categoryFilter.addEventListener('change', filterEvents);
+    significanceSlider.addEventListener('input', filterEvents);
     jumpBtn.addEventListener('click', jumpToYear);
     yearJump.addEventListener('keypress', function(e) {
         if (e.key === 'Enter') {
@@ -146,5 +166,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Initialize
-    updateEventCount();
+    filterEvents();
 });

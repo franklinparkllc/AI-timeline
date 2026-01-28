@@ -77,13 +77,15 @@ Then regenerate the timeline with: python scripts/generate_timeline.py
 
 ## Features
 
-- **Interactive Timeline**: Scroll through years with smooth navigation
-- **Filtering**: Filter events by category and event weight
-- **Search**: Search for specific events, people, or organizations
-- **Links**: Click "Learn More" links to get additional information about events
-- **Responsive Design**: Works on desktop, tablet, and mobile devices
-- **Beautiful UI**: Modern, clean design with smooth animations
-- **Year Navigation**: Jump to specific years quickly
+- **Interactive Timeline**: Scroll through years with smooth horizontal navigation and parallax background.
+- **Significance Filter**: A minimal, stylized slider to filter events by impact (All to Landmarks).
+- **Branded Parallax**: Subtle background logo that shifts as you navigate the timeline.
+- **Filtering**: Filter events by category and event weight.
+- **Search**: Search for specific events, people, or organizations.
+- **Links**: Direct links to primary sources (arXiv, Nature, official blogs) for major milestones.
+- **Responsive Design**: Works on desktop, tablet, and mobile devices.
+- **Beautiful UI**: Modern, clean design with smooth animations and a gradient-styled control widget.
+- **Year Navigation**: Jump to specific years quickly.
 
 ## Maintenance
 

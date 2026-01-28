@@ -77,9 +77,21 @@ def generate_html(events, output_path):
                 </div>
                 
                 <div class="year-navigation">
-                    <input type="number" id="yearJump" min="1940" max="2025" placeholder="Year">
+                    <input type="number" id="yearJump" min="{min_year}" max="{max_year}" placeholder="Year">
                     <button id="jumpBtn">Go</button>
                 </div>
+            </div>
+        </div>
+
+        <div class="parallax-bg">
+            <img src="data/FranklinPark_Logo_blue.png" alt="" class="bg-logo" id="parallaxLogo">
+        </div>
+
+        <div class="significance-control">
+            <input type="range" id="significanceSlider" min="0" max="10" value="8" step="1">
+            <div class="significance-ticks">
+                <span>All</span>
+                <span>Landmarks</span>
             </div>
         </div>
         
