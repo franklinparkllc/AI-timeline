@@ -63,7 +63,7 @@ Use this prompt with your preferred AI assistant to review and improve a slice o
 ```text
 Take a look at @data/AI_Timeline_1940-2025.csv. It serves a script that builds an interactive AI timeline.
 
-Please audit entries from YEAR_START through YEAR_END:
+Please audit entries from 2021 through 2023:
 1) Flag entries that are poorly labeled or mis-entered (wrong year, wrong people/org, wrong category).
 2) Add key events/papers/research that are missing in this timeframe (include credible links).
 3) If an item is irrelevant/insignificant for the timeline narrative, set its Event Weight to 0.
