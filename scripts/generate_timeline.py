@@ -22,7 +22,7 @@ def _sanitize_link(link):
     return link if link.startswith(('http://', 'https://')) else link
 
 def _sanitize_weight(weight):
-    """Ensure weight is a single number (0-10); drop any URL fragment that bled in."""
+    """Ensure weight is a single number (1-3: minor/major/landmark); drop any URL fragment that bled in."""
     if not weight:
         return ''
     weight = weight.strip()
@@ -59,7 +59,19 @@ def read_csv_data(csv_path):
     events.sort(key=lambda x: x['year'])
     return events
 
-def generate_html(events, output_path):
+def get_and_increment_version(project_root):
+    """Read version from timeline_version.txt, increment, write back; return new version."""
+    version_file = project_root / "timeline_version.txt"
+    try:
+        version = int(version_file.read_text().strip())
+    except (FileNotFoundError, ValueError):
+        version = 0
+    version += 1
+    version_file.write_text(str(version) + "\n")
+    return version
+
+
+def generate_html(events, output_path, version=1):
     """Generate HTML timeline from events data"""
     
     # Get unique categories for filtering
@@ -118,12 +130,13 @@ def generate_html(events, output_path):
 
         <div class="significance-control">
             <label for="significanceSlider" class="significance-label">Significance</label>
-            <input type="range" id="significanceSlider" min="0" max="10" value="8" step="1" title="0 = all events, 10 = landmarks only" aria-valuemin="0" aria-valuemax="10" aria-valuenow="8">
-            <span class="significance-hint" aria-hidden="true">0 = all · 10 = landmarks</span>
+            <input type="range" id="significanceSlider" min="1" max="3" value="2" step="1" title="1 = all events, 3 = landmarks only" aria-valuemin="1" aria-valuemax="3" aria-valuenow="2">
+            <span class="significance-hint" aria-hidden="true">1 = all · 3 = landmarks</span>
         </div>
         
         <div class="stats">
             <span id="eventCount">{len(events)}</span> events displayed
+            <span class="timeline-version" aria-hidden="true"> · v.{version}</span>
         </div>
         
         <div class="timeline-wrapper" id="timelineWrapper">
@@ -202,13 +215,17 @@ def main():
         print("Please ensure the CSV file exists in the data/ directory")
         return
     
+    # Version: increment on each run
+    version = get_and_increment_version(project_root)
+    print(f"Timeline version: {version}")
+    
     # Read and generate
     print(f"Reading CSV from {csv_path}...")
     events = read_csv_data(csv_path)
     print(f"Found {len(events)} events")
     
     print(f"Generating HTML timeline...")
-    generate_html(events, output_path)
+    generate_html(events, output_path, version=version)
     print("Done!")
 
 if __name__ == "__main__":

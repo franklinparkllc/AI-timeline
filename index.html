@@ -49,12 +49,13 @@
 
         <div class="significance-control">
             <label for="significanceSlider" class="significance-label">Significance</label>
-            <input type="range" id="significanceSlider" min="0" max="10" value="8" step="1" title="0 = all events, 10 = landmarks only" aria-valuemin="0" aria-valuemax="10" aria-valuenow="8">
-            <span class="significance-hint" aria-hidden="true">0 = all · 10 = landmarks</span>
+            <input type="range" id="significanceSlider" min="1" max="3" value="2" step="1" title="1 = all events, 3 = landmarks only" aria-valuemin="1" aria-valuemax="3" aria-valuenow="2">
+            <span class="significance-hint" aria-hidden="true">1 = all · 3 = landmarks</span>
         </div>
         
         <div class="stats">
             <span id="eventCount">216</span> events displayed
+            <span class="timeline-version" aria-hidden="true"> · v.1</span>
         </div>
         
         <div class="timeline-wrapper" id="timelineWrapper">
@@ -62,7 +63,7 @@
             <div class="timeline-year" data-year="1943">
                 <div class="year-marker">1943</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="10">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="3">
                         <div class="event-content">
                             <h3 class="event-title">A Logical Calculus of the Ideas Immanent in Nervous Activity</h3>
                             <p class="event-people">Warren McCulloch; Walter Pitts (University of Chicago)</p>
@@ -79,7 +80,7 @@
             <div class="timeline-year" data-year="1945">
                 <div class="year-marker">1945</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="4">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">As We May Think essay published</h3>
                             <p class="event-people">Vannevar Bush (OSRD)</p>
@@ -96,7 +97,7 @@
             <div class="timeline-year" data-year="1949">
                 <div class="year-marker">1949</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Hebbian learning introduced (*The Organization of Behavior*)</h3>
                             <p class="event-people">Donald Hebb (McGill)</p>
@@ -113,7 +114,7 @@
             <div class="timeline-year" data-year="1950">
                 <div class="year-marker">1950</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="3">
                         <div class="event-content">
                             <h3 class="event-title">Turing Test described</h3>
                             <p class="event-people">Alan Turing (University of Manchester)</p>
@@ -130,7 +131,7 @@
             <div class="timeline-year" data-year="1951">
                 <div class="year-marker">1951</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Hardware & Infrastructure" data-weight="5">
+                    <div class="event-card level-0" data-category="Hardware & Infrastructure" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">SNARC early neural network hardware</h3>
                             <p class="event-people">Marvin Minsky; Dean Edmonds (Harvard)</p>
@@ -147,7 +148,7 @@
             <div class="timeline-year" data-year="1952">
                 <div class="year-marker">1952</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="5">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Checkers program (early AI game-playing)</h3>
                             <p class="event-people">Arthur Samuel (IBM)</p>
@@ -164,7 +165,7 @@
             <div class="timeline-year" data-year="1956">
                 <div class="year-marker">1956</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="10">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="3">
                         <div class="event-content">
                             <h3 class="event-title">Term "artificial intelligence" coined; Logic Theorist program</h3>
                             <p class="event-people">John McCarthy (Dartmouth); Allen Newell; Herbert Simon; Cliff Shaw (RAND/CMU)</p>
@@ -181,7 +182,7 @@
             <div class="timeline-year" data-year="1958">
                 <div class="year-marker">1958</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Enterprise & Developer Tools" data-weight="7">
+                    <div class="event-card level-0" data-category="Enterprise & Developer Tools" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">LISP programming language created</h3>
                             <p class="event-people">John McCarthy (MIT)</p>
@@ -193,7 +194,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Perceptron algorithm developed</h3>
                             <p class="event-people">Frank Rosenblatt (Cornell)</p>
@@ -210,7 +211,7 @@
             <div class="timeline-year" data-year="1959">
                 <div class="year-marker">1959</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">"Machine learning" framing; self-learning checkers popularized</h3>
                             <p class="event-people">Arthur Samuel (IBM)</p>
@@ -227,7 +228,7 @@
             <div class="timeline-year" data-year="1960">
                 <div class="year-marker">1960</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="6">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">ADALINE neural network</h3>
                             <p class="event-people">Bernard Widrow; Ted Hoff (Stanford)</p>
@@ -244,7 +245,7 @@
             <div class="timeline-year" data-year="1965">
                 <div class="year-marker">1965</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">DENDRAL expert system project begins</h3>
                             <p class="event-people">Edward Feigenbaum; Joshua Lederberg; Bruce Buchanan (Stanford)</p>
@@ -256,7 +257,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Fuzzy sets paper published</h3>
                             <p class="event-people">Lotfi Zadeh (UC Berkeley)</p>
@@ -273,7 +274,7 @@
             <div class="timeline-year" data-year="1966">
                 <div class="year-marker">1966</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="7">
+                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Shakey robot project begins (mobile reasoning robot)</h3>
                             <p class="event-people">Charles Rosen; Nils Nilsson; Peter Hart (SRI, DARPA)</p>
@@ -285,7 +286,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="6">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">ELIZA chatbot described in CACM</h3>
                             <p class="event-people">Joseph Weizenbaum (MIT)</p>
@@ -297,7 +298,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Governance & Society" data-weight="6">
+                    <div class="event-card level-2" data-category="Governance & Society" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">ALPAC report slows machine translation funding</h3>
                             <p class="event-people">US National Academy of Sciences (ALPAC)</p>
@@ -314,7 +315,7 @@
             <div class="timeline-year" data-year="1968">
                 <div class="year-marker">1968</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="6">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Visual cortex receptive-field discoveries (foundations for convnets)</h3>
                             <p class="event-people">David Hubel; Torsten Wiesel (Harvard)</p>
@@ -326,7 +327,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="8">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">A* search algorithm introduced</h3>
                             <p class="event-people">Peter Hart; Nils Nilsson; Bertram Raphael (SRI)</p>
@@ -343,7 +344,7 @@
             <div class="timeline-year" data-year="1969">
                 <div class="year-marker">1969</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="6">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Perceptrons book highlights limits of single-layer perceptrons (e.g., XOR)</h3>
                             <p class="event-people">Marvin Minsky; Seymour Papert (MIT)</p>
@@ -355,7 +356,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Autonomous Systems" data-weight="4">
+                    <div class="event-card level-1" data-category="Autonomous Systems" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Kaissa chess program developed</h3>
                             <p class="event-people">Soviet researchers (USSR)</p>
@@ -372,7 +373,7 @@
             <div class="timeline-year" data-year="1970">
                 <div class="year-marker">1970</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">SHRDLU natural-language blocks world</h3>
                             <p class="event-people">Terry Winograd (MIT)</p>
@@ -384,7 +385,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="5">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Early continuous speech recognition work</h3>
                             <p class="event-people">Raj Reddy (CMU)</p>
@@ -401,7 +402,7 @@
             <div class="timeline-year" data-year="1972">
                 <div class="year-marker">1972</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Enterprise & Developer Tools" data-weight="6">
+                    <div class="event-card level-0" data-category="Enterprise & Developer Tools" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Prolog programming language introduced</h3>
                             <p class="event-people">Alain Colmerauer; Philippe Roussel (Aix-Marseille)</p>
@@ -418,7 +419,7 @@
             <div class="timeline-year" data-year="1973">
                 <div class="year-marker">1973</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Governance & Society" data-weight="6">
+                    <div class="event-card level-0" data-category="Governance & Society" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">"Artificial Intelligence: A General Survey" (Lighthill report)</h3>
                             <p class="event-people">James Lighthill (UK Science Research Council)</p>
@@ -435,7 +436,7 @@
             <div class="timeline-year" data-year="1974">
                 <div class="year-marker">1974</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Governance & Society" data-weight="6">
+                    <div class="event-card level-0" data-category="Governance & Society" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">First AI winter begins (funding and expectations crash)</h3>
                             <p class="event-people">ARPA; UK funders</p>
@@ -452,7 +453,7 @@
             <div class="timeline-year" data-year="1975">
                 <div class="year-marker">1975</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Backpropagation dissertation</h3>
                             <p class="event-people">Paul Werbos (Harvard)</p>
@@ -464,7 +465,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="5">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Frames introduced for knowledge representation</h3>
                             <p class="event-people">Marvin Minsky (MIT)</p>
@@ -481,7 +482,7 @@
             <div class="timeline-year" data-year="1976">
                 <div class="year-marker">1976</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="6">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">MYCIN expert system</h3>
                             <p class="event-people">Bruce Buchanan; Edward Shortliffe (Stanford)</p>
@@ -498,7 +499,7 @@
             <div class="timeline-year" data-year="1977">
                 <div class="year-marker">1977</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Expectation-Maximization (EM) algorithm introduced</h3>
                             <p class="event-people">Dempster; Laird; Rubin</p>
@@ -515,7 +516,7 @@
             <div class="timeline-year" data-year="1979">
                 <div class="year-marker">1979</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Governance & Society" data-weight="0">
+                    <div class="event-card level-0" data-category="Governance & Society" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Industrial robot fatality (safety & labor milestone)</h3>
                             <p class="event-people">Robert Williams (Ford)</p>
@@ -532,7 +533,7 @@
             <div class="timeline-year" data-year="1980">
                 <div class="year-marker">1980</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Neocognitron (early convnet architecture)</h3>
                             <p class="event-people">Kunihiko Fukushima (NHK)</p>
@@ -544,7 +545,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="AI Products" data-weight="6">
+                    <div class="event-card level-1" data-category="AI Products" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">XCON expert system deployed at DEC</h3>
                             <p class="event-people">John McDermott (Carnegie Mellon); Digital Equipment Corporation (DEC)</p>
@@ -561,7 +562,7 @@
             <div class="timeline-year" data-year="1982">
                 <div class="year-marker">1982</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="6">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Hopfield Network</h3>
                             <p class="event-people">John Hopfield (Caltech)</p>
@@ -573,7 +574,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="AI Products" data-weight="4">
+                    <div class="event-card level-1" data-category="AI Products" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Dragon Systems founded (speech recognition company)</h3>
                             <p class="event-people">James Baker; Janet Baker (Dragon Systems)</p>
@@ -590,7 +591,7 @@
             <div class="timeline-year" data-year="1984">
                 <div class="year-marker">1984</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">CART (Classification and Regression Trees)</h3>
                             <p class="event-people">Breiman; Friedman; Olshen; Stone</p>
@@ -607,7 +608,7 @@
             <div class="timeline-year" data-year="1986">
                 <div class="year-marker">1986</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="10">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="3">
                         <div class="event-content">
                             <h3 class="event-title">Backpropagation popularized in modern neural nets</h3>
                             <p class="event-people">David Rumelhart; Geoffrey Hinton; Ronald Williams</p>
@@ -619,7 +620,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="5">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Attention, Intentions, and the Structure of Discourse</h3>
                             <p class="event-people">Barbara Grosz; Candace Sidner</p>
@@ -631,7 +632,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="6">
+                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">ID3 decision tree learning algorithm</h3>
                             <p class="event-people">Ross Quinlan (University of Sydney)</p>
@@ -643,7 +644,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="5">
+                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">First robot car demonstrations</h3>
                             <p class="event-people">Ernst Dickmanns (Universität der Bundeswehr München)</p>
@@ -655,7 +656,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="6">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Boltzmann Machine developed</h3>
                             <p class="event-people">Terry Sejnowski; Geoffrey Hinton</p>
@@ -672,7 +673,7 @@
             <div class="timeline-year" data-year="1987">
                 <div class="year-marker">1987</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="5">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">NETtalk learns to pronounce English text</h3>
                             <p class="event-people">Terry Sejnowski; Charles Rosenberg (Salk)</p>
@@ -689,7 +690,7 @@
             <div class="timeline-year" data-year="1988">
                 <div class="year-marker">1988</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="AI Products" data-weight="0">
+                    <div class="event-card level-0" data-category="AI Products" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Jabberwacky/Thoughts learning-chatbot project begins</h3>
                             <p class="event-people">Rollo Carpenter (UK)</p>
@@ -701,7 +702,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="8">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Probabilistic reasoning / Bayesian networks consolidated (textbook)</h3>
                             <p class="event-people">Judea Pearl (UCLA)</p>
@@ -713,7 +714,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="6">
+                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">"A Statistical Approach to Language Translation"</h3>
                             <p class="event-people">IBM</p>
@@ -730,7 +731,7 @@
             <div class="timeline-year" data-year="1989">
                 <div class="year-marker">1989</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="6">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Time-delay neural network (TDNN) for speech</h3>
                             <p class="event-people">Alex Waibel (CMU)</p>
@@ -742,7 +743,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Q-learning introduced</h3>
                             <p class="event-people">Chris Watkins (King's College Cambridge)</p>
@@ -754,7 +755,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Convolutional neural networks for vision tasks</h3>
                             <p class="event-people">Yann LeCun (AT&T Bell Labs)</p>
@@ -771,7 +772,7 @@
             <div class="timeline-year" data-year="1990">
                 <div class="year-marker">1990</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Hardware & Infrastructure" data-weight="6">
+                    <div class="event-card level-0" data-category="Hardware & Infrastructure" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Neuromorphic electronic systems described</h3>
                             <p class="event-people">Carver Mead (Caltech)</p>
@@ -783,7 +784,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="3">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">"The Age of Intelligent Machines" published</h3>
                             <p class="event-people">Ray Kurzweil</p>
@@ -800,7 +801,7 @@
             <div class="timeline-year" data-year="1991">
                 <div class="year-marker">1991</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="AI Products" data-weight="6">
+                    <div class="event-card level-0" data-category="AI Products" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">DART supply chain optimization used in Gulf War</h3>
                             <p class="event-people">DARPA</p>
@@ -812,7 +813,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Autonomous Systems" data-weight="6">
+                    <div class="event-card level-1" data-category="Autonomous Systems" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">"Intelligence without representation" (behavior-based robotics)</h3>
                             <p class="event-people">Rodney Brooks (MIT)</p>
@@ -829,7 +830,7 @@
             <div class="timeline-year" data-year="1992">
                 <div class="year-marker">1992</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">REINFORCE policy-gradient algorithm</h3>
                             <p class="event-people">Ronald Williams (Northeastern)</p>
@@ -846,7 +847,7 @@
             <div class="timeline-year" data-year="1993">
                 <div class="year-marker">1993</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="3">
+                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Polly vision-enabled behavior-based robot</h3>
                             <p class="event-people">Ian Horswill (MIT)</p>
@@ -858,7 +859,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Autonomous Systems" data-weight="5">
+                    <div class="event-card level-1" data-category="Autonomous Systems" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">MIT Cog humanoid robotics project</h3>
                             <p class="event-people">Rodney Brooks; Lynn Stein; Cynthia Breazeal (MIT)</p>
@@ -875,7 +876,7 @@
             <div class="timeline-year" data-year="1994">
                 <div class="year-marker">1994</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="4">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">"Soft computing" term popularized</h3>
                             <p class="event-people">Lotfi Zadeh (UC Berkeley)</p>
@@ -892,7 +893,7 @@
             <div class="timeline-year" data-year="1995">
                 <div class="year-marker">1995</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="6">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Random decision forests developed</h3>
                             <p class="event-people">Tin Kam Ho (Bell Labs)</p>
@@ -904,7 +905,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="8">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Support Vector Machines introduced</h3>
                             <p class="event-people">Corinna Cortes; Vladimir Vapnik (AT&T Bell Labs)</p>
@@ -916,7 +917,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Autonomous Systems" data-weight="5">
+                    <div class="event-card level-2" data-category="Autonomous Systems" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Robot car drives 1000 miles Munich to Copenhagen</h3>
                             <p class="event-people">Ernst Dickmanns (Universität der Bundeswehr München)</p>
@@ -933,7 +934,7 @@
             <div class="timeline-year" data-year="1996">
                 <div class="year-marker">1996</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">AdaBoost introduced</h3>
                             <p class="event-people">Yoav Freund; Robert Schapire</p>
@@ -945,7 +946,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">TD-Gammon shows power of temporal-difference learning</h3>
                             <p class="event-people">Gerald Tesauro (IBM)</p>
@@ -962,7 +963,7 @@
             <div class="timeline-year" data-year="1997">
                 <div class="year-marker">1997</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="10">
+                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="3">
                         <div class="event-content">
                             <h3 class="event-title">Deep Blue defeats Garry Kasparov in chess</h3>
                             <p class="event-people">IBM</p>
@@ -974,7 +975,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="10">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="3">
                         <div class="event-content">
                             <h3 class="event-title">Long Short-Term Memory (LSTM)</h3>
                             <p class="event-people">Sepp Hochreiter; Jürgen Schmidhuber</p>
@@ -991,7 +992,7 @@
             <div class="timeline-year" data-year="1998">
                 <div class="year-marker">1998</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Planning and acting in partially observable stochastic domains (POMDPs)</h3>
                             <p class="event-people">Leslie Kaelbling; Michael Littman; Anthony Cassandra (MIT/Brown)</p>
@@ -1003,7 +1004,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="8">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">LeNet-5 / CNNs for document recognition</h3>
                             <p class="event-people">Yann LeCun; Léon Bottou; Yoshua Bengio; Patrick Haffner (AT&T Bell Labs)</p>
@@ -1015,7 +1016,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Reinforcement Learning textbook (widely influential)</h3>
                             <p class="event-people">Richard Sutton; Andrew Barto</p>
@@ -1027,7 +1028,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="4">
+                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Minerva and Pearl robots</h3>
                             <p class="event-people">Sebastian Thrun (CMU)</p>
@@ -1044,7 +1045,7 @@
             <div class="timeline-year" data-year="1999">
                 <div class="year-marker">1999</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="4">
+                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Sony AIBO consumer robot</h3>
                             <p class="event-people">Sony</p>
@@ -1061,7 +1062,7 @@
             <div class="timeline-year" data-year="2000">
                 <div class="year-marker">2000</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="4">
+                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">KISMET emotional robot</h3>
                             <p class="event-people">Cynthia Breazeal (MIT)</p>
@@ -1078,7 +1079,7 @@
             <div class="timeline-year" data-year="2001">
                 <div class="year-marker">2001</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="6">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Echo state network developed</h3>
                             <p class="event-people">Herbert Jaeger (Jacobs_University_Bremen)</p>
@@ -1090,7 +1091,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="9">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Random Forests introduced</h3>
                             <p class="event-people">Leo Breiman (UC Berkeley)</p>
@@ -1102,7 +1103,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="8">
+                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Conditional Random Fields (CRFs) introduced</h3>
                             <p class="event-people">John Lafferty; Andrew McCallum; Fernando Pereira</p>
@@ -1114,7 +1115,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Foundation Models" data-weight="7">
+                    <div class="event-card level-0" data-category="Foundation Models" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Neural Probabilistic Language Model</h3>
                             <p class="event-people">Yoshua Bengio (Université_de_Montréal)</p>
@@ -1131,7 +1132,7 @@
             <div class="timeline-year" data-year="2002">
                 <div class="year-marker">2002</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="4">
+                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">iRobot Roomba autonomous floor cleaning robot</h3>
                             <p class="event-people">iRobot</p>
@@ -1148,7 +1149,7 @@
             <div class="timeline-year" data-year="2003">
                 <div class="year-marker">2003</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="8">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Latent Dirichlet Allocation (LDA) topic modeling</h3>
                             <p class="event-people">David Blei; Andrew Ng; Michael Jordan</p>
@@ -1165,7 +1166,7 @@
             <div class="timeline-year" data-year="2004">
                 <div class="year-marker">2004</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="6">
+                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">DARPA Grand Challenge for autonomous vehicles</h3>
                             <p class="event-people">DARPA</p>
@@ -1182,7 +1183,7 @@
             <div class="timeline-year" data-year="2005">
                 <div class="year-marker">2005</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="4">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Blue Brain Project launched (brain simulation neuroscience)</h3>
                             <p class="event-people">Henry Markram (EPFL)</p>
@@ -1199,7 +1200,7 @@
             <div class="timeline-year" data-year="2006">
                 <div class="year-marker">2006</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="9">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Deep Belief Nets (DBNs) revive deep learning</h3>
                             <p class="event-people">Geoffrey Hinton; Simon Osindero; Yee-Whye Teh (University of Toronto)</p>
@@ -1216,7 +1217,7 @@
             <div class="timeline-year" data-year="2007">
                 <div class="year-marker">2007</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Hardware & Infrastructure" data-weight="7">
+                    <div class="event-card level-0" data-category="Hardware & Infrastructure" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">CUDA introduced for general-purpose GPU computing</h3>
                             <p class="event-people">NVIDIA</p>
@@ -1228,7 +1229,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Hardware & Infrastructure" data-weight="6">
+                    <div class="event-card level-1" data-category="Hardware & Infrastructure" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">GPUs enable large-scale neural network training (early deep learning acceleration)</h3>
                             <p class="event-people">NVIDIA; researchers</p>
@@ -1240,7 +1241,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="6">
+                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Stacked Auto-Encoders</h3>
                             <p class="event-people">Yoshua Bengio (Université_de_Montréal)</p>
@@ -1252,7 +1253,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="6">
+                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Checkers game solved (perfect play leads to draw)</h3>
                             <p class="event-people">Jonathan Schaeffer et al. (University of Alberta)</p>
@@ -1269,7 +1270,7 @@
             <div class="timeline-year" data-year="2008">
                 <div class="year-marker">2008</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Hardware & Infrastructure" data-weight="6">
+                    <div class="event-card level-0" data-category="Hardware & Infrastructure" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Neuromorphic computing program (SyNAPSE) launched</h3>
                             <p class="event-people">Dharmendra Modha (IBM)</p>
@@ -1281,7 +1282,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Enterprise & Developer Tools" data-weight="4">
+                    <div class="event-card level-1" data-category="Enterprise & Developer Tools" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Open Advancement of Question Answering (OAQA) initiative</h3>
                             <p class="event-people">IBM; Carnegie Mellon University</p>
@@ -1298,7 +1299,7 @@
             <div class="timeline-year" data-year="2009">
                 <div class="year-marker">2009</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Deep Boltzmann Machines (DBMs)</h3>
                             <p class="event-people">Ruslan Salakhutdinov; Geoffrey Hinton</p>
@@ -1310,7 +1311,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Autonomous Systems" data-weight="6">
+                    <div class="event-card level-1" data-category="Autonomous Systems" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Robot Operating System (ROS) presented and broadly released</h3>
                             <p class="event-people">Morgan Quigley; Willow Garage; Stanford (STAIR)</p>
@@ -1322,7 +1323,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="10">
+                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="3">
                         <div class="event-content">
                             <h3 class="event-title">ImageNet dataset introduced</h3>
                             <p class="event-people">Jia Deng; Wei Dong; Richard Socher; Li-Jia Li; Kai Li; Fei-Fei Li (Princeton)</p>
@@ -1334,7 +1335,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="6">
+                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Google self-driving car project begins (internal)</h3>
                             <p class="event-people">Google; Sebastian Thrun (Stanford/Google)</p>
@@ -1346,7 +1347,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Governance & Society" data-weight="0">
+                    <div class="event-card level-1" data-category="Governance & Society" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Bitcoin/blockchain introduced (largely outside AI timeline)</h3>
                             <p class="event-people">Satoshi Nakamoto</p>
@@ -1363,7 +1364,7 @@
             <div class="timeline-year" data-year="2010">
                 <div class="year-marker">2010</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Governance & Society" data-weight="6">
+                    <div class="event-card level-0" data-category="Governance & Society" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">DeepMind incorporated</h3>
                             <p class="event-people">Demis Hassabis; Shane Legg; Mustafa Suleyman (DeepMind)</p>
@@ -1380,7 +1381,7 @@
             <div class="timeline-year" data-year="2011">
                 <div class="year-marker">2011</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="3">
                         <div class="event-content">
                             <h3 class="event-title">IBM Watson defeats humans on Jeopardy!</h3>
                             <p class="event-people">IBM (DeepQA)</p>
@@ -1392,7 +1393,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="AI Products" data-weight="5">
+                    <div class="event-card level-1" data-category="AI Products" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Siri digital assistant introduced</h3>
                             <p class="event-people">Apple</p>
@@ -1409,7 +1410,7 @@
             <div class="timeline-year" data-year="2012">
                 <div class="year-marker">2012</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="AI Products" data-weight="5">
+                    <div class="event-card level-0" data-category="AI Products" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Google Now digital assistant launched</h3>
                             <p class="event-people">Google</p>
@@ -1421,7 +1422,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Deep neural networks transform speech recognition</h3>
                             <p class="event-people">Geoffrey Hinton; George Dahl; Abdel-rahman Mohamed</p>
@@ -1433,7 +1434,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="10">
+                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="3">
                         <div class="event-content">
                             <h3 class="event-title">AlexNet wins ImageNet (deep CNN breakthrough)</h3>
                             <p class="event-people">Alex Krizhevsky; Ilya Sutskever; Geoffrey Hinton (University of Toronto)</p>
@@ -1445,7 +1446,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="6">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Deep learning surge in computer vision (post-ImageNet)</h3>
                             <p class="event-people">Multiple researchers</p>
@@ -1459,7 +1460,7 @@
             <div class="timeline-year" data-year="2013">
                 <div class="year-marker">2013</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="9">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">word2vec popularizes neural word embeddings</h3>
                             <p class="event-people">Tomas Mikolov; Kai Chen; Greg Corrado; Jeffrey Dean (Google)</p>
@@ -1471,7 +1472,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Governance & Society" data-weight="0">
+                    <div class="event-card level-1" data-category="Governance & Society" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Vicarious claims major CAPTCHA success (not peer-reviewed)</h3>
                             <p class="event-people">Vicarious</p>
@@ -1488,7 +1489,7 @@
             <div class="timeline-year" data-year="2014">
                 <div class="year-marker">2014</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">DeepFace achieves near-human face verification</h3>
                             <p class="event-people">Yaniv Taigman; Ming Yang; Marc'Aurelio Ranzato; Lior Wolf (Facebook/TAU)</p>
@@ -1500,7 +1501,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Generative AI" data-weight="10">
+                    <div class="event-card level-1" data-category="Generative AI" data-weight="3">
                         <div class="event-content">
                             <h3 class="event-title">Generative Adversarial Networks (GANs) introduced</h3>
                             <p class="event-people">Ian Goodfellow; Jean Pouget-Abadie; Mehdi Mirza; et al.</p>
@@ -1512,7 +1513,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="9">
+                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Seq2Seq learning with neural networks</h3>
                             <p class="event-people">Ilya Sutskever; Oriol Vinyals; Quoc Le (Google)</p>
@@ -1524,7 +1525,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="9">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Neural machine translation attention mechanism</h3>
                             <p class="event-people">Dzmitry Bahdanau; Kyunghyun Cho; Yoshua Bengio</p>
@@ -1536,7 +1537,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="AI Products" data-weight="4">
+                    <div class="event-card level-1" data-category="AI Products" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Microsoft Cortana digital assistant announced</h3>
                             <p class="event-people">Microsoft</p>
@@ -1548,7 +1549,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="AI Products" data-weight="5">
+                    <div class="event-card level-2" data-category="AI Products" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Amazon Echo/Alexa announced</h3>
                             <p class="event-people">Amazon (Lab126)</p>
@@ -1560,7 +1561,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Governance & Society" data-weight="6">
+                    <div class="event-card level-0" data-category="Governance & Society" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Google acquires DeepMind</h3>
                             <p class="event-people">Google/DeepMind</p>
@@ -1577,7 +1578,7 @@
             <div class="timeline-year" data-year="2015">
                 <div class="year-marker">2015</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Governance & Society" data-weight="7">
+                    <div class="event-card level-0" data-category="Governance & Society" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">OpenAI founded (nonprofit)</h3>
                             <p class="event-people">OpenAI</p>
@@ -1589,7 +1590,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="10">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">DQN in Nature (human-level Atari control)</h3>
                             <p class="event-people">Volodymyr Mnih; Koray Kavukcuoglu; David Silver; et al. (DeepMind)</p>
@@ -1601,7 +1602,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="9">
+                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">ResNet enables very deep CNNs</h3>
                             <p class="event-people">Kaiming He; Xiangyu Zhang; Shaoqing Ren; Jian Sun (Microsoft Research)</p>
@@ -1613,7 +1614,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Enterprise & Developer Tools" data-weight="8">
+                    <div class="event-card level-0" data-category="Enterprise & Developer Tools" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">TensorFlow open-sourced</h3>
                             <p class="event-people">Google</p>
@@ -1625,7 +1626,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Autonomous Systems" data-weight="9">
+                    <div class="event-card level-1" data-category="Autonomous Systems" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">AlphaGo defeats a pro player (Fan Hui match; announced 2016)</h3>
                             <p class="event-people">DeepMind</p>
@@ -1637,7 +1638,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Autonomous Systems" data-weight="6">
+                    <div class="event-card level-2" data-category="Autonomous Systems" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Google self-driving cars surpass 1M autonomous miles</h3>
                             <p class="event-people">Google (Self-Driving Car Project)</p>
@@ -1654,7 +1655,7 @@
             <div class="timeline-year" data-year="2016">
                 <div class="year-marker">2016</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="10">
+                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="3">
                         <div class="event-content">
                             <h3 class="event-title">AlphaGo defeats Lee Sedol (world champion)</h3>
                             <p class="event-people">DeepMind</p>
@@ -1666,7 +1667,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Generative AI" data-weight="8">
+                    <div class="event-card level-1" data-category="Generative AI" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">WaveNet generative model for raw audio</h3>
                             <p class="event-people">DeepMind</p>
@@ -1683,7 +1684,7 @@
             <div class="timeline-year" data-year="2017">
                 <div class="year-marker">2017</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Enterprise & Developer Tools" data-weight="8">
+                    <div class="event-card level-0" data-category="Enterprise & Developer Tools" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">PyTorch open-sourced</h3>
                             <p class="event-people">Meta (Facebook AI Research)</p>
@@ -1695,7 +1696,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Autonomous Systems" data-weight="7">
+                    <div class="event-card level-1" data-category="Autonomous Systems" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Libratus defeats professional poker players</h3>
                             <p class="event-people">Tuomas Sandholm; Noam Brown (CMU)</p>
@@ -1707,7 +1708,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Foundation Models" data-weight="10">
+                    <div class="event-card level-2" data-category="Foundation Models" data-weight="3">
                         <div class="event-content">
                             <h3 class="event-title">"Attention is all you need" paper introduces Transformers</h3>
                             <p class="event-people">Ashish Vaswani et al. (Google Brain)</p>
@@ -1719,7 +1720,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Hardware & Infrastructure" data-weight="7">
+                    <div class="event-card level-0" data-category="Hardware & Infrastructure" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Google TPU (Tensor Processing Unit) announced</h3>
                             <p class="event-people">Google</p>
@@ -1731,7 +1732,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="6">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Capsule Networks introduced</h3>
                             <p class="event-people">Geoffrey Hinton</p>
@@ -1748,7 +1749,7 @@
             <div class="timeline-year" data-year="2018">
                 <div class="year-marker">2018</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Foundation Models" data-weight="5">
+                    <div class="event-card level-0" data-category="Foundation Models" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Alibaba language AI beats humans in reading test</h3>
                             <p class="event-people">Alibaba</p>
@@ -1760,7 +1761,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Foundation Models" data-weight="6">
+                    <div class="event-card level-1" data-category="Foundation Models" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Google Duplex conversational AI demonstrated</h3>
                             <p class="event-people">Google</p>
@@ -1772,7 +1773,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Foundation Models" data-weight="8">
+                    <div class="event-card level-2" data-category="Foundation Models" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">GPT (Generative Pre-trained Transformer) released</h3>
                             <p class="event-people">Alec Radford et al. (OpenAI)</p>
@@ -1784,7 +1785,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Foundation Models" data-weight="9">
+                    <div class="event-card level-0" data-category="Foundation Models" data-weight="3">
                         <div class="event-content">
                             <h3 class="event-title">BERT (Bidirectional Encoder Representations from Transformers)</h3>
                             <p class="event-people">Jacob Devlin et al. (Google AI Language)</p>
@@ -1801,7 +1802,7 @@
             <div class="timeline-year" data-year="2019">
                 <div class="year-marker">2019</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Foundation Models" data-weight="9">
+                    <div class="event-card level-0" data-category="Foundation Models" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">GPT-2 released (1.5B parameters); concerns about misuse</h3>
                             <p class="event-people">Alec Radford et al. (OpenAI)</p>
@@ -1813,7 +1814,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Foundation Models" data-weight="8">
+                    <div class="event-card level-1" data-category="Foundation Models" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">BERT becomes widely adopted for NLP tasks</h3>
                             <p class="event-people">Google</p>
@@ -1825,7 +1826,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Autonomous Systems" data-weight="8">
+                    <div class="event-card level-2" data-category="Autonomous Systems" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">DeepMind's AlphaStar reaches Grandmaster level in StarCraft II</h3>
                             <p class="event-people">DeepMind</p>
@@ -1837,7 +1838,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Enterprise & Developer Tools" data-weight="7">
+                    <div class="event-card level-0" data-category="Enterprise & Developer Tools" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">PyTorch 1.0 production release</h3>
                             <p class="event-people">Meta (Facebook AI Research)</p>
@@ -1849,7 +1850,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Hardware & Infrastructure" data-weight="8">
+                    <div class="event-card level-1" data-category="Hardware & Infrastructure" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Nvidia A100 GPU released</h3>
                             <p class="event-people">Nvidia</p>
@@ -1866,7 +1867,7 @@
             <div class="timeline-year" data-year="2020">
                 <div class="year-marker">2020</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Foundation Models" data-weight="10">
+                    <div class="event-card level-0" data-category="Foundation Models" data-weight="3">
                         <div class="event-content">
                             <h3 class="event-title">GPT-3 released (175B parameters)</h3>
                             <p class="event-people">Tom Brown et al. (OpenAI)</p>
@@ -1878,7 +1879,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="10">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="3">
                         <div class="event-content">
                             <h3 class="event-title">AlphaFold 2 solves protein folding problem</h3>
                             <p class="event-people">John Jumper et al. (DeepMind)</p>
@@ -1890,7 +1891,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="AI Products" data-weight="7">
+                    <div class="event-card level-2" data-category="AI Products" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">GitHub Copilot development begins</h3>
                             <p class="event-people">GitHub/OpenAI</p>
@@ -1902,7 +1903,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Generative AI" data-weight="8">
+                    <div class="event-card level-0" data-category="Generative AI" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">DALL-E 1 announced</h3>
                             <p class="event-people">Aditya Ramesh et al. (OpenAI)</p>
@@ -1914,7 +1915,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Foundation Models" data-weight="7">
+                    <div class="event-card level-1" data-category="Foundation Models" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Switch Transformer (1.6T parameters)</h3>
                             <p class="event-people">William Fedus et al. (Google)</p>
@@ -1931,7 +1932,7 @@
             <div class="timeline-year" data-year="2021">
                 <div class="year-marker">2021</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="AI Products" data-weight="8">
+                    <div class="event-card level-0" data-category="AI Products" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">GitHub Copilot launched publicly</h3>
                             <p class="event-people">GitHub/OpenAI</p>
@@ -1943,7 +1944,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Generative AI" data-weight="8">
+                    <div class="event-card level-1" data-category="Generative AI" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">DALL-E 2 development</h3>
                             <p class="event-people">OpenAI</p>
@@ -1955,7 +1956,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="9">
+                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">AlphaFold 2 paper published in Nature</h3>
                             <p class="event-people">DeepMind</p>
@@ -1967,7 +1968,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Enterprise & Developer Tools" data-weight="8">
+                    <div class="event-card level-0" data-category="Enterprise & Developer Tools" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Codex released (powers GitHub Copilot)</h3>
                             <p class="event-people">OpenAI</p>
@@ -1979,7 +1980,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Foundation Models" data-weight="7">
+                    <div class="event-card level-1" data-category="Foundation Models" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Wu Dao 2.0 (1.75T parameters)</h3>
                             <p class="event-people">Beijing Academy of AI</p>
@@ -1991,7 +1992,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Hardware & Infrastructure" data-weight="7">
+                    <div class="event-card level-2" data-category="Hardware & Infrastructure" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Tesla AI Day showcases Dojo supercomputer</h3>
                             <p class="event-people">Tesla</p>
@@ -2003,7 +2004,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Hardware & Infrastructure" data-weight="7">
+                    <div class="event-card level-0" data-category="Hardware & Infrastructure" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Meta announces AI Research SuperCluster (RSC)</h3>
                             <p class="event-people">Meta</p>
@@ -2020,7 +2021,7 @@
             <div class="timeline-year" data-year="2022">
                 <div class="year-marker">2022</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Foundation Models" data-weight="10">
+                    <div class="event-card level-0" data-category="Foundation Models" data-weight="3">
                         <div class="event-content">
                             <h3 class="event-title">ChatGPT launched (November 30) - fastest growing consumer app</h3>
                             <p class="event-people">OpenAI</p>
@@ -2032,7 +2033,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Generative AI" data-weight="9">
+                    <div class="event-card level-1" data-category="Generative AI" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">DALL-E 2 released publicly</h3>
                             <p class="event-people">OpenAI</p>
@@ -2044,7 +2045,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Generative AI" data-weight="9">
+                    <div class="event-card level-2" data-category="Generative AI" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Stable Diffusion released (open source)</h3>
                             <p class="event-people">Stability AI</p>
@@ -2056,7 +2057,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Generative AI" data-weight="8">
+                    <div class="event-card level-0" data-category="Generative AI" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Midjourney v3 and v4 released</h3>
                             <p class="event-people">Midjourney</p>
@@ -2068,7 +2069,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Foundation Models" data-weight="6">
+                    <div class="event-card level-1" data-category="Foundation Models" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Galactica (science-focused LLM) released and quickly withdrawn</h3>
                             <p class="event-people">Meta</p>
@@ -2080,7 +2081,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Governance & Society" data-weight="5">
+                    <div class="event-card level-2" data-category="Governance & Society" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">LaMDA controversy (sentience claims)</h3>
                             <p class="event-people">Google/Blake Lemoine</p>
@@ -2092,7 +2093,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Foundation Models" data-weight="8">
+                    <div class="event-card level-0" data-category="Foundation Models" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Whisper (speech recognition) released</h3>
                             <p class="event-people">OpenAI</p>
@@ -2104,7 +2105,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">AlphaTensor discovers faster matrix multiplication</h3>
                             <p class="event-people">DeepMind</p>
@@ -2116,7 +2117,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Joint Embedding Predictive Architecture (JEPA) introduced</h3>
                             <p class="event-people">Yann LeCun (Meta)</p>
@@ -2128,7 +2129,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Foundation Models" data-weight="8">
+                    <div class="event-card level-0" data-category="Foundation Models" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">PaLM (540B parameters)</h3>
                             <p class="event-people">Google</p>
@@ -2140,7 +2141,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="AI Products" data-weight="9">
+                    <div class="event-card level-1" data-category="AI Products" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">ChatGPT reaches 1M users in 5 days</h3>
                             <p class="event-people">OpenAI</p>
@@ -2157,7 +2158,7 @@
             <div class="timeline-year" data-year="2023">
                 <div class="year-marker">2023</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Foundation Models" data-weight="10">
+                    <div class="event-card level-0" data-category="Foundation Models" data-weight="3">
                         <div class="event-content">
                             <h3 class="event-title">GPT-4 released (multimodal) in March</h3>
                             <p class="event-people">OpenAI</p>
@@ -2169,7 +2170,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="AI Products" data-weight="10">
+                    <div class="event-card level-1" data-category="AI Products" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">ChatGPT reaches 100M users (fastest ever)</h3>
                             <p class="event-people">OpenAI</p>
@@ -2181,7 +2182,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Foundation Models" data-weight="8">
+                    <div class="event-card level-2" data-category="Foundation Models" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Google releases Bard (later renamed Gemini)</h3>
                             <p class="event-people">Google</p>
@@ -2193,7 +2194,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Foundation Models" data-weight="8">
+                    <div class="event-card level-0" data-category="Foundation Models" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Claude released by Anthropic</h3>
                             <p class="event-people">Anthropic (Dario Amodei)</p>
@@ -2205,7 +2206,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Foundation Models" data-weight="9">
+                    <div class="event-card level-1" data-category="Foundation Models" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">LLaMA and LLaMA 2 released (open source)</h3>
                             <p class="event-people">Meta</p>
@@ -2217,7 +2218,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Foundation Models" data-weight="8">
+                    <div class="event-card level-2" data-category="Foundation Models" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Mistral AI founded; releases Mistral 7B</h3>
                             <p class="event-people">Mistral AI</p>
@@ -2229,7 +2230,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="AI Products" data-weight="8">
+                    <div class="event-card level-0" data-category="AI Products" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Microsoft Copilot integrated across Office 365</h3>
                             <p class="event-people">Microsoft</p>
@@ -2241,7 +2242,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Generative AI" data-weight="7">
+                    <div class="event-card level-1" data-category="Generative AI" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Adobe Firefly (generative AI for creative tools)</h3>
                             <p class="event-people">Adobe</p>
@@ -2253,7 +2254,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Generative AI" data-weight="7">
+                    <div class="event-card level-2" data-category="Generative AI" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Runway Gen-2 (text-to-video)</h3>
                             <p class="event-people">Runway</p>
@@ -2265,7 +2266,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="6">
+                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">AutoGPT and BabyAGI (autonomous agents)</h3>
                             <p class="event-people">Open source community</p>
@@ -2277,7 +2278,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="AI Products" data-weight="8">
+                    <div class="event-card level-1" data-category="AI Products" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Code Interpreter (Advanced Data Analysis) for ChatGPT</h3>
                             <p class="event-people">OpenAI</p>
@@ -2289,7 +2290,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Governance & Society" data-weight="8">
+                    <div class="event-card level-2" data-category="Governance & Society" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Sam Altman fired and rehired from OpenAI (November)</h3>
                             <p class="event-people">OpenAI/Microsoft</p>
@@ -2301,7 +2302,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Governance & Society" data-weight="8">
+                    <div class="event-card level-0" data-category="Governance & Society" data-weight="3">
                         <div class="event-content">
                             <h3 class="event-title">EU AI Act passed</h3>
                             <p class="event-people">European Union</p>
@@ -2313,7 +2314,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Generative AI" data-weight="9">
+                    <div class="event-card level-1" data-category="Generative AI" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">GPT-4 Vision (GPT-4V) released</h3>
                             <p class="event-people">OpenAI</p>
@@ -2325,7 +2326,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Foundation Models" data-weight="9">
+                    <div class="event-card level-2" data-category="Foundation Models" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Google Gemini announced (December)</h3>
                             <p class="event-people">Google</p>
@@ -2337,7 +2338,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="8">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Mamba: Linear-Time Sequence Modeling with Selective State Spaces</h3>
                             <p class="event-people">Albert Gu and Tri Dao</p>
@@ -2349,7 +2350,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Hardware & Infrastructure" data-weight="9">
+                    <div class="event-card level-1" data-category="Hardware & Infrastructure" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Nvidia H100 becomes standard for AI training</h3>
                             <p class="event-people">Nvidia</p>
@@ -2361,7 +2362,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="AI Products" data-weight="7">
+                    <div class="event-card level-2" data-category="AI Products" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Character.AI reaches millions of users</h3>
                             <p class="event-people">Character.AI</p>
@@ -2373,7 +2374,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="AI Products" data-weight="8">
+                    <div class="event-card level-0" data-category="AI Products" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">ChatGPT gets custom instructions and GPTs</h3>
                             <p class="event-people">OpenAI</p>
@@ -2385,7 +2386,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="AI Products" data-weight="6">
+                    <div class="event-card level-1" data-category="AI Products" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Meta AI launched with celebrity avatars</h3>
                             <p class="event-people">Meta</p>
@@ -2397,7 +2398,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Foundation Models" data-weight="7">
+                    <div class="event-card level-2" data-category="Foundation Models" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">X.AI launches Grok</h3>
                             <p class="event-people">Elon Musk/xAI</p>
@@ -2414,7 +2415,7 @@
             <div class="timeline-year" data-year="2024">
                 <div class="year-marker">2024</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Generative AI" data-weight="9">
+                    <div class="event-card level-0" data-category="Generative AI" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Sora (text-to-video) announced</h3>
                             <p class="event-people">OpenAI</p>
@@ -2426,7 +2427,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Foundation Models" data-weight="9">
+                    <div class="event-card level-1" data-category="Foundation Models" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Claude 3 family released (Opus, Sonnet, Haiku)</h3>
                             <p class="event-people">Anthropic</p>
@@ -2438,7 +2439,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Foundation Models" data-weight="9">
+                    <div class="event-card level-2" data-category="Foundation Models" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Gemini 1.5 with 1M token context window</h3>
                             <p class="event-people">Google</p>
@@ -2450,7 +2451,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Generative AI" data-weight="9">
+                    <div class="event-card level-0" data-category="Generative AI" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">GPT-4o (omni) released - faster multimodal</h3>
                             <p class="event-people">OpenAI</p>
@@ -2462,7 +2463,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="AI Products" data-weight="8">
+                    <div class="event-card level-1" data-category="AI Products" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Google I/O: Gemini integration across products</h3>
                             <p class="event-people">Google</p>
@@ -2474,7 +2475,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="AI Products" data-weight="8">
+                    <div class="event-card level-2" data-category="AI Products" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Apple Intelligence announced (June WWDC)</h3>
                             <p class="event-people">Apple</p>
@@ -2486,7 +2487,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="AI Products" data-weight="8">
+                    <div class="event-card level-0" data-category="AI Products" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">ChatGPT desktop app and GPT-4o mini released</h3>
                             <p class="event-people">OpenAI</p>
@@ -2498,7 +2499,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Governance & Society" data-weight="7">
+                    <div class="event-card level-1" data-category="Governance & Society" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Anthropic Claude raises $4B from Amazon</h3>
                             <p class="event-people">Anthropic/Amazon</p>
@@ -2510,7 +2511,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Foundation Models" data-weight="9">
+                    <div class="event-card level-2" data-category="Foundation Models" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Llama 3 and Llama 3.1 (405B parameters) released</h3>
                             <p class="event-people">Meta</p>
@@ -2522,7 +2523,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Foundation Models" data-weight="8">
+                    <div class="event-card level-0" data-category="Foundation Models" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Mistral Large 2 released</h3>
                             <p class="event-people">Mistral AI</p>
@@ -2534,7 +2535,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Foundation Models" data-weight="8">
+                    <div class="event-card level-1" data-category="Foundation Models" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">DeepSeek-V2 (Chinese model competitive with GPT-4)</h3>
                             <p class="event-people">DeepSeek</p>
@@ -2546,7 +2547,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="AI Products" data-weight="8">
+                    <div class="event-card level-2" data-category="AI Products" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Perplexity AI gains traction as AI search engine</h3>
                             <p class="event-people">Perplexity</p>
@@ -2558,7 +2559,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="AI Products" data-weight="8">
+                    <div class="event-card level-0" data-category="AI Products" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">NotebookLM with Audio Overview feature</h3>
                             <p class="event-people">Google</p>
@@ -2570,7 +2571,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="AI Products" data-weight="8">
+                    <div class="event-card level-1" data-category="AI Products" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">ChatGPT Search launched</h3>
                             <p class="event-people">OpenAI</p>
@@ -2582,7 +2583,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Governance & Society" data-weight="7">
+                    <div class="event-card level-2" data-category="Governance & Society" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">California SB 1047 (AI safety bill) vetoed</h3>
                             <p class="event-people">California Legislature</p>
@@ -2594,7 +2595,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Foundation Models" data-weight="9">
+                    <div class="event-card level-0" data-category="Foundation Models" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Strawberry (OpenAI o1) - reasoning model released</h3>
                             <p class="event-people">OpenAI</p>
@@ -2606,7 +2607,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Foundation Models" data-weight="8">
+                    <div class="event-card level-1" data-category="Foundation Models" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Grok 2 with image generation</h3>
                             <p class="event-people">xAI</p>
@@ -2618,7 +2619,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Foundation Models" data-weight="8">
+                    <div class="event-card level-2" data-category="Foundation Models" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Amazon Nova models announced</h3>
                             <p class="event-people">Amazon</p>
@@ -2630,7 +2631,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Foundation Models" data-weight="8">
+                    <div class="event-card level-0" data-category="Foundation Models" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Google Gemini 2.0 Flash released</h3>
                             <p class="event-people">Google</p>
@@ -2642,7 +2643,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Governance & Society" data-weight="9">
+                    <div class="event-card level-1" data-category="Governance & Society" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">OpenAI announces o1 and o1-pro (December)</h3>
                             <p class="event-people">OpenAI</p>
@@ -2654,7 +2655,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Generative AI" data-weight="7">
+                    <div class="event-card level-2" data-category="Generative AI" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Microsoft Copilot Vision announced</h3>
                             <p class="event-people">Microsoft</p>
@@ -2666,7 +2667,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Generative AI" data-weight="8">
+                    <div class="event-card level-0" data-category="Generative AI" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Runway Gen-3 Alpha released</h3>
                             <p class="event-people">Runway</p>
@@ -2678,7 +2679,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Generative AI" data-weight="7">
+                    <div class="event-card level-1" data-category="Generative AI" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">ElevenLabs reaches unicorn status</h3>
                             <p class="event-people">ElevenLabs</p>
@@ -2690,7 +2691,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Governance & Society" data-weight="8">
+                    <div class="event-card level-2" data-category="Governance & Society" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Anthropic publishes research on AI interpretability</h3>
                             <p class="event-people">Anthropic</p>
@@ -2702,7 +2703,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="8">
+                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Figure 01 humanoid robot with ChatGPT integration</h3>
                             <p class="event-people">Figure AI/OpenAI</p>
@@ -2714,7 +2715,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Autonomous Systems" data-weight="7">
+                    <div class="event-card level-1" data-category="Autonomous Systems" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Tesla Optimus Gen 2 demonstrated</h3>
                             <p class="event-people">Tesla</p>
@@ -2726,7 +2727,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Hardware & Infrastructure" data-weight="9">
+                    <div class="event-card level-2" data-category="Hardware & Infrastructure" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Nvidia becomes most valuable company (briefly)</h3>
                             <p class="event-people">Nvidia</p>
@@ -2738,7 +2739,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Foundation Models" data-weight="9">
+                    <div class="event-card level-0" data-category="Foundation Models" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Claude 3.5 Sonnet released</h3>
                             <p class="event-people">Anthropic</p>
@@ -2750,7 +2751,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Generative AI" data-weight="9">
+                    <div class="event-card level-1" data-category="Generative AI" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">GPT-4o with advanced voice mode</h3>
                             <p class="event-people">OpenAI</p>
@@ -2762,7 +2763,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Enterprise & Developer Tools" data-weight="8">
+                    <div class="event-card level-2" data-category="Enterprise & Developer Tools" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">OpenAI DevDay announcements (realtime API)</h3>
                             <p class="event-people">OpenAI</p>
@@ -2774,7 +2775,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="9">
+                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Anthropic Computer Use feature (Claude controls computers)</h3>
                             <p class="event-people">Anthropic</p>
@@ -2786,7 +2787,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="AI Products" data-weight="9">
+                    <div class="event-card level-1" data-category="AI Products" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">ChatGPT reaches 200M weekly active users</h3>
                             <p class="event-people">OpenAI</p>
@@ -2798,7 +2799,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Autonomous Systems" data-weight="8">
+                    <div class="event-card level-2" data-category="Autonomous Systems" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Waymo expands autonomous taxi service significantly</h3>
                             <p class="event-people">Waymo/Alphabet</p>
@@ -2810,7 +2811,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="9">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">AlphaFold 3 released</h3>
                             <p class="event-people">Google DeepMind</p>
@@ -2827,7 +2828,7 @@
             <div class="timeline-year" data-year="2025">
                 <div class="year-marker">2025</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Foundation Models" data-weight="10">
+                    <div class="event-card level-0" data-category="Foundation Models" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">DeepSeek R1 reasoning model (open source)</h3>
                             <p class="event-people">DeepSeek</p>
@@ -2839,7 +2840,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="AI Products" data-weight="8">
+                    <div class="event-card level-1" data-category="AI Products" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">ChatGPT Pro subscription ($200/month) launched</h3>
                             <p class="event-people">OpenAI</p>
@@ -2851,7 +2852,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Foundation Models" data-weight="9">
+                    <div class="event-card level-2" data-category="Foundation Models" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Claude 4 family released (Opus 4.5, Sonnet 4.5, Haiku 4.5)</h3>
                             <p class="event-people">Anthropic</p>
@@ -2863,7 +2864,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Foundation Models" data-weight="9">
+                    <div class="event-card level-0" data-category="Foundation Models" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Gemini 2.0 widely available</h3>
                             <p class="event-people">Google</p>
@@ -2875,7 +2876,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="AI Products" data-weight="8">
+                    <div class="event-card level-1" data-category="AI Products" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Deep research features in ChatGPT and other platforms</h3>
                             <p class="event-people">Multiple</p>
@@ -2887,7 +2888,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Autonomous Systems" data-weight="9">
+                    <div class="event-card level-2" data-category="Autonomous Systems" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Operator (browser agent) announced by OpenAI</h3>
                             <p class="event-people">OpenAI</p>
@@ -2899,7 +2900,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="8">
+                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="2">
                         <div class="event-content">
                             <h3 class="event-title">Gemini Robotics brings AI into physical world</h3>
                             <p class="event-people">Google DeepMind</p>
@@ -2911,7 +2912,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="7">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">WeatherNext 2 advanced weather forecasting</h3>
                             <p class="event-people">Google</p>
@@ -2923,7 +2924,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Autonomous Systems" data-weight="7">
+                    <div class="event-card level-2" data-category="Autonomous Systems" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">SIMA 2 AI agent for 3D worlds</h3>
                             <p class="event-people">Google DeepMind</p>
@@ -2935,7 +2936,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-0" data-category="Generative AI" data-weight="8">
+                    <div class="event-card level-0" data-category="Generative AI" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Genie 3 interactive world model</h3>
                             <p class="event-people">Google DeepMind</p>
@@ -2952,7 +2953,7 @@
             <div class="timeline-year" data-year="2026">
                 <div class="year-marker">2026</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="AI Products" data-weight="8">
+                    <div class="event-card level-0" data-category="AI Products" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">Prism AI-native workspace for scientists</h3>
                             <p class="event-people">OpenAI</p>
@@ -2964,7 +2965,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Foundation Models" data-weight="9">
+                    <div class="event-card level-1" data-category="Foundation Models" data-weight="1">
                         <div class="event-content">
                             <h3 class="event-title">GPT-5.2 powers advanced scientific reasoning</h3>
                             <p class="event-people">OpenAI</p>
