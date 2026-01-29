@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const controlsMenu = document.getElementById('controlsMenu');
     const significanceSlider = document.getElementById('significanceSlider');
     const parallaxLogo = document.getElementById('parallaxLogo');
+    const timelineScrubber = document.getElementById('timelineScrubber');
     
     // Toggle controls menu
     controlsToggle.addEventListener('click', () => {
@@ -76,6 +77,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (eventCount) {
             eventCount.textContent = visibleCount;
         }
+        // Re-sync timeline scrubber after layout may have changed
+        requestAnimationFrame(() => {
+            if (typeof syncScrubberFromScroll === 'function') syncScrubberFromScroll();
+        });
     }
     
     // Jump to specific year
@@ -143,16 +148,51 @@ document.addEventListener('DOMContentLoaded', function() {
         timelineWrapper.scrollLeft = scrollLeft - walk;
     });
 
-    // Parallax effect for the background logo based on horizontal scroll
+    // Max scroll position (reusable, updated when needed)
+    function getMaxScroll() {
+        const max = timelineWrapper.scrollWidth - timelineWrapper.clientWidth;
+        return Math.max(0, max);
+    }
+
+    // Sync bottom timeline scrubber with wrapper scroll (scrubber = 0–100%)
+    function syncScrubberFromScroll() {
+        if (!timelineScrubber) return;
+        const maxScroll = getMaxScroll();
+        const pct = maxScroll <= 0 ? 0 : (timelineWrapper.scrollLeft / maxScroll) * 100;
+        timelineScrubber.value = Math.min(100, Math.max(0, pct));
+    }
+
+    // Scroll wrapper to position given scrubber value 0–100
+    function scrollFromScrubber(value) {
+        const maxScroll = getMaxScroll();
+        timelineWrapper.scrollLeft = (parseFloat(value) / 100) * maxScroll;
+    }
+
     timelineWrapper.addEventListener('scroll', () => {
-        const scrollPercentage = timelineWrapper.scrollLeft / (timelineWrapper.scrollWidth - timelineWrapper.clientWidth);
-        // Move logo slightly in the opposite direction or at a slower rate
-        // Adjusted moveX calculation to account for right-aligned starting position
-        const moveX = (scrollPercentage - 0.5) * 150; 
+        syncScrubberFromScroll();
+        const maxScroll = getMaxScroll();
+        const scrollPercentage = maxScroll <= 0 ? 0 : timelineWrapper.scrollLeft / maxScroll;
+        const moveX = (scrollPercentage - 0.5) * 150;
         if (parallaxLogo) {
             parallaxLogo.style.transform = `translateX(${moveX}px)`;
         }
     });
+
+    if (timelineScrubber) {
+        timelineScrubber.addEventListener('input', () => {
+            scrollFromScrubber(timelineScrubber.value);
+        });
+        // Initial sync and sync after layout (e.g. filter changes)
+        syncScrubberFromScroll();
+    }
+
+    // Update significance slider aria for accessibility
+    function updateSignificanceAria() {
+        if (significanceSlider) {
+            significanceSlider.setAttribute('aria-valuenow', significanceSlider.value);
+        }
+    }
+    significanceSlider.addEventListener('input', updateSignificanceAria);
 
     // Event listeners
     searchInput.addEventListener('input', filterEvents);

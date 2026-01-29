@@ -48,11 +48,9 @@
         </div>
 
         <div class="significance-control">
-            <input type="range" id="significanceSlider" min="0" max="10" value="8" step="1">
-            <div class="significance-ticks">
-                <span>All</span>
-                <span>Landmarks</span>
-            </div>
+            <label for="significanceSlider" class="significance-label">Significance</label>
+            <input type="range" id="significanceSlider" min="0" max="10" value="8" step="1" title="0 = all events, 10 = landmarks only" aria-valuemin="0" aria-valuemax="10" aria-valuenow="8">
+            <span class="significance-hint" aria-hidden="true">0 = all · 10 = landmarks</span>
         </div>
         
         <div class="stats">
@@ -64,7 +62,7 @@
             <div class="timeline-year" data-year="1943">
                 <div class="year-marker">1943</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="8">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="10">
                         <div class="event-content">
                             <h3 class="event-title">A Logical Calculus of the Ideas Immanent in Nervous Activity</h3>
                             <p class="event-people">Warren McCulloch; Walter Pitts (University of Chicago)</p>
@@ -166,7 +164,7 @@
             <div class="timeline-year" data-year="1956">
                 <div class="year-marker">1956</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="8">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="10">
                         <div class="event-content">
                             <h3 class="event-title">Term "artificial intelligence" coined; Logic Theorist program</h3>
                             <p class="event-people">John McCarthy (Dartmouth); Allen Newell; Herbert Simon; Cliff Shaw (RAND/CMU)</p>
@@ -609,7 +607,7 @@
             <div class="timeline-year" data-year="1986">
                 <div class="year-marker">1986</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="9">
+                    <div class="event-card level-0" data-category="Research Breakthroughs" data-weight="10">
                         <div class="event-content">
                             <h3 class="event-title">Backpropagation popularized in modern neural nets</h3>
                             <p class="event-people">David Rumelhart; Geoffrey Hinton; Ronald Williams</p>
@@ -964,7 +962,7 @@
             <div class="timeline-year" data-year="1997">
                 <div class="year-marker">1997</div>
                 <div class="year-events">
-                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="7">
+                    <div class="event-card level-0" data-category="Autonomous Systems" data-weight="10">
                         <div class="event-content">
                             <h3 class="event-title">Deep Blue defeats Garry Kasparov in chess</h3>
                             <p class="event-people">IBM</p>
@@ -976,7 +974,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="8">
+                    <div class="event-card level-1" data-category="Research Breakthroughs" data-weight="10">
                         <div class="event-content">
                             <h3 class="event-title">Long Short-Term Memory (LSTM)</h3>
                             <p class="event-people">Sepp Hochreiter; Jürgen Schmidhuber</p>
@@ -1324,7 +1322,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="9">
+                    <div class="event-card level-2" data-category="Research Breakthroughs" data-weight="10">
                         <div class="event-content">
                             <h3 class="event-title">ImageNet dataset introduced</h3>
                             <p class="event-people">Jia Deng; Wei Dong; Richard Socher; Li-Jia Li; Kai Li; Fei-Fei Li (Princeton)</p>
@@ -2981,6 +2979,9 @@
                 </div>
             </div>
             </div>
+        </div>
+        <div class="timeline-scrubber-wrap" aria-label="Timeline position">
+            <input type="range" id="timelineScrubber" class="timeline-scrubber" min="0" max="100" value="0" step="0.1" title="Drag to scroll timeline">
         </div>
     </div>
     

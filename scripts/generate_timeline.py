@@ -117,11 +117,9 @@ def generate_html(events, output_path):
         </div>
 
         <div class="significance-control">
-            <input type="range" id="significanceSlider" min="0" max="10" value="8" step="1">
-            <div class="significance-ticks">
-                <span>All</span>
-                <span>Landmarks</span>
-            </div>
+            <label for="significanceSlider" class="significance-label">Significance</label>
+            <input type="range" id="significanceSlider" min="0" max="10" value="8" step="1" title="0 = all events, 10 = landmarks only" aria-valuemin="0" aria-valuemax="10" aria-valuenow="8">
+            <span class="significance-hint" aria-hidden="true">0 = all · 10 = landmarks</span>
         </div>
         
         <div class="stats">
@@ -174,6 +172,9 @@ def generate_html(events, output_path):
         html += '            </div>\n'
     
     html += """            </div>
+        </div>
+        <div class="timeline-scrubber-wrap" aria-label="Timeline position">
+            <input type="range" id="timelineScrubber" class="timeline-scrubber" min="0" max="100" value="0" step="0.1" title="Drag to scroll timeline">
         </div>
     </div>
     
