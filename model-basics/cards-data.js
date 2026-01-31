@@ -25,21 +25,66 @@ const cardsData = [
     },
     {
         category: 'arch',
+        badge: 'History',
+        title: 'Before Transformers',
+        description: 'Understanding why the Transformer architecture was revolutionary requires looking at what came before.',
+        paragraphs: [
+            'Early neural networks for language processing used <strong>Recurrent Neural Networks (RNNs)</strong> and <strong>Long Short-Term Memory (LSTM)</strong> architectures. These models processed text sequentially—one word at a time, in order—maintaining a "hidden state" that tried to remember earlier context.',
+            'The problem? Sequential processing was slow (couldn\'t parallelize across GPUs), and models struggled with long-range dependencies due to <strong>vanishing gradients</strong>. By the time an RNN reached word 50, it had largely "forgotten" word 1.',
+            'The 2017 paper "Attention Is All You Need" introduced the <strong>Transformer</strong>, which eliminated sequential processing entirely. Instead of reading word-by-word, it processes all tokens simultaneously using the attention mechanism—enabling parallelization and capturing dependencies across arbitrary distances.'
+        ],
+        bullets: [
+            '<strong>RNNs/LSTMs:</strong> Sequential processing (slow), vanishing gradients (poor long-term memory)',
+            '<strong>CNNs:</strong> Worked for images but struggled with variable-length text and long dependencies',
+            '<strong>The Breakthrough:</strong> Attention mechanism allows every token to directly "look at" every other token in parallel'
+        ],
+        callout: {
+            type: 'insight',
+            content: '<strong>Why This Matters:</strong> The shift from sequential to parallel processing is why modern AI could scale to billions of parameters and trillion-token datasets. RNNs couldn\'t scale effectively—Transformers could.'
+        }
+    },
+    {
+        category: 'arch',
         badge: 'Architecture',
-        title: 'The Blueprint',
-        description: 'Modern AI is built on the Transformer architecture—a neural network design that revolutionized language understanding.',
+        title: 'The Transformer Architecture',
+        description: 'Modern AI is built on the Transformer—a neural network design that processes all tokens in parallel using layers of attention and computation.',
         paragraphs: [
             'The <strong>Transformer</strong> is the foundational architecture powering GPT, Claude, Gemini, and most modern AI. It processes text through layers of interconnected nodes, where each layer learns increasingly abstract patterns.',
+            'Each Transformer layer has two main components: <strong>Attention</strong> (relating tokens to each other) and <strong>Feed-Forward Networks</strong> (processing individual tokens through non-linear transformations). These alternate in a repeating pattern, with normalization and residual connections stabilizing training.',
             'Early layers detect simple patterns (punctuation, word endings), while deeper layers grasp complex concepts (sarcasm, logical reasoning, thematic connections). The model\'s size is measured in <strong>parameters</strong>—billions of adjustable weights that encode learned knowledge.'
         ],
         bullets: [
             '<strong>Parameters:</strong> Adjustable weights that store learned patterns (model sizes range from millions to hundreds of billions+)',
-            '<strong>Context Window:</strong> The model\'s "working memory" for a conversation (ranges from 4K to 200K+ tokens)',
-            '<strong>Attention Mechanism:</strong> A spotlight that focuses on relevant words when processing each new token'
+            '<strong>Layers:</strong> Each layer alternates between attention (relating tokens) and feed-forward computation (processing tokens)',
+            '<strong>Positional Encodings:</strong> Added to each token to preserve word order—without them, "dog bites man" and "man bites dog" would be indistinguishable',
+            '<strong>Context Window:</strong> The model\'s "working memory" for a conversation (ranges from 4K to 200K+ tokens)'
+        ],
+        callout: {
+            type: 'note',
+            content: '<strong>Layer Structure:</strong> Think of each layer as a two-step process: (1) Attention asks "which other tokens matter for understanding this one?" (2) Feed-forward networks apply complex transformations to extract features. Repeat this 12-96 times depending on model size.'
+        }
+    },
+    {
+        category: 'arch',
+        badge: 'Architecture',
+        title: 'How Attention Works',
+        description: 'Attention is the core mechanism that allows Transformers to understand relationships between words, no matter how far apart they are.',
+        paragraphs: [
+            'When processing each token, the model needs to decide which other tokens in the sequence are relevant. <strong>Attention</strong> solves this through three learned representations for every token:',
+            '<strong>Query:</strong> "What am I looking for?" Each token generates a query vector representing what information it needs.',
+            '<strong>Key:</strong> "What do I offer?" Each token generates a key vector advertising its content.',
+            '<strong>Value:</strong> "Here\'s my actual information." Each token generates a value vector containing its semantic content.',
+            'The model computes attention scores by comparing the Query of the current token against the Keys of all previous tokens (including itself). High scores mean "these tokens are relevant to understanding this one." These scores are used to create a weighted average of the Values—tokens with high attention get more weight.'
+        ],
+        bullets: [
+            '<strong>Self-Attention:</strong> Each token attends to all tokens in the sequence (including itself)',
+            '<strong>Multi-Head Attention:</strong> Multiple attention mechanisms run in parallel, each learning different relationships (syntax, semantics, coreference)',
+            '<strong>Attention Scores:</strong> Determine which tokens influence each other—visualizing these reveals what the model "focuses on"',
+            '<strong>Context Window Limit:</strong> Attention requires comparing every token to every other token—cost grows quadratically with length'
         ],
         callout: {
             type: 'analogy',
-            content: '<strong>Analogy:</strong> Attention works like reading with a highlighter—as you process each word, you mentally highlight related words earlier in the text to understand relationships and meaning.'
+            content: '<strong>Analogy:</strong> Imagine reading a sentence where each word can ask questions to all previous words. "Loves" asks "who?" and attends strongly to "Sarah." "Bank" asks "context?" and attends to nearby words to distinguish "river bank" from "money bank." Attention automates this process across thousands of tokens simultaneously.'
         },
         resources: [
             { icon: '🎬', title: 'Attention Is All You Need', meta: '15 min • Visual walkthrough', url: 'https://www.youtube.com/watch?v=wjZofJX0v4M' },
@@ -114,6 +159,30 @@ const cardsData = [
         resources: [
             { icon: '📺', title: 'RLHF, Clearly Explained', meta: '18 min • StatQuest', url: 'https://www.youtube.com/watch?v=qPN_XZcJf_s' },
             { icon: '🎬', title: 'RLHF in 4 Minutes', meta: '4 min • Sebastian Raschka', url: 'https://www.youtube.com/watch?v=vJ4SsfmeQlk' }
+        ]
+    },
+    {
+        category: 'train',
+        badge: 'Training',
+        title: 'Bias, Fairness & Limitations',
+        description: 'AI models inherit the biases, gaps, and perspectives present in their training data—they are mirrors, not arbiters of truth.',
+        paragraphs: [
+            'Training data comes from the internet, books, and human-generated content—all of which contain biases, stereotypes, and uneven representation. Models learn these patterns just as they learn grammar and facts. If training data overrepresents certain demographics or perspectives, the model will too.',
+            '<strong>Post-training alignment</strong> can reduce some harmful outputs (e.g., refusing to generate hate speech), but it doesn\'t eliminate underlying biases. A model might still generate biased resume summaries, make assumptions based on names, or reflect cultural stereotypes—even when trying to be helpful.',
+            'This matters in high-stakes domains: healthcare (misdiagnosis patterns), hiring (resume screening bias), legal systems (risk assessment), education (unequal tutoring quality). No model is "objective"—all reflect their training data\'s worldview.'
+        ],
+        bullets: [
+            '<strong>Sources of Bias:</strong> Training data imbalances, historical stereotypes, language and cultural gaps, majority perspectives dominating',
+            '<strong>Types of Harm:</strong> Stereotyping, erasure (underrepresented groups), performance gaps (works better for some demographics)',
+            '<strong>Mitigation Strategies:</strong> Diverse training data, red-teaming for harmful outputs, constitutional AI principles, ongoing monitoring',
+            '<strong>User Responsibility:</strong> Critical evaluation of outputs, awareness of limitations, human oversight in high-stakes decisions'
+        ],
+        callout: {
+            type: 'insight',
+            content: '<strong>No Silver Bullet:</strong> Bias mitigation is an ongoing process, not a solved problem. Even the most carefully trained models can produce biased outputs. The goal is harm reduction and transparency, not perfection. Always apply human judgment, especially in consequential decisions.'
+        },
+        resources: [
+            { icon: '📺', title: 'AI Bias Explained', meta: '9 min • TEDx', url: 'https://www.youtube.com/watch?v=59bMh59JQDo' }
         ]
     },
     {
@@ -218,6 +287,30 @@ const cardsData = [
         },
         resources: [
             { icon: '🎬', title: 'Embeddings Explained', meta: '18 min • 3D visualizations', url: 'https://www.youtube.com/watch?v=eUbKYEC0D3Y' }
+        ]
+    },
+    {
+        category: 'adv',
+        badge: 'Advanced',
+        title: 'Multimodal Models',
+        description: 'Modern AI can process and generate not just text, but images, audio, video—all converted into tokens and embeddings.',
+        paragraphs: [
+            '<strong>Multimodal models</strong> extend the token-prediction paradigm beyond text. Images are split into patches (like a grid), each patch encoded as a token by a vision encoder. Audio waveforms are converted to spectrograms, then tokenized. Video combines both approaches frame-by-frame.',
+            'The key innovation: all modalities are projected into a <strong>unified embedding space</strong>. A picture of a cat and the word "cat" occupy nearby points in this space—the model "knows" they\'re related. This enables cross-modal reasoning: describe what\'s in an image, generate images from text descriptions, transcribe and translate audio.',
+            'Examples: <strong>GPT-4V</strong> (vision + text), <strong>Gemini</strong> (text + images + video), <strong>DALL-E/Midjourney</strong> (text → images), <strong>Whisper</strong> (audio → text). The same Transformer architecture and attention mechanisms work across all modalities.'
+        ],
+        bullets: [
+            '<strong>Vision Tokenization:</strong> Images split into 16×16 or 32×32 patches, each patch becomes a token vector',
+            '<strong>Audio Tokenization:</strong> Waveforms → spectrograms (frequency over time) → token sequences',
+            '<strong>Cross-Modal Attention:</strong> Text tokens can attend to image patches and vice versa',
+            '<strong>Why It Matters:</strong> Enables richer interactions (ask questions about photos), creative tools (AI art generation), accessibility (image descriptions for vision impairment)'
+        ],
+        callout: {
+            type: 'note',
+            content: '<strong>Unified Architecture:</strong> The same core Transformer that processes text can process images and audio—only the tokenization step differs. This is why multimodal capabilities emerged quickly: the architecture was already designed to handle arbitrary token sequences.'
+        },
+        resources: [
+            { icon: '🎬', title: 'How Multimodal Models Work', meta: '12 min • Visual explanation', url: 'https://www.youtube.com/watch?v=vAmKB7iPkWw' }
         ]
     },
     {
