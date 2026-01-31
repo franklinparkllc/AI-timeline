@@ -5,11 +5,11 @@ const cardsData = [
     {
         category: 'arch',
         badge: 'Overview',
-        title: 'The "Frozen" Pipeline',
+        title: 'How modern AI models work',
         description: 'AI models are sophisticated mathematical engines—not conscious beings, but carefully trained statistical systems.',
         paragraphs: [
-            'At its core, an AI model is a <strong>frozen mathematical pipeline</strong> containing billions of fixed numbers (called weights) arranged in layers. Once training is complete, these numbers are locked in place and don\'t change when you chat with the model.',
-            'Think of it like a printed book: the content is fixed after publication. You can read it, annotate the margins, or discuss it with others—but the text itself remains unchanged. Similarly, chatting with AI doesn\'t update its "brain."'
+            'In this presentation, we are going to demystify how modern AI systems work. Today, large models are descendants of the perceptrons and neural networks in our timeline—scaled up, trained on massive datasets, and organized into architectures like the <strong>Transformer</strong>.',
+            'We will look at how the models are built and trained, and then what happens during inference when a user makes a request. Along the way, we will see why outputs can feel human, where the system runs aground (hallucinations, missing context, brittle logic), and why running these models—and the tools around them—can be complex and expensive.'
         ],
         bullets: [
             'Understanding this architecture helps predict failures, hallucinations, and informs effective use of tools like RAG',
@@ -17,8 +17,11 @@ const cardsData = [
         ],
         callout: {
             type: 'insight',
-            content: '<strong>Critical Distinction:</strong> Training updates the model\'s "brain" (weights). Inference runs data through the frozen brain. Chatting with AI doesn\'t teach it anything long-term—it only affects the current conversation.'
-        }
+            content: '<strong>Training vs. Inference:</strong> Training updates the model\'s "brain" (weights)—a massive structure that can contain trillions of parameters. Inference is the act of querying that "frozen" brain. Chatting provides temporary context, but it does not permanently teach the model or update its knowledge base.'
+        },
+        resources: [
+            { icon: '📺', title: 'Source video', meta: 'How modern AI works', url: 'https://www.youtube.com/watch?v=lsPucobtdDk' }
+        ]
     },
     {
         category: 'arch',
@@ -30,7 +33,7 @@ const cardsData = [
             'Early layers detect simple patterns (punctuation, word endings), while deeper layers grasp complex concepts (sarcasm, logical reasoning, thematic connections). The model\'s size is measured in <strong>parameters</strong>—billions of adjustable weights that encode learned knowledge.'
         ],
         bullets: [
-            '<strong>Parameters:</strong> Billions of adjustable weights (GPT-4: hundreds of billions, some models exceed 1 trillion)',
+            '<strong>Parameters:</strong> Adjustable weights that store learned patterns (model sizes range from millions to hundreds of billions+)',
             '<strong>Context Window:</strong> The model\'s "working memory" for a conversation (ranges from 4K to 200K+ tokens)',
             '<strong>Attention Mechanism:</strong> A spotlight that focuses on relevant words when processing each new token'
         ],
@@ -77,7 +80,7 @@ const cardsData = [
         ],
         bullets: [
             '<strong>Scaling Laws:</strong> Predictable relationship: more parameters + more data + more compute = better performance',
-            'Training data cutoff means models lack knowledge of events after training (e.g., Claude\'s cutoff is April 2024)',
+            'Training data cutoff means models may lack knowledge of events after training (the cutoff varies by model)',
             'Base models understand language structure but haven\'t learned to be helpful assistants yet'
         ],
         callout: {
@@ -139,18 +142,19 @@ const cardsData = [
         description: 'Every model interaction involves a carefully structured stack of hidden instructions, history, and user input.',
         paragraphs: [
             'When you send a message, the model doesn\'t just see your text. It processes a <strong>prompt stack</strong> with multiple layers:',
-            '<strong>1. System Prompt:</strong> Hidden instructions defining the model\'s persona and behavior ("You are Claude, a helpful AI assistant…").',
+            '<strong>1. System Prompt:</strong> Hidden instructions defining the model\'s persona and behavior ("You are a helpful AI assistant…").',
             '<strong>2. Conversation History:</strong> Every prior message in the conversation is re-sent on each turn, consuming context window space.',
             '<strong>3. User Prompt:</strong> Your actual message, often wrapped in XML tags for parsing (<code>&lt;user_query&gt;</code>).'
         ],
         bullets: [
-            'Long conversations get exponentially slower—the entire history is reprocessed every turn',
+            'Long conversations get slower and more expensive—the entire history is typically reprocessed every turn',
             'At context limit, early messages are dropped (the model "forgets" the start of long chats)',
+            '<strong>Context rot:</strong> In long chats, constraints can get buried or dropped—leading to drift and contradictions',
             'Prompt engineering exploits this structure: clear instructions, examples, and formatting improve outputs'
         ],
         callout: {
             type: 'note',
-            content: '<strong>Note:</strong> This is why long conversations become expensive and slow. Each new response requires reprocessing thousands of prior tokens. Some systems use caching or summarization to mitigate this.'
+            content: '<strong>Note:</strong> This is why long conversations become expensive and slow. Each new response requires reprocessing thousands of prior tokens. <strong>Tip:</strong> Periodically restate the goal and key constraints (or start a fresh thread with a short summary) to reduce drift.'
         }
     },
     {
@@ -174,12 +178,55 @@ const cardsData = [
         }
     },
     {
+        category: 'infer',
+        badge: 'Summary',
+        title: 'What happens when you send a message?',
+        description: 'A simple end-to-end view of the inference loop.',
+        paragraphs: [
+            'Every chat turn runs the same basic pipeline: assemble the prompt, run a forward pass, pick the next token, and repeat.'
+        ],
+        bullets: [
+            '<strong>1. Input Assembly:</strong> System prompt + conversation history + user message → tokenized into integer IDs',
+            '<strong>2. Forward Pass:</strong> Token IDs flow through the frozen Transformer layers (attention + feed-forward layers)',
+            '<strong>3. Token Selection:</strong> The model scores possible next tokens → picks one (greedy or sampling/temperature)',
+            '<strong>4. Autoregressive Loop:</strong> Append the generated token, feed it back in, repeat until a stop condition',
+            '<strong>5. Optional System Steps:</strong> Apply safety policies, execute tool calls, and/or insert retrieved documents (RAG)',
+            '<strong>6. Streaming:</strong> Tokens are sent to the user incrementally as they are generated'
+        ],
+        callout: {
+            type: 'note',
+            content: '<strong>Note:</strong> Speed depends on model size, hardware, context length, and how much extra reasoning/tool use is happening.'
+        }
+    },
+    {
+        category: 'adv',
+        badge: 'Advanced',
+        title: 'Embeddings',
+        description: 'Embeddings convert text into vectors, enabling semantic search and similarity comparisons.',
+        paragraphs: [
+            '<strong>Embeddings</strong> are dense numerical representations of content. A sentence becomes a vector (a list of numbers) in a space where semantic similarity ≈ geometric proximity.',
+            'This enables semantic search (find documents by meaning, not keywords), clustering (group similar items), and recommendations. It is also a core ingredient in most RAG systems.'
+        ],
+        bullets: [
+            'Underpins RAG: user queries and documents are both converted to embeddings for matching',
+            'Multimodal embeddings: images, audio, and text can share the same vector space',
+            'Embeddings can come from dedicated embedding models or from intermediate layers of larger models'
+        ],
+        callout: {
+            type: 'note',
+            content: '<strong>Insight:</strong> Embeddings are why models understand synonyms, analogies, and context. "Puppy" and "dog" occupy nearby points in embedding space—the system "knows" they\'re related without explicit rules.'
+        },
+        resources: [
+            { icon: '🎬', title: 'Embeddings Explained', meta: '18 min • 3D visualizations', url: 'https://www.youtube.com/watch?v=eUbKYEC0D3Y' }
+        ]
+    },
+    {
         category: 'adv',
         badge: 'Advanced',
         title: 'RAG (Retrieval-Augmented Generation)',
         description: 'RAG combats hallucinations and knowledge cutoffs by injecting external documents directly into the model\'s context.',
         paragraphs: [
-            'Models have <strong>knowledge cutoffs</strong> (e.g., April 2024) and no access to private documents. <strong>Retrieval-Augmented Generation (RAG)</strong> solves this by dynamically fetching relevant information and inserting it into the prompt.',
+            'Models have <strong>knowledge cutoffs</strong> and no access to your private documents. <strong>Retrieval-Augmented Generation (RAG)</strong> solves this by dynamically fetching relevant information and inserting it into the prompt.',
             'The process: (1) User asks a question. (2) Convert question to an <strong>embedding</strong> (vector). (3) Search a vector database for similar documents. (4) Paste retrieved docs into the model\'s context. (5) Model answers using both its training and the retrieved text.'
         ],
         bullets: [
@@ -211,7 +258,7 @@ const cardsData = [
         ],
         callout: {
             type: 'note',
-            content: '<strong>Note:</strong> Modern models use an internal "scratchpad" (hidden reasoning tokens) to plan which tools to call and in what order. This enables complex workflows without human intervention.'
+            content: '<strong>Note:</strong> Many systems use an internal "scratchpad" (hidden reasoning tokens) to plan which tools to call and in what order. This enables complex workflows without human intervention.'
         }
     },
     {
@@ -221,7 +268,7 @@ const cardsData = [
         description: 'Reasoning capability comes from two distinct approaches: prompting techniques and dedicated inference-time compute.',
         paragraphs: [
             '<strong>Chain of Thought (CoT):</strong> A prompting technique where you ask the model to "think step by step." This encourages intermediate reasoning, improving accuracy on math and logic tasks. It\'s a prompt hack, not a model feature.',
-            '<strong>Inference-Time Compute:</strong> Models like OpenAI\'s o1, o3, and DeepSeek-R1 generate <strong>hidden reasoning tokens</strong> before answering. They "think longer" by exploring multiple solution paths internally, trading speed for accuracy. This is baked into the model.'
+            '<strong>Inference-Time Compute:</strong> Some reasoning-focused models generate <strong>hidden reasoning tokens</strong> before answering. They "think longer" by exploring multiple solution paths internally, trading speed for accuracy. This behavior is baked into the model.'
         ],
         bullets: [
             'CoT: Explicitly included in the prompt ("Let\'s solve this step by step")',
@@ -230,11 +277,11 @@ const cardsData = [
         ],
         callout: {
             type: 'insight',
-            content: '<strong>The Shift:</strong> Traditional CoT is a user-side prompting trick. Modern reasoning models (o1, R1) embed deliberate thinking into the architecture—spending compute during inference to reduce errors without additional training.'
+            content: '<strong>The Shift:</strong> Traditional CoT is a user-side prompting trick. Modern reasoning-focused models embed deliberate thinking into the system—spending extra compute during inference to reduce errors without additional training.'
         },
         resources: [
             { icon: '🎬', title: 'Chain-of-Thought Explained', meta: '8 min', url: 'https://www.youtube.com/watch?v=AFE6x81AP4k' },
-            { icon: '📺', title: 'Test-Time Scaling', meta: '12 min • DeepSeek-R1 & o1', url: 'https://www.youtube.com/watch?v=NbE8MoR8mPw' }
+            { icon: '📺', title: 'Test-Time Scaling', meta: '12 min • Reasoning at inference time', url: 'https://www.youtube.com/watch?v=NbE8MoR8mPw' }
         ]
     },
     {
@@ -255,49 +302,6 @@ const cardsData = [
         callout: {
             type: 'analogy',
             content: '<strong>Analogy:</strong> A standard LLM is a smart person. An agent is that person with a computer, calculator, notepad, and the ability to search the internet—empowered to take action, not just think.'
-        }
-    },
-    {
-        category: 'adv',
-        badge: 'Advanced',
-        title: 'Embeddings',
-        description: 'Embeddings convert text into high-dimensional vectors, enabling semantic search and similarity comparisons.',
-        paragraphs: [
-            '<strong>Embeddings</strong> are dense numerical representations of text. A sentence becomes a vector of 768-12,288 numbers in a high-dimensional space where semantic similarity = geometric proximity.',
-            'This enables powerful capabilities: "King - Man + Woman ≈ Queen" (vector arithmetic captures relationships), semantic search (find documents by meaning, not keywords), clustering (group similar items), recommendations.'
-        ],
-        bullets: [
-            'Underpins RAG: user queries and documents both converted to embeddings for matching',
-            'Multimodal embeddings: images, audio, and text can share the same vector space',
-            'Modern models produce embeddings as intermediate layer outputs (not trained separately)'
-        ],
-        callout: {
-            type: 'note',
-            content: '<strong>Insight:</strong> Embeddings are why models understand synonyms, analogies, and context. "Puppy" and "dog" occupy nearby points in embedding space—the model "knows" they\'re related without explicit rules.'
-        },
-        resources: [
-            { icon: '🎬', title: 'Embeddings Explained', meta: '18 min • 3D visualizations', url: 'https://www.youtube.com/watch?v=eUbKYEC0D3Y' }
-        ]
-    },
-    {
-        category: 'infer',
-        badge: 'Summary',
-        title: 'The Complete Pipeline',
-        description: 'Here\'s how everything fits together when you send a message to an AI model.',
-        paragraphs: [
-            'The full inference pipeline combines all these concepts into a coordinated system:'
-        ],
-        bullets: [
-            '<strong>1. Input Assembly:</strong> System prompt + conversation history + user message → tokenized into integer IDs',
-            '<strong>2. Forward Pass:</strong> Token IDs flow through the frozen Transformer layers (attention, feed-forward, layer normalization)',
-            '<strong>3. Sampling:</strong> Output layer produces logits (raw scores) → softmax → probability distribution → sample next token (controlled by temperature)',
-            '<strong>4. Autoregressive Loop:</strong> Append the generated token, feed it back in, repeat until hitting a stop token or length limit',
-            '<strong>5. Post-Processing:</strong> Apply safety filters, format citations, execute tool calls if requested',
-            '<strong>6. Streaming:</strong> Tokens sent to user incrementally as they\'re generated (creates illusion of "typing")'
-        ],
-        callout: {
-            type: 'note',
-            content: '<strong>Note:</strong> This entire process—tokenization, forward pass, sampling, detokenization—takes milliseconds to seconds per token, depending on model size, hardware, and reasoning depth.'
         }
     },
     {
