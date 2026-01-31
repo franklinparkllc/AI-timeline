@@ -161,7 +161,6 @@ header h1 {
 
 /* Visual Weight Indicators - High Impact Events */
 .event-card[data-weight="3"] .event-content {
-    border-left: 4px solid #e74c3c;
     box-shadow: 0 6px 12px -2px rgba(231, 76, 60, 0.15);
 }
 
@@ -176,12 +175,11 @@ header h1 {
 
 /* Medium Impact Events */
 .event-card[data-weight="2"] .event-content {
-    border-left: 3px solid #3498db;
+    /* No special styling for medium weight */
 }
 
 /* Standard Impact Events */
 .event-card[data-weight="1"] .event-content {
-    border-left: 2px solid #95a5a6;
     opacity: 0.95;
 }
 
