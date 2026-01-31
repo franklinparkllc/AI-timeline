@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Basics — How AI Models Are Built, Trained & Used</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .article-container { max-width: 720px; margin: 0 auto; padding: 0 20px 60px; }
+        .article-container h2 { font-size: 1.35rem; color: var(--primary); margin-top: 2rem; margin-bottom: 0.75rem; }
+        .article-container p { line-height: 1.65; margin-bottom: 1rem; color: var(--text); }
+        .article-container ul { margin: 0 0 1rem 1.25rem; line-height: 1.6; }
+        .article-container li { margin-bottom: 0.35rem; }
+        .back-link { display: inline-block; margin-bottom: 1.5rem; color: var(--accent); text-decoration: none; font-weight: 500; }
+        .back-link:hover { text-decoration: underline; }
+        .article-subtitle { color: var(--year-color); font-size: 0.95rem; margin-top: 4px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="../" class="back-link">← Back to AI Timeline</a>
+            <h1>Model Basics</h1>
+            <p class="subtitle article-subtitle">How models are built, trained, fine-tuned, and what happens when you ask a question</p>
+        </header>
+
+        <div class="article-container">
+            <h2>How models are built</h2>
+            <p>Modern language models are built around an <strong>architecture</strong>—a fixed design that defines how the network is structured. Most of today’s chatbots and assistants use the <strong>transformer</strong> architecture: layers of “attention” and feed-forward sublayers that process sequences of tokens (words or subwords) and learn relationships between them.</p>
+            <p>Key design choices include:</p>
+            <ul>
+                <li><strong>Size</strong> — number of parameters (weights), layers, and hidden dimensions. Larger models can capture more patterns but need more compute and data.</li>
+                <li><strong>Vocabulary</strong> — the set of tokens the model can read and write. Text is split into these tokens via a tokenizer before it enters the model.</li>
+                <li><strong>Context length</strong> — how many tokens the model can take as input at once (e.g. 4K, 128K). This is baked into the architecture and training.</li>
+            </ul>
+            <p>Building the model means defining this graph of operations and initializing millions or billions of parameters. At this stage the model has no useful behavior yet; that comes from training.</p>
+
+            <h2>Training</h2>
+            <p><strong>Pretraining</strong> is the first major phase. The model is shown huge amounts of text (books, web pages, code, etc.) and trained to predict the next token (or missing tokens) in a sequence. By doing this at scale, it learns grammar, facts, reasoning patterns, and style.</p>
+            <ul>
+                <li>Training is <strong>self-supervised</strong>: the “labels” are just the next tokens in the same text, so no separate labeling step is needed.</li>
+                <li>Compute (GPUs/TPUs), data quality and quantity, and training stability (learning rate, batching, etc.) all determine how capable the resulting <strong>base model</strong> is.</li>
+            </ul>
+            <p>After pretraining, the model is good at continuing text in the style of its training data, but it is not yet tuned to follow instructions or chat in a helpful, safe way. That is the role of fine-tuning.</p>
+
+            <h2>Fine-tuning</h2>
+            <p><strong>Fine-tuning</strong> adapts the pretrained model to specific behaviors and formats. Common approaches include:</p>
+            <ul>
+                <li><strong>Supervised fine-tuning (SFT)</strong> — the model is trained on examples of inputs and desired outputs (e.g. user questions and good answers). It learns to mimic those responses and formats.</li>
+                <li><strong>Instruction tuning</strong> — SFT on many tasks phrased as instructions (“Summarize…”, “Translate…”, “Explain…”), so the model generalizes to following new instructions.</li>
+                <li><strong>RLHF / preference learning</strong> — humans rank or choose between model outputs; the model is then trained (e.g. via reward models and reinforcement learning, or methods like DPO) to prefer helpful, safe, or on-style answers over bad ones.</li>
+            </ul>
+            <p>Fine-tuning can update all parameters or only a subset (e.g. <strong>LoRA</strong> or other adapter methods) to save cost and preserve general knowledge. The result is a model that can be deployed behind a chat interface or API.</p>
+
+            <h2>What happens when a user asks a question</h2>
+            <p>When you send a message to an AI assistant, the system typically does the following:</p>
+            <ul>
+                <li><strong>Formatting</strong> — Your message is wrapped in a prompt template (system instructions, conversation history, and the new user turn) so the model knows its role and context.</li>
+                <li><strong>Tokenization</strong> — The full prompt is converted into a sequence of tokens using the model’s tokenizer. Each token is mapped to an embedding (a vector) that the model processes.</li>
+                <li><strong>Forward pass (inference)</strong> — The token sequence is fed through the model’s layers. Each layer applies attention and feed-forward operations, updating hidden representations. The final layer produces logits (scores) over the vocabulary for the “next” token position.</li>
+                <li><strong>Decoding</strong> — The model generates one token at a time. The next token is chosen by sampling from the logits (with temperature and other settings controlling randomness). That token is appended to the sequence and fed back in; this repeats until an end-of-sequence token or a length limit is reached.</li>
+                <li><strong>Detokenization</strong> — The sequence of output tokens is converted back into text and (often) post-processed before being shown to you.</li>
+            </ul>
+            <p>So a single “answer” is the result of many autoregressive steps: the model is repeatedly predicting the next token given everything so far. Latency and cost scale with how many tokens are generated and how large the model is.</p>
+        </div>
+    </div>
+</body>
+</html>
