@@ -71,12 +71,12 @@ const cardsData = [
         description: 'Attention is the core mechanism that allows Transformers to understand relationships between words, no matter how far apart they are.',
         paragraphs: [
             'When processing each token, the model needs to decide which other tokens in the sequence are relevant. <strong>Attention</strong> solves this through three learned representations for every token:',
-            '<strong>Query:</strong> "What am I looking for?" Each token generates a query vector representing what information it needs.',
-            '<strong>Key:</strong> "What do I offer?" Each token generates a key vector advertising its content.',
-            '<strong>Value:</strong> "Here\'s my actual information." Each token generates a value vector containing its semantic content.',
-            'The model computes attention scores by comparing the Query of the current token against the Keys of all previous tokens (including itself). High scores mean "these tokens are relevant to understanding this one." These scores are used to create a weighted average of the Values—tokens with high attention get more weight.'
+            'The model computes attention scores by comparing the Query of the current token against the Keys of all previous tokens (including itself). High scores mean "these tokens are relevant to understanding this one." These scores create a weighted average of the Values—tokens with high attention get more weight.'
         ],
         bullets: [
+            '<strong>Query (Q):</strong> "What am I looking for?" Each token generates a query vector representing what information it needs',
+            '<strong>Key (K):</strong> "What do I offer?" Each token generates a key vector advertising its content',
+            '<strong>Value (V):</strong> "Here\'s my actual information." Each token generates a value vector containing its semantic content',
             '<strong>Self-Attention:</strong> Each token attends to all tokens in the sequence (including itself)',
             '<strong>Multi-Head Attention:</strong> Multiple attention mechanisms run in parallel, each learning different relationships (syntax, semantics, coreference)',
             '<strong>Attention Scores:</strong> Determine which tokens influence each other—visualizing these reveals what the model "focuses on"',
