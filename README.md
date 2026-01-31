@@ -57,25 +57,6 @@ The CSV file should have the following columns:
 - **Link**: URL to more information about the event (optional)
 - **Event Weight**: Significance/weight of the event for filtering (optional, e.g., "High", "Medium", "Low")
 
-## Audit the Timeline (copy/paste prompt)
-
-Use this prompt with your preferred AI assistant to review and improve a slice of the CSV timeline.
-
-```text
-Take a look at @data/AI_Timeline_1940-2025.csv. It serves a script that builds an interactive AI timeline.
-
-Please audit entries from 2025 through today:
-1) Flag entries that are poorly labeled or mis-entered (wrong year, wrong people/org, wrong category).
-2) Add key events/papers/research that are missing in this timeframe (include credible links and focus on primary sources).
-3) If an item is irrelevant/insignificant for the timeline narrative, set its Event Weight to 0.
-
-Constraints:
-- Keep the existing CSV columns and formatting.
-- Use numeric Event Weight on a 0–10 scale (0 = irrelevant).
-- Prefer “Person + org/lab” in People/Organizations when known.
-Then regenerate the timeline with: python scripts/generate_timeline.py
-```
-
 ## Features
 
 - **Interactive Timeline**: Scroll through years with smooth horizontal navigation and parallax background.
