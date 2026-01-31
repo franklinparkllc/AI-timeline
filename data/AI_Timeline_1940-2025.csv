@@ -21,6 +21,7 @@ Year,Event/Development,People/Organizations,Category,Source,Link,Event Weight
 1969,Kaissa chess program developed,Soviet researchers (USSR),Autonomous Systems,Original,https://en.wikipedia.org/wiki/Kaissa,1
 1970,SHRDLU natural-language blocks world,Terry Winograd (MIT),Research Breakthroughs,Added,https://en.wikipedia.org/wiki/SHRDLU,2
 1970,Early continuous speech recognition work,Raj Reddy (CMU),Research Breakthroughs,Original,https://apps.dtic.mil/sti/tr/pdf/ADA027844.pdf,1
+1971,ARPA issues RFP for Speech Understanding Research (SUR) program,Allen Newell (study group lead); ARPA,Governance & Society,Original,https://iiif.library.cmu.edu/file/Newell_box00092_fld06359_doc0001/Newell_box00092_fld06359_doc0001.pdf,2
 1972,Prolog programming language introduced,Alain Colmerauer; Philippe Roussel (Aix-Marseille),Enterprise & Developer Tools,Added,https://en.wikipedia.org/wiki/Prolog,2
 1973,"""Artificial Intelligence: A General Survey"" (Lighthill report)",James Lighthill (UK Science Research Council),Governance & Society,Original,https://rodsmith.nz/wp-content/uploads/Lighthill_1973_Report.pdf,2
 1974,First AI winter begins (funding and expectations crash),ARPA; UK funders,Governance & Society,Added,https://en.wikipedia.org/wiki/AI_winter,2
@@ -33,6 +34,7 @@ Year,Event/Development,People/Organizations,Category,Source,Link,Event Weight
 1980,XCON expert system deployed at DEC,John McDermott (Carnegie Mellon); Digital Equipment Corporation (DEC),AI Products,Added,https://en.wikipedia.org/wiki/XCON,2
 1982,Hopfield Network,John Hopfield (Caltech),Research Breakthroughs,Original,https://redwood.berkeley.edu/wp-content/uploads/2018/08/hopfield82.pdf,2
 1982,Dragon Systems founded (speech recognition company),James Baker; Janet Baker (Dragon Systems),AI Products,Original,https://pubs.aip.org/asa/jasa/article/55/S1/S22/741151/DRAGON-speech-understanding-system,1
+1983,"Ironies of Automation" published (foundational work on human-automation interaction),Lisanne Bainbridge (University College London),Governance & Society,Added,https://www.ise.ncsu.edu/wp-content/uploads/2017/02/Bainbridge_1983_Automatica.pdf,2
 1984,CART (Classification and Regression Trees),Breiman; Friedman; Olshen; Stone,Research Breakthroughs,Added,https://en.wikipedia.org/wiki/Decision_tree_learning#CART,2
 1986,Backpropagation popularized in modern neural nets,David Rumelhart; Geoffrey Hinton; Ronald Williams,Research Breakthroughs,Original,https://www.cs.toronto.edu/~hinton/absps/naturebp.pdf,3
 1986,"Attention, Intentions, and the Structure of Discourse",Barbara Grosz; Candace Sidner,Research Breakthroughs,Added,https://en.wikipedia.org/wiki/Discourse_analysis,1
@@ -75,29 +77,30 @@ Year,Event/Development,People/Organizations,Category,Source,Link,Event Weight
 2003,Latent Dirichlet Allocation (LDA) topic modeling,David Blei; Andrew Ng; Michael Jordan,Research Breakthroughs,Added,https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf,2
 2004,DARPA Grand Challenge for autonomous vehicles,DARPA,Autonomous Systems,Original,https://en.wikipedia.org/wiki/DARPA_Grand_Challenge,2
 2005,Blue Brain Project launched (brain simulation neuroscience),Henry Markram (EPFL),Research Breakthroughs,Original,https://bluebrain.epfl.ch/,1
-2007,CUDA introduced for general-purpose GPU computing,NVIDIA,Hardware & Infrastructure,Added,https://en.wikipedia.org/wiki/CUDA,2
 2006,Deep Belief Nets (DBNs) revive deep learning,Geoffrey Hinton; Simon Osindero; Yee-Whye Teh (University of Toronto),Research Breakthroughs,Original,https://www.cs.toronto.edu/~hinton/absps/ncfast.pdf,2
+2007,CUDA introduced for general-purpose GPU computing,NVIDIA,Hardware & Infrastructure,Added,https://en.wikipedia.org/wiki/CUDA,2
 2007,GPUs enable large-scale neural network training (early deep learning acceleration),NVIDIA; researchers,Hardware & Infrastructure,Original,https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units,2
-2009,Deep Boltzmann Machines (DBMs),Ruslan Salakhutdinov; Geoffrey Hinton,Research Breakthroughs,Original,https://proceedings.mlr.press/v5/salakhutdinov09a/salakhutdinov09a.pdf,1
 2007,Stacked Auto-Encoders,Yoshua Bengio (Université_de_Montréal),Research Breakthroughs,Original,https://en.wikipedia.org/wiki/Autoencoder,1
 2007,Checkers game solved (perfect play leads to draw),Jonathan Schaeffer et al. (University of Alberta),Autonomous Systems,Original,https://webdocs.cs.ualberta.ca/~chinook/publications/solving_checkers.html,1
-2009,Robot Operating System (ROS) presented and broadly released,Morgan Quigley; Willow Garage; Stanford (STAIR),Autonomous Systems,Original,https://ai.stanford.edu/~mquigley/papers/icra2009-ros.pdf,2
 2008,Neuromorphic computing program (SyNAPSE) launched,Dharmendra Modha (IBM),Hardware & Infrastructure,Original,https://en.wikipedia.org/wiki/SyNAPSE,1
 2008,Open Advancement of Question Answering (OAQA) initiative,IBM; Carnegie Mellon University,Enterprise & Developer Tools,Original,https://en.wikipedia.org/wiki/Watson_(computer)#Development,1
+2009,Deep Boltzmann Machines (DBMs),Ruslan Salakhutdinov; Geoffrey Hinton,Research Breakthroughs,Original,https://proceedings.mlr.press/v5/salakhutdinov09a/salakhutdinov09a.pdf,1
+2009,Robot Operating System (ROS) presented and broadly released,Morgan Quigley; Willow Garage; Stanford (STAIR),Autonomous Systems,Original,https://ai.stanford.edu/~mquigley/papers/icra2009-ros.pdf,2
 2009,ImageNet dataset introduced,Jia Deng; Wei Dong; Richard Socher; Li-Jia Li; Kai Li; Fei-Fei Li (Princeton),Research Breakthroughs,Original,https://www.image-net.org/static_files/papers/imagenet_cvpr09.pdf,3
 2009,Google self-driving car project begins (internal),Google; Sebastian Thrun (Stanford/Google),Autonomous Systems,Original,https://waymo.com/blog/2020/04/in-the-drivers-seat-1000-mile-challenge,2
-2009,Bitcoin/blockchain introduced (largely outside AI timeline),Satoshi Nakamoto,Governance & Society,Added,https://en.wikipedia.org/wiki/Bitcoin,1
 2010,DeepMind incorporated,Demis Hassabis; Shane Legg; Mustafa Suleyman (DeepMind),Governance & Society,Original,https://find-and-update.company-information.service.gov.uk/company/07386350,2
+2010,Rectified Linear Units (ReLU) activation function,Vinod Nair; Geoffrey Hinton (University of Toronto),Research Breakthroughs,Added,https://www.cs.toronto.edu/~fritz/absps/reluICML.pdf,2
 2011,IBM Watson defeats humans on Jeopardy!,IBM (DeepQA),Research Breakthroughs,Original,https://www.ibm.com/history/watson-jeopardy,3
 2011,Siri digital assistant introduced,Apple,AI Products,Original,https://www.apple.com/newsroom/2011/10/04Apple-Launches-iPhone-4S-iOS-5-iCloud/,2
 2012,Google Now digital assistant launched,Google,AI Products,Original,https://en.wikipedia.org/wiki/Google_Now,1
 2012,Deep neural networks transform speech recognition,Geoffrey Hinton; George Dahl; Abdel-rahman Mohamed,Research Breakthroughs,Added,https://www.cs.toronto.edu/~hinton/absps/DNN-2012-proof.pdf,2
 2012,AlexNet wins ImageNet (deep CNN breakthrough),Alex Krizhevsky; Ilya Sutskever; Geoffrey Hinton (University of Toronto),Research Breakthroughs,Original,https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf,3
-2012,Deep learning surge in computer vision (post-ImageNet),Multiple researchers,Research Breakthroughs,Added,,1
+2012,Dropout regularization technique introduced,Geoffrey Hinton; Nitish Srivastava; Alex Krizhevsky; Ilya Sutskever; Ruslan Salakhutdinov (University of Toronto),Research Breakthroughs,Added,https://www.cs.toronto.edu/~hinton/absps/dropout.pdf,3
 2013,word2vec popularizes neural word embeddings,Tomas Mikolov; Kai Chen; Greg Corrado; Jeffrey Dean (Google),Research Breakthroughs,Added,https://arxiv.org/abs/1301.3781,2
-2013,Vicarious claims major CAPTCHA success (not peer-reviewed),Vicarious,Governance & Society,Original,https://www.bbc.com/news/technology-24710209,1
 2014,DeepFace achieves near-human face verification,Yaniv Taigman; Ming Yang; Marc'Aurelio Ranzato; Lior Wolf (Facebook/TAU),Research Breakthroughs,Original,https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Taigman_DeepFace_Closing_the_2014_CVPR_paper.pdf,1
+2014,Adam optimizer introduced,Diederik Kingma; Jimmy Ba,Research Breakthroughs,Added,https://arxiv.org/abs/1412.6980,3
 2014,Generative Adversarial Networks (GANs) introduced,Ian Goodfellow; Jean Pouget-Abadie; Mehdi Mirza; et al.,Generative AI,Original,https://arxiv.org/abs/1406.2661,3
+2014,VGGNet demonstrates importance of network depth,Karen Simonyan; Andrew Zisserman (University of Oxford),Research Breakthroughs,Added,https://arxiv.org/abs/1409.1556,2
 2014,Seq2Seq learning with neural networks,Ilya Sutskever; Oriol Vinyals; Quoc Le (Google),Research Breakthroughs,Added,https://arxiv.org/abs/1409.3215,2
 2014,Neural machine translation attention mechanism,Dzmitry Bahdanau; Kyunghyun Cho; Yoshua Bengio,Research Breakthroughs,Added,https://arxiv.org/abs/1409.0473,2
 2014,Microsoft Cortana digital assistant announced,Microsoft,AI Products,Original,https://blogs.windows.com/windowsexperience/2014/04/02/cortana-yes-and-many-many-other-great-features-coming-in-windows-phone-8-1/,1
@@ -105,33 +108,35 @@ Year,Event/Development,People/Organizations,Category,Source,Link,Event Weight
 2014,Google acquires DeepMind,Google/DeepMind,Governance & Society,Added,https://www.bbc.com/news/technology-25908379,2
 2015,OpenAI founded (nonprofit),OpenAI,Governance & Society,Added,https://techcrunch.com/2015/12/11/non-profit-openai-launches-with-backing-from-elon-musk-and-sam-altman/,2
 2015,DQN in Nature (human-level Atari control),Volodymyr Mnih; Koray Kavukcuoglu; David Silver; et al. (DeepMind),Research Breakthroughs,Original,https://storage.googleapis.com/deepmind-data/assets/papers/DeepMindNature14236Paper.pdf,2
+2015,Batch Normalization accelerates deep network training,Sergey Ioffe; Christian Szegedy (Google),Research Breakthroughs,Added,https://arxiv.org/abs/1502.03167,3
 2015,ResNet enables very deep CNNs,Kaiming He; Xiangyu Zhang; Shaoqing Ren; Jian Sun (Microsoft Research),Research Breakthroughs,Added,https://arxiv.org/abs/1512.03385,2
 2015,TensorFlow open-sourced,Google,Enterprise & Developer Tools,Added,https://opensource.googleblog.com/2015/11/tensorflow-googles-latest-machine.html,2
 2015,AlphaGo defeats a pro player (Fan Hui match; announced 2016),DeepMind,Autonomous Systems,Original,http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html,2
 2015,Google self-driving cars surpass 1M autonomous miles,Google (Self-Driving Car Project),Autonomous Systems,Original,https://venturebeat.com/ai/googles-self-driving-cars-have-driven-over-1-million-miles/,1
 2016,AlphaGo defeats Lee Sedol (world champion),DeepMind,Autonomous Systems,Added,https://googleblog.blogspot.com/2016/01/alphago-machine-learning-game-go.html,3
+2016,YOLO (You Only Look Once) real-time object detection,Joseph Redmon et al.,Research Breakthroughs,Added,https://arxiv.org/abs/1506.02640,2
 2016,WaveNet generative model for raw audio,DeepMind,Generative AI,Added,https://arxiv.org/abs/1609.03499,2
 2017,PyTorch open-sourced,Meta (Facebook AI Research),Enterprise & Developer Tools,Added,https://pytorch.org/blog/pytorch-0.1-released/,2
+2017,Graph Convolutional Networks introduced,Thomas Kipf; Max Welling,Research Breakthroughs,Added,https://arxiv.org/abs/1609.02907,2
+2017,Federated Learning enables privacy-preserving distributed ML,H. Brendan McMahan et al. (Google),Research Breakthroughs,Added,https://arxiv.org/abs/1610.05492,2
 2017,Libratus defeats professional poker players,Tuomas Sandholm; Noam Brown (CMU),Autonomous Systems,Original,https://www.science.org/doi/10.1126/science.aao1733,2
 2017,"""Attention is all you need"" paper introduces Transformers",Ashish Vaswani et al. (Google Brain),Foundation Models,Original,https://arxiv.org/abs/1706.03762,3
 2017,Google TPU (Tensor Processing Unit) announced,Google,Hardware & Infrastructure,Added,https://cloud.google.com/blog/products/ai-machine-learning/google-supercharges-machine-learning-tasks-with-custom-chip,2
 2017,Capsule Networks introduced,Geoffrey Hinton,Research Breakthroughs,Added,https://arxiv.org/abs/1710.09829,1
 2018,Alibaba language AI beats humans in reading test,Alibaba,Foundation Models,Original,https://www.reuters.com/article/idUSKBN1F40D3/,1
+2018,ELMo introduces deep contextualized word representations,Matthew Peters et al. (Allen Institute for AI),Foundation Models,Added,https://arxiv.org/abs/1802.05365,2
 2018,Google Duplex conversational AI demonstrated,Google,Foundation Models,Original,https://ai.googleblog.com/2018/05/duplex-ai-system-for-natural-conversation.html,2
 2018,GPT (Generative Pre-trained Transformer) released,Alec Radford et al. (OpenAI),Foundation Models,Added,https://openai.com/index/language-unsupervised/,2
 2018,BERT (Bidirectional Encoder Representations from Transformers),Jacob Devlin et al. (Google AI Language),Foundation Models,Added,https://arxiv.org/abs/1810.04805,3
 2019,GPT-2 released (1.5B parameters); concerns about misuse,Alec Radford et al. (OpenAI),Foundation Models,Added,https://openai.com/index/better-language-models/,2
-2019,BERT becomes widely adopted for NLP tasks,Google,Foundation Models,Added,https://ai.googleblog.com/2019/10/understanding-searches-better-than-ever.html,1
 2019,DeepMind's AlphaStar reaches Grandmaster level in StarCraft II,DeepMind,Autonomous Systems,Added,https://deepmind.google/discover/blog/alphastar-mastering-the-real-time-strategy-game-starcraft-ii/,2
 2019,PyTorch 1.0 production release,Meta (Facebook AI Research),Enterprise & Developer Tools,Added,https://pytorch.org/blog/pytorch-1.0-now-available-in-preview/,1
 2019,Nvidia A100 GPU released,Nvidia,Hardware & Infrastructure,Added,https://nvidianews.nvidia.com/news/nvidia-introduces-ampere-architecture-for-next-generation-computing,2
 2020,GPT-3 released (175B parameters),Tom Brown et al. (OpenAI),Foundation Models,Added,https://arxiv.org/abs/2005.14165,3
 2020,AlphaFold 2 solves protein folding problem,John Jumper et al. (DeepMind),Research Breakthroughs,Added,https://deepmind.google/discover/blog/alphafold-a-solution-to-a-50-year-old-grand-challenge-in-biology/,3
-2020,GitHub Copilot development begins,GitHub/OpenAI,AI Products,Added,https://github.blog/news-insights/product-news/introducing-github-copilot-your-ai-pair-programmer/,1
 2020,DALL-E 1 announced,Aditya Ramesh et al. (OpenAI),Generative AI,Added,https://openai.com/index/dall-e/,2
 2020,Switch Transformer (1.6T parameters),William Fedus et al. (Google),Foundation Models,Added,https://arxiv.org/abs/2101.03961,1
 2021,GitHub Copilot launched publicly,GitHub/OpenAI,AI Products,Added,https://github.blog/news-insights/product-news/introducing-github-copilot-your-ai-pair-programmer/,2
-2021,DALL-E 2 development,OpenAI,Generative AI,Added,https://openai.com/index/dall-e-2/,1
 2021,AlphaFold 2 paper published in Nature,DeepMind,Research Breakthroughs,Added,https://www.nature.com/articles/s41586-021-03819-2,1
 2021,Codex released (powers GitHub Copilot),OpenAI,Enterprise & Developer Tools,Added,https://arxiv.org/abs/2107.03374,2
 2021,Wu Dao 2.0 (1.75T parameters),Beijing Academy of AI,Foundation Models,Added,https://www.engadget.com/china-wu-dao-2-0-ai-language-model-113437533.html,1
@@ -147,7 +152,6 @@ Year,Event/Development,People/Organizations,Category,Source,Link,Event Weight
 2022,AlphaTensor discovers faster matrix multiplication,DeepMind,Research Breakthroughs,Added,https://deepmind.google/discover/blog/alphatensor-discovering-faster-algorithms-for-matrix-multiplication/,1
 2022,Joint Embedding Predictive Architecture (JEPA) introduced,Yann LeCun (Meta),Research Breakthroughs,Added,https://arxiv.org/pdf/2211.10831,1
 2022,PaLM (540B parameters),Google,Foundation Models,Added,https://ai.googleblog.com/2022/04/pathways-language-model-palm-scaling-to.html,2
-2022,ChatGPT reaches 1M users in 5 days,OpenAI,AI Products,Added,https://twitter.com/sam_altman/status/1599668733485031424,1
 2023,GPT-4 released (multimodal) in March,OpenAI,Foundation Models,Added,https://openai.com/index/gpt-4/,3
 2023,ChatGPT reaches 100M users (fastest ever),OpenAI,AI Products,Added,https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/,2
 2023,Google releases Bard (later renamed Gemini),Google,Foundation Models,Added,https://blog.google/technology/ai/bard-google-ai-search-updates/,2

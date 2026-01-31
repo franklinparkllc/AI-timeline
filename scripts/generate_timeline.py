@@ -170,7 +170,7 @@ def generate_html(events, output_path, version=1):
                 html += f'                            <p class="event-people">{event["people"]}</p>\n'
             
             html += f'                            <div class="event-meta">\n'
-            html += f'                                <span class="event-category">{event["category"]}</span>\n'
+            html += f'                                <span class="event-category" data-category="{event["category"]}">{event["category"]}</span>\n'
             html += '                            </div>\n'
             
             if event['link']:
