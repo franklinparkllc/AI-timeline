@@ -20,8 +20,9 @@ const cardsData = [
             content: '<strong>Training vs. Inference:</strong> Training updates the model\'s "brain" (weights)—a massive structure that can contain trillions of parameters. Inference is the act of querying that "frozen" brain. Chatting provides temporary context, but it does not permanently teach the model or update its knowledge base.'
         },
         resources: [
-            { icon: '📺', title: 'Source video', meta: 'How modern AI works', url: 'https://www.youtube.com/watch?v=lsPucobtdDk' },
-            { icon: '🔗', title: 'Learn more', meta: 'YouTube', url: 'https://www.youtube.com/watch?v=qYNweeDHiyU' }
+            { icon: '📺', title: 'Generative AI in a Nutshell - how to survive and thrive in the age of AI', meta: '18 min • Henrik Knibbe', url: 'https://www.youtube.com/watch?v=2IK3DFHRFfw' },
+            { icon: '🌐', title: 'OKAI — An Interactive Introduction to Artificial Intelligence', meta: 'Interactive site • Brown University', url: 'https://okai.brown.edu/' },
+            { icon: '📺', title: 'Large Language Models explained briefly', meta: '8 min • 3Blue1Brown', url: 'https://www.youtube.com/watch?v=LPZh9BOjkQs' }
         ]
     },
     {
@@ -63,7 +64,10 @@ const cardsData = [
         callout: {
             type: 'note',
             content: '<strong>Layer Structure:</strong> Think of each layer as a two-step process: (1) Attention asks "which other tokens matter for understanding this one?" (2) Feed-forward networks apply complex transformations to extract features. Repeat this 12-96 times depending on model size.'
-        }
+        },
+        resources: [
+            { icon: '📺', title: 'A Student\'s Guide to Vectors and Tensors', meta: '12 min • Dan Fleisch', url: 'https://www.youtube.com/watch?v=f5liqUk0ZTw' }
+        ]
     },
     {
         category: 'arch',
