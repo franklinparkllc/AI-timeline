@@ -51,6 +51,7 @@ const cardsData = [
         title: 'The Transformer Architecture',
         description: 'Modern AI is built on the Transformer—a neural network design that processes all tokens in parallel using layers of attention and computation.',
         paragraphs: [
+            'A <strong>token</strong> is a chunk of text (a word or word-piece) converted into an integer ID the model can process. We\'ll unpack tokenization in more depth on the next slide.',
             'The <strong>Transformer</strong> is the foundational architecture powering GPT, Claude, Gemini, and most modern AI. It processes text through layers of interconnected nodes, where each layer learns increasingly abstract patterns.',
             'Each Transformer layer has two main components: <strong>Attention</strong> (relating tokens to each other) and <strong>Feed-Forward Networks</strong> (processing individual tokens through non-linear transformations). These alternate in a repeating pattern, with normalization and residual connections stabilizing training.',
             'Early layers detect simple patterns (punctuation, word endings), while deeper layers grasp complex concepts (sarcasm, logical reasoning, thematic connections). The model\'s size is measured in <strong>parameters</strong>—billions of adjustable weights that encode learned knowledge.'
