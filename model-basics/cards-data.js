@@ -20,7 +20,8 @@ const cardsData = [
             content: '<strong>Training vs. Inference:</strong> Training updates the model\'s "brain" (weights)—a massive structure that can contain trillions of parameters. Inference is the act of querying that "frozen" brain. Chatting provides temporary context, but it does not permanently teach the model or update its knowledge base.'
         },
         resources: [
-            { icon: '📺', title: 'Source video', meta: 'How modern AI works', url: 'https://www.youtube.com/watch?v=lsPucobtdDk' }
+            { icon: '📺', title: 'Source video', meta: 'How modern AI works', url: 'https://www.youtube.com/watch?v=lsPucobtdDk' },
+            { icon: '🔗', title: 'Learn more', meta: 'YouTube', url: 'https://www.youtube.com/watch?v=qYNweeDHiyU' }
         ]
     },
     {
