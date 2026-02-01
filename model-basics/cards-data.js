@@ -72,6 +72,29 @@ const cardsData = [
     {
         category: 'arch',
         badge: 'Architecture',
+        title: 'Tokenization',
+        description: 'Models don\'t understand text directly—they process numeric tokens that represent pieces of words.',
+        paragraphs: [
+            'AI models operate on numbers, not letters. A <strong>tokenizer</strong> converts text into integer IDs representing vocabulary fragments. For example, "Ingenious" might split into three tokens: <code>In</code>, <code>gen</code>, and <code>ious</code>.',
+            'This approach, called <strong>Byte-Pair Encoding (BPE)</strong>, balances efficiency and flexibility. Common words stay whole ("the"), while rare words split into recognizable parts. Multimodal models extend this: images become "patches," audio becomes tokens.'
+        ],
+        bullets: [
+            'Token count determines cost and speed—more tokens = higher compute',
+            'Tokenization explains quirks: why models struggle with spelling backward (tokens don\'t map 1:1 to letters)',
+            '<strong>Everything is next-token prediction:</strong> Poetry, code, math—all reduced to "what token comes next?"'
+        ],
+        callout: {
+            type: 'insight',
+            content: '<strong>Token Prediction Paradigm:</strong> This single task—predicting the next token—enables every capability. It\'s why models excel at pattern completion but may fail at precise arithmetic (it\'s token prediction, not calculation).'
+        },
+        resources: [
+            { icon: '🛠️', title: 'OpenAI Tokenizer', meta: 'Interactive tool', url: 'https://platform.openai.com/tokenizer' },
+            { icon: '📺', title: 'Build GPT Tokenizer', meta: '2h 13min • Andrej Karpathy', url: 'https://www.youtube.com/watch?v=zduSFxRajkE' }
+        ]
+    },
+    {
+        category: 'arch',
+        badge: 'Architecture',
         title: 'How Attention Works',
         description: 'Attention is the core mechanism that allows Transformers to understand relationships between words, no matter how far apart they are.',
         paragraphs: [
@@ -94,29 +117,6 @@ const cardsData = [
         resources: [
             { icon: '🎬', title: 'Attention Is All You Need', meta: '15 min • Visual walkthrough', url: 'https://www.youtube.com/watch?v=wjZofJX0v4M' },
             { icon: '📺', title: '3Blue1Brown Attention', meta: '26 min • Animated explanation', url: 'https://www.youtube.com/watch?v=eMlx5fFNoYc' }
-        ]
-    },
-    {
-        category: 'arch',
-        badge: 'Architecture',
-        title: 'Tokenization',
-        description: 'Models don\'t understand text directly—they process numeric tokens that represent pieces of words.',
-        paragraphs: [
-            'AI models operate on numbers, not letters. A <strong>tokenizer</strong> converts text into integer IDs representing vocabulary fragments. For example, "Ingenious" might split into three tokens: <code>In</code>, <code>gen</code>, and <code>ious</code>.',
-            'This approach, called <strong>Byte-Pair Encoding (BPE)</strong>, balances efficiency and flexibility. Common words stay whole ("the"), while rare words split into recognizable parts. Multimodal models extend this: images become "patches," audio becomes tokens.'
-        ],
-        bullets: [
-            'Token count determines cost and speed—more tokens = higher compute',
-            'Tokenization explains quirks: why models struggle with spelling backward (tokens don\'t map 1:1 to letters)',
-            '<strong>Everything is next-token prediction:</strong> Poetry, code, math—all reduced to "what token comes next?"'
-        ],
-        callout: {
-            type: 'insight',
-            content: '<strong>Token Prediction Paradigm:</strong> This single task—predicting the next token—enables every capability. It\'s why models excel at pattern completion but may fail at precise arithmetic (it\'s token prediction, not calculation).'
-        },
-        resources: [
-            { icon: '🛠️', title: 'OpenAI Tokenizer', meta: 'Interactive tool', url: 'https://platform.openai.com/tokenizer' },
-            { icon: '📺', title: 'Build GPT Tokenizer', meta: '2h 13min • Andrej Karpathy', url: 'https://www.youtube.com/watch?v=zduSFxRajkE' }
         ]
     },
     {
