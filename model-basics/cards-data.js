@@ -132,26 +132,23 @@ const cardsData = [
         category: 'arch',
         badge: 'Architecture',
         title: '6. Inside a Transformer Layer',
-        description: 'Each layer combines attention, processing, and stabilization techniques to refine token representations without losing information.',
+        description: 'Each layer contains attention, feed-forward processing, normalization, and residual connections.',
         paragraphs: [
-            'We said each Transformer layer has two main components—but the full picture includes critical "glue" that makes deep stacking possible. Here\'s what actually happens as tokens flow through a single layer:',
-            '<strong>1. Layer Normalization (Pre-norm):</strong> Before processing, token vectors are normalized to have consistent scale. This stabilizes training in deep networks and prevents values from exploding or vanishing as they move through dozens of layers.',
-            '<strong>2. Self-Attention:</strong> Tokens "talk" to each other (covered in detail in the next slide). Each token\'s vector is updated based on the entire sequence context.',
-            '<strong>3. Residual Connection (Add):</strong> The original input vector is added back to the attention output. This "skip connection" preserves information from earlier layers and enables training of very deep networks (up to 100+ layers).',
-            '<strong>4. Layer Normalization (again):</strong> Normalize again before the next component.',
-            '<strong>5. Feed-Forward Network:</strong> Each token\'s vector passes through a small neural network (typically: expand to 4x size, apply non-linearity, compress back). This processes each token independently, refining its representation.',
-            '<strong>6. Residual Connection (again):</strong> Add the original vector again before passing to the next layer.',
-            'This pattern—normalize, process, add residual—appears twice per layer and is what allows Transformers to scale to enormous depths without training instability.'
+            'Each Transformer layer has a consistent structure that repeats throughout the network. Understanding this pattern reveals how information flows and accumulates:',
+            '<strong>Self-Attention:</strong> Tokens "talk" to each other, updating their vectors based on the entire sequence context (details in the next slide).',
+            '<strong>Feed-Forward Network:</strong> Each token\'s vector passes independently through a small neural network (expand to 4x size, transform, compress back). This adds non-linear processing power.',
+            '<strong>Layer Normalization:</strong> Before attention and before feed-forward, vectors are normalized to consistent scale. This prevents training instability in deep networks.',
+            '<strong>Residual Connections:</strong> After attention and feed-forward, the original input is added back. These "skip connections" preserve information and enable training of 100+ layer networks.'
         ],
         bullets: [
-            '<strong>Feed-Forward Network:</strong> Expands each vector to 4x size, transforms it, compresses back—adding non-linear processing power',
-            '<strong>Residual Connections:</strong> Like highway lanes that bypass each floor, ensuring original info always flows upward',
-            '<strong>Layer Normalization:</strong> Keeps vector values in a healthy range, prevents training collapse in deep models',
-            '<strong>Why It Matters:</strong> Without residuals and normalization, training 48-layer models would be nearly impossible'
+            '<strong>Pattern:</strong> (Normalize → Attention → Add) → (Normalize → Feed-forward → Add)',
+            '<strong>Feed-Forward:</strong> Expands vectors 4x, transforms, compresses back',
+            '<strong>Residuals:</strong> Original information bypasses transformations, flows directly upward',
+            '<strong>Key Insight:</strong> Without residuals and normalization, deep networks fail to train'
         ],
         callout: {
             type: 'note',
-            content: '<strong>The Highway Analogy:</strong> Attention and feed-forward networks transform vectors (like taking side streets), but residual connections provide an express highway for the original information. This prevents the model from "forgetting" earlier insights as tokens travel through dozens of layers.'
+            content: '<strong>Engineering Breakthroughs:</strong> Residuals and normalization aren\'t just optimizations—they\'re what made Transformers scalable. These techniques enabled the jump from 12-layer to 96-layer models.'
         },
         resources: [
             { icon: '📺', title: 'Layer Normalization Explained', meta: '8 min • Visual explanation', url: 'https://www.youtube.com/watch?v=2V3Ud-FnvUs' },
@@ -161,37 +158,59 @@ const cardsData = [
     {
         category: 'arch',
         badge: 'Architecture',
-        title: '7. Attention: How Tokens Communicate',
-        description: 'Self-attention is the key mechanism that lets each token update its representation by looking at all other tokens in the sequence.',
+        title: '7. Attention: Query, Key, Value',
+        description: 'Attention lets tokens look at each other through Query, Key, and Value vectors.',
         paragraphs: [
-            'Attention is THE innovation that makes Transformers work. It solves the problem RNNs couldn\'t: how can every token simultaneously look at every other token to understand context?',
-            '<strong>The Mechanism—Query, Key, Value (Q, K, V):</strong> For each token, the model creates three vectors: a <strong>Query</strong> (what am I looking for?), a <strong>Key</strong> (what do I represent?), and a <strong>Value</strong> (what information do I carry?). Each token\'s Query is compared to every other token\'s Key to calculate <strong>attention scores</strong>—how much should I pay attention to each other word?',
-            'These scores are normalized (via softmax) into weights that sum to 1.0. Then, the model computes a weighted average of all Value vectors, using these attention scores as weights. The result? Each token\'s vector is updated to incorporate relevant information from the entire sequence.',
-            '<strong>Example:</strong> In "The bank by the river was flooded," the token "bank" compares its Query to the Keys of all other tokens. "River" and "flooded" produce high attention scores (Keys match the Query), so "bank" pulls in their Value vectors. The generic "bank" embedding morphs into "financial institution" or "riverbank" based on context.',
-            '<strong>Multi-Head Attention:</strong> Models don\'t run attention once—they run it multiple times in parallel (8, 16, or 32 "heads"). Each head learns to focus on different relationships: syntax, semantics, coreference, etc. Outputs are concatenated and mixed, giving the model multiple simultaneous "perspectives" on the sequence.',
-            '<strong>Why It\'s Called Self-Attention:</strong> Tokens attend to other tokens in the same sequence—the input attends to itself. (Later models also use cross-attention between different sequences, like encoder-decoder architectures.)'
+            'Attention solves a core problem: how can every token simultaneously understand context from all other tokens? The answer: Query, Key, Value.',
+            'For each token, the model creates three vectors: <strong>Query (Q)</strong> — "What am I looking for?", <strong>Key (K)</strong> — "What do I represent?", and <strong>Value (V)</strong> — "What do I carry?"',
+            'Each token\'s Query is compared (dot product) to all Keys, producing <strong>attention scores</strong>. High scores = relevance. Scores are normalized (softmax) to weights, then used to compute a weighted average of all Values.',
+            '<strong>Example:</strong> In "The bank by the river," "bank" compares its Query to all Keys. "River" scores high, so "bank" pulls in its Value, morphing toward "riverbank" not "financial institution."'
         ],
         bullets: [
-            '<strong>Query, Key, Value:</strong> Each token generates three vectors via learned transformations',
-            '<strong>Attention Scores:</strong> Dot product of Query with all Keys, normalized by softmax',
-            '<strong>Weighted Sum:</strong> Combine all Value vectors using attention scores as weights',
-            '<strong>Multi-Head:</strong> Run attention multiple times in parallel to capture different relationships',
-            '<strong>Parallel Processing:</strong> All tokens compute attention simultaneously—no sequential bottleneck like RNNs'
+            '<strong>Q, K, V:</strong> Three learned transformations of each embedding',
+            '<strong>Scores:</strong> Query · Key (dot product), normalized by softmax',
+            '<strong>Output:</strong> Weighted sum of Values',
+            '<strong>Parallel:</strong> All tokens compute simultaneously'
         ],
         callout: {
             type: 'analogy',
-            content: '<strong>The Cocktail Party:</strong> Imagine a room where everyone shouts their interests (Keys). You shout what you\'re looking for (Query), and the room\'s acoustics amplify voices that match. You hear a weighted mix of conversations (Values), with relevant voices louder. Multi-head attention is like having multiple conversations simultaneously—one about work, one about hobbies, one about mutual friends.'
+            content: '<strong>Library Search:</strong> Your Query is your question. Each book\'s Key is its description. High-scoring books contribute their content (Values). You get a weighted mix of relevant sources.'
         },
         resources: [
             { icon: '📺', title: '3Blue1Brown: Attention in Transformers', meta: '26 min • Animated explanation', url: 'https://www.youtube.com/watch?v=eMlx5fFNoYc' },
-            { icon: '🎬', title: 'Attention Is All You Need', meta: '15 min • Visual walkthrough', url: 'https://www.youtube.com/watch?v=wjZofJX0v4M' },
             { icon: '🌐', title: 'The Illustrated Transformer', meta: 'Jay Alammar • Attention visualizations', url: 'https://jalammar.github.io/illustrated-transformer/' }
+        ]
+    },
+    {
+        category: 'arch',
+        badge: 'Architecture',
+        title: '8. Multi-Head Attention',
+        description: 'Models run attention multiple times in parallel, each "head" learning to focus on different relationships.',
+        paragraphs: [
+            'Models don\'t run attention once—they run it multiple times in parallel, called <strong>multi-head attention</strong>. A model might have 8, 16, or 32 attention heads operating simultaneously.',
+            '<strong>Why Multiple Heads?</strong> Different heads learn to focus on different relationships. One head might specialize in syntax (subject-verb agreement), another in semantics (related concepts), another in coreference (pronouns to nouns). This gives the model multiple simultaneous "perspectives" on the sequence.',
+            'Each head has its own Query, Key, and Value transformation matrices. They all run in parallel, producing separate attention outputs. These outputs are concatenated together and mixed through a final learned transformation.',
+            '<strong>Self-Attention vs. Cross-Attention:</strong> Self-attention means tokens attend to other tokens in the same sequence—the input attends to itself. Cross-attention (used in encoder-decoder architectures) lets one sequence attend to a different sequence, like when translating from English to French.'
+        ],
+        bullets: [
+            '<strong>Multiple Heads:</strong> 8-32 parallel attention operations with independent Q, K, V matrices',
+            '<strong>Specialization:</strong> Each head learns different patterns (syntax, semantics, position)',
+            '<strong>Combine:</strong> Concatenate all head outputs and mix through learned transformation',
+            '<strong>Self-Attention:</strong> Tokens attend to the same sequence (most common in LLMs)'
+        ],
+        callout: {
+            type: 'analogy',
+            content: '<strong>The Expert Panel:</strong> Instead of one judge evaluating relationships, you have a panel of 8-16 experts. Each expert focuses on different aspects—one on grammar, one on meaning, one on context. Their combined insights create a richer understanding than any single perspective.'
+        },
+        resources: [
+            { icon: '🎬', title: 'Attention Is All You Need', meta: '15 min • Visual walkthrough', url: 'https://www.youtube.com/watch?v=wjZofJX0v4M' },
+            { icon: '🌐', title: 'The Illustrated Transformer', meta: 'Jay Alammar • Multi-head attention', url: 'https://jalammar.github.io/illustrated-transformer/' }
         ]
     },
     {
         category: 'train',
         badge: 'Training',
-        title: '8. Pre-Training',
+        title: '9. Pre-Training',
         description: 'Pre-training is where models learn the patterns, facts, and structures of human knowledge from massive text datasets.',
         paragraphs: [
             'During pre-training, the model consumes <strong>trillions of tokens</strong> from books, websites, research papers, and code repositories. The training objective is simple: predict the next token. Wrong predictions trigger tiny weight adjustments via backpropagation.',
@@ -214,7 +233,7 @@ const cardsData = [
     {
         category: 'train',
         badge: 'Training',
-        title: '9. Post-Training',
+        title: '10. Post-Training',
         description: 'Post-training transforms a knowledgeable but unruly base model into a helpful, safe, and aligned assistant.',
         paragraphs: [
             'Base models know a lot but behave poorly—generating offensive content, refusing simple requests, or rambling endlessly. <strong>Post-training</strong> teaches them to be useful assistants through two key techniques:',
@@ -238,7 +257,7 @@ const cardsData = [
     {
         category: 'train',
         badge: 'Training',
-        title: '10. Bias, Fairness & Limitations',
+        title: '11. Bias, Fairness & Limitations',
         description: 'AI models inherit the biases, gaps, and perspectives present in their training data—they are mirrors, not arbiters of truth.',
         paragraphs: [
             'Training data comes from the internet, books, and human-generated content—all of which contain biases, stereotypes, and uneven representation. Models learn these patterns just as they learn grammar and facts. If training data overrepresents certain demographics or perspectives, the model will too.',
@@ -262,7 +281,7 @@ const cardsData = [
     {
         category: 'infer',
         badge: 'Inference',
-        title: '11. The Frozen State',
+        title: '12. The Frozen State',
         description: 'After training, model weights are frozenâ€”inference runs data through this fixed architecture without learning.',
         paragraphs: [
             'Once training completes, the model\'s weights are <strong>locked</strong>. Inference (generating responses) reads these weights but never modifies them. This is why chatting doesn\'t teach the model anything permanentâ€”corrections only affect the current conversation\'s context.',
@@ -281,11 +300,11 @@ const cardsData = [
     {
         category: 'infer',
         badge: 'Inference',
-        title: '12. The Prompt Stack',
+        title: '13. The Prompt Stack',
         description: 'Every model interaction involves a carefully structured stack of hidden instructions, history, and user input.',
         paragraphs: [
             'When you send a message, the model doesn\'t just see your text. It processes a <strong>prompt stack</strong> with multiple layers:',
-            '<strong>1. System Prompt:</strong> Hidden instructions defining the model\'s persona and behavior ("You are a helpful AI assistantâ€¦").',
+            '<strong>1. System Prompt:</strong> Hidden instructions defining the model\'s persona and behavior ("You are a helpful AI assistant...").',
             '<strong>2. Conversation History:</strong> Every prior message in the conversation is re-sent on each turn, consuming context window space.',
             '<strong>3. User Prompt:</strong> Your actual message, often wrapped in XML tags for parsing (<code>&lt;user_query&gt;</code>).'
         ],
@@ -306,7 +325,7 @@ const cardsData = [
     {
         category: 'infer',
         badge: 'Inference',
-        title: '13. The Selection Dice Roll',
+        title: '14. The Selection Dice Roll',
         description: 'The final step: turning a "massaged" vector back into a human word.',
         paragraphs: [
             'At the roof of the skyscraper, the model has a highly refined vector. It compares this "thought" against its entire vocabulary and gives every word a score (<strong>Logits</strong>).',
@@ -331,7 +350,7 @@ const cardsData = [
     {
         category: 'infer',
         badge: 'Summary',
-        title: '14. What happens when you send a message?',
+        title: '15. What happens when you send a message?',
         description: 'A simple end-to-end view of the inference loop.',
         paragraphs: [
             'Every chat turn runs the same basic pipeline: assemble the prompt, run a forward pass, pick the next token, and repeat.'
@@ -356,7 +375,7 @@ const cardsData = [
     {
         category: 'adv',
         badge: 'Advanced',
-        title: '15. Embedding Models: Semantic Search & Retrieval',
+        title: '16. Embedding Models: Semantic Search & Retrieval',
         description: 'Standalone embedding models power semantic search, document retrieval, and RAG systems by measuring meaning similarity.',
         paragraphs: [
             'While LLMs use embeddings internally (as we saw in the architecture section), <strong>embedding models</strong> are specialized tools trained specifically to convert text into vectors optimized for similarity comparison. Unlike generative models, they don\'t produce text—they produce numerical representations designed for search and matching.',
@@ -407,7 +426,7 @@ const cardsData = [
     {
         category: 'adv',
         badge: 'Advanced',
-        title: '17. RAG (Retrieval-Augmented Generation)',
+        title: '18. RAG (Retrieval-Augmented Generation)',
         description: 'RAG combats hallucinations and knowledge cutoffs by injecting external documents directly into the model\'s context.',
         paragraphs: [
             'Models have <strong>knowledge cutoffs</strong> and no access to your private documents. <strong>Retrieval-Augmented Generation (RAG)</strong> solves this by dynamically fetching relevant information and inserting it into the prompt.',
@@ -448,7 +467,7 @@ const cardsData = [
     {
         category: 'adv',
         badge: 'Advanced',
-        title: '19. Reasoning: Two Paradigms',
+        title: '20. Reasoning: Two Paradigms',
         description: 'Reasoning capability comes from two distinct approaches: prompting techniques and dedicated inference-time compute.',
         paragraphs: [
             '<strong>Chain of Thought (CoT):</strong> A prompting technique where you ask the model to "think step by step." This encourages intermediate reasoning, improving accuracy on math and logic tasks. It\'s a prompt hack, not a model feature.',
@@ -491,7 +510,7 @@ const cardsData = [
     {
         category: 'infer',
         badge: 'Conclusion',
-        title: '21. Understanding the System',
+        title: '22. Understanding the System',
         description: 'AI models are not consciousâ€”they\'re sophisticated statistical systems that mirror human knowledge.',
         paragraphs: [
             'Modern AI isn\'t magic. It\'s a <strong>high-fidelity statistical mirror</strong> of human-created text, trained on trillions of tokens to predict plausible continuations. Understanding the frozen pipeline, tokenization, training phases, and inference mechanics demystifies both capabilities and limitations.',
