@@ -1,11 +1,12 @@
 // Model Basics - Card Data
 // All content for the topic cards
+// Incorporating "Factory/Skyscraper" and "Flavor Profile" analogies
 
 const cardsData = [
     {
         category: 'arch',
         badge: 'Overview',
-        title: 'Introduction to modern AI models',
+        title: '1. Introduction to modern AI models',
         description: 'AI models are sophisticated mathematical engines that have seen remarkable growth in the last decade',
         paragraphs: [
             'In this presentation, we are going to demystify how modern AI systems work.',
@@ -29,36 +30,37 @@ const cardsData = [
     {
         category: 'arch',
         badge: 'History',
-        title: 'Before Transformers',
+        title: '2. Before Transformers',
         description: 'Understanding why the Transformer architecture was revolutionary requires looking at what came before.',
         paragraphs: [
-            'Early neural networks for language processing used <strong>Recurrent Neural Networks (RNNs)</strong> and <strong>Long Short-Term Memory (LSTM)</strong> architectures. These models processed text sequentially—one word at a time, in order—maintaining and keeping the context of previous words was a resource intensive process.',
-            'The problem? Sequential processing was slow (couldn\'t parallelize across GPUs), and models struggled with long-range dependencies. By the time an RNN reached word 50, it had largely "forgotten" word 1.',
-            '<strong>Seq2Seq</strong> (encoder-decoder) models added <strong>attention</strong>—first for machine translation—so the decoder could "look at" relevant parts of the input. Attention helped, but the backbone was still sequential RNNs. The precursors started appearing around 2014, with the first successful implementation of attention in 2015 by Bahdanau et al. and Vaswani et al. in 2017.',
-            'The 2017 paper "Attention Is All You Need" introduced the <strong>Transformer</strong>, which dropped the RNN entirely. It processes all tokens in parallel using only attention—enabling the scale we see today.'
+            'Early neural networks for language processing used Recurrent Neural Networks (RNNs) and Long Short-Term Memory (LSTM) architectures. These models processed text sequentially, one word at a time, maintaining context through a resource-intensive process.',
+            'The problem? Sequential processing was slow and could not parallelize across GPUs. Models also struggled with long-range dependencies. By the time an RNN reached word 50, it had largely forgotten word 1.',
+            'Seq2Seq (encoder-decoder) models added attention mechanisms, first for machine translation, so the decoder could look at relevant parts of the input. Attention helped, but the backbone was still sequential RNNs. These precursors started appearing around 2014, with the first successful implementation of attention in 2015 by Bahdanau et al., followed by the breakthrough Vaswani et al. paper in 2017.',
+            'The 2017 paper Attention Is All You Need introduced the Transformer, which dropped the RNN entirely. It processes all tokens in parallel using only attention mechanisms, enabling the massive scale we see in modern AI.'
         ],
         bullets: [
-            '<strong>RNNs/LSTMs:</strong> Sequential processing (slow), vanishing gradients (poor long-term memory)',
-            '<strong>Seq2Seq:</strong> Encoder-decoder + attention (e.g. for translation); attention helped, but RNNs remained the bottleneck',
-            '<strong>CNNs:</strong> Worked for images but struggled with variable-length text and long dependencies',
-            '<strong>The Breakthrough:</strong> Transformer keeps attention, drops recurrence—every token can "look at" every other token in parallel'
+            'RNNs and LSTMs: Sequential processing (slow), vanishing gradients (poor long-term memory)',
+            'Seq2Seq: Encoder-decoder plus attention (for tasks like translation), but RNNs remained the bottleneck',
+            'The Breakthrough: Transformers keep attention, drop recurrence. Every token can look at every other token in parallel'
         ],
         callout: {
             type: 'insight',
-            content: '<strong>Why This Matters:</strong> The shift from sequential to parallel processing is why modern AI could scale to billions of parameters and trillion-token datasets. RNNs couldn\'t scale effectively—Transformers could.'
+            content: 'Why This Matters: The shift from sequential to parallel processing is why modern AI could scale to billions of parameters and trillion-token datasets. RNNs could not scale effectively. Transformers could.'
         },
         resources: [
-            { icon: '🌐', title: 'Attention? Attention!', meta: 'Lilian Weng • Understanding attention mechanisms', url: 'https://lilianweng.github.io/posts/2018-06-24-attention/' }
-        ]
+            { icon: '📺', title: 'Transformers and Attention Overview', meta: '58 min • Deep dive into transformers', url: 'https://www.youtube.com/watch?v=KJtZARuO3JY' },
+            { icon: '🌐', title: 'Attention? Attention!', meta: 'Lilian Weng', url: 'https://lilianweng.github.io/posts/2018-06-24-attention/' }        ]
     },
     {
         category: 'arch',
         badge: 'Architecture',
-        title: 'Tokens & Tokenization',
+        title: '3. Tokens & Tokenization',
         description: 'Models don\'t read text directly—they process numeric token IDs that represent pieces of words.',
         paragraphs: [
             'AI models operate on numbers, not letters. A <strong>tokenizer</strong> converts text into integer IDs representing vocabulary fragments. For example, "Ingenious" might split into three tokens: <code>In</code>, <code>gen</code>, and <code>ious</code>.',
-            'This approach (often <strong>BPE</strong> or similar) balances efficiency and flexibility: common words stay whole, rare words split into reusable parts. Multimodal models do the same idea for images (patches) and audio (chunks).'
+            'This approach (often <strong>BPE</strong>—<strong>Byte Pair Encoding</strong>—or similar) balances efficiency and flexibility: common words stay whole, rare words split into reusable parts.',
+            'BPE works at the byte level, using the 256 possible byte values (0-255) as a universal foundation. This allows it to represent any language, emoji, or Unicode character through UTF-8 encoding, making it language-agnostic.',
+            'Multimodal models do the same idea for images (patches) and audio (chunks).'
         ],
         bullets: [
             'Token count determines cost and speed—more tokens = higher compute',
@@ -71,51 +73,56 @@ const cardsData = [
         },
         resources: [
             { icon: '🛠️', title: 'OpenAI Tokenizer', meta: 'Interactive tool', url: 'https://platform.openai.com/tokenizer' },
+            { icon: '📺', title: 'Byte Pair Encoding Tokenization', meta: '7 min • Tokenization & BPE explained', url: 'https://www.youtube.com/watch?v=4A_nfXyBD08' },
             { icon: '📺', title: 'Build GPT Tokenizer', meta: '2h 13min • Andrej Karpathy', url: 'https://www.youtube.com/watch?v=zduSFxRajkE' }
         ]
     },
     {
         category: 'arch',
         badge: 'Architecture',
-        title: 'Embeddings, position, and context',
-        description: 'After tokenization, the model turns token IDs into vectors, adds order, and works within a limited window.',
+        title: '4. From Numbers to Meaning: Embeddings',
+        description: 'Token IDs are just numbers—embeddings transform them into rich, meaningful representations the model can process.',
         paragraphs: [
-            'A token ID is just a number. The first step is an <strong>embedding lookup</strong>: the model maps each token ID to a vector (a list of numbers) that represents meaning and usage.',
-            'Because word order matters, the model adds <strong>positional information</strong> so "man bites dog" differs from "dog bites man". Then it processes the whole sequence inside a finite <strong>context window</strong> (the model’s working memory).'
+            'After tokenization, the model has a sequence of token IDs—integers like [4829, 2121, 8945]. But numbers alone are meaningless. The model needs to understand what each token <em>represents</em>.',
+            'Enter <strong>embeddings</strong>: the model looks up each token ID in a massive learned table (the <strong>embedding matrix</strong>) and retrieves its corresponding <strong>vector</strong>—a list of hundreds or thousands of numbers. Each dimension captures some aspect of meaning: semantic properties, grammatical role, contextual patterns learned during training.',
+            'These vectors live in <strong>embedding space</strong>, a high-dimensional coordinate system where similar meanings cluster together. "Dog" and "puppy" sit close to each other. "King" and "queen" differ primarily along a "gender" axis. This geometry is how the model "understands" relationships without explicit rules.',
+            'The model also adds <strong>positional encodings</strong>—patterns that tell it where each token appears in the sequence. Without position, "dog bites man" and "man bites dog" would look identical. Position + meaning = the full input representation that flows into the Transformer layers.'
         ],
         bullets: [
-            '<strong>Embeddings:</strong> Vectors that represent tokens; the model updates these vectors layer by layer',
-            '<strong>Positional encoding:</strong> Adds “where am I in the sequence?” so order is preserved',
-            '<strong>Context window:</strong> Only tokens inside the window can influence the output',
-            '<strong>Prompt budget:</strong> System + chat history + your input all share the same window'
+            '<strong>Embedding Lookup:</strong> Token ID → retrieve learned vector from embedding table',
+            '<strong>High-Dimensional Space:</strong> Vectors typically have 768, 1024, 4096+ dimensions',
+            '<strong>Learned During Training:</strong> The embedding table is optimized alongside the rest of the model',
+            '<strong>Positional Encoding:</strong> Adds order information so word sequence matters'
         ],
         callout: {
-            type: 'note',
-            content: '<strong>Practical takeaway:</strong> When prompts get long, models may drop or compress earlier parts because they can only “see” what fits in the context window.'
+            type: 'analogy',
+            content: '<strong>Analogy:</strong> If tokenization assigns each word a locker number, embeddings are the contents of that locker—a profile describing the word\'s meaning, usage, and relationships. Position encoding adds a timestamp: when that locker was opened in the sequence.'
         },
         resources: [
-            { icon: '📺', title: 'A Student\'s Guide to Vectors and Tensors', meta: '12 min • Dan Fleisch', url: 'https://www.youtube.com/watch?v=f5liqUk0ZTw' }
+            { icon: '📺', title: 'Language Models: Tokens and Embeddings', meta: '7 min • Visual explanation', url: 'https://www.youtube.com/watch?v=izbifbq3-eI' },
+            { icon: '📺', title: 'Language Models & Transformers', meta: '20 min • Computerphile', url: 'https://www.youtube.com/watch?v=rURRYI66E54' }
         ]
     },
     {
         category: 'arch',
         badge: 'Architecture',
-        title: 'Transformer blocks (repeat N times)',
-        description: 'A Transformer is a stack of repeating blocks. Each block updates every token in two steps: mix, then refine.',
+        title: '5. The Transformer Architecture',
+        description: 'The Transformer is a stack of repeating layers that progressively refine token representations through attention and processing.',
         paragraphs: [
-            'Inside a block, <strong>attention</strong> lets a token pull in information from other tokens (a controlled “mixing” of context). Then a small <strong>MLP</strong> (feed-forward network) does per-token nonlinear computation to refine that token’s representation.',
-            'Both steps are wrapped with <strong>residual connections</strong> (add the old signal back) and <strong>layer norm</strong> (keep values stable), which is what makes deep stacks trainable.'
+            'A Transformer isn\'t a single operation—it\'s a <strong>stack of identical layers</strong> (typically 12, 24, 48, or more) that process embeddings sequentially. Think of it as a skyscraper: each floor performs the same two operations on every token\'s vector as it passes through.',
+            '<strong>Each Transformer layer contains:</strong> (1) A <strong>self-attention mechanism</strong> that lets tokens "communicate" and update their representations based on context, and (2) A <strong>feed-forward network</strong> that processes each token\'s vector independently, refining its meaning.',
+            'As vectors flow upward through the stack, they accumulate increasingly abstract and context-aware information. Early layers capture basic patterns like grammar and syntax. Middle layers learn relationships and simple logic. Deep layers encode complex reasoning, nuanced meaning, and task-specific behavior.',
+            'The power of Transformers comes from this <strong>deep, repeated processing</strong>. Each layer adds a small refinement, but stacking dozens of them allows the model to build sophisticated representations from simple token embeddings.'
         ],
         bullets: [
-            '<strong>Attention = mix:</strong> each token becomes a weighted blend of other tokens’ vectors',
-            '<strong>MLP = compute:</strong> transforms each token independently (adds nonlinear “feature building”)',
-            '<strong>Residual:</strong> update = old + new (helps information flow through many layers)',
-            '<strong>Layer norm:</strong> stabilizes training and prevents values from drifting',
-            '<strong>Depth:</strong> repeating this many times builds more abstract concepts'
+            '<strong>Layer Structure:</strong> Self-attention + feed-forward network, repeated N times',
+            '<strong>Progressive Refinement:</strong> Each layer adds context and abstraction to token vectors',
+            '<strong>Residual Connections:</strong> Original information is preserved as it flows upward, preventing information loss',
+            '<strong>Depth = Capability:</strong> More layers enable more complex reasoning and pattern recognition'
         ],
         callout: {
             type: 'insight',
-            content: '<strong>Why it’s easy to mix up:</strong> Attention mostly moves information between tokens; the MLP mostly transforms information within a token. Together, they let models combine context with computation.'
+            content: '<strong>The Skyscraper Analogy:</strong> Ground floor tokens know only their own meaning. As they ride the elevator through dozens of floors—each adding context from surrounding words—they emerge at the top with rich, nuanced understanding of their role in the specific sentence.'
         },
         resources: [
             { icon: '🌐', title: 'The Illustrated Transformer', meta: 'Jay Alammar • Visual explanation', url: 'https://jalammar.github.io/illustrated-transformer/' }
@@ -124,53 +131,67 @@ const cardsData = [
     {
         category: 'arch',
         badge: 'Architecture',
-        title: 'Attention (the intuition)',
-        description: 'Attention lets each token decide which other tokens matter right now.',
+        title: '6. Inside a Transformer Layer',
+        description: 'Each layer combines attention, processing, and stabilization techniques to refine token representations without losing information.',
         paragraphs: [
-            'When the model updates a token, it asks: “which other tokens should influence me?” Attention answers by assigning weights to other tokens, then mixing their information into the current token.',
-            'Crucially, this happens for <em>every</em> token in parallel, producing a set of updated, context-aware token vectors.'
+            'We said each Transformer layer has two main components—but the full picture includes critical "glue" that makes deep stacking possible. Here\'s what actually happens as tokens flow through a single layer:',
+            '<strong>1. Layer Normalization (Pre-norm):</strong> Before processing, token vectors are normalized to have consistent scale. This stabilizes training in deep networks and prevents values from exploding or vanishing as they move through dozens of layers.',
+            '<strong>2. Self-Attention:</strong> Tokens "talk" to each other (covered in detail in the next slide). Each token\'s vector is updated based on the entire sequence context.',
+            '<strong>3. Residual Connection (Add):</strong> The original input vector is added back to the attention output. This "skip connection" preserves information from earlier layers and enables training of very deep networks (up to 100+ layers).',
+            '<strong>4. Layer Normalization (again):</strong> Normalize again before the next component.',
+            '<strong>5. Feed-Forward Network:</strong> Each token\'s vector passes through a small neural network (typically: expand to 4x size, apply non-linearity, compress back). This processes each token independently, refining its representation.',
+            '<strong>6. Residual Connection (again):</strong> Add the original vector again before passing to the next layer.',
+            'This pattern—normalize, process, add residual—appears twice per layer and is what allows Transformers to scale to enormous depths without training instability.'
         ],
         bullets: [
-            '<strong>Selective focus:</strong> different tokens matter for different words (e.g., resolving pronouns)',
-            '<strong>Many perspectives:</strong> multiple heads learn different relationships (syntax, meaning, coreference)',
-            '<strong>Causal masking (LLMs):</strong> during generation, a token can’t look “to the right” at future tokens'
+            '<strong>Feed-Forward Network:</strong> Expands each vector to 4x size, transforms it, compresses back—adding non-linear processing power',
+            '<strong>Residual Connections:</strong> Like highway lanes that bypass each floor, ensuring original info always flows upward',
+            '<strong>Layer Normalization:</strong> Keeps vector values in a healthy range, prevents training collapse in deep models',
+            '<strong>Why It Matters:</strong> Without residuals and normalization, training 48-layer models would be nearly impossible'
         ],
         callout: {
-            type: 'analogy',
-            content: '<strong>Analogy:</strong> While reading, you constantly look back to resolve meaning: “bank” checks nearby words to choose river vs money; “it” looks back for the referent. Attention automates this across thousands of tokens.'
+            type: 'note',
+            content: '<strong>The Highway Analogy:</strong> Attention and feed-forward networks transform vectors (like taking side streets), but residual connections provide an express highway for the original information. This prevents the model from "forgetting" earlier insights as tokens travel through dozens of layers.'
         },
         resources: [
-            { icon: '📺', title: '3Blue1Brown: Attention', meta: '26 min • Animated explanation', url: 'https://www.youtube.com/watch?v=eMlx5fFNoYc' }
+            { icon: '📺', title: 'Layer Normalization Explained', meta: '8 min • Visual explanation', url: 'https://www.youtube.com/watch?v=2V3Ud-FnvUs' },
+            { icon: '🌐', title: 'The Illustrated Transformer', meta: 'Jay Alammar • Visual explanation', url: 'https://jalammar.github.io/illustrated-transformer/' }
         ]
     },
     {
         category: 'arch',
         badge: 'Architecture',
-        title: 'Attention (Q, K, V)',
-        description: 'Q/K/V is the recipe for turning “what should I pay attention to?” into weights and a mixed output.',
+        title: '7. Attention: How Tokens Communicate',
+        description: 'Self-attention is the key mechanism that lets each token update its representation by looking at all other tokens in the sequence.',
         paragraphs: [
-            'For each token, the model creates three vectors: <strong>Query</strong> (what I’m looking for), <strong>Key</strong> (what I offer), and <strong>Value</strong> (my information).',
-            'It scores Query vs Keys, turns those scores into weights, and takes a weighted sum of Values. That weighted sum becomes the token’s “mixed-in context.”'
+            'Attention is THE innovation that makes Transformers work. It solves the problem RNNs couldn\'t: how can every token simultaneously look at every other token to understand context?',
+            '<strong>The Mechanism—Query, Key, Value (Q, K, V):</strong> For each token, the model creates three vectors: a <strong>Query</strong> (what am I looking for?), a <strong>Key</strong> (what do I represent?), and a <strong>Value</strong> (what information do I carry?). Each token\'s Query is compared to every other token\'s Key to calculate <strong>attention scores</strong>—how much should I pay attention to each other word?',
+            'These scores are normalized (via softmax) into weights that sum to 1.0. Then, the model computes a weighted average of all Value vectors, using these attention scores as weights. The result? Each token\'s vector is updated to incorporate relevant information from the entire sequence.',
+            '<strong>Example:</strong> In "The bank by the river was flooded," the token "bank" compares its Query to the Keys of all other tokens. "River" and "flooded" produce high attention scores (Keys match the Query), so "bank" pulls in their Value vectors. The generic "bank" embedding morphs into "financial institution" or "riverbank" based on context.',
+            '<strong>Multi-Head Attention:</strong> Models don\'t run attention once—they run it multiple times in parallel (8, 16, or 32 "heads"). Each head learns to focus on different relationships: syntax, semantics, coreference, etc. Outputs are concatenated and mixed, giving the model multiple simultaneous "perspectives" on the sequence.',
+            '<strong>Why It\'s Called Self-Attention:</strong> Tokens attend to other tokens in the same sequence—the input attends to itself. (Later models also use cross-attention between different sequences, like encoder-decoder architectures.)'
         ],
         bullets: [
-            '<strong>Query (Q):</strong> what this token wants to find',
-            '<strong>Key (K):</strong> what this token matches on',
-            '<strong>Value (V):</strong> what information this token contributes',
-            '<strong>Multi-head:</strong> do this in parallel, then combine the results',
-            '<strong>Cost:</strong> comparing many tokens to many tokens gets expensive as context grows'
+            '<strong>Query, Key, Value:</strong> Each token generates three vectors via learned transformations',
+            '<strong>Attention Scores:</strong> Dot product of Query with all Keys, normalized by softmax',
+            '<strong>Weighted Sum:</strong> Combine all Value vectors using attention scores as weights',
+            '<strong>Multi-Head:</strong> Run attention multiple times in parallel to capture different relationships',
+            '<strong>Parallel Processing:</strong> All tokens compute attention simultaneously—no sequential bottleneck like RNNs'
         ],
         callout: {
-            type: 'note',
-            content: '<strong>One subtle point:</strong> Attention doesn’t retrieve a stored “fact” like a database query—it computes a new vector by blending existing token representations.'
+            type: 'analogy',
+            content: '<strong>The Cocktail Party:</strong> Imagine a room where everyone shouts their interests (Keys). You shout what you\'re looking for (Query), and the room\'s acoustics amplify voices that match. You hear a weighted mix of conversations (Values), with relevant voices louder. Multi-head attention is like having multiple conversations simultaneously—one about work, one about hobbies, one about mutual friends.'
         },
         resources: [
-            { icon: '🎬', title: 'Attention Is All You Need', meta: '15 min • Visual walkthrough', url: 'https://www.youtube.com/watch?v=wjZofJX0v4M' }
+            { icon: '📺', title: '3Blue1Brown: Attention in Transformers', meta: '26 min • Animated explanation', url: 'https://www.youtube.com/watch?v=eMlx5fFNoYc' },
+            { icon: '🎬', title: 'Attention Is All You Need', meta: '15 min • Visual walkthrough', url: 'https://www.youtube.com/watch?v=wjZofJX0v4M' },
+            { icon: '🌐', title: 'The Illustrated Transformer', meta: 'Jay Alammar • Attention visualizations', url: 'https://jalammar.github.io/illustrated-transformer/' }
         ]
     },
     {
         category: 'train',
         badge: 'Training',
-        title: 'Pre-Training',
+        title: '8. Pre-Training',
         description: 'Pre-training is where models learn the patterns, facts, and structures of human knowledge from massive text datasets.',
         paragraphs: [
             'During pre-training, the model consumes <strong>trillions of tokens</strong> from books, websites, research papers, and code repositories. The training objective is simple: predict the next token. Wrong predictions trigger tiny weight adjustments via backpropagation.',
@@ -193,7 +214,7 @@ const cardsData = [
     {
         category: 'train',
         badge: 'Training',
-        title: 'Post-Training',
+        title: '9. Post-Training',
         description: 'Post-training transforms a knowledgeable but unruly base model into a helpful, safe, and aligned assistant.',
         paragraphs: [
             'Base models know a lot but behave poorly—generating offensive content, refusing simple requests, or rambling endlessly. <strong>Post-training</strong> teaches them to be useful assistants through two key techniques:',
@@ -217,7 +238,7 @@ const cardsData = [
     {
         category: 'train',
         badge: 'Training',
-        title: 'Bias, Fairness & Limitations',
+        title: '10. Bias, Fairness & Limitations',
         description: 'AI models inherit the biases, gaps, and perspectives present in their training data—they are mirrors, not arbiters of truth.',
         paragraphs: [
             'Training data comes from the internet, books, and human-generated content—all of which contain biases, stereotypes, and uneven representation. Models learn these patterns just as they learn grammar and facts. If training data overrepresents certain demographics or perspectives, the model will too.',
@@ -235,21 +256,21 @@ const cardsData = [
             content: '<strong>No Silver Bullet:</strong> Bias mitigation is an ongoing process, not a solved problem. Even the most carefully trained models can produce biased outputs. The goal is harm reduction and transparency, not perfection. Always apply human judgment, especially in consequential decisions.'
         },
         resources: [
-            { icon: '📺', title: 'AI Bias Explained', meta: '9 min • TEDx', url: 'https://www.youtube.com/watch?v=59bMh59JQDo' }
+            { icon: 'ðŸ“º', title: 'AI Bias Explained', meta: '9 min â€¢ TEDx', url: 'https://www.youtube.com/watch?v=59bMh59JQDo' }
         ]
     },
     {
         category: 'infer',
         badge: 'Inference',
-        title: 'The Frozen State',
-        description: 'After training, model weights are frozen—inference runs data through this fixed architecture without learning.',
+        title: '11. The Frozen State',
+        description: 'After training, model weights are frozenâ€”inference runs data through this fixed architecture without learning.',
         paragraphs: [
-            'Once training completes, the model\'s weights are <strong>locked</strong>. Inference (generating responses) reads these weights but never modifies them. This is why chatting doesn\'t teach the model anything permanent—corrections only affect the current conversation\'s context.',
-            '<strong>In-Context Learning</strong> is the workaround: if you provide examples in your prompt, the model adapts its outputs to match those patterns—but only for that single interaction. After the conversation ends, the model "forgets" everything.'
+            'Once training completes, the model\'s weights are <strong>locked</strong>. Inference (generating responses) reads these weights but never modifies them. This is why chatting doesn\'t teach the model anything permanentâ€”corrections only affect the current conversation\'s context.',
+            '<strong>In-Context Learning</strong> is the workaround: if you provide examples in your prompt, the model adapts its outputs to match those patternsâ€”but only for that single interaction. After the conversation ends, the model "forgets" everything.'
         ],
         bullets: [
             'No learning during inference: feedback doesn\'t update weights',
-            'Context window is the only "memory"—once it\'s full, earlier messages get truncated',
+            'Context window is the only "memory"â€”once it\'s full, earlier messages get truncated',
             'In-context learning mimics adaptation without changing the underlying model'
         ],
         callout: {
@@ -260,18 +281,18 @@ const cardsData = [
     {
         category: 'infer',
         badge: 'Inference',
-        title: 'The Prompt Stack',
+        title: '12. The Prompt Stack',
         description: 'Every model interaction involves a carefully structured stack of hidden instructions, history, and user input.',
         paragraphs: [
             'When you send a message, the model doesn\'t just see your text. It processes a <strong>prompt stack</strong> with multiple layers:',
-            '<strong>1. System Prompt:</strong> Hidden instructions defining the model\'s persona and behavior ("You are a helpful AI assistant…").',
+            '<strong>1. System Prompt:</strong> Hidden instructions defining the model\'s persona and behavior ("You are a helpful AI assistantâ€¦").',
             '<strong>2. Conversation History:</strong> Every prior message in the conversation is re-sent on each turn, consuming context window space.',
             '<strong>3. User Prompt:</strong> Your actual message, often wrapped in XML tags for parsing (<code>&lt;user_query&gt;</code>).'
         ],
         bullets: [
-            'Long conversations get slower and more expensive—the entire history is typically reprocessed every turn',
+            'Long conversations get slower and more expensiveâ€”the entire history is typically reprocessed every turn',
             'At context limit, early messages are dropped (the model "forgets" the start of long chats)',
-            '<strong>Context rot:</strong> In long chats, constraints can get buried or dropped—leading to drift and contradictions',
+            '<strong>Context rot:</strong> In long chats, constraints can get buried or droppedâ€”leading to drift and contradictions',
             'Prompt engineering exploits this structure: clear instructions, examples, and formatting improve outputs'
         ],
         callout: {
@@ -279,39 +300,38 @@ const cardsData = [
             content: '<strong>Note:</strong> This is why long conversations become expensive and slow. Each new response requires reprocessing thousands of prior tokens. <strong>Tip:</strong> Periodically restate the goal and key constraints (or start a fresh thread with a short summary) to reduce drift.'
         },
         resources: [
-            { icon: '📘', title: 'Claude prompting best practices', meta: 'Anthropic docs • Prompt engineering', url: 'https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices' }
+            { icon: 'ðŸ“˜', title: 'Claude prompting best practices', meta: 'Anthropic docs â€¢ Prompt engineering', url: 'https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices' }
         ]
     },
     {
         category: 'infer',
         badge: 'Inference',
-        title: 'Probabilities & Hallucinations',
-        description: 'Models generate text by sampling from probability distributions—a process that enables creativity but allows errors.',
+        title: '13. The Selection Dice Roll',
+        description: 'The final step: turning a "massaged" vector back into a human word.',
         paragraphs: [
-            'For every token, the model outputs a <strong>probability distribution</strong> across its entire vocabulary (100K+ tokens). A <strong>temperature</strong> setting controls sampling:',
-            '<strong>Temperature 0:</strong> Always pick the highest-probability token (deterministic, conservative). <strong>Temperature 0.7-1.0:</strong> Sample probabilistically, enabling creative variation but risking drift off-topic.',
-            '<strong>Hallucinations</strong> occur when the model generates fluent but false text. Why? The model prioritizes "statistically plausible" over "factually accurate"—it lacks a truth-checking mechanism.'
+            'At the roof of the skyscraper, the model has a highly refined vector. It compares this "thought" against its entire vocabulary and gives every word a score (<strong>Logits</strong>).',
+            'These scores are turned into probabilities. The model doesn\'t "know" the answer; it just knows that "Medici" has a 75% chance of being the next right word.'
         ],
         bullets: [
-            'Higher temperature = more creative but less predictable',
-            'Hallucinations aren\'t "lying"—the model doesn\'t know it\'s wrong',
-            'Low-data domains (recent events, niche topics) are hallucination-prone'
+            '<strong>Temperature:</strong> Controls the "risk." High temperature = roll the dice on lower-probability words (creativity)',
+            '<strong>Autoregressive:</strong> The model picks one token, adds it to the prompt, and runs the entire skyscraper again for the next one',
+            '<strong>Streaming:</strong> Why you see text appear word-by-word'
         ],
         callout: {
             type: 'insight',
-            content: '<strong>Why Hallucinations Persist:</strong> No ground-truth verification exists during inference. The model\'s objective is "generate plausible text," not "generate true text." Hallucinations are a fundamental limitation of the next-token prediction paradigm.'
+            content: '<strong>Prediction, not Truth:</strong> The model is optimized for "plausibility." If the most statistically likely next word is a hallucination, the model will pick it because its math told it to, not because it "wants" to lie.'
         },
         resources: [
-            { icon: '📺', title: 'Why Large Language Models Hallucinate', meta: 'Video • Practical explanation', url: 'https://www.youtube.com/watch?v=cfqtFvWOfg0' },
-            { icon: '🧠', title: 'Why language models hallucinate', meta: 'OpenAI • Research explainer', url: 'https://openai.com/index/why-language-models-hallucinate/' },
-            { icon: '📄', title: 'Mata v. Avianca (court filing with fabricated citations)', meta: 'Primary source • SDNY docket', url: 'https://law.justia.com/cases/federal/district-courts/new-york/nysdce/1:2022cv01461/575368/54/' },
-            { icon: '📰', title: 'Google Bard demo error (JWST claim)', meta: 'Reuters • Feb 2023', url: 'https://www.reuters.com/technology/google-ai-chatbot-bard-offers-inaccurate-information-company-ad-2023-02-08/' }
+            { icon: 'ðŸ“º', title: 'Why Large Language Models Hallucinate', meta: 'Video â€¢ Practical explanation', url: 'https://www.youtube.com/watch?v=cfqtFvWOfg0' },
+            { icon: 'ðŸ§ ', title: 'Why language models hallucinate', meta: 'OpenAI â€¢ Research explainer', url: 'https://openai.com/index/why-language-models-hallucinate/' },
+            { icon: 'ðŸ“„', title: 'Mata v. Avianca (court filing with fabricated citations)', meta: 'Primary source â€¢ SDNY docket', url: 'https://law.justia.com/cases/federal/district-courts/new-york/nysdce/1:2022cv01461/575368/54/' },
+            { icon: 'ðŸ“°', title: 'Google Bard demo error (JWST claim)', meta: 'Reuters â€¢ Feb 2023', url: 'https://www.reuters.com/technology/google-ai-chatbot-bard-offers-inaccurate-information-company-ad-2023-02-08/' }
         ]
     },
     {
         category: 'infer',
         badge: 'Summary',
-        title: 'What happens when you send a message?',
+        title: '14. What happens when you send a message?',
         description: 'A simple end-to-end view of the inference loop.',
         paragraphs: [
             'Every chat turn runs the same basic pipeline: assemble the prompt, run a forward pass, pick the next token, and repeat.'
@@ -336,29 +356,34 @@ const cardsData = [
     {
         category: 'adv',
         badge: 'Advanced',
-        title: 'Embeddings',
-        description: 'Embeddings convert text into vectors, enabling semantic search and similarity comparisons.',
+        title: '15. Embedding Models: Semantic Search & Retrieval',
+        description: 'Standalone embedding models power semantic search, document retrieval, and RAG systems by measuring meaning similarity.',
         paragraphs: [
-            '<strong>Embeddings</strong> are dense numerical representations of content. A sentence becomes a vector (a list of numbers) in a space where semantic similarity ≈ geometric proximity.',
-            'This enables semantic search (find documents by meaning, not keywords), clustering (group similar items), and recommendations. It is also a core ingredient in most RAG systems.'
+            'While LLMs use embeddings internally (as we saw in the architecture section), <strong>embedding models</strong> are specialized tools trained specifically to convert text into vectors optimized for similarity comparison. Unlike generative models, they don\'t produce text—they produce numerical representations designed for search and matching.',
+            '<strong>How they work:</strong> You feed text (a query, document, or sentence) into an embedding model, and it outputs a fixed-size vector (typically 384, 768, or 1536 dimensions). Documents with similar meaning produce similar vectors—measured by <strong>cosine similarity</strong> or dot product. "How do I reset my password?" and "Password reset instructions" score highly similar, even with no word overlap.',
+            '<strong>Semantic Search:</strong> Convert all documents in a database to embeddings (done once). When a user queries, convert their question to an embedding and find the closest document vectors. This finds relevant results by <em>meaning</em>, not keyword matching. A search for "infant medicine dosage" will surface documents about "pediatric pharmaceutical guidelines."',
+            '<strong>Vector Databases:</strong> Specialized databases (Pinecone, Weaviate, Chroma, FAISS) store embeddings and enable fast similarity search across millions of vectors. They use approximate nearest neighbor (ANN) algorithms to find close matches quickly, making real-time semantic search practical at scale.',
+            '<strong>Critical for RAG:</strong> Retrieval-Augmented Generation systems use embedding models to find relevant documents, then pass them to an LLM for generation. The embedding model handles the "find" step; the LLM handles the "generate" step.'
         ],
         bullets: [
-            'Underpins RAG: user queries and documents are both converted to embeddings for matching',
-            'Multimodal embeddings: images, audio, and text can share the same vector space',
-            'Embeddings can come from dedicated embedding models or from intermediate layers of larger models'
+            '<strong>Dedicated Models:</strong> OpenAI text-embedding-3, Cohere embed-v3, sentence-transformers—optimized for similarity, not generation',
+            '<strong>Applications:</strong> Document search, recommendation systems, duplicate detection, clustering, question-answering retrieval',
+            '<strong>Multimodal Embeddings:</strong> CLIP-style models map images and text to the same space—search images with text queries',
+            '<strong>Fine-tuning:</strong> Embedding models can be specialized for domain-specific search (legal docs, medical records, code)'
         ],
         callout: {
-            type: 'note',
-            content: '<strong>Insight:</strong> Embeddings are why models understand synonyms, analogies, and context. "Puppy" and "dog" occupy nearby points in embedding space—the system "knows" they\'re related without explicit rules.'
+            type: 'insight',
+            content: '<strong>Why Not Just Use an LLM?</strong> Embedding models are 100x faster and cheaper than running an LLM for every document. They\'re designed for one task—measuring similarity—and do it extremely efficiently. For RAG systems, you embed documents once, then reuse those embeddings for millions of queries.'
         },
         resources: [
-            { icon: '🎬', title: 'Embeddings Explained', meta: '18 min • 3D visualizations', url: 'https://www.youtube.com/watch?v=eUbKYEC0D3Y' }
+            { icon: '🎬', title: 'Embeddings Explained', meta: '18 min • 3D visualizations', url: 'https://www.youtube.com/watch?v=eUbKYEC0D3Y' },
+            { icon: '🌐', title: 'OpenAI Embeddings Guide', meta: 'Technical documentation', url: 'https://platform.openai.com/docs/guides/embeddings' }
         ]
     },
     {
         category: 'adv',
         badge: 'Advanced',
-        title: 'Multimodal Models',
+        title: '16. Multimodal Models',
         description: 'Modern AI can process and generate not just text, but images, audio, video—all converted into tokens and embeddings.',
         paragraphs: [
             '<strong>Multimodal models</strong> extend the token-prediction paradigm beyond text. Images are split into patches (like a grid), each patch encoded as a token by a vision encoder. Audio waveforms are converted to spectrograms, then tokenized. Video combines both approaches frame-by-frame.',
@@ -382,7 +407,7 @@ const cardsData = [
     {
         category: 'adv',
         badge: 'Advanced',
-        title: 'RAG (Retrieval-Augmented Generation)',
+        title: '17. RAG (Retrieval-Augmented Generation)',
         description: 'RAG combats hallucinations and knowledge cutoffs by injecting external documents directly into the model\'s context.',
         paragraphs: [
             'Models have <strong>knowledge cutoffs</strong> and no access to your private documents. <strong>Retrieval-Augmented Generation (RAG)</strong> solves this by dynamically fetching relevant information and inserting it into the prompt.',
@@ -404,7 +429,7 @@ const cardsData = [
     {
         category: 'adv',
         badge: 'Advanced',
-        title: 'Tool Use (Function Calling)',
+        title: '18. Tool Use (Function Calling)',
         description: 'Models can\'t execute code or perform calculations internally—tool use lets them request external actions.',
         paragraphs: [
             'Large language models are terrible at precise math (remember: they\'re next-token predictors, not calculators). <strong>Tool use</strong> (also called function calling) provides a workaround:',
@@ -423,7 +448,7 @@ const cardsData = [
     {
         category: 'adv',
         badge: 'Advanced',
-        title: 'Reasoning: Two Paradigms',
+        title: '19. Reasoning: Two Paradigms',
         description: 'Reasoning capability comes from two distinct approaches: prompting techniques and dedicated inference-time compute.',
         paragraphs: [
             '<strong>Chain of Thought (CoT):</strong> A prompting technique where you ask the model to "think step by step." This encourages intermediate reasoning, improving accuracy on math and logic tasks. It\'s a prompt hack, not a model feature.',
@@ -436,38 +461,38 @@ const cardsData = [
         ],
         callout: {
             type: 'insight',
-            content: '<strong>The Shift:</strong> Traditional CoT is a user-side prompting trick. Modern reasoning-focused models embed deliberate thinking into the system—spending extra compute during inference to reduce errors without additional training.'
+            content: '<strong>The Shift:</strong> Traditional CoT is a user-side prompting trick. Modern reasoning-focused models embed deliberate thinking into the systemâ€”spending extra compute during inference to reduce errors without additional training.'
         },
         resources: [
-            { icon: '🎬', title: 'Chain-of-Thought Explained', meta: '8 min', url: 'https://www.youtube.com/watch?v=AFE6x81AP4k' },
-            { icon: '📺', title: 'Test-Time Scaling', meta: '12 min • Reasoning at inference time', url: 'https://www.youtube.com/watch?v=NbE8MoR8mPw' }
+            { icon: 'ðŸŽ¬', title: 'Chain-of-Thought Explained', meta: '8 min', url: 'https://www.youtube.com/watch?v=AFE6x81AP4k' },
+            { icon: 'ðŸ“º', title: 'Test-Time Scaling', meta: '12 min â€¢ Reasoning at inference time', url: 'https://www.youtube.com/watch?v=NbE8MoR8mPw' }
         ]
     },
     {
         category: 'adv',
         badge: 'Advanced',
-        title: 'Agentic Workflows',
+        title: '20. Agentic Workflows',
         description: 'Combining reasoning, tools, and planning creates autonomous agents that can accomplish complex multi-step tasks.',
         paragraphs: [
             'An <strong>agent</strong> is an AI system that can perceive, reason, plan, and act autonomously. By combining inference-time reasoning with tool use, agents break down complex goals into actionable steps.',
-            '<strong>ReAct Pattern:</strong> Thought → Action → Observation → Next Thought. The model iteratively reasons, uses tools, observes results, and adjusts its plan.',
-            'Examples: Booking a flight (search → check calendar → compare prices → confirm), debugging code (run → read error → fix → re-run), conducting research (search → summarize → synthesize).'
+            '<strong>ReAct Pattern:</strong> Thought â†’ Action â†’ Observation â†’ Next Thought. The model iteratively reasons, uses tools, observes results, and adjusts its plan.',
+            'Examples: Booking a flight (search â†’ check calendar â†’ compare prices â†’ confirm), debugging code (run â†’ read error â†’ fix â†’ re-run), conducting research (search â†’ summarize â†’ synthesize).'
         ],
         bullets: [
             '<strong>Planning:</strong> Decompose "book a trip" into searchable sub-tasks',
-            '<strong>Reflection:</strong> Verify outputs ("Does this code compile?" → execute → fix → retry)',
+            '<strong>Reflection:</strong> Verify outputs ("Does this code compile?" â†’ execute â†’ fix â†’ retry)',
             '<strong>Memory:</strong> Maintain state across multiple interactions (session history, external databases)'
         ],
         callout: {
             type: 'analogy',
-            content: '<strong>Analogy:</strong> A standard LLM is a smart person. An agent is that person with a computer, calculator, notepad, and the ability to search the internet—empowered to take action, not just think.'
+            content: '<strong>Analogy:</strong> A standard LLM is a smart person. An agent is that person with a computer, calculator, notepad, and the ability to search the internetâ€”empowered to take action, not just think.'
         }
     },
     {
         category: 'infer',
         badge: 'Conclusion',
-        title: 'Understanding the System',
-        description: 'AI models are not conscious—they\'re sophisticated statistical systems that mirror human knowledge.',
+        title: '21. Understanding the System',
+        description: 'AI models are not consciousâ€”they\'re sophisticated statistical systems that mirror human knowledge.',
         paragraphs: [
             'Modern AI isn\'t magic. It\'s a <strong>high-fidelity statistical mirror</strong> of human-created text, trained on trillions of tokens to predict plausible continuations. Understanding the frozen pipeline, tokenization, training phases, and inference mechanics demystifies both capabilities and limitations.',
             'This knowledge empowers you to use AI more effectively: anticipate hallucinations in low-data domains, design better prompts leveraging in-context learning, choose appropriate tools (RAG for facts, calculators for math), and recognize the difference between pattern completion and genuine reasoning.'
@@ -479,7 +504,7 @@ const cardsData = [
         ],
         callout: {
             type: 'insight',
-            content: '<strong>Final Thought:</strong> The "magic" of AI isn\'t that it thinks—it\'s that billions of mathematical operations, trained on trillions of tokens, compress human knowledge into a reusable, frozen artifact. Understanding this transforms you from a passive user into an informed practitioner.'
+            content: '<strong>Final Thought:</strong> The "magic" of AI isn\'t that it thinksâ€”it\'s that billions of mathematical operations, trained on trillions of tokens, compress human knowledge into a reusable, frozen artifact. Understanding this transforms you from a passive user into an informed practitioner.'
         }
     }
 ];
