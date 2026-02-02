@@ -4,41 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Model Basics — How AI Models Are Built, Trained & Used</title>
-    <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="model-basics.css">
 </head>
 <body>
-    <!-- Navigation Header -->
-    <nav class="story-nav">
-        <button class="nav-home" id="homeBtn" aria-label="Go to first slide">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-            </svg>
-        </button>
+    <!-- Navigation -->
+    <nav class="nav">
+        <button class="nav-btn nav-home" id="homeBtn" aria-label="Go to first slide">⌂</button>
         <div class="nav-progress">
-            <div class="progress-track">
+            <div class="progress-bar">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
             <span class="progress-text" id="progressText">1 / 15</span>
         </div>
         <div class="nav-controls">
-            <button class="nav-btn" id="prevBtn" aria-label="Previous slide">←</button>
-            <button class="nav-btn" id="nextBtn" aria-label="Next slide">→</button>
+            <button class="nav-btn" id="prevBtn" aria-label="Previous">←</button>
+            <button class="nav-btn" id="nextBtn" aria-label="Next">→</button>
         </div>
     </nav>
 
-    <!-- Slide Container -->
-    <main class="story-container">
-        <div class="slides-wrapper" id="slidesWrapper">
-            <!-- Slides will be rendered here -->
-        </div>
+    <!-- Slides Container -->
+    <main class="slides-container" id="slidesContainer">
+        <!-- Slides rendered here -->
     </main>
-
-    <!-- Keyboard Hint -->
-    <div class="keyboard-hint">
-        Use ← → arrow keys to navigate
-    </div>
 
     <script src="cards-data.js"></script>
     <script src="model-basics.js"></script>

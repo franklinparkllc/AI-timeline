@@ -1,185 +1,202 @@
-// Model Basics - Modern Slideshow Story
+// Model Basics - Simple Slideshow
 
 let currentSlide = 0;
-const totalSlides = cardsData.length;
+let slides = [];
+let totalSlides = 0;
 
 // Initialize
-document.addEventListener('DOMContentLoaded', function() {
-    renderSlides();
-    updateNavigation();
-    setupEventListeners();
+function init() {
+    // Ensure cardsData is available
+    if (typeof cardsData === 'undefined' || !cardsData || cardsData.length === 0) {
+        console.error('cardsData is not available');
+        return;
+    }
     
-    // Check for hash navigation
+    slides = cardsData;
+    totalSlides = slides.length;
+    
+    if (totalSlides === 0) {
+        console.error('No slides to render');
+        return;
+    }
+    
+    renderSlides();
+    updateUI();
+    setupEvents();
+    
+    // Handle URL hash
     const hash = window.location.hash;
     if (hash) {
-        const slideIndex = parseInt(hash.replace('#slide-', '')) - 1;
-        if (slideIndex >= 0 && slideIndex < totalSlides) {
-            currentSlide = slideIndex;
-            goToSlide(currentSlide);
+        const index = parseInt(hash.replace('#slide-', '')) - 1;
+        if (index >= 0 && index < totalSlides) {
+            currentSlide = index;
+            showSlide(currentSlide);
         }
+    } else {
+        // Ensure first slide is visible
+        showSlide(0);
     }
-});
+}
 
 // Render all slides
 function renderSlides() {
-    const wrapper = document.getElementById('slidesWrapper');
+    const container = document.getElementById('slidesContainer');
+    if (!container) {
+        console.error('slidesContainer element not found');
+        return;
+    }
     
-    cardsData.forEach((card, index) => {
+    // Clear container
+    container.innerHTML = '';
+    
+    slides.forEach((card, index) => {
         const slide = document.createElement('div');
         slide.className = 'slide';
-        slide.setAttribute('data-category', card.category);
         slide.id = `slide-${index + 1}`;
+        slide.setAttribute('data-category', card.category);
         
-        let contentHTML = `
+        let html = `
             <div class="slide-content">
+                <div class="slide-badge">${card.badge}</div>
                 <h1 class="slide-title">${card.title}</h1>
-                ${card.description ? `<div class="slide-description">${card.description}</div>` : ''}
+                ${card.description ? `<p class="slide-description">${card.description}</p>` : ''}
                 <div class="slide-body">
-                    ${card.paragraphs ? card.paragraphs.map(p => `<p>${p}</p>`).join('') : ''}
-                    ${card.bullets ? `<ul>${card.bullets.map(bullet => `<li>${bullet}</li>`).join('')}</ul>` : ''}
         `;
         
-        // Add callout if exists
+        // Paragraphs
+        if (card.paragraphs) {
+            card.paragraphs.forEach(p => {
+                html += `<p>${p}</p>`;
+            });
+        }
+        
+        // Bullets
+        if (card.bullets) {
+            html += '<ul>';
+            card.bullets.forEach(bullet => {
+                html += `<li>${bullet}</li>`;
+            });
+            html += '</ul>';
+        }
+        
+        // Callout
         if (card.callout) {
-            contentHTML += `
-                <div class="callout callout-${card.callout.type}">
-                    ${card.callout.content}
-                </div>
-            `;
+            html += `<div class="callout callout-${card.callout.type}">${card.callout.content}</div>`;
         }
         
-        // Add resources if exists
+        // Resources
         if (card.resources && card.resources.length > 0) {
-            contentHTML += `
-                <div class="slide-resources">
-                    <div class="resources-title">Learn More</div>
-                    <div class="resources-grid">
-                        ${card.resources.map(res => `
-                            <a href="${res.url}" target="_blank" class="resource-link">
-                                <span class="resource-icon">${res.icon}</span>
-                                <div class="resource-content">
-                                    <div class="resource-title">${res.title}</div>
-                                    <div class="resource-meta">${res.meta}</div>
-                                </div>
-                            </a>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
+            html += '<div class="resources">';
+            html += '<div class="resources-title">Learn More</div>';
+            html += '<div class="resources-list">';
+            card.resources.forEach(res => {
+                html += `
+                    <a href="${res.url}" target="_blank" class="resource-link">
+                        <span class="resource-icon">${res.icon}</span>
+                        <div class="resource-info">
+                            <div class="resource-title">${res.title}</div>
+                            <div class="resource-meta">${res.meta}</div>
+                        </div>
+                    </a>
+                `;
+            });
+            html += '</div></div>';
         }
         
-        contentHTML += `
-                </div>
-            </div>
-        `;
-        
-        slide.innerHTML = contentHTML;
-        wrapper.appendChild(slide);
+        html += '</div></div>';
+        slide.innerHTML = html;
+        container.appendChild(slide);
     });
+}
+
+// Show specific slide
+function showSlide(index) {
+    if (index < 0 || index >= totalSlides) {
+        console.warn('Invalid slide index:', index);
+        return;
+    }
+    
+    currentSlide = index;
+    const container = document.getElementById('slidesContainer');
+    if (!container) {
+        console.error('slidesContainer element not found');
+        return;
+    }
+    
+    container.style.transform = `translateX(-${index * 100}vw)`;
+    window.location.hash = `slide-${index + 1}`;
+    updateUI();
+}
+
+// Navigation
+function nextSlide() {
+    if (currentSlide < totalSlides - 1) {
+        showSlide(currentSlide + 1);
+    }
+}
+
+function prevSlide() {
+    if (currentSlide > 0) {
+        showSlide(currentSlide - 1);
+    }
+}
+
+// Update UI
+function updateUI() {
+    const progress = ((currentSlide + 1) / totalSlides) * 100;
+    document.getElementById('progressFill').style.width = `${progress}%`;
+    document.getElementById('progressText').textContent = `${currentSlide + 1} / ${totalSlides}`;
+    
+    document.getElementById('prevBtn').disabled = currentSlide === 0;
+    document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
 }
 
 // Setup event listeners
-function setupEventListeners() {
-    // Home button
-    document.getElementById('homeBtn').addEventListener('click', () => {
-        goToSlide(0);
-    });
-    
-    // Navigation buttons
-    document.getElementById('prevBtn').addEventListener('click', previousSlide);
+function setupEvents() {
+    document.getElementById('homeBtn').addEventListener('click', () => showSlide(0));
+    document.getElementById('prevBtn').addEventListener('click', prevSlide);
     document.getElementById('nextBtn').addEventListener('click', nextSlide);
     
-    // Keyboard navigation
+    // Keyboard
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') {
-            e.preventDefault();
-            previousSlide();
-        } else if (e.key === 'ArrowRight') {
-            e.preventDefault();
-            nextSlide();
+        if (e.key === 'ArrowLeft') prevSlide();
+        if (e.key === 'ArrowRight') nextSlide();
+    });
+    
+    // Touch swipe
+    let startX = 0;
+    let endX = 0;
+    
+    const container = document.getElementById('slidesContainer');
+    
+    container.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    });
+    
+    container.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) nextSlide();
+            else prevSlide();
         }
     });
     
-    // Touch swipe support
-    let touchStartX = 0;
-    let touchEndX = 0;
-    
-    const wrapper = document.getElementById('slidesWrapper');
-    
-    wrapper.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    });
-    
-    wrapper.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    });
-    
-    function handleSwipe() {
-        const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
-        
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0) {
-                nextSlide();
-            } else {
-                previousSlide();
+    // Hash change (browser back/forward)
+    window.addEventListener('hashchange', () => {
+        const hash = window.location.hash;
+        if (hash) {
+            const index = parseInt(hash.replace('#slide-', '')) - 1;
+            if (index >= 0 && index < totalSlides && index !== currentSlide) {
+                showSlide(index);
             }
         }
-    }
+    });
 }
 
-// Navigation functions
-function previousSlide() {
-    if (currentSlide > 0) {
-        currentSlide--;
-        goToSlide(currentSlide);
-    }
+// Start when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
 }
-
-function nextSlide() {
-    if (currentSlide < totalSlides - 1) {
-        currentSlide++;
-        goToSlide(currentSlide);
-    }
-}
-
-function goToSlide(index) {
-    currentSlide = index;
-    const wrapper = document.getElementById('slidesWrapper');
-    wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
-    
-    // Update URL hash
-    window.location.hash = `slide-${currentSlide + 1}`;
-    
-    updateNavigation();
-}
-
-function updateNavigation() {
-    // Update progress
-    const progressFill = document.getElementById('progressFill');
-    const progressText = document.getElementById('progressText');
-    const progress = ((currentSlide + 1) / totalSlides) * 100;
-    
-    progressFill.style.width = `${progress}%`;
-    progressText.textContent = `${currentSlide + 1} / ${totalSlides}`;
-    
-    // Update button states
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    
-    prevBtn.disabled = currentSlide === 0;
-    nextBtn.disabled = currentSlide === totalSlides - 1;
-}
-
-// Handle hash changes (browser back/forward)
-window.addEventListener('hashchange', () => {
-    const hash = window.location.hash;
-    if (hash) {
-        const slideIndex = parseInt(hash.replace('#slide-', '')) - 1;
-        if (slideIndex >= 0 && slideIndex < totalSlides && slideIndex !== currentSlide) {
-            currentSlide = slideIndex;
-            goToSlide(currentSlide);
-        }
-    }
-});

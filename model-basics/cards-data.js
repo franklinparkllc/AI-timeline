@@ -33,17 +33,22 @@ const cardsData = [
         paragraphs: [
             'Early neural networks for language processing used <strong>Recurrent Neural Networks (RNNs)</strong> and <strong>Long Short-Term Memory (LSTM)</strong> architectures. These models processed text sequentially—one word at a time, in order—maintaining a "hidden state" that tried to remember earlier context.',
             'The problem? Sequential processing was slow (couldn\'t parallelize across GPUs), and models struggled with long-range dependencies due to <strong>vanishing gradients</strong>. By the time an RNN reached word 50, it had largely "forgotten" word 1.',
-            'The 2017 paper "Attention Is All You Need" introduced the <strong>Transformer</strong>, which eliminated sequential processing entirely. Instead of reading word-by-word, it processes all tokens simultaneously using the attention mechanism—enabling parallelization and capturing dependencies across arbitrary distances.'
+            '<strong>Seq2Seq</strong> (encoder-decoder) models added <strong>attention</strong>—first for machine translation—so the decoder could "look at" relevant parts of the input. Attention helped, but the backbone was still sequential RNNs.',
+            'The 2017 paper "Attention Is All You Need" introduced the <strong>Transformer</strong>, which dropped the RNN entirely. It processes all tokens in parallel using only attention—enabling the scale we see today.'
         ],
         bullets: [
             '<strong>RNNs/LSTMs:</strong> Sequential processing (slow), vanishing gradients (poor long-term memory)',
+            '<strong>Seq2Seq:</strong> Encoder-decoder + attention (e.g. for translation); attention helped, but RNNs remained the bottleneck',
             '<strong>CNNs:</strong> Worked for images but struggled with variable-length text and long dependencies',
-            '<strong>The Breakthrough:</strong> Attention mechanism allows every token to directly "look at" every other token in parallel'
+            '<strong>The Breakthrough:</strong> Transformer keeps attention, drops recurrence—every token can "look at" every other token in parallel'
         ],
         callout: {
             type: 'insight',
             content: '<strong>Why This Matters:</strong> The shift from sequential to parallel processing is why modern AI could scale to billions of parameters and trillion-token datasets. RNNs couldn\'t scale effectively—Transformers could.'
-        }
+        },
+        resources: [
+            { icon: '🌐', title: 'Attention? Attention!', meta: 'Lilian Weng • Understanding attention mechanisms', url: 'https://lilianweng.github.io/posts/2018-06-24-attention/' }
+        ]
     },
     {
         category: 'arch',
