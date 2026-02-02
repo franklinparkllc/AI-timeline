@@ -86,16 +86,19 @@ function renderSlides() {
         
         // Resources
         if (card.resources && card.resources.length > 0) {
+            const typeIcons = { video: '▶', article: '◇', tool: '◆', interactive: '◈' };
             html += '<div class="resources">';
-            html += '<div class="resources-title">Learn More</div>';
+            html += '<div class="resources-header"><span class="resources-label">Resources</span></div>';
             html += '<div class="resources-list">';
             card.resources.forEach(res => {
+                const type = res.type || 'article';
+                const icon = res.icon || typeIcons[type] || '◇';
                 html += `
-                    <a href="${res.url}" target="_blank" class="resource-link">
-                        <span class="resource-icon">${res.icon}</span>
+                    <a href="${res.url}" target="_blank" rel="noopener" class="resource-link resource-link--${type}">
+                        <span class="resource-icon" aria-hidden="true">${icon}</span>
                         <div class="resource-info">
-                            <div class="resource-title">${res.title}</div>
-                            <div class="resource-meta">${res.meta}</div>
+                            <span class="resource-title">${res.title}</span>
+                            ${res.meta ? `<span class="resource-meta">${res.meta}</span>` : ''}
                         </div>
                     </a>
                 `;

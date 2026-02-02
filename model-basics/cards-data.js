@@ -22,9 +22,9 @@ const cardsData = [
             content: '<strong>Training vs. Inference:</strong> Training updates the model\'s "brain" (weights)—a massive structure that can contain trillions of parameters. Inference is the act of querying that "frozen" brain. Chatting provides temporary context, but it does not permanently teach the model or update its knowledge base.'
         },
         resources: [
-            { icon: '📺', title: 'Generative AI in a Nutshell - how to survive and thrive in the age of AI', meta: '18 min • Henrik Knibbe', url: 'https://www.youtube.com/watch?v=2IK3DFHRFfw' },
-            { icon: '🌐', title: 'OKAI — An Interactive Introduction to Artificial Intelligence', meta: 'Interactive site • Brown University', url: 'https://okai.brown.edu/' },
-            { icon: '📺', title: 'Large Language Models explained briefly', meta: '8 min • 3Blue1Brown', url: 'https://www.youtube.com/watch?v=LPZh9BOjkQs' }
+            { type: 'video', title: 'Generative AI in a Nutshell', meta: '18 min · Henrik Knibbe', url: 'https://www.youtube.com/watch?v=2IK3DFHRFfw' },
+            { type: 'interactive', title: 'OKAI — Interactive Intro to AI', meta: 'Brown University', url: 'https://okai.brown.edu/' },
+            { type: 'video', title: 'Large Language Models, briefly', meta: '8 min · 3Blue1Brown', url: 'https://www.youtube.com/watch?v=LPZh9BOjkQs' }
         ]
     },
     {
@@ -48,8 +48,9 @@ const cardsData = [
             content: '<strong>Why This Matters:</strong> The shift from sequential to parallel processing is why modern AI could scale to billions of parameters and trillion-token datasets. RNNs could not scale effectively. Transformers could.'
         },
         resources: [
-            { icon: '📺', title: 'Transformers and Attention Overview', meta: '58 min • Deep dive into transformers', url: 'https://www.youtube.com/watch?v=KJtZARuO3JY' },
-            { icon: '🌐', title: 'Attention? Attention!', meta: 'Lilian Weng', url: 'https://lilianweng.github.io/posts/2018-06-24-attention/' }        ]
+            { type: 'video', title: 'Transformers and Attention Overview', meta: '58 min · Deep dive', url: 'https://www.youtube.com/watch?v=KJtZARuO3JY' },
+            { type: 'article', title: 'Attention? Attention!', meta: 'Lilian Weng', url: 'https://lilianweng.github.io/posts/2018-06-24-attention/' }
+        ]
     },
     {
         category: 'arch',
@@ -72,9 +73,9 @@ const cardsData = [
             content: '<strong>Key idea:</strong> Most language models are trained on one core objective: <em>predict the next token</em>. That single skill can look like reasoning, writing, or coding—but it\'s still prediction, not guaranteed “truth” or perfect calculation.'
         },
         resources: [
-            { icon: '🛠️', title: 'OpenAI Tokenizer', meta: 'Interactive tool', url: 'https://platform.openai.com/tokenizer' },
-            { icon: '📺', title: 'Byte Pair Encoding Tokenization', meta: '7 min • Tokenization & BPE explained', url: 'https://www.youtube.com/watch?v=4A_nfXyBD08' },
-            { icon: '📺', title: 'Build GPT Tokenizer', meta: '2h 13min • Andrej Karpathy', url: 'https://www.youtube.com/watch?v=zduSFxRajkE' }
+            { type: 'tool', title: 'OpenAI Tokenizer', meta: 'Interactive · Try BPE', url: 'https://platform.openai.com/tokenizer' },
+            { type: 'video', title: 'Byte Pair Encoding Explained', meta: '7 min · Tokenization', url: 'https://www.youtube.com/watch?v=4A_nfXyBD08' },
+            { type: 'video', title: 'Build GPT Tokenizer', meta: '2h 13min · Andrej Karpathy', url: 'https://www.youtube.com/watch?v=zduSFxRajkE' }
         ]
     },
     {
@@ -99,8 +100,8 @@ const cardsData = [
             content: '<strong>Analogy:</strong> If tokenization assigns each word a locker number, embeddings are the contents of that locker—a profile describing the word\'s meaning, usage, and relationships. Position encoding adds a timestamp: when that locker was opened in the sequence.'
         },
         resources: [
-            { icon: '📺', title: 'Language Models: Tokens and Embeddings', meta: '7 min • Visual explanation', url: 'https://www.youtube.com/watch?v=izbifbq3-eI' },
-            { icon: '📺', title: 'Language Models & Transformers', meta: '20 min • Computerphile', url: 'https://www.youtube.com/watch?v=rURRYI66E54' }
+            { type: 'video', title: 'Tokens and Embeddings', meta: '7 min · Visual', url: 'https://www.youtube.com/watch?v=izbifbq3-eI' },
+            { type: 'video', title: 'Language Models & Transformers', meta: '20 min · Computerphile', url: 'https://www.youtube.com/watch?v=rURRYI66E54' }
         ]
     },
     {
@@ -125,7 +126,7 @@ const cardsData = [
             content: '<strong>The Skyscraper Analogy:</strong> Ground floor tokens know only their own meaning. As they ride the elevator through dozens of floors—each adding context from surrounding words—they emerge at the top with rich, nuanced understanding of their role in the specific sentence.'
         },
         resources: [
-            { icon: '🌐', title: 'The Illustrated Transformer', meta: 'Jay Alammar • Visual explanation', url: 'https://jalammar.github.io/illustrated-transformer/' }
+            { type: 'article', title: 'The Illustrated Transformer', meta: 'Jay Alammar · Visual', url: 'https://jalammar.github.io/illustrated-transformer/' }
         ]
     },
     {
@@ -151,8 +152,8 @@ const cardsData = [
             content: '<strong>Engineering Breakthroughs:</strong> Residuals and normalization aren\'t just optimizations—they\'re what made Transformers scalable. These techniques enabled the jump from 12-layer to 96-layer models.'
         },
         resources: [
-            { icon: '📺', title: 'Layer Normalization Explained', meta: '8 min • Visual explanation', url: 'https://www.youtube.com/watch?v=2V3Ud-FnvUs' },
-            { icon: '🌐', title: 'The Illustrated Transformer', meta: 'Jay Alammar • Visual explanation', url: 'https://jalammar.github.io/illustrated-transformer/' }
+            { type: 'video', title: 'Layer Normalization Explained', meta: '8 min · Visual', url: 'https://www.youtube.com/watch?v=2V3Ud-FnvUs' },
+            { type: 'article', title: 'The Illustrated Transformer', meta: 'Jay Alammar · Visual', url: 'https://jalammar.github.io/illustrated-transformer/' }
         ]
     },
     {
@@ -177,8 +178,8 @@ const cardsData = [
             content: '<strong>Library Search:</strong> Your Query is your question. Each book\'s Key is its description. High-scoring books contribute their content (Values). You get a weighted mix of relevant sources.'
         },
         resources: [
-            { icon: '📺', title: '3Blue1Brown: Attention in Transformers', meta: '26 min • Animated explanation', url: 'https://www.youtube.com/watch?v=eMlx5fFNoYc' },
-            { icon: '🌐', title: 'The Illustrated Transformer', meta: 'Jay Alammar • Attention visualizations', url: 'https://jalammar.github.io/illustrated-transformer/' }
+            { type: 'video', title: 'Attention in Transformers', meta: '26 min · 3Blue1Brown', url: 'https://www.youtube.com/watch?v=eMlx5fFNoYc' },
+            { type: 'article', title: 'The Illustrated Transformer', meta: 'Jay Alammar · Attention', url: 'https://jalammar.github.io/illustrated-transformer/' }
         ]
     },
     {
@@ -203,8 +204,8 @@ const cardsData = [
             content: '<strong>The Expert Panel:</strong> Instead of one judge evaluating relationships, you have a panel of 8-16 experts. Each expert focuses on different aspects—one on grammar, one on meaning, one on context. Their combined insights create a richer understanding than any single perspective.'
         },
         resources: [
-            { icon: '🎬', title: 'Attention Is All You Need', meta: '15 min • Visual walkthrough', url: 'https://www.youtube.com/watch?v=wjZofJX0v4M' },
-            { icon: '🌐', title: 'The Illustrated Transformer', meta: 'Jay Alammar • Multi-head attention', url: 'https://jalammar.github.io/illustrated-transformer/' }
+            { type: 'video', title: 'Attention Is All You Need (walkthrough)', meta: '15 min · Visual', url: 'https://www.youtube.com/watch?v=wjZofJX0v4M' },
+            { type: 'article', title: 'The Illustrated Transformer', meta: 'Jay Alammar · Multi-head', url: 'https://jalammar.github.io/illustrated-transformer/' }
         ]
     },
     {
@@ -226,8 +227,8 @@ const cardsData = [
             content: '<strong>Analogy:</strong> Pre-training is like teaching a child to predict the next word in stories. They learn grammar, vocabulary, and facts—but not how to hold a conversation or follow instructions helpfully.'
         },
         resources: [
-            { icon: '📺', title: 'Neural Networks & Backprop', meta: '2+ hrs • Andrej Karpathy', url: 'https://www.youtube.com/watch?v=VMj-3S1tku0' },
-            { icon: '🎬', title: 'What is Backpropagation?', meta: '14 min • 3Blue1Brown', url: 'https://www.3blue1brown.com/lessons/backpropagation' }
+            { type: 'video', title: 'Neural Networks & Backprop', meta: '2+ hrs · Andrej Karpathy', url: 'https://www.youtube.com/watch?v=VMj-3S1tku0' },
+            { type: 'video', title: 'What is Backpropagation?', meta: '14 min · 3Blue1Brown', url: 'https://www.3blue1brown.com/lessons/backpropagation' }
         ]
     },
     {
@@ -250,8 +251,8 @@ const cardsData = [
             content: '<strong>Safety vs. Capability:</strong> Post-training trades some raw capability for alignment. An aligned model might refuse edge-case requests a base model would attempt—prioritizing safety over unbounded helpfulness.'
         },
         resources: [
-            { icon: '📺', title: 'RLHF, Clearly Explained', meta: '18 min • StatQuest', url: 'https://www.youtube.com/watch?v=qPN_XZcJf_s' },
-            { icon: '🎬', title: 'RLHF in 4 Minutes', meta: '4 min • Sebastian Raschka', url: 'https://www.youtube.com/watch?v=vJ4SsfmeQlk' }
+            { type: 'video', title: 'RLHF, Clearly Explained', meta: '18 min · StatQuest', url: 'https://www.youtube.com/watch?v=qPN_XZcJf_s' },
+            { type: 'video', title: 'RLHF in 4 Minutes', meta: '4 min · Sebastian Raschka', url: 'https://www.youtube.com/watch?v=vJ4SsfmeQlk' }
         ]
     },
     {
@@ -275,7 +276,7 @@ const cardsData = [
             content: '<strong>No Silver Bullet:</strong> Bias mitigation is an ongoing process, not a solved problem. Even the most carefully trained models can produce biased outputs. The goal is harm reduction and transparency, not perfection. Always apply human judgment, especially in consequential decisions.'
         },
         resources: [
-            { icon: 'ðŸ“º', title: 'AI Bias Explained', meta: '9 min â€¢ TEDx', url: 'https://www.youtube.com/watch?v=59bMh59JQDo' }
+            { type: 'video', title: 'AI Bias Explained', meta: '9 min · TEDx', url: 'https://www.youtube.com/watch?v=59bMh59JQDo' }
         ]
     },
     {
@@ -319,7 +320,7 @@ const cardsData = [
             content: '<strong>Note:</strong> This is why long conversations become expensive and slow. Each new response requires reprocessing thousands of prior tokens. <strong>Tip:</strong> Periodically restate the goal and key constraints (or start a fresh thread with a short summary) to reduce drift.'
         },
         resources: [
-            { icon: 'ðŸ“˜', title: 'Claude prompting best practices', meta: 'Anthropic docs â€¢ Prompt engineering', url: 'https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices' }
+            { type: 'article', title: 'Claude Prompting Best Practices', meta: 'Anthropic · Prompt engineering', url: 'https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices' }
         ]
     },
     {
@@ -341,10 +342,10 @@ const cardsData = [
             content: '<strong>Prediction, not Truth:</strong> The model is optimized for "plausibility." If the most statistically likely next word is a hallucination, the model will pick it because its math told it to, not because it "wants" to lie.'
         },
         resources: [
-            { icon: 'ðŸ“º', title: 'Why Large Language Models Hallucinate', meta: 'Video â€¢ Practical explanation', url: 'https://www.youtube.com/watch?v=cfqtFvWOfg0' },
-            { icon: 'ðŸ§ ', title: 'Why language models hallucinate', meta: 'OpenAI â€¢ Research explainer', url: 'https://openai.com/index/why-language-models-hallucinate/' },
-            { icon: 'ðŸ“„', title: 'Mata v. Avianca (court filing with fabricated citations)', meta: 'Primary source â€¢ SDNY docket', url: 'https://law.justia.com/cases/federal/district-courts/new-york/nysdce/1:2022cv01461/575368/54/' },
-            { icon: 'ðŸ“°', title: 'Google Bard demo error (JWST claim)', meta: 'Reuters â€¢ Feb 2023', url: 'https://www.reuters.com/technology/google-ai-chatbot-bard-offers-inaccurate-information-company-ad-2023-02-08/' }
+            { type: 'video', title: 'Why LLMs Hallucinate', meta: 'Practical · Video', url: 'https://www.youtube.com/watch?v=cfqtFvWOfg0' },
+            { type: 'article', title: 'Why language models hallucinate', meta: 'OpenAI · Research', url: 'https://openai.com/index/why-language-models-hallucinate/' },
+            { type: 'article', title: 'Mata v. Avianca (fabricated citations)', meta: 'SDNY · Primary source', url: 'https://law.justia.com/cases/federal/district-courts/new-york/nysdce/1:2022cv01461/575368/54/' },
+            { type: 'article', title: 'Google Bard demo error (JWST)', meta: 'Reuters · Feb 2023', url: 'https://www.reuters.com/technology/google-ai-chatbot-bard-offers-inaccurate-information-company-ad-2023-02-08/' }
         ]
     },
     {
@@ -368,41 +369,55 @@ const cardsData = [
             content: '<strong>Note:</strong> Speed depends on model size, hardware, context length, and how much extra reasoning/tool use is happening.'
         },
         resources: [
-            { icon: '📺', title: 'AI Inference: The Secret to AI\'s Superpowers', meta: 'Video • IBM Technology', url: 'https://www.youtube.com/watch?v=XtT5i0ZeHHE&t=19s' },
-            { icon: '📺', title: 'An AI Prompt Engineer Shares Her Secrets', meta: 'Video • Fortune Magazine', url: 'https://www.youtube.com/watch?v=AxfmzLz9xXM' }
+            { type: 'video', title: 'AI Inference: The Secret to AI\'s Superpowers', meta: 'IBM Technology', url: 'https://www.youtube.com/watch?v=XtT5i0ZeHHE&t=19s' },
+            { type: 'video', title: 'An AI Prompt Engineer Shares Her Secrets', meta: 'Fortune Magazine', url: 'https://www.youtube.com/watch?v=AxfmzLz9xXM' }
         ]
     },
     {
         category: 'adv',
         badge: 'Advanced',
-        title: '16. Embedding Models: Semantic Search & Retrieval',
-        description: 'Standalone embedding models power semantic search, document retrieval, and RAG systems by measuring meaning similarity.',
+        title: '16. Embedding Models: From Text to Vectors',
+        description: 'Standalone embedding models convert text into vectors optimized for similarity—the foundation of semantic search and RAG.',
         paragraphs: [
             'While LLMs use embeddings internally (as we saw in the architecture section), <strong>embedding models</strong> are specialized tools trained specifically to convert text into vectors optimized for similarity comparison. Unlike generative models, they don\'t produce text—they produce numerical representations designed for search and matching.',
-            '<strong>How they work:</strong> You feed text (a query, document, or sentence) into an embedding model, and it outputs a fixed-size vector (typically 384, 768, or 1536 dimensions). Documents with similar meaning produce similar vectors—measured by <strong>cosine similarity</strong> or dot product. "How do I reset my password?" and "Password reset instructions" score highly similar, even with no word overlap.',
-            '<strong>Semantic Search:</strong> Convert all documents in a database to embeddings (done once). When a user queries, convert their question to an embedding and find the closest document vectors. This finds relevant results by <em>meaning</em>, not keyword matching. A search for "infant medicine dosage" will surface documents about "pediatric pharmaceutical guidelines."',
-            '<strong>Vector Databases:</strong> Specialized databases (Pinecone, Weaviate, Chroma, FAISS) store embeddings and enable fast similarity search across millions of vectors. They use approximate nearest neighbor (ANN) algorithms to find close matches quickly, making real-time semantic search practical at scale.',
-            '<strong>Critical for RAG:</strong> Retrieval-Augmented Generation systems use embedding models to find relevant documents, then pass them to an LLM for generation. The embedding model handles the "find" step; the LLM handles the "generate" step.'
+            '<strong>How they work:</strong> You feed text (a query, document, or sentence) into an embedding model, and it outputs a fixed-size vector (typically 384, 768, or 1536 dimensions). Documents with similar meaning produce similar vectors—measured by <strong>cosine similarity</strong> or dot product. "How do I reset my password?" and "Password reset instructions" score highly similar, even with no word overlap.'
         ],
         bullets: [
             '<strong>Dedicated Models:</strong> OpenAI text-embedding-3, Cohere embed-v3, sentence-transformers—optimized for similarity, not generation',
-            '<strong>Applications:</strong> Document search, recommendation systems, duplicate detection, clustering, question-answering retrieval',
             '<strong>Multimodal Embeddings:</strong> CLIP-style models map images and text to the same space—search images with text queries',
             '<strong>Fine-tuning:</strong> Embedding models can be specialized for domain-specific search (legal docs, medical records, code)'
         ],
         callout: {
             type: 'insight',
-            content: '<strong>Why Not Just Use an LLM?</strong> Embedding models are 100x faster and cheaper than running an LLM for every document. They\'re designed for one task—measuring similarity—and do it extremely efficiently. For RAG systems, you embed documents once, then reuse those embeddings for millions of queries.'
+            content: '<strong>Why Not Just Use an LLM?</strong> Embedding models are 100x faster and cheaper than running an LLM for every document. They\'re designed for one task—measuring similarity—and do it extremely efficiently.'
         },
         resources: [
-            { icon: '🎬', title: 'Embeddings Explained', meta: '18 min • 3D visualizations', url: 'https://www.youtube.com/watch?v=eUbKYEC0D3Y' },
-            { icon: '🌐', title: 'OpenAI Embeddings Guide', meta: 'Technical documentation', url: 'https://platform.openai.com/docs/guides/embeddings' }
+            { type: 'video', title: 'Embeddings Explained', meta: '18 min · 3D visualizations', url: 'https://www.youtube.com/watch?v=eUbKYEC0D3Y' },
+            { type: 'article', title: 'OpenAI Embeddings Guide', meta: 'Technical docs', url: 'https://platform.openai.com/docs/guides/embeddings' }
         ]
     },
     {
         category: 'adv',
         badge: 'Advanced',
-        title: '16. Multimodal Models',
+        title: '17. Semantic Search, Vector DBs & RAG',
+        description: 'Vector databases and semantic search turn embeddings into practical retrieval—and power RAG systems.',
+        paragraphs: [
+            '<strong>Semantic Search:</strong> Convert all documents in a database to embeddings (done once). When a user queries, convert their question to an embedding and find the closest document vectors. This finds relevant results by <em>meaning</em>, not keyword matching. A search for "infant medicine dosage" will surface documents about "pediatric pharmaceutical guidelines."',
+            '<strong>Vector Databases:</strong> Specialized databases (Pinecone, Weaviate, Chroma, FAISS) store embeddings and enable fast similarity search across millions of vectors. They use approximate nearest neighbor (ANN) algorithms to find close matches quickly, making real-time semantic search practical at scale.',
+            '<strong>Critical for RAG:</strong> Retrieval-Augmented Generation systems use embedding models to find relevant documents, then pass them to an LLM for generation. The embedding model handles the "find" step; the LLM handles the "generate" step.'
+        ],
+        bullets: [
+            '<strong>Applications:</strong> Document search, recommendation systems, duplicate detection, clustering, question-answering retrieval',
+            'For RAG: embed documents once, then reuse those embeddings for millions of queries'
+        ],
+        resources: [
+            { type: 'video', title: 'What is RAG?', meta: '6 min · IBM', url: 'https://youtube.com/watch?v=T-D1OfcDW1M' }
+        ]
+    },
+    {
+        category: 'adv',
+        badge: 'Advanced',
+        title: '18. Multimodal Models',
         description: 'Modern AI can process and generate not just text, but images, audio, video—all converted into tokens and embeddings.',
         paragraphs: [
             '<strong>Multimodal models</strong> extend the token-prediction paradigm beyond text. Images are split into patches (like a grid), each patch encoded as a token by a vision encoder. Audio waveforms are converted to spectrograms, then tokenized. Video combines both approaches frame-by-frame.',
@@ -420,13 +435,13 @@ const cardsData = [
             content: '<strong>Unified Architecture:</strong> The same core Transformer that processes text can process images and audio—only the tokenization step differs. This is why multimodal capabilities emerged quickly: the architecture was already designed to handle arbitrary token sequences.'
         },
         resources: [
-            { icon: '🎬', title: 'How Multimodal Models Work', meta: '12 min • Visual explanation', url: 'https://www.youtube.com/watch?v=vAmKB7iPkWw' }
+            { type: 'video', title: 'How Multimodal Models Work', meta: '12 min · Visual', url: 'https://www.youtube.com/watch?v=vAmKB7iPkWw' }
         ]
     },
     {
         category: 'adv',
         badge: 'Advanced',
-        title: '18. RAG (Retrieval-Augmented Generation)',
+        title: '19. RAG (Retrieval-Augmented Generation)',
         description: 'RAG combats hallucinations and knowledge cutoffs by injecting external documents directly into the model\'s context.',
         paragraphs: [
             'Models have <strong>knowledge cutoffs</strong> and no access to your private documents. <strong>Retrieval-Augmented Generation (RAG)</strong> solves this by dynamically fetching relevant information and inserting it into the prompt.',
@@ -442,13 +457,13 @@ const cardsData = [
             content: '<strong>Analogy:</strong> RAG is like allowing a student to bring textbooks into an exam. They still use reasoning and comprehension—but can look up specific facts instead of guessing from memory.'
         },
         resources: [
-            { icon: '🎬', title: 'What is RAG?', meta: '6 min • IBM', url: 'https://youtube.com/watch?v=T-D1OfcDW1M' }
+            { type: 'video', title: 'What is RAG?', meta: '6 min · IBM', url: 'https://youtube.com/watch?v=T-D1OfcDW1M' }
         ]
     },
     {
         category: 'adv',
         badge: 'Advanced',
-        title: '18. Tool Use (Function Calling)',
+        title: '20. Tool Use (Function Calling)',
         description: 'Models can\'t execute code or perform calculations internally—tool use lets them request external actions.',
         paragraphs: [
             'Large language models are terrible at precise math (remember: they\'re next-token predictors, not calculators). <strong>Tool use</strong> (also called function calling) provides a workaround:',
@@ -467,7 +482,7 @@ const cardsData = [
     {
         category: 'adv',
         badge: 'Advanced',
-        title: '20. Reasoning: Two Paradigms',
+        title: '21. Reasoning: Two Paradigms',
         description: 'Reasoning capability comes from two distinct approaches: prompting techniques and dedicated inference-time compute.',
         paragraphs: [
             '<strong>Chain of Thought (CoT):</strong> A prompting technique where you ask the model to "think step by step." This encourages intermediate reasoning, improving accuracy on math and logic tasks. It\'s a prompt hack, not a model feature.',
@@ -483,14 +498,14 @@ const cardsData = [
             content: '<strong>The Shift:</strong> Traditional CoT is a user-side prompting trick. Modern reasoning-focused models embed deliberate thinking into the systemâ€”spending extra compute during inference to reduce errors without additional training.'
         },
         resources: [
-            { icon: 'ðŸŽ¬', title: 'Chain-of-Thought Explained', meta: '8 min', url: 'https://www.youtube.com/watch?v=AFE6x81AP4k' },
-            { icon: 'ðŸ“º', title: 'Test-Time Scaling', meta: '12 min â€¢ Reasoning at inference time', url: 'https://www.youtube.com/watch?v=NbE8MoR8mPw' }
+            { type: 'video', title: 'Chain-of-Thought Explained', meta: '8 min', url: 'https://www.youtube.com/watch?v=AFE6x81AP4k' },
+            { type: 'video', title: 'Test-Time Scaling', meta: '12 min · Inference-time reasoning', url: 'https://www.youtube.com/watch?v=NbE8MoR8mPw' }
         ]
     },
     {
         category: 'adv',
         badge: 'Advanced',
-        title: '20. Agentic Workflows',
+        title: '22. Agentic Workflows',
         description: 'Combining reasoning, tools, and planning creates autonomous agents that can accomplish complex multi-step tasks.',
         paragraphs: [
             'An <strong>agent</strong> is an AI system that can perceive, reason, plan, and act autonomously. By combining inference-time reasoning with tool use, agents break down complex goals into actionable steps.',
@@ -510,7 +525,7 @@ const cardsData = [
     {
         category: 'infer',
         badge: 'Conclusion',
-        title: '22. Understanding the System',
+        title: '23. Understanding the System',
         description: 'AI models are not consciousâ€”they\'re sophisticated statistical systems that mirror human knowledge.',
         paragraphs: [
             'Modern AI isn\'t magic. It\'s a <strong>high-fidelity statistical mirror</strong> of human-created text, trained on trillions of tokens to predict plausible continuations. Understanding the frozen pipeline, tokenization, training phases, and inference mechanics demystifies both capabilities and limitations.',
@@ -525,5 +540,34 @@ const cardsData = [
             type: 'insight',
             content: '<strong>Final Thought:</strong> The "magic" of AI isn\'t that it thinksâ€”it\'s that billions of mathematical operations, trained on trillions of tokens, compress human knowledge into a reusable, frozen artifact. Understanding this transforms you from a passive user into an informed practitioner.'
         }
+    },
+    {
+        category: 'adv',
+        badge: 'What\'s Next',
+        title: '24. Beyond Transformers',
+        description: 'Beyond transformers: JEPA, Mamba, MoE, RWKV/RetNet, and hybrids are shaping the next wave of model architectures.',
+        paragraphs: [
+            'Transformers dominate today, but several directions are already in production or heavy research.',
+            '<strong>JEPA (Joint Embedding Predictive Architecture):</strong> Yann LeCun\'s vision—predict in <em>representation space</em>, not pixels or tokens. Goal: sample-efficient learning, world models, planning. V-JEPA and I-JEPA are early implementations.',
+            '<strong>Mamba & State Space Models (SSMs):</strong> Linear or near-linear sequence complexity instead of quadratic attention. Recurrent state, long context without the same memory cost. Used in some long-context and efficient LLMs.',
+            '<strong>Mixture of Experts (MoE):</strong> Sparse activation—route each token to a subset of "expert" sub-networks instead of one dense stack. Lets you scale total parameters (e.g. 400B+) while keeping compute per token similar. Used in DeepSeek-V3, Llama-4, Gemini-2.5, Mixtral.',
+            '<strong>RWKV & RetNet:</strong> RNN-like inference (O(1) memory, no KV cache) with parallelizable training. "Successor to Transformer" narrative; constant-memory decoding and long context. RWKV-7 and RetNet are in active use.',
+            '<strong>Hybrids:</strong> Models that mix attention with SSMs and/or MoE (e.g. Jamba: attention + Mamba + MoE; Qwen3-Next, linear attention). "Attention was never enough"—combining mechanisms is a major trend.'
+        ],
+        bullets: [
+            '<strong>JEPA:</strong> Predict in latent space → world models, planning',
+            '<strong>Mamba/SSMs:</strong> Linear-time sequences → long context, efficiency',
+            '<strong>MoE:</strong> Sparse experts → scale parameters without scaling compute per token',
+            '<strong>RWKV/RetNet:</strong> Recurrent inference, parallel training → O(1) decode, no KV cache',
+            '<strong>Hybrids:</strong> Attention + SSM + MoE in one model; already in production'
+        ],
+        resources: [
+            { type: 'video', title: 'JEPA — A Path Towards Autonomous Machine Intelligence', meta: 'Paper Explained · LeCun', url: 'https://www.youtube.com/watch?v=jSdHmImyUjk' },
+            { type: 'video', title: 'Mamba: Linear-Time Sequence Modeling (Paper Explained)', meta: 'Selective State Spaces', url: 'https://www.youtube.com/watch?v=9dSkvxS2EB0' },
+            { type: 'video', title: 'Intuition behind Mamba and State Space Models', meta: 'Visual · SSMs', url: 'https://www.youtube.com/watch?v=BDTVVlUU1Ck' },
+            { type: 'video', title: 'What is Mixture of Experts?', meta: '7 min · IBM', url: 'https://www.youtube.com/watch?v=sYDlVVyJYn4' },
+            { type: 'video', title: 'RWKV: Reinventing RNNs for the Transformer Era', meta: 'Paper Explained', url: 'https://www.youtube.com/watch?v=x8pW19wKfXQ' },
+            { type: 'video', title: 'Retentive Network: A Successor to Transformer', meta: 'Paper Explained', url: 'https://www.youtube.com/watch?v=ec56a8wmfRk' }
+        ]
     }
 ];

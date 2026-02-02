@@ -137,77 +137,78 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 24px 20px;
+    padding: 16px 20px;
     overflow-y: auto;
     box-sizing: border-box;
 }
 
-/* Slide Content - wide to use horizontal space, no inner scroll */
+/* Slide Content - compact to fit viewport, with breathing room */
 .slide-content {
     width: 100%;
-    max-width: min(1000px, calc(100vw - 40px));
+    max-width: min(960px, calc(100vw - 40px));
+    max-height: calc(100vh - var(--nav-h) - 32px);
     background: var(--card-bg);
     border-radius: var(--radius);
-    padding: 28px 36px;
+    padding: 22px 28px;
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
-    overflow-y: visible;
+    overflow-y: auto;
 }
 
 .slide-badge {
     display: inline-block;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--muted);
-    margin-bottom: 8px;
-    padding: 3px 10px;
+    margin-bottom: 6px;
+    padding: 3px 8px;
     background: rgba(0, 0, 0, 0.04);
     border-radius: 4px;
 }
 
 .slide-title {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--primary);
-    margin: 0 0 10px 0;
+    margin: 0 0 8px 0;
     line-height: 1.25;
 }
 
 .slide-description {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--muted);
     margin-bottom: 12px;
-    padding-bottom: 10px;
+    padding-bottom: 8px;
     border-bottom: 1px solid var(--border);
-    line-height: 1.5;
+    line-height: 1.45;
 }
 
 .slide-body {
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 0.82rem;
+    line-height: 1.52;
     color: var(--text);
 }
 
 .slide-body p {
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .slide-body p:last-of-type {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .slide-body ul {
     list-style: none;
     padding: 0;
-    margin: 12px 0;
+    margin: 10px 0;
 }
 
 .slide-body li {
     position: relative;
-    padding-left: 20px;
-    margin-bottom: 6px;
-    line-height: 1.6;
+    padding-left: 18px;
+    margin-bottom: 5px;
+    line-height: 1.5;
 }
 
 .slide-body li::before {
@@ -231,21 +232,21 @@ body {
 
 .slide-body code {
     background: rgba(99, 102, 241, 0.08);
-    padding: 2px 6px;
-    border-radius: 4px;
+    padding: 1px 5px;
+    border-radius: 3px;
     font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
-    font-size: 0.85em;
+    font-size: 0.82em;
     color: var(--accent);
 }
 
 /* Callout */
 .callout {
-    margin: 14px 0;
-    padding: 12px 14px;
+    margin: 12px 0;
+    padding: 10px 14px;
     border-radius: var(--radius-sm);
     border-left: 3px solid;
-    font-size: 0.85rem;
-    line-height: 1.55;
+    font-size: 0.78rem;
+    line-height: 1.48;
 }
 
 .callout strong {
@@ -268,67 +269,94 @@ body {
     border-color: var(--muted);
 }
 
-/* Resources */
+/* Resources — compact inline row with breathing room */
 .resources {
     margin-top: 14px;
-    padding-top: 12px;
+    padding: 12px 0 0;
     border-top: 1px solid var(--border);
 }
 
-.resources-title {
-    font-size: 0.65rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--muted);
+.resources-header {
     margin-bottom: 8px;
 }
 
+.resources-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+}
+
 .resources-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .resource-link {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 10px 12px;
-    background: rgba(99, 102, 241, 0.04);
-    border-radius: var(--radius-sm);
+    gap: 8px;
+    padding: 6px 12px;
+    background: var(--bg);
+    border-radius: 999px;
     text-decoration: none;
     color: var(--text);
-    transition: all 0.2s ease;
-    border: 1px solid rgba(99, 102, 241, 0.1);
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    border: 1px solid var(--border);
+    font-size: 0.75rem;
 }
 
 .resource-link:hover {
     background: rgba(99, 102, 241, 0.08);
     border-color: var(--accent);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.12);
+    color: var(--primary);
 }
 
 .resource-icon {
-    font-size: 1rem;
+    font-size: 0.72rem;
     flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.06);
+    color: var(--muted);
 }
 
+.resource-link--video .resource-icon { background: rgba(14, 165, 233, 0.15); color: var(--infer); }
+.resource-link--article .resource-icon { background: rgba(16, 185, 129, 0.15); color: var(--adv); }
+.resource-link--tool .resource-icon { background: rgba(99, 102, 241, 0.15); color: var(--arch); }
+.resource-link--interactive .resource-icon { background: rgba(236, 72, 153, 0.15); color: var(--train); }
+
 .resource-info {
-    flex: 1;
+    flex: 0 1 auto;
     min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
 }
 
 .resource-title {
     font-weight: 600;
     color: var(--primary);
-    font-size: 0.85rem;
-    margin-bottom: 2px;
+    font-size: 0.75rem;
+    line-height: 1.25;
 }
 
 .resource-meta {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
+    color: var(--muted);
+    line-height: 1.25;
+}
+
+.resource-info .resource-meta::before {
+    content: '·';
+    margin-right: 4px;
     color: var(--muted);
 }
 
@@ -362,20 +390,21 @@ body {
     }
     
     .slide {
-        padding: 16px 14px;
+        padding: 10px 12px;
     }
     
     .slide-content {
-        padding: 22px 20px;
-        max-height: calc(100vh - 48px - 24px);
+        padding: 14px 18px;
+        max-height: calc(100vh - 48px - 20px);
     }
     
     .slide-title {
-        font-size: 1.35rem;
+        font-size: 1.15rem;
     }
     
-    .resources-list {
-        grid-template-columns: 1fr;
+    .resource-link {
+        padding: 4px 8px;
+        font-size: 0.72rem;
     }
 }
 
@@ -389,10 +418,10 @@ body {
     }
     
     .slide-content {
-        padding: 18px 16px;
+        padding: 12px 14px;
     }
     
     .slide-title {
-        font-size: 1.2rem;
+        font-size: 1.05rem;
     }
 }
