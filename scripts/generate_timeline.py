@@ -6,9 +6,18 @@ import csv
 import os
 import json
 from pathlib import Path
+from typing import List, Dict, Optional
 
-def _sanitize_link(link):
-    """Ensure link is a single URL; strip any trailing comma + weight that bled in."""
+def _sanitize_link(link: str) -> str:
+    """
+    Ensure link is a single URL; strip any trailing comma + weight that bled in.
+    
+    Args:
+        link: Link string that may contain trailing weight data
+        
+    Returns:
+        Cleaned link string
+    """
     if not link:
         return ''
     link = link.strip()
@@ -21,8 +30,16 @@ def _sanitize_link(link):
             link = link[:i].strip()
     return link if link.startswith(('http://', 'https://')) else link
 
-def _sanitize_weight(weight):
-    """Ensure weight is a single number (1-3: minor/major/landmark); drop any URL fragment that bled in."""
+def _sanitize_weight(weight: str) -> str:
+    """
+    Ensure weight is a single number (1-3: minor/major/landmark); drop any URL fragment that bled in.
+    
+    Args:
+        weight: Weight string that may contain URL fragments
+        
+    Returns:
+        Cleaned weight string (digits only)
+    """
     if not weight:
         return ''
     weight = weight.strip()
@@ -35,32 +52,96 @@ def _sanitize_weight(weight):
             break
     return ''.join(digits) if digits else ''
 
-def read_csv_data(csv_path):
-    """Read timeline data from CSV file"""
+def read_csv_data(csv_path: Path) -> List[Dict[str, str]]:
+    """
+    Read timeline data from CSV file.
+    
+    Args:
+        csv_path: Path to the CSV file
+        
+    Returns:
+        List of event dictionaries
+        
+    Raises:
+        FileNotFoundError: If CSV file doesn't exist
+        ValueError: If CSV structure is invalid
+    """
+    if not csv_path.exists():
+        raise FileNotFoundError(f"CSV file not found: {csv_path}")
+    
     events = []
-    with open(csv_path, 'r', encoding='utf-8') as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            link = row.get('Link', '').strip()
-            weight = row.get('Event Weight', '').strip()
-            event = {
-                'year': int(row['Year']) if row['Year'].strip() else None,
-                'event': row['Event/Development'].strip(),
-                'people': row['People/Organizations'].strip(),
-                'category': row['Category'].strip(),
-                'source': row['Source'].strip(),
-                'link': _sanitize_link(link),
-                'eventWeight': _sanitize_weight(weight)
-            }
-            if event['year']:
-                events.append(event)
+    required_columns = ['Year', 'Event/Development', 'People/Organizations', 'Category', 'Source']
+    
+    try:
+        with open(csv_path, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            
+            # Validate required columns exist
+            if not reader.fieldnames:
+                raise ValueError("CSV file appears to be empty or invalid")
+            
+            missing_columns = [col for col in required_columns if col not in reader.fieldnames]
+            if missing_columns:
+                raise ValueError(f"Missing required columns: {', '.join(missing_columns)}")
+            
+            for row_num, row in enumerate(reader, start=2):  # Start at 2 (header is row 1)
+                try:
+                    link = row.get('Link', '').strip()
+                    weight = row.get('Event Weight', '').strip()
+                    
+                    # Validate year
+                    year_str = row.get('Year', '').strip()
+                    if not year_str:
+                        print(f"Warning: Row {row_num} has no year, skipping")
+                        continue
+                    
+                    try:
+                        year = int(year_str)
+                    except ValueError:
+                        print(f"Warning: Row {row_num} has invalid year '{year_str}', skipping")
+                        continue
+                    
+                    event = {
+                        'year': year,
+                        'event': row.get('Event/Development', '').strip(),
+                        'people': row.get('People/Organizations', '').strip(),
+                        'category': row.get('Category', '').strip(),
+                        'source': row.get('Source', '').strip(),
+                        'link': _sanitize_link(link),
+                        'eventWeight': _sanitize_weight(weight)
+                    }
+                    
+                    # Validate required fields
+                    if not event['event']:
+                        print(f"Warning: Row {row_num} has no event description, skipping")
+                        continue
+                    
+                    events.append(event)
+                except Exception as e:
+                    print(f"Warning: Error processing row {row_num}: {e}")
+                    continue
+    except UnicodeDecodeError as e:
+        raise ValueError(f"CSV file encoding error: {e}. Please ensure the file is UTF-8 encoded.")
+    except Exception as e:
+        raise ValueError(f"Error reading CSV file: {e}")
+    
+    if not events:
+        raise ValueError("No valid events found in CSV file")
     
     # Sort by year
     events.sort(key=lambda x: x['year'])
     return events
 
-def get_and_increment_version(project_root):
-    """Read version from timeline_version.txt, increment, write back; return new version."""
+def get_and_increment_version(project_root: Path) -> int:
+    """
+    Read version from timeline_version.txt, increment, write back; return new version.
+    
+    Args:
+        project_root: Root directory of the project
+        
+    Returns:
+        New version number
+    """
     version_file = project_root / "timeline_version.txt"
     try:
         version = int(version_file.read_text().strip())
@@ -71,8 +152,15 @@ def get_and_increment_version(project_root):
     return version
 
 
-def generate_html(events, output_path, version=1):
-    """Generate HTML timeline from events data"""
+def generate_html(events: List[Dict[str, str]], output_path: Path, version: int = 1) -> None:
+    """
+    Generate HTML timeline from events data.
+    
+    Args:
+        events: List of event dictionaries
+        output_path: Path where HTML file should be written
+        version: Version number for the timeline
+    """
     
     # Get unique categories for filtering
     categories = sorted(set(e['category'] for e in events if e['category']))
@@ -191,7 +279,7 @@ def generate_html(events, output_path, version=1):
         </div>
     </div>
     
-    <script src="script.js"></script>
+    <script src="timeline.js"></script>
 </body>
 </html>"""
     
@@ -201,7 +289,8 @@ def generate_html(events, output_path, version=1):
     print(f"Generated HTML timeline with {len(events)} events")
     print(f"Output: {output_path}")
 
-def main():
+def main() -> None:
+    """Main entry point for timeline generation."""
     # Paths
     project_root = Path(__file__).parent.parent
     csv_path = project_root / "data" / "AI_Timeline_1940-2025.csv"
@@ -210,23 +299,32 @@ def main():
     # Create directories if they don't exist
     output_path.parent.mkdir(parents=True, exist_ok=True)
     
-    if not csv_path.exists():
-        print(f"Error: CSV file not found at {csv_path}")
+    try:
+        # Version: increment on each run
+        version = get_and_increment_version(project_root)
+        print(f"Timeline version: {version}")
+        
+        # Read and generate
+        print(f"Reading CSV from {csv_path}...")
+        events = read_csv_data(csv_path)
+        print(f"Found {len(events)} events")
+        
+        print(f"Generating HTML timeline...")
+        generate_html(events, output_path, version=version)
+        print(f"✓ Successfully generated HTML timeline with {len(events)} events")
+        print(f"✓ Output: {output_path}")
+    except FileNotFoundError as e:
+        print(f"✗ Error: {e}")
         print("Please ensure the CSV file exists in the data/ directory")
         return
-    
-    # Version: increment on each run
-    version = get_and_increment_version(project_root)
-    print(f"Timeline version: {version}")
-    
-    # Read and generate
-    print(f"Reading CSV from {csv_path}...")
-    events = read_csv_data(csv_path)
-    print(f"Found {len(events)} events")
-    
-    print(f"Generating HTML timeline...")
-    generate_html(events, output_path, version=version)
-    print("Done!")
+    except ValueError as e:
+        print(f"✗ Error: {e}")
+        return
+    except Exception as e:
+        print(f"✗ Unexpected error: {e}")
+        import traceback
+        traceback.print_exc()
+        return
 
 if __name__ == "__main__":
     main()

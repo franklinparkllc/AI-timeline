@@ -10,7 +10,7 @@ AI-timeline/
 │   └── AI_Timeline_1940-2025.csv    # Source CSV data (maintain this)
 ├── index.html                    # Generated HTML timeline
 ├── styles.css                    # Timeline styling
-├── script.js                     # Interactive functionality
+├── timeline.js                   # Interactive functionality
 ├── scripts/
 │   ├── generate_timeline.py         # Script to generate HTML from CSV
 │   └── normalize_csv.py             # Re-quote CSV columns (prevents link/weight bleed)
