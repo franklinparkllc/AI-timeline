@@ -5,11 +5,12 @@ const cardsData = [
     {
         category: 'arch',
         badge: 'Overview',
-        title: 'How modern AI models work',
-        description: 'AI models are sophisticated mathematical engines—not conscious beings, but carefully trained statistical systems.',
+        title: 'Introduction to modern AI models',
+        description: 'AI models are sophisticated mathematical engines that have seen remarkable growth in the last decade',
         paragraphs: [
-            'In this presentation, we are going to demystify how modern AI systems work. Today, large models are descendants of the perceptrons and neural networks in our timeline—scaled up, trained on massive datasets, and organized into architectures like the <strong>Transformer</strong>.',
-            'We will look at how the models are built and trained, and then what happens during inference when a user makes a request. Along the way, we will see why outputs can feel human, where the system runs aground (hallucinations, missing context, brittle logic), and why running these models—and the tools around them—can be complex and expensive.'
+            'In this presentation, we are going to demystify how modern AI systems work.',
+            'It is useful to think about model architecture, training, and inference as separate stages in a pipeline.',
+            'At the heart of modern models is a concept called the <strong>Transformer</strong>, which is a type of neural network architecture that is designed to process text data. Transformers were defined in a seminal paper in 2017 by Vaswani et al. and have since become the de facto standard for language model architecture. Transformers unlocked the ability to train models with billions of parameters, which is what allows modern models to be so powerful.'
         ],
         bullets: [
             'Understanding this architecture helps predict failures, hallucinations, and informs effective use of tools like RAG',
@@ -31,9 +32,9 @@ const cardsData = [
         title: 'Before Transformers',
         description: 'Understanding why the Transformer architecture was revolutionary requires looking at what came before.',
         paragraphs: [
-            'Early neural networks for language processing used <strong>Recurrent Neural Networks (RNNs)</strong> and <strong>Long Short-Term Memory (LSTM)</strong> architectures. These models processed text sequentially—one word at a time, in order—maintaining a "hidden state" that tried to remember earlier context.',
-            'The problem? Sequential processing was slow (couldn\'t parallelize across GPUs), and models struggled with long-range dependencies due to <strong>vanishing gradients</strong>. By the time an RNN reached word 50, it had largely "forgotten" word 1.',
-            '<strong>Seq2Seq</strong> (encoder-decoder) models added <strong>attention</strong>—first for machine translation—so the decoder could "look at" relevant parts of the input. Attention helped, but the backbone was still sequential RNNs.',
+            'Early neural networks for language processing used <strong>Recurrent Neural Networks (RNNs)</strong> and <strong>Long Short-Term Memory (LSTM)</strong> architectures. These models processed text sequentially—one word at a time, in order—maintaining and keeping the context of previous words was a resource intensive process.',
+            'The problem? Sequential processing was slow (couldn\'t parallelize across GPUs), and models struggled with long-range dependencies. By the time an RNN reached word 50, it had largely "forgotten" word 1.',
+            '<strong>Seq2Seq</strong> (encoder-decoder) models added <strong>attention</strong>—first for machine translation—so the decoder could "look at" relevant parts of the input. Attention helped, but the backbone was still sequential RNNs. The precursors started appearing around 2014, with the first successful implementation of attention in 2015 by Bahdanau et al. and Vaswani et al. in 2017.',
             'The 2017 paper "Attention Is All You Need" introduced the <strong>Transformer</strong>, which dropped the RNN entirely. It processes all tokens in parallel using only attention—enabling the scale we see today.'
         ],
         bullets: [
@@ -53,45 +54,20 @@ const cardsData = [
     {
         category: 'arch',
         badge: 'Architecture',
-        title: 'The Transformer Architecture',
-        description: 'Modern AI is built on the Transformer—a neural network design that processes all tokens in parallel using layers of attention and computation.',
-        paragraphs: [
-            'A <strong>token</strong> is a chunk of text (a word or word-piece) converted into an integer ID the model can process. We\'ll unpack tokenization in more depth on the next slide.',
-            'The <strong>Transformer</strong> is the foundational architecture powering GPT, Claude, Gemini, and most modern AI. It processes text through layers of interconnected nodes, where each layer learns increasingly abstract patterns.',
-            'Each Transformer layer has two main components: <strong>Attention</strong> (relating tokens to each other) and <strong>Feed-Forward Networks</strong> (processing individual tokens through non-linear transformations). These alternate in a repeating pattern, with normalization and residual connections stabilizing training.',
-            'Early layers detect simple patterns (punctuation, word endings), while deeper layers grasp complex concepts (sarcasm, logical reasoning, thematic connections). The model\'s size is measured in <strong>parameters</strong>—billions of adjustable weights that encode learned knowledge.'
-        ],
-        bullets: [
-            '<strong>Parameters:</strong> Adjustable weights that store learned patterns (model sizes range from millions to hundreds of billions+)',
-            '<strong>Layers:</strong> Each layer alternates between attention (relating tokens) and feed-forward computation (processing tokens)',
-            '<strong>Positional Encodings:</strong> Added to each token to preserve word order—without them, "dog bites man" and "man bites dog" would be indistinguishable',
-            '<strong>Context Window:</strong> The model\'s "working memory" for a conversation (ranges from 4K to 200K+ tokens)'
-        ],
-        callout: {
-            type: 'note',
-            content: '<strong>Layer Structure:</strong> Think of each layer as a two-step process: (1) Attention asks "which other tokens matter for understanding this one?" (2) Feed-forward networks apply complex transformations to extract features. Repeat this 12-96 times depending on model size.'
-        },
-        resources: [
-            { icon: '📺', title: 'A Student\'s Guide to Vectors and Tensors', meta: '12 min • Dan Fleisch', url: 'https://www.youtube.com/watch?v=f5liqUk0ZTw' }
-        ]
-    },
-    {
-        category: 'arch',
-        badge: 'Architecture',
-        title: 'Tokenization',
-        description: 'Models don\'t understand text directly—they process numeric tokens that represent pieces of words.',
+        title: 'Tokens & Tokenization',
+        description: 'Models don\'t read text directly—they process numeric token IDs that represent pieces of words.',
         paragraphs: [
             'AI models operate on numbers, not letters. A <strong>tokenizer</strong> converts text into integer IDs representing vocabulary fragments. For example, "Ingenious" might split into three tokens: <code>In</code>, <code>gen</code>, and <code>ious</code>.',
-            'This approach, called <strong>Byte-Pair Encoding (BPE)</strong>, balances efficiency and flexibility. Common words stay whole ("the"), while rare words split into recognizable parts. Multimodal models extend this: images become "patches," audio becomes tokens.'
+            'This approach (often <strong>BPE</strong> or similar) balances efficiency and flexibility: common words stay whole, rare words split into reusable parts. Multimodal models do the same idea for images (patches) and audio (chunks).'
         ],
         bullets: [
             'Token count determines cost and speed—more tokens = higher compute',
-            'Tokenization explains quirks: why models struggle with spelling backward (tokens don\'t map 1:1 to letters)',
-            '<strong>Everything is next-token prediction:</strong> Poetry, code, math—all reduced to "what token comes next?"'
+            'Tokenization explains quirks: spelling/backwards tasks are hard (tokens don\'t map 1:1 to letters)',
+            '<strong>Tokens are pieces, not words:</strong> The model often sees subwords like <code>un</code> + <code>believ</code> + <code>able</code>'
         ],
         callout: {
             type: 'insight',
-            content: '<strong>Token Prediction Paradigm:</strong> This single task—predicting the next token—enables every capability. It\'s why models excel at pattern completion but may fail at precise arithmetic (it\'s token prediction, not calculation).'
+            content: '<strong>Key idea:</strong> Most language models are trained on one core objective: <em>predict the next token</em>. That single skill can look like reasoning, writing, or coding—but it\'s still prediction, not guaranteed “truth” or perfect calculation.'
         },
         resources: [
             { icon: '🛠️', title: 'OpenAI Tokenizer', meta: 'Interactive tool', url: 'https://platform.openai.com/tokenizer' },
@@ -101,28 +77,94 @@ const cardsData = [
     {
         category: 'arch',
         badge: 'Architecture',
-        title: 'How Attention Works',
-        description: 'Attention is the core mechanism that allows Transformers to understand relationships between words, no matter how far apart they are.',
+        title: 'Embeddings, position, and context',
+        description: 'After tokenization, the model turns token IDs into vectors, adds order, and works within a limited window.',
         paragraphs: [
-            'When processing each token, the model needs to decide which other tokens in the sequence are relevant. <strong>Attention</strong> solves this through three learned representations for every token:',
-            'The model computes attention scores by comparing the Query of the current token against the Keys of all previous tokens (including itself). High scores mean "these tokens are relevant to understanding this one." These scores create a weighted average of the Values—tokens with high attention get more weight.'
+            'A token ID is just a number. The first step is an <strong>embedding lookup</strong>: the model maps each token ID to a vector (a list of numbers) that represents meaning and usage.',
+            'Because word order matters, the model adds <strong>positional information</strong> so "man bites dog" differs from "dog bites man". Then it processes the whole sequence inside a finite <strong>context window</strong> (the model’s working memory).'
         ],
         bullets: [
-            '<strong>Query (Q):</strong> "What am I looking for?" Each token generates a query vector representing what information it needs',
-            '<strong>Key (K):</strong> "What do I offer?" Each token generates a key vector advertising its content',
-            '<strong>Value (V):</strong> "Here\'s my actual information." Each token generates a value vector containing its semantic content',
-            '<strong>Self-Attention:</strong> Each token attends to all tokens in the sequence (including itself)',
-            '<strong>Multi-Head Attention:</strong> Multiple attention mechanisms run in parallel, each learning different relationships (syntax, semantics, coreference)',
-            '<strong>Attention Scores:</strong> Determine which tokens influence each other—visualizing these reveals what the model "focuses on"',
-            '<strong>Context Window Limit:</strong> Attention requires comparing every token to every other token—cost grows quadratically with length'
+            '<strong>Embeddings:</strong> Vectors that represent tokens; the model updates these vectors layer by layer',
+            '<strong>Positional encoding:</strong> Adds “where am I in the sequence?” so order is preserved',
+            '<strong>Context window:</strong> Only tokens inside the window can influence the output',
+            '<strong>Prompt budget:</strong> System + chat history + your input all share the same window'
+        ],
+        callout: {
+            type: 'note',
+            content: '<strong>Practical takeaway:</strong> When prompts get long, models may drop or compress earlier parts because they can only “see” what fits in the context window.'
+        },
+        resources: [
+            { icon: '📺', title: 'A Student\'s Guide to Vectors and Tensors', meta: '12 min • Dan Fleisch', url: 'https://www.youtube.com/watch?v=f5liqUk0ZTw' }
+        ]
+    },
+    {
+        category: 'arch',
+        badge: 'Architecture',
+        title: 'Transformer blocks (repeat N times)',
+        description: 'A Transformer is a stack of repeating blocks. Each block updates every token in two steps: mix, then refine.',
+        paragraphs: [
+            'Inside a block, <strong>attention</strong> lets a token pull in information from other tokens (a controlled “mixing” of context). Then a small <strong>MLP</strong> (feed-forward network) does per-token nonlinear computation to refine that token’s representation.',
+            'Both steps are wrapped with <strong>residual connections</strong> (add the old signal back) and <strong>layer norm</strong> (keep values stable), which is what makes deep stacks trainable.'
+        ],
+        bullets: [
+            '<strong>Attention = mix:</strong> each token becomes a weighted blend of other tokens’ vectors',
+            '<strong>MLP = compute:</strong> transforms each token independently (adds nonlinear “feature building”)',
+            '<strong>Residual:</strong> update = old + new (helps information flow through many layers)',
+            '<strong>Layer norm:</strong> stabilizes training and prevents values from drifting',
+            '<strong>Depth:</strong> repeating this many times builds more abstract concepts'
+        ],
+        callout: {
+            type: 'insight',
+            content: '<strong>Why it’s easy to mix up:</strong> Attention mostly moves information between tokens; the MLP mostly transforms information within a token. Together, they let models combine context with computation.'
+        },
+        resources: [
+            { icon: '🌐', title: 'The Illustrated Transformer', meta: 'Jay Alammar • Visual explanation', url: 'https://jalammar.github.io/illustrated-transformer/' }
+        ]
+    },
+    {
+        category: 'arch',
+        badge: 'Architecture',
+        title: 'Attention (the intuition)',
+        description: 'Attention lets each token decide which other tokens matter right now.',
+        paragraphs: [
+            'When the model updates a token, it asks: “which other tokens should influence me?” Attention answers by assigning weights to other tokens, then mixing their information into the current token.',
+            'Crucially, this happens for <em>every</em> token in parallel, producing a set of updated, context-aware token vectors.'
+        ],
+        bullets: [
+            '<strong>Selective focus:</strong> different tokens matter for different words (e.g., resolving pronouns)',
+            '<strong>Many perspectives:</strong> multiple heads learn different relationships (syntax, meaning, coreference)',
+            '<strong>Causal masking (LLMs):</strong> during generation, a token can’t look “to the right” at future tokens'
         ],
         callout: {
             type: 'analogy',
-            content: '<strong>Analogy:</strong> Imagine reading a sentence where each word can ask questions to all previous words. "Loves" asks "who?" and attends strongly to "Sarah." "Bank" asks "context?" and attends to nearby words to distinguish "river bank" from "money bank." Attention automates this process across thousands of tokens simultaneously.'
+            content: '<strong>Analogy:</strong> While reading, you constantly look back to resolve meaning: “bank” checks nearby words to choose river vs money; “it” looks back for the referent. Attention automates this across thousands of tokens.'
         },
         resources: [
-            { icon: '🎬', title: 'Attention Is All You Need', meta: '15 min • Visual walkthrough', url: 'https://www.youtube.com/watch?v=wjZofJX0v4M' },
-            { icon: '📺', title: '3Blue1Brown Attention', meta: '26 min • Animated explanation', url: 'https://www.youtube.com/watch?v=eMlx5fFNoYc' }
+            { icon: '📺', title: '3Blue1Brown: Attention', meta: '26 min • Animated explanation', url: 'https://www.youtube.com/watch?v=eMlx5fFNoYc' }
+        ]
+    },
+    {
+        category: 'arch',
+        badge: 'Architecture',
+        title: 'Attention (Q, K, V)',
+        description: 'Q/K/V is the recipe for turning “what should I pay attention to?” into weights and a mixed output.',
+        paragraphs: [
+            'For each token, the model creates three vectors: <strong>Query</strong> (what I’m looking for), <strong>Key</strong> (what I offer), and <strong>Value</strong> (my information).',
+            'It scores Query vs Keys, turns those scores into weights, and takes a weighted sum of Values. That weighted sum becomes the token’s “mixed-in context.”'
+        ],
+        bullets: [
+            '<strong>Query (Q):</strong> what this token wants to find',
+            '<strong>Key (K):</strong> what this token matches on',
+            '<strong>Value (V):</strong> what information this token contributes',
+            '<strong>Multi-head:</strong> do this in parallel, then combine the results',
+            '<strong>Cost:</strong> comparing many tokens to many tokens gets expensive as context grows'
+        ],
+        callout: {
+            type: 'note',
+            content: '<strong>One subtle point:</strong> Attention doesn’t retrieve a stored “fact” like a database query—it computes a new vector by blending existing token representations.'
+        },
+        resources: [
+            { icon: '🎬', title: 'Attention Is All You Need', meta: '15 min • Visual walkthrough', url: 'https://www.youtube.com/watch?v=wjZofJX0v4M' }
         ]
     },
     {
@@ -235,7 +277,10 @@ const cardsData = [
         callout: {
             type: 'note',
             content: '<strong>Note:</strong> This is why long conversations become expensive and slow. Each new response requires reprocessing thousands of prior tokens. <strong>Tip:</strong> Periodically restate the goal and key constraints (or start a fresh thread with a short summary) to reduce drift.'
-        }
+        },
+        resources: [
+            { icon: '📘', title: 'Claude prompting best practices', meta: 'Anthropic docs • Prompt engineering', url: 'https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/claude-4-best-practices' }
+        ]
     },
     {
         category: 'infer',
@@ -255,7 +300,13 @@ const cardsData = [
         callout: {
             type: 'insight',
             content: '<strong>Why Hallucinations Persist:</strong> No ground-truth verification exists during inference. The model\'s objective is "generate plausible text," not "generate true text." Hallucinations are a fundamental limitation of the next-token prediction paradigm.'
-        }
+        },
+        resources: [
+            { icon: '📺', title: 'Why Large Language Models Hallucinate', meta: 'Video • Practical explanation', url: 'https://www.youtube.com/watch?v=cfqtFvWOfg0' },
+            { icon: '🧠', title: 'Why language models hallucinate', meta: 'OpenAI • Research explainer', url: 'https://openai.com/index/why-language-models-hallucinate/' },
+            { icon: '📄', title: 'Mata v. Avianca (court filing with fabricated citations)', meta: 'Primary source • SDNY docket', url: 'https://law.justia.com/cases/federal/district-courts/new-york/nysdce/1:2022cv01461/575368/54/' },
+            { icon: '📰', title: 'Google Bard demo error (JWST claim)', meta: 'Reuters • Feb 2023', url: 'https://www.reuters.com/technology/google-ai-chatbot-bard-offers-inaccurate-information-company-ad-2023-02-08/' }
+        ]
     },
     {
         category: 'infer',
@@ -276,7 +327,11 @@ const cardsData = [
         callout: {
             type: 'note',
             content: '<strong>Note:</strong> Speed depends on model size, hardware, context length, and how much extra reasoning/tool use is happening.'
-        }
+        },
+        resources: [
+            { icon: '📺', title: 'AI Inference: The Secret to AI\'s Superpowers', meta: 'Video • IBM Technology', url: 'https://www.youtube.com/watch?v=XtT5i0ZeHHE&t=19s' },
+            { icon: '📺', title: 'An AI Prompt Engineer Shares Her Secrets', meta: 'Video • Fortune Magazine', url: 'https://www.youtube.com/watch?v=AxfmzLz9xXM' }
+        ]
     },
     {
         category: 'adv',

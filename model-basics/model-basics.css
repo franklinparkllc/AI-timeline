@@ -1,18 +1,22 @@
-/* Model Basics - Clean Slideshow */
+/* Model Basics - Modern Compact Slideshow */
 
 :root {
-    --primary: #2c3e50;
-    --accent: #3498db;
-    --text: #2c3e50;
-    --bg: #f5f7fa;
+    --primary: #1a1d23;
+    --accent: #6366f1;
+    --text: #374151;
+    --bg: #f8fafc;
     --card-bg: #ffffff;
-    --border: #e2e8f0;
-    --muted: #94a3b8;
+    --border: #e5e7eb;
+    --muted: #6b7280;
     
-    --arch: #667eea;
-    --train: #f093fb;
-    --infer: #4facfe;
-    --adv: #43e97b;
+    --arch: #6366f1;
+    --train: #ec4899;
+    --infer: #0ea5e9;
+    --adv: #10b981;
+    
+    --nav-h: 52px;
+    --radius: 10px;
+    --radius-sm: 6px;
 }
 
 * {
@@ -22,39 +26,41 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     background: var(--bg);
     color: var(--text);
     overflow: hidden;
     height: 100vh;
+    font-size: 15px;
 }
 
-/* Navigation */
+/* Navigation - compact bar */
 .nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 70px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
+    height: var(--nav-h);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 30px;
+    padding: 0 20px;
     z-index: 100;
 }
 
 .nav-btn {
-    width: 40px;
-    height: 40px;
+    width: 34px;
+    height: 34px;
     border: 1px solid var(--border);
     background: var(--card-bg);
-    border-radius: 8px;
-    font-size: 1.2rem;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.2s ease;
     color: var(--primary);
     display: flex;
     align-items: center;
@@ -68,7 +74,7 @@ body {
 }
 
 .nav-btn:disabled {
-    opacity: 0.3;
+    opacity: 0.35;
     cursor: not-allowed;
 }
 
@@ -76,14 +82,14 @@ body {
     flex: 1;
     display: flex;
     align-items: center;
-    gap: 15px;
-    max-width: 400px;
+    gap: 10px;
+    max-width: 280px;
     margin: 0 auto;
 }
 
 .progress-bar {
     flex: 1;
-    height: 4px;
+    height: 3px;
     background: var(--border);
     border-radius: 2px;
     overflow: hidden;
@@ -93,31 +99,31 @@ body {
     height: 100%;
     background: linear-gradient(90deg, var(--arch), var(--infer));
     width: 0%;
-    transition: width 0.3s ease;
+    transition: width 0.25s ease;
 }
 
 .progress-text {
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--muted);
-    min-width: 60px;
+    min-width: 44px;
     text-align: center;
 }
 
 .nav-controls {
     display: flex;
-    gap: 8px;
+    gap: 6px;
 }
 
 /* Slides Container */
 .slides-container {
     position: fixed;
-    top: 70px;
+    top: var(--nav-h);
     left: 0;
     bottom: 0;
     display: flex;
     flex-direction: row;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
     will-change: transform;
 }
@@ -131,85 +137,85 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 40px;
+    padding: 24px 20px;
     overflow-y: auto;
     box-sizing: border-box;
 }
 
-/* Slide Content */
+/* Slide Content - wide to use horizontal space, no inner scroll */
 .slide-content {
-    max-width: 1000px;
     width: 100%;
+    max-width: min(1000px, calc(100vw - 40px));
     background: var(--card-bg);
-    border-radius: 16px;
-    padding: 40px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-    max-height: 90vh;
-    overflow-y: auto;
+    border-radius: var(--radius);
+    padding: 28px 36px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+    overflow-y: visible;
 }
 
 .slide-badge {
     display: inline-block;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     color: var(--muted);
-    margin-bottom: 12px;
-    padding: 4px 12px;
+    margin-bottom: 8px;
+    padding: 3px 10px;
     background: rgba(0, 0, 0, 0.04);
-    border-radius: 6px;
+    border-radius: 4px;
 }
 
 .slide-title {
-    font-size: 2rem;
-    font-weight: 800;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--primary);
-    margin: 0 0 16px 0;
-    line-height: 1.2;
+    margin: 0 0 10px 0;
+    line-height: 1.25;
 }
 
 .slide-description {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: var(--muted);
-    margin-bottom: 24px;
-    padding-bottom: 16px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
     border-bottom: 1px solid var(--border);
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .slide-body {
-    font-size: 0.95rem;
-    line-height: 1.7;
+    font-size: 0.9rem;
+    line-height: 1.6;
     color: var(--text);
 }
 
 .slide-body p {
-    margin-bottom: 14px;
+    margin-bottom: 10px;
 }
 
 .slide-body p:last-of-type {
-    margin-bottom: 18px;
+    margin-bottom: 12px;
 }
 
 .slide-body ul {
     list-style: none;
     padding: 0;
-    margin: 18px 0;
+    margin: 12px 0;
 }
 
 .slide-body li {
     position: relative;
-    padding-left: 24px;
-    margin-bottom: 10px;
-    line-height: 1.7;
+    padding-left: 20px;
+    margin-bottom: 6px;
+    line-height: 1.6;
 }
 
 .slide-body li::before {
     content: '→';
     position: absolute;
     left: 0;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 0.85em;
     color: var(--accent);
 }
 
@@ -220,92 +226,92 @@ body {
 
 .slide-body strong {
     color: var(--primary);
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .slide-body code {
-    background: rgba(52, 152, 219, 0.1);
-    padding: 2px 8px;
+    background: rgba(99, 102, 241, 0.08);
+    padding: 2px 6px;
     border-radius: 4px;
     font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: var(--accent);
 }
 
 /* Callout */
 .callout {
-    margin: 20px 0;
-    padding: 16px;
-    border-radius: 8px;
+    margin: 14px 0;
+    padding: 12px 14px;
+    border-radius: var(--radius-sm);
     border-left: 3px solid;
-    font-size: 0.9rem;
-    line-height: 1.6;
+    font-size: 0.85rem;
+    line-height: 1.55;
 }
 
 .callout strong {
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 
 .callout-insight {
-    background: rgba(33, 150, 243, 0.08);
-    border-color: #2196f3;
+    background: rgba(14, 165, 233, 0.06);
+    border-color: var(--infer);
 }
 
 .callout-analogy {
-    background: rgba(255, 152, 0, 0.08);
-    border-color: #ff9800;
+    background: rgba(236, 72, 153, 0.06);
+    border-color: var(--train);
 }
 
 .callout-note {
-    background: rgba(108, 117, 125, 0.08);
-    border-color: #6c757d;
+    background: rgba(107, 114, 128, 0.06);
+    border-color: var(--muted);
 }
 
 /* Resources */
 .resources {
-    margin-top: 24px;
-    padding-top: 20px;
-    border-top: 2px solid var(--border);
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
 }
 
 .resources-title {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     color: var(--muted);
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .resources-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px;
 }
 
 .resource-link {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 12px;
-    background: rgba(52, 152, 219, 0.05);
-    border-radius: 8px;
+    gap: 10px;
+    padding: 10px 12px;
+    background: rgba(99, 102, 241, 0.04);
+    border-radius: var(--radius-sm);
     text-decoration: none;
     color: var(--text);
-    transition: all 0.2s;
-    border: 1px solid rgba(52, 152, 219, 0.1);
+    transition: all 0.2s ease;
+    border: 1px solid rgba(99, 102, 241, 0.1);
 }
 
 .resource-link:hover {
-    background: rgba(52, 152, 219, 0.1);
+    background: rgba(99, 102, 241, 0.08);
     border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.12);
 }
 
 .resource-icon {
-    font-size: 1.2rem;
+    font-size: 1rem;
     flex-shrink: 0;
 }
 
@@ -315,53 +321,57 @@ body {
 }
 
 .resource-title {
-    font-weight: 700;
+    font-weight: 600;
     color: var(--primary);
-    font-size: 0.9rem;
-    margin-bottom: 4px;
+    font-size: 0.85rem;
+    margin-bottom: 2px;
 }
 
 .resource-meta {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: var(--muted);
 }
 
-/* Scrollbar */
-.slide-content::-webkit-scrollbar {
+/* Scrollbar - on slide when content overflows */
+.slide::-webkit-scrollbar {
     width: 6px;
 }
 
-.slide-content::-webkit-scrollbar-track {
+.slide::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.slide-content::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.2);
+.slide::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.12);
     border-radius: 3px;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
     .nav {
-        padding: 0 15px;
-        height: 60px;
+        padding: 0 14px;
+        height: 48px;
+    }
+    
+    :root {
+        --nav-h: 48px;
     }
     
     .slides-container {
-        top: 60px;
+        top: 48px;
     }
     
     .slide {
-        padding: 20px;
+        padding: 16px 14px;
     }
     
     .slide-content {
-        padding: 30px 24px;
-        max-height: 85vh;
+        padding: 22px 20px;
+        max-height: calc(100vh - 48px - 24px);
     }
     
     .slide-title {
-        font-size: 1.75rem;
+        font-size: 1.35rem;
     }
     
     .resources-list {
@@ -371,18 +381,18 @@ body {
 
 @media (max-width: 480px) {
     .nav-progress {
-        max-width: 150px;
+        max-width: 120px;
     }
     
     .progress-text {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
     }
     
     .slide-content {
-        padding: 24px 20px;
+        padding: 18px 16px;
     }
     
     .slide-title {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 }
