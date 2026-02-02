@@ -33,19 +33,19 @@ const cardsData = [
         title: '2. Before Transformers',
         description: 'Understanding why the Transformer architecture was revolutionary requires looking at what came before.',
         paragraphs: [
-            'Early neural networks for language processing used Recurrent Neural Networks (RNNs) and Long Short-Term Memory (LSTM) architectures. These models processed text sequentially, one word at a time, maintaining context through a resource-intensive process.',
+            'Early neural networks for language processing used <strong>Recurrent Neural Networks (RNNs)</strong> and <strong>Long Short-Term Memory (LSTM)</strong> architectures. These models processed text sequentially, one word at a time, maintaining context through a resource-intensive process.',
             'The problem? Sequential processing was slow and could not parallelize across GPUs. Models also struggled with long-range dependencies. By the time an RNN reached word 50, it had largely forgotten word 1.',
-            'Seq2Seq (encoder-decoder) models added attention mechanisms, first for machine translation, so the decoder could look at relevant parts of the input. Attention helped, but the backbone was still sequential RNNs. These precursors started appearing around 2014, with the first successful implementation of attention in 2015 by Bahdanau et al., followed by the breakthrough Vaswani et al. paper in 2017.',
-            'The 2017 paper Attention Is All You Need introduced the Transformer, which dropped the RNN entirely. It processes all tokens in parallel using only attention mechanisms, enabling the massive scale we see in modern AI.'
+            '<strong>Seq2Seq</strong> (encoder-decoder) models added <strong>attention</strong> mechanisms, first for machine translation, so the decoder could look at relevant parts of the input. Attention helped, but the backbone was still sequential RNNs. These precursors started appearing around 2014, with the first successful implementation of attention in 2015 by Bahdanau et al., followed by the breakthrough Vaswani et al. paper in 2017.',
+            'The 2017 paper <em>Attention Is All You Need</em> introduced the <strong>Transformer</strong>, which dropped the RNN entirely. It processes all tokens in parallel using only attention mechanisms, enabling the massive scale we see in modern AI.'
         ],
         bullets: [
-            'RNNs and LSTMs: Sequential processing (slow), vanishing gradients (poor long-term memory)',
-            'Seq2Seq: Encoder-decoder plus attention (for tasks like translation), but RNNs remained the bottleneck',
-            'The Breakthrough: Transformers keep attention, drop recurrence. Every token can look at every other token in parallel'
+            '<strong>RNNs and LSTMs:</strong> Sequential processing (slow), vanishing gradients (poor long-term memory)',
+            '<strong>Seq2Seq:</strong> Encoder-decoder plus attention (for tasks like translation), but RNNs remained the bottleneck',
+            '<strong>The Breakthrough:</strong> Transformers keep attention, drop recurrence. Every token can look at every other token in parallel'
         ],
         callout: {
             type: 'insight',
-            content: 'Why This Matters: The shift from sequential to parallel processing is why modern AI could scale to billions of parameters and trillion-token datasets. RNNs could not scale effectively. Transformers could.'
+            content: '<strong>Why This Matters:</strong> The shift from sequential to parallel processing is why modern AI could scale to billions of parameters and trillion-token datasets. RNNs could not scale effectively. Transformers could.'
         },
         resources: [
             { icon: '📺', title: 'Transformers and Attention Overview', meta: '58 min • Deep dive into transformers', url: 'https://www.youtube.com/watch?v=KJtZARuO3JY' },
