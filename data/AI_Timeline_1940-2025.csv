@@ -6,6 +6,7 @@ Year,Event/Development,People/Organizations,Category,Source,Link,Event Weight
 1951,SNARC early neural network hardware,Marvin Minsky; Dean Edmonds (Harvard),Hardware & Infrastructure,Added,https://en.wikipedia.org/wiki/Stochastic_neural_analog_reinforcement_calculator,1
 1952,Checkers program (early AI game-playing),Arthur Samuel (IBM),Research Breakthroughs,Original,https://people.csail.mit.edu/brooks/idocs/Samuel.pdf,2
 1956,"Term ""artificial intelligence"" coined; Logic Theorist program",John McCarthy (Dartmouth); Allen Newell; Herbert Simon; Cliff Shaw (RAND/CMU),Research Breakthroughs,Original,https://www-formal.stanford.edu/jmc/history/dartmouth/dartmouth.html,3
+1957,"""You shall know a word by the company it keeps"" — distributional semantics (conceptual origin of embeddings)",J.R. Firth (linguistics),Research Breakthroughs,Added,https://en.wikipedia.org/wiki/Distributional_semantics,1
 1958,LISP programming language created,John McCarthy (MIT),Enterprise & Developer Tools,Added,https://en.wikipedia.org/wiki/Lisp_(programming_language),2
 1958,Perceptron algorithm developed,Frank Rosenblatt (Cornell),Research Breakthroughs,Original,https://www.ling.upenn.edu/courses/cogs501/Rosenblatt1958.pdf,2
 1959,"""Machine learning"" framing; self-learning checkers popularized",Arthur Samuel (IBM),Research Breakthroughs,Added,https://en.wikipedia.org/wiki/Arthur_Samuel#Machine_learning,2
@@ -48,6 +49,7 @@ Year,Event/Development,People/Organizations,Category,Source,Link,Event Weight
 1989,Time-delay neural network (TDNN) for speech,Alex Waibel (CMU),Research Breakthroughs,Original,https://www.inf.ufrgs.br/~engel/data/media/file/cmp121/waibel89_TDNN.pdf,1
 1989,Q-learning introduced,Chris Watkins (King's College Cambridge),Research Breakthroughs,Added,https://en.wikipedia.org/wiki/Q-learning,2
 1989,Convolutional neural networks for vision tasks,Yann LeCun (AT&T Bell Labs),Research Breakthroughs,Original,https://proceedings.neurips.cc/paper_files/paper/1989/file/53c3bce66e43be4f209556518c2fcb54-Paper.pdf,2
+1990,Latent Semantic Analysis (SVD) maps word relationships — precursor to latent embedding space,Scott Deerwester; Susan Dumais; George Furnas; Thomas Landauer; Richard Harshman (Bellcore; University of Tennessee),Research Breakthroughs,Added,http://wordvec.colorado.edu/papers/Deerwester_1990.pdf,2
 1990,Neuromorphic electronic systems described,Carver Mead (Caltech),Hardware & Infrastructure,Original,https://www.semanticscholar.org/paper/Neuromorphic-electronic-systems-Mead/459c554583c9a2f70dd36e84149989fde1e9f833,1
 1990,"""The Age of Intelligent Machines"" published",Ray Kurzweil,Research Breakthroughs,Original,https://mitpress.mit.edu/books/age-intelligent-machines,1
 1991,DART supply chain optimization used in Gulf War,DARPA,AI Products,Original,https://gwern.net/doc/ai/2002-hedberg.pdf,1
@@ -55,6 +57,7 @@ Year,Event/Development,People/Organizations,Category,Source,Link,Event Weight
 1992,REINFORCE policy-gradient algorithm,Ronald Williams (Northeastern),Research Breakthroughs,Original,https://gwern.net/doc/reinforcement-learning/model-free/1992-williams.pdf,2
 1993,Polly vision-enabled behavior-based robot,Ian Horswill (MIT),Autonomous Systems,Original,https://aaai.org/papers/00824-aaai93-123-polly-a-vision-based-artificial-agent/,1
 1993,MIT Cog humanoid robotics project,Rodney Brooks; Lynn Stein; Cynthia Breazeal (MIT),Autonomous Systems,Original,https://groups.csail.mit.edu/lbr/hrg/1998/springer-final-cog.pdf,1
+1994,Byte Pair Encoding (BPE) introduced as data compression — later adopted for NLP tokenization,Philip Gage (compression),Research Breakthroughs,Added,https://aclanthology.org/2023.findings-acl.38.pdf,1
 1994,"""Soft computing"" term popularized",Lotfi Zadeh (UC Berkeley),Research Breakthroughs,Original,https://dl.acm.org/doi/10.1145/175247.175255,1
 1995,Random decision forests developed,Tin Kam Ho (Bell Labs),Research Breakthroughs,Original,https://mrcc.geddes.rcac.purdue.edu/files/Legacy-Research/Random_decision_forests.pdf,1
 1995,Support Vector Machines introduced,Corinna Cortes; Vladimir Vapnik (AT&T Bell Labs),Research Breakthroughs,Added,https://en.wikipedia.org/wiki/Support-vector_machine,2
@@ -96,7 +99,7 @@ Year,Event/Development,People/Organizations,Category,Source,Link,Event Weight
 2012,Deep neural networks transform speech recognition,Geoffrey Hinton; George Dahl; Abdel-rahman Mohamed,Research Breakthroughs,Added,https://www.cs.toronto.edu/~hinton/absps/DNN-2012-proof.pdf,2
 2012,AlexNet wins ImageNet (deep CNN breakthrough),Alex Krizhevsky; Ilya Sutskever; Geoffrey Hinton (University of Toronto),Research Breakthroughs,Original,https://proceedings.neurips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf,3
 2012,Dropout regularization technique introduced,Geoffrey Hinton; Nitish Srivastava; Alex Krizhevsky; Ilya Sutskever; Ruslan Salakhutdinov (University of Toronto),Research Breakthroughs,Added,https://www.cs.toronto.edu/~hinton/absps/dropout.pdf,3
-2013,word2vec popularizes neural word embeddings,Tomas Mikolov; Kai Chen; Greg Corrado; Jeffrey Dean (Google),Research Breakthroughs,Added,https://arxiv.org/abs/1301.3781,2
+2013,Word2Vec: neural word embeddings (hidden layer as embedding),Tomas Mikolov; Kai Chen; Greg Corrado; Jeffrey Dean (Google),Research Breakthroughs,Added,https://arxiv.org/abs/1301.3781,2
 2014,DeepFace achieves near-human face verification,Yaniv Taigman; Ming Yang; Marc'Aurelio Ranzato; Lior Wolf (Facebook/TAU),Research Breakthroughs,Original,https://www.cv-foundation.org/openaccess/content_cvpr_2014/papers/Taigman_DeepFace_Closing_the_2014_CVPR_paper.pdf,1
 2014,Adam optimizer introduced,Diederik Kingma; Jimmy Ba,Research Breakthroughs,Added,https://arxiv.org/abs/1412.6980,3
 2014,Generative Adversarial Networks (GANs) introduced,Ian Goodfellow; Jean Pouget-Abadie; Mehdi Mirza; et al.,Generative AI,Original,https://arxiv.org/abs/1406.2661,3
@@ -113,6 +116,7 @@ Year,Event/Development,People/Organizations,Category,Source,Link,Event Weight
 2015,TensorFlow open-sourced,Google,Enterprise & Developer Tools,Added,https://opensource.googleblog.com/2015/11/tensorflow-googles-latest-machine.html,2
 2015,AlphaGo defeats a pro player (Fan Hui match; announced 2016),DeepMind,Autonomous Systems,Original,http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html,2
 2015,Google self-driving cars surpass 1M autonomous miles,Google (Self-Driving Car Project),Autonomous Systems,Original,https://venturebeat.com/ai/googles-self-driving-cars-have-driven-over-1-million-miles/,1
+2016,BPE adopted for NLP tokenization (subword units for rare words in neural machine translation),Rico Sennrich; Barry Haddow; Alexandra Birch (University of Edinburgh),Research Breakthroughs,Added,https://arxiv.org/abs/1508.07909,2
 2016,AlphaGo defeats Lee Sedol (world champion),DeepMind,Autonomous Systems,Added,https://googleblog.blogspot.com/2016/01/alphago-machine-learning-game-go.html,3
 2016,YOLO (You Only Look Once) real-time object detection,Joseph Redmon et al.,Research Breakthroughs,Added,https://arxiv.org/abs/1506.02640,2
 2016,WaveNet generative model for raw audio,DeepMind,Generative AI,Added,https://arxiv.org/abs/1609.03499,2
