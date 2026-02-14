@@ -5,12 +5,9 @@
 
 // Configuration constants
 const CONFIG = {
-    MIN_YEAR: 1940,
-    MAX_YEAR: 2025,
     SCROLL_SPEED_MULTIPLIER: 2,
     PARALLAX_MOVEMENT_FACTOR: 150,
     SEARCH_DEBOUNCE_MS: 300,
-    YEAR_HIGHLIGHT_DURATION_MS: 1000,
     SCROLL_THROTTLE_MS: 16 // ~60fps
 };
 
@@ -49,47 +46,22 @@ function throttle(func, limit) {
     };
 }
 
-/**
- * Show error message to user (replaces alert)
- * @param {string} message - Error message to display
- */
-function showError(message) {
-    // Create or get error element
-    let errorEl = document.getElementById('yearJumpError');
-    if (!errorEl) {
-        errorEl = document.createElement('div');
-        errorEl.id = 'yearJumpError';
-        errorEl.className = 'error-message';
-        const yearNav = document.querySelector('.year-navigation');
-        if (yearNav) {
-            yearNav.appendChild(errorEl);
-        }
-    }
-    errorEl.textContent = message;
-    errorEl.style.display = 'block';
-    
-    // Hide after 3 seconds
-    setTimeout(() => {
-        errorEl.style.display = 'none';
-    }, 3000);
-}
 
 document.addEventListener('DOMContentLoaded', function() {
     // Get DOM elements
     const searchInput = document.getElementById('searchInput');
     const categoryFilter = document.getElementById('categoryFilter');
-    const yearJump = document.getElementById('yearJump');
-    const jumpBtn = document.getElementById('jumpBtn');
     const eventCount = document.getElementById('eventCount');
     const timelineWrapper = document.getElementById('timelineWrapper');
-    const controlsToggle = document.getElementById('controlsToggle');
-    const controlsMenu = document.getElementById('controlsMenu');
-    const significanceSlider = document.getElementById('significanceSlider');
+    const segButtons = document.querySelectorAll('.seg-btn[data-significance]');
     const parallaxLogo = document.getElementById('parallaxLogo');
     const timelineScrubber = document.getElementById('timelineScrubber');
     
+    // Track current significance level (default = 2, "Notable")
+    let currentSignificance = 2;
+    
     // Validate critical elements exist
-    if (!timelineWrapper || !searchInput || !categoryFilter || !significanceSlider) {
+    if (!timelineWrapper || !searchInput || !categoryFilter || !segButtons.length) {
         console.error('Critical DOM elements missing. Timeline may not function correctly.');
         return;
     }
@@ -103,27 +75,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     
     /**
-     * Toggle controls menu visibility
+     * Handle significance segmented button clicks
      */
-    function toggleControlsMenu() {
-        if (controlsToggle && controlsMenu) {
-            controlsToggle.classList.toggle('active');
-            controlsMenu.classList.toggle('active');
-        }
-    }
-    
-    if (controlsToggle) {
-        controlsToggle.addEventListener('click', toggleControlsMenu);
-    }
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (controlsToggle && controlsMenu && 
-            !controlsToggle.contains(e.target) && 
-            !controlsMenu.contains(e.target)) {
-            controlsToggle.classList.remove('active');
-            controlsMenu.classList.remove('active');
-        }
+    segButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active state
+            segButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // Update significance level and re-filter
+            currentSignificance = parseInt(btn.getAttribute('data-significance'));
+            filterEvents();
+        });
     });
     
     // ============================================
@@ -145,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function filterEvents() {
         const searchTerm = searchInput?.value.toLowerCase().trim() || '';
         const selectedCategory = categoryFilter?.value || '';
-        const minSignificance = parseInt(significanceSlider?.value || '1');
+        const minSignificance = currentSignificance;
         
         let visibleCount = 0;
         
@@ -188,57 +151,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Debounced search for better performance
     const debouncedFilterEvents = debounce(filterEvents, CONFIG.SEARCH_DEBOUNCE_MS);
-    
-    // ============================================
-    // Year Navigation
-    // ============================================
-    
-    /**
-     * Jump to a specific year in the timeline
-     */
-    function jumpToYear() {
-        const year = parseInt(yearJump?.value);
-        
-        if (!year || year < CONFIG.MIN_YEAR || year > CONFIG.MAX_YEAR) {
-            showError(`Please enter a valid year between ${CONFIG.MIN_YEAR} and ${CONFIG.MAX_YEAR}`);
-            if (yearJump) {
-                yearJump.focus();
-                yearJump.select();
-            }
-            return;
-        }
-        
-        // Find the closest year section
-        let targetSection = null;
-        let minDiff = Infinity;
-        
-        allYearSections.forEach(section => {
-            const sectionYear = parseInt(section.getAttribute('data-year'));
-            const diff = Math.abs(sectionYear - year);
-            
-            if (diff < minDiff) {
-                minDiff = diff;
-                targetSection = section;
-            }
-        });
-        
-        if (targetSection) {
-            targetSection.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
-            
-            // Highlight the year marker briefly
-            const yearMarker = targetSection.querySelector('.year-marker');
-            if (yearMarker) {
-                yearMarker.style.color = 'var(--accent)';
-                yearMarker.style.transform = 'translateX(-50%) scale(1.5)';
-                yearMarker.style.transition = 'all 0.3s ease';
-                
-                setTimeout(() => {
-                    yearMarker.style.color = 'var(--year-color)';
-                    yearMarker.style.transform = 'translateX(-50%) scale(1)';
-                }, CONFIG.YEAR_HIGHLIGHT_DURATION_MS);
-            }
-        }
-    }
     
     // ============================================
     // Drag to Scroll
@@ -333,23 +245,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ============================================
-    // Accessibility
-    // ============================================
-    
-    /**
-     * Update significance slider ARIA attributes for accessibility
-     */
-    function updateSignificanceAria() {
-        if (significanceSlider) {
-            significanceSlider.setAttribute('aria-valuenow', significanceSlider.value);
-        }
-    }
-    
-    if (significanceSlider) {
-        significanceSlider.addEventListener('input', updateSignificanceAria);
-    }
-
-    // ============================================
     // Event Listeners
     // ============================================
     
@@ -361,21 +256,7 @@ document.addEventListener('DOMContentLoaded', function() {
         categoryFilter.addEventListener('change', filterEvents);
     }
     
-    if (significanceSlider) {
-        significanceSlider.addEventListener('input', filterEvents);
-    }
-    
-    if (jumpBtn) {
-        jumpBtn.addEventListener('click', jumpToYear);
-    }
-    
-    if (yearJump) {
-        yearJump.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                jumpToYear();
-            }
-        });
-    }
+    // Significance segmented buttons are already wired up above
     
     // ============================================
     // Initialize

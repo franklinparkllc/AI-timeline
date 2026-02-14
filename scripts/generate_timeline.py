@@ -185,46 +185,33 @@ def generate_html(events: List[Dict[str, str]], output_path: Path, version: int 
             <p class="subtitle">Key Developments from {min_year} to {max_year}</p>
         </header>
         
-        <div class="controls-container">
-            <button class="controls-toggle" id="controlsToggle" title="Filter & Search">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="2" y1="14" x2="6" y2="14"></line><line x1="10" y1="8" x2="14" y2="8"></line><line x1="18" y1="16" x2="22" y2="16"></line></svg>
-            </button>
-            <div class="controls" id="controlsMenu">
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Search events...">
-                </div>
-                
-                <div class="filter-box">
-                    <select id="categoryFilter">
-                        <option value="">All Categories</option>
+        <div class="toolbar" id="toolbar">
+            <div class="toolbar-group">
+                <input type="text" id="searchInput" class="toolbar-search" placeholder="Search events...">
+            </div>
+            <div class="toolbar-group">
+                <select id="categoryFilter" class="toolbar-select">
+                    <option value="">All Categories</option>
 """
     
     for category in categories:
-        html += f'                        <option value="{category}">{category}</option>\n'
+        html += f'                    <option value="{category}">{category}</option>\n'
     
-    html += f"""                    </select>
-                </div>
-                
-                <div class="year-navigation">
-                    <input type="number" id="yearJump" min="{min_year}" max="{max_year}" placeholder="Year">
-                    <button id="jumpBtn">Go</button>
-                </div>
+    html += f"""                </select>
+            </div>
+            <div class="toolbar-group seg-group" role="group" aria-label="Significance filter">
+                <button class="seg-btn" data-significance="1">All</button>
+                <button class="seg-btn active" data-significance="2">Notable</button>
+                <button class="seg-btn" data-significance="3">Landmarks</button>
+            </div>
+            <div class="toolbar-stats">
+                <span id="eventCount">{len(events)}</span> events
+                <span class="timeline-version" aria-hidden="true"> · v.{version}</span>
             </div>
         </div>
 
         <div class="parallax-bg">
             <img src="data/FranklinPark_Logo_blue.png" alt="" class="bg-logo" id="parallaxLogo">
-        </div>
-
-        <div class="significance-control">
-            <label for="significanceSlider" class="significance-label">Significance</label>
-            <input type="range" id="significanceSlider" min="1" max="3" value="2" step="1" title="1 = all events, 3 = landmarks only" aria-valuemin="1" aria-valuemax="3" aria-valuenow="2">
-            <span class="significance-hint" aria-hidden="true">1 = all · 3 = landmarks</span>
-        </div>
-        
-        <div class="stats">
-            <span id="eventCount">{len(events)}</span> events displayed
-            <span class="timeline-version" aria-hidden="true"> · v.{version}</span>
         </div>
         
         <div class="timeline-wrapper" id="timelineWrapper">
