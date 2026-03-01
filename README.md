@@ -1,35 +1,60 @@
 # AI Timeline Interactive Website
 
-An interactive, beautiful HTML timeline visualization of AI and ML developments from 1940-2025.
+An interactive, beautiful HTML timeline visualization of AI and ML developments from 1943–2026.
 
 ## Project Structure
 
 ```
 AI-timeline/
 ├── data/
-│   └── AI_Timeline_1940-2025.csv    # Source CSV data (maintain this)
-├── index.html                    # Generated HTML timeline
-├── styles.css                    # Timeline styling
-├── timeline.js                   # Interactive functionality
+│   └── timeline.yaml                # Source YAML data (edit this)
+├── index.html                       # Generated HTML timeline
+├── styles.css                       # Timeline styling
+├── timeline.js                      # Interactive functionality
 ├── scripts/
-│   ├── generate_timeline.py         # Script to generate HTML from CSV
-│   └── normalize_csv.py             # Re-quote CSV columns (prevents link/weight bleed)
-└── README.md                         # This file
+│   └── generate_timeline.py         # Script to generate HTML from YAML
+└── README.md                        # This file
 ```
 
 ## Quick Start
 
 1. **Update the timeline data:**
-   - Edit `data/AI_Timeline_1940-2025.csv` with your updates
+   - Edit `data/timeline.yaml` with your updates (YAML format, no quoting issues)
 
 2. **Generate the HTML timeline:**
    ```bash
-   python scripts/generate_timeline.py
+   python3 scripts/generate_timeline.py
    ```
 
 3. **Open the timeline:**
    - Open `index.html` in your web browser
-   - Or serve it with a local server: `python -m http.server 8000` (then visit http://localhost:8000/)
+   - Or serve it with a local server: `python3 -m http.server 8000` (then visit http://localhost:8000/)
+
+## Data Format
+
+The YAML file should be a list of events, each with the following fields:
+
+```yaml
+- year: 1943
+  event: "A Logical Calculus of the Ideas Immanent in Nervous Activity"
+  people: "Warren McCulloch; Walter Pitts (University of Chicago)"
+  category: Research Breakthroughs
+  source: Original
+  link: https://www.cs.cmu.edu/~epxing/Class/10715/reading/McCulloch.and.Pitts.pdf
+  weight: 3
+```
+
+| Field | Required | Type | Notes |
+|-------|----------|------|-------|
+| year | Yes | integer | Event year (1943–2026) |
+| event | Yes | string | Event description (no escaping needed) |
+| people | Yes | string | Key people/orgs; semicolon-delimited for multiple |
+| category | Yes | string | Must match one of the 8 taxonomy categories (validated) |
+| source | Yes | string | `Original` or `Added` — marks data provenance |
+| link | No | string | Full HTTPS URL to more information |
+| weight | No | integer | Event significance: 1 (minor), 2 (notable), 3 (landmark) |
+
+**YAML Advantages:** No escaping needed for commas or quotes in field values. Edit safely without worrying about CSV formatting issues.
 
 ## Category Taxonomy
 
@@ -46,50 +71,32 @@ Events are organized using an **Industry & Impact-focused taxonomy** with 8 key 
 
 This taxonomy provides a clear narrative for understanding AI's evolution from research to real-world impact.
 
-## Data Format
-
-The CSV file should have the following columns:
-- **Year**: The year of the event
-- **Event/Development**: Description of the event
-- **People/Organizations**: Key people or organizations involved
-- **Category**: Category of the event (must be one of the 8 taxonomy categories above)
-- **Source**: Source of the information
-- **Link**: URL to more information about the event (optional)
-- **Event Weight**: Significance/weight of the event for filtering (optional, e.g., "High", "Medium", "Low")
-
 ## Features
 
-- **Interactive Timeline**: Scroll through years with smooth horizontal navigation and parallax background.
-- **Significance Filter**: A minimal, stylized slider to filter events by impact (All to Landmarks).
-- **Branded Parallax**: Subtle background logo that shifts as you navigate the timeline.
-- **Filtering**: Filter events by category and event weight.
-- **Search**: Search for specific events, people, or organizations.
-- **Links**: Direct links to primary sources (arXiv, Nature, official blogs) for major milestones.
-- **Responsive Design**: Works on desktop, tablet, and mobile devices.
-- **Beautiful UI**: Modern, clean design with smooth animations and a gradient-styled control widget.
-- **Year Navigation**: Jump to specific years quickly.
+- **Interactive Timeline**: Scroll through years with smooth horizontal navigation
+- **Significance Filter**: Filter events by impact (All → Notable → Landmarks)
+- **Filtering**: Filter events by category and event weight
+- **Search**: Search for specific events, people, or organizations
+- **Links**: Direct links to primary sources (arXiv, Nature, official blogs) for major milestones
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
+- **Beautiful UI**: Modern, clean design with smooth animations and a gradient-styled control widget
+- **Year Navigation**: Jump to specific years with the interactive scrubber bar
 
 ## Maintenance
 
-### Adding New Events
+### Adding or Editing Events
 
-1. Open `data/AI_Timeline_1940-2025.csv` in a text editor or spreadsheet application
-2. Add a new row with the event details
-3. Run `python scripts/generate_timeline.py` to regenerate the HTML
+1. Open `data/timeline.yaml` in any text editor
+2. Add or modify event entries in YAML format
+3. Run `python3 scripts/generate_timeline.py` to regenerate the HTML
 4. Refresh your browser to see the updates
 
-### Fixing Link / Weight Bleed (CSV quoting)
-
-The CSV stores **Link** and **Event Weight** in quoted columns so URLs that contain commas don’t spill into the weight column. If you edit the CSV in Excel or another tool that strips quotes:
-
-1. Run `python scripts/normalize_csv.py` to re-quote all columns.
-2. Then run `python scripts/generate_timeline.py` as usual.
-
-The generator also sanitizes link and weight values when reading, so any existing bleed is corrected when the HTML is built.
+**Note:** YAML is safe from CSV quoting issues. Commas, quotes, and special characters in field values require zero escaping.
 
 ## Requirements
 
 - Python 3.6+
+- PyYAML: `pip install pyyaml`
 
 ## Browser Support
 

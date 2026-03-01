@@ -54,9 +54,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const timelineWrapper = document.getElementById('timelineWrapper');
     const segButtons = document.querySelectorAll('.seg-btn[data-significance]');
     const timelineScrubber = document.getElementById('timelineScrubber');
+    const scrubberYearLabel = document.getElementById('scrubberYearLabel');
     
-    // Track current significance level (default = 2, "Notable")
-    let currentSignificance = 2;
+    // Track current significance level (default = 1, "All")
+    let currentSignificance = 1;
     
     // Validate critical elements exist
     if (!timelineWrapper || !searchInput || !categoryFilter || !segButtons.length) {
@@ -71,20 +72,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     // UI Controls
     // ============================================
-    
+
     /**
      * Handle significance segmented button clicks
      */
+    function handleSegmentedButtonClick(e) {
+        const btn = e.target;
+        // Update active state
+        segButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Update significance level and re-filter
+        currentSignificance = parseInt(btn.getAttribute('data-significance'));
+        filterEvents();
+    }
+
     segButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active state
-            segButtons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            
-            // Update significance level and re-filter
-            currentSignificance = parseInt(btn.getAttribute('data-significance'));
-            filterEvents();
-        });
+        btn.addEventListener('click', handleSegmentedButtonClick);
     });
     
     // ============================================
@@ -153,35 +157,40 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     // Drag to Scroll
     // ============================================
-    
+
     let isDown = false;
     let startX;
     let scrollLeft;
 
-    timelineWrapper.addEventListener('mousedown', (e) => {
+    function handleTimelineMouseDown(e) {
         isDown = true;
         timelineWrapper.classList.add('active');
         startX = e.pageX - timelineWrapper.offsetLeft;
         scrollLeft = timelineWrapper.scrollLeft;
-    });
-    
-    timelineWrapper.addEventListener('mouseleave', () => {
+    }
+
+    function handleTimelineMouseLeave() {
         isDown = false;
         timelineWrapper.classList.remove('active');
-    });
-    
-    timelineWrapper.addEventListener('mouseup', () => {
+    }
+
+    function handleTimelineMouseUp() {
         isDown = false;
         timelineWrapper.classList.remove('active');
-    });
-    
-    timelineWrapper.addEventListener('mousemove', (e) => {
+    }
+
+    function handleTimelineMouseMove(e) {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - timelineWrapper.offsetLeft;
         const walk = (x - startX) * CONFIG.SCROLL_SPEED_MULTIPLIER;
         timelineWrapper.scrollLeft = scrollLeft - walk;
-    });
+    }
+
+    timelineWrapper.addEventListener('mousedown', handleTimelineMouseDown);
+    timelineWrapper.addEventListener('mouseleave', handleTimelineMouseLeave);
+    timelineWrapper.addEventListener('mouseup', handleTimelineMouseUp);
+    timelineWrapper.addEventListener('mousemove', handleTimelineMouseMove);
 
     // ============================================
     // Timeline Scrubber & Parallax
@@ -216,16 +225,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Throttled scroll handler for better performance
-    const throttledScrollHandler = throttle(() => {
+    function handleTimelineScroll() {
         syncScrubberFromScroll();
-    }, CONFIG.SCROLL_THROTTLE_MS);
+    }
+    const throttledScrollHandler = throttle(handleTimelineScroll, CONFIG.SCROLL_THROTTLE_MS);
+
+    function handleScrubberInput() {
+        scrollFromScrubber(timelineScrubber.value);
+    }
 
     timelineWrapper.addEventListener('scroll', throttledScrollHandler);
 
     if (timelineScrubber) {
-        timelineScrubber.addEventListener('input', () => {
-            scrollFromScrubber(timelineScrubber.value);
-        });
+        timelineScrubber.addEventListener('input', handleScrubberInput);
         // Initial sync
         syncScrubberFromScroll();
     }
@@ -233,20 +245,109 @@ document.addEventListener('DOMContentLoaded', function() {
     // ============================================
     // Event Listeners
     // ============================================
-    
+
+    // Store handlers as named functions so they can be removed during cleanup
+    const handleSearchInput = debouncedFilterEvents;
+    const handleCategoryChange = filterEvents;
+
     if (searchInput) {
-        searchInput.addEventListener('input', debouncedFilterEvents);
+        searchInput.addEventListener('input', handleSearchInput);
     }
-    
+
     if (categoryFilter) {
-        categoryFilter.addEventListener('change', filterEvents);
+        categoryFilter.addEventListener('change', handleCategoryChange);
     }
-    
+
     // Significance segmented buttons are already wired up above
     
     // ============================================
+    // Scrubber year label
+    // ============================================
+
+    // Build sorted array of year sections with their left-offset positions
+    function getYearPositions() {
+        return Array.from(allYearSections)
+            .map(el => ({ year: el.getAttribute('data-year'), left: el.offsetLeft }))
+            .sort((a, b) => a.left - b.left);
+    }
+
+    function getYearAtScroll(scrollLeft) {
+        const positions = getYearPositions();
+        if (!positions.length) return '';
+        let closest = positions[0];
+        for (const p of positions) {
+            if (p.left <= scrollLeft + timelineWrapper.clientWidth / 2) closest = p;
+            else break;
+        }
+        return closest.year;
+    }
+
+    function updateScrubberYearLabel() {
+        if (!scrubberYearLabel || !timelineScrubber) return;
+        const pct = parseFloat(timelineScrubber.value) / 100;
+        // Position label over thumb: thumb travels from 0 to 100% of input width
+        const wrap = timelineScrubber.parentElement;
+        const thumbX = pct * timelineScrubber.offsetWidth;
+        scrubberYearLabel.style.left = thumbX + 'px';
+        scrubberYearLabel.textContent = getYearAtScroll(timelineWrapper.scrollLeft);
+    }
+
+    if (timelineScrubber && scrubberYearLabel) {
+        function handleScrubberMouseEnter() {
+            scrubberYearLabel.classList.add('visible');
+            updateScrubberYearLabel();
+        }
+
+        function handleScrubberMouseLeave() {
+            scrubberYearLabel.classList.remove('visible');
+        }
+
+        timelineScrubber.addEventListener('mouseenter', handleScrubberMouseEnter);
+        timelineScrubber.addEventListener('mouseleave', handleScrubberMouseLeave);
+        timelineScrubber.addEventListener('mousemove', updateScrubberYearLabel);
+        timelineScrubber.addEventListener('input', updateScrubberYearLabel);
+    }
+
+
+    // ============================================
     // Initialize
     // ============================================
-    
+
     filterEvents();
+
+    // ============================================
+    // Cleanup on page unload (memory leak prevention)
+    // ============================================
+
+    function cleanup() {
+        // Remove event listeners to prevent memory leaks
+        segButtons.forEach(btn => {
+            btn.removeEventListener('click', handleSegmentedButtonClick);
+        });
+
+        timelineWrapper.removeEventListener('mousedown', handleTimelineMouseDown);
+        timelineWrapper.removeEventListener('mouseleave', handleTimelineMouseLeave);
+        timelineWrapper.removeEventListener('mouseup', handleTimelineMouseUp);
+        timelineWrapper.removeEventListener('mousemove', handleTimelineMouseMove);
+        timelineWrapper.removeEventListener('scroll', throttledScrollHandler);
+
+        if (searchInput) {
+            searchInput.removeEventListener('input', handleSearchInput);
+        }
+
+        if (categoryFilter) {
+            categoryFilter.removeEventListener('change', handleCategoryChange);
+        }
+
+        if (timelineScrubber) {
+            timelineScrubber.removeEventListener('input', handleScrubberInput);
+            timelineScrubber.removeEventListener('mouseenter', handleScrubberMouseEnter);
+            timelineScrubber.removeEventListener('mouseleave', handleScrubberMouseLeave);
+            timelineScrubber.removeEventListener('mousemove', updateScrubberYearLabel);
+            timelineScrubber.removeEventListener('input', updateScrubberYearLabel);
+        }
+    }
+
+    // Cleanup when page unloads or transitions away (fires before bfcache)
+    window.addEventListener('pagehide', cleanup);
 });
