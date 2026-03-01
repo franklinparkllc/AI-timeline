@@ -6,7 +6,6 @@
 // Configuration constants
 const CONFIG = {
     SCROLL_SPEED_MULTIPLIER: 2,
-    PARALLAX_MOVEMENT_FACTOR: 150,
     SEARCH_DEBOUNCE_MS: 300,
     SCROLL_THROTTLE_MS: 16 // ~60fps
 };
@@ -54,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const eventCount = document.getElementById('eventCount');
     const timelineWrapper = document.getElementById('timelineWrapper');
     const segButtons = document.querySelectorAll('.seg-btn[data-significance]');
-    const parallaxLogo = document.getElementById('parallaxLogo');
     const timelineScrubber = document.getElementById('timelineScrubber');
     
     // Track current significance level (default = 2, "Notable")
@@ -217,21 +215,9 @@ document.addEventListener('DOMContentLoaded', function() {
         timelineWrapper.scrollLeft = (parseFloat(value) / 100) * maxScroll;
     }
 
-    /**
-     * Update parallax logo position based on scroll
-     */
-    function updateParallax() {
-        if (!parallaxLogo) return;
-        const maxScroll = getMaxScroll();
-        const scrollPercentage = maxScroll <= 0 ? 0 : timelineWrapper.scrollLeft / maxScroll;
-        const moveX = (scrollPercentage - 0.5) * CONFIG.PARALLAX_MOVEMENT_FACTOR;
-        parallaxLogo.style.transform = `translateX(${moveX}px)`;
-    }
-
     // Throttled scroll handler for better performance
     const throttledScrollHandler = throttle(() => {
         syncScrubberFromScroll();
-        updateParallax();
     }, CONFIG.SCROLL_THROTTLE_MS);
 
     timelineWrapper.addEventListener('scroll', throttledScrollHandler);

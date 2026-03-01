@@ -210,10 +210,6 @@ def generate_html(events: List[Dict[str, str]], output_path: Path, version: int 
             </div>
         </div>
 
-        <div class="parallax-bg">
-            <img src="data/FranklinPark_Logo_blue.png" alt="" class="bg-logo" id="parallaxLogo">
-        </div>
-        
         <div class="timeline-wrapper" id="timelineWrapper">
             <div class="timeline" id="timeline">
 """
@@ -265,7 +261,16 @@ def generate_html(events: List[Dict[str, str]], output_path: Path, version: int 
             <input type="range" id="timelineScrubber" class="timeline-scrubber" min="0" max="100" value="0" step="0.1" title="Drag to scroll timeline">
         </div>
     </div>
-    
+
+    <a href="https://franklinparkllc.github.io/AI-model-basics/" target="_blank" rel="noopener noreferrer" class="model-basics-fab" title="AI Models How-To">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+        <span>AI Models How-To</span>
+    </a>
+
     <script src="timeline.js"></script>
 </body>
 </html>"""

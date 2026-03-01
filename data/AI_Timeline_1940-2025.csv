@@ -196,7 +196,7 @@ Year,Event/Development,People/Organizations,Category,Source,Link,Event Weight
 2024,Grok 2 with image generation,xAI,Foundation Models,Added,https://x.ai/blog/grok-2,1
 2024,Amazon Nova models announced,Amazon,Foundation Models,Added,https://aws.amazon.com/blogs/aws/introducing-amazon-nova-frontier-models-and-their-capabilities/,1
 2024,Google Gemini 2.0 Flash released,Google,Foundation Models,Added,https://blog.google/technology/ai/google-gemini-2-flash/,1
-2024,OpenAI announces o1 and o1-pro (December),OpenAI,Governance & Society,Added,https://openai.com/index/learning-to-reason-with-llms/,2
+2024,OpenAI announces o1 and o1-pro (December),OpenAI,Foundation Models,Added,https://openai.com/index/learning-to-reason-with-llms/,2
 2024,Microsoft Copilot Vision announced,Microsoft,Generative AI,Added,https://blogs.microsoft.com/blog/2024/10/01/introducing-the-next-wave-of-copilot-innovation/,1
 2024,Runway Gen-3 Alpha released,Runway,Generative AI,Added,https://runwayml.com/blog/introducing-gen-3-alpha/,1
 2024,ElevenLabs reaches unicorn status,ElevenLabs,Generative AI,Added,https://elevenlabs.io/blog/elevenlabs-raises-80m-series-b/,1
@@ -211,15 +211,40 @@ Year,Event/Development,People/Organizations,Category,Source,Link,Event Weight
 2024,ChatGPT reaches 200M weekly active users,OpenAI,AI Products,Added,https://openai.com/index/chatgpt-reaches-200-million-weekly-active-users/,2
 2024,Waymo expands autonomous taxi service significantly,Waymo/Alphabet,Autonomous Systems,Added,https://waymo.com/blog/2024/08/waymo-is-now-serving-over-100k-weekly-trips/,2
 2024,AlphaFold 3 released,Google DeepMind,Research Breakthroughs,Added,https://deepmind.google/discover/blog/alphafold-3-predicting-the-structure-and-interactions-of-all-lifes-molecules/,2
+2024,Sora video generation tool released publicly,OpenAI,Generative AI,Added,https://openai.com/index/sora-is-here/,2
+2024,"DeepSeek-V3 released (671B MoE, trained for ~$5.5M)",DeepSeek,Foundation Models,Added,https://github.com/deepseek-ai/DeepSeek-V3,2
+2024,ChatGPT Pro subscription ($200/month) launched,OpenAI,AI Products,Added,https://openai.com/index/introducing-chatgpt-pro/,1
 2025,DeepSeek R1 reasoning model (open source),DeepSeek,Foundation Models,Added,https://github.com/deepseek-ai/DeepSeek-R1,2
-2025,ChatGPT Pro subscription ($200/month) launched,OpenAI,AI Products,Added,https://openai.com/index/introducing-chatgpt-pro/,1
-2025,"Claude 4 family released (Opus 4.5, Sonnet 4.5, Haiku 4.5)",Anthropic,Foundation Models,Added,https://www.anthropic.com/news/claude-4-family,2
-2025,Gemini 2.0 widely available,Google,Foundation Models,Added,https://blog.google/technology/ai/google-gemini-2-0/,2
+2025,"Claude Opus 4 and Sonnet 4 released",Anthropic,Foundation Models,Added,https://www.anthropic.com/news/claude-opus-4-and-claude-sonnet-4,3
+2025,Gemini 2.0 widely available,Google,Foundation Models,Added,https://blog.google/technology/google-deepmind/google-gemini-ai-update-december-2024/,2
 2025,Deep research features in ChatGPT and other platforms,Multiple,AI Products,Added,https://openai.com/index/introducing-deep-research/,1
 2025,Operator (browser agent) announced by OpenAI,OpenAI,Autonomous Systems,Added,https://openai.com/index/introducing-operator/,2
 2025,Gemini Robotics brings AI into physical world,Google DeepMind,Autonomous Systems,Added,https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/,2
 2025,WeatherNext 2 advanced weather forecasting,Google,Research Breakthroughs,Added,https://ai.google/advancing-ai/research/,1
 2025,SIMA 2 AI agent for 3D worlds,Google DeepMind,Autonomous Systems,Added,https://ai.google/advancing-ai/research/,1
 2025,Genie 3 interactive world model,Google DeepMind,Generative AI,Added,https://ai.google/advancing-ai/research/,1
+2025,NVIDIA Blackwell architecture GPUs launch,NVIDIA,Hardware & Infrastructure,Added,https://nvidianews.nvidia.com/news/nvidia-blackwell-platform-arrives-to-power-a-new-era-of-computing,2
+2025,EU AI Act first prohibitions enforced — unacceptable-risk AI systems banned,European Union,Governance & Society,Added,https://artificialintelligenceact.eu/implementation-timeline/,3
+2025,Grok 3 released,xAI,Foundation Models,Added,https://x.ai/news/grok-3,2
+2025,Claude Code agentic coding CLI released,Anthropic,Enterprise & Developer Tools,Added,https://github.com/anthropics/claude-code,2
+2025,Gemini 2.5 Pro released with native thinking capabilities,Google,Foundation Models,Added,https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/,2
+2025,"Meta Llama 4 released (Scout 109B, Maverick 400B MoE)",Meta,Foundation Models,Added,https://ai.meta.com/blog/llama-4-multimodal-intelligence/,2
+2025,OpenAI o3 and o4-mini reasoning models released,OpenAI,Foundation Models,Added,https://openai.com/index/introducing-o3-and-o4-mini/,2
+2025,OpenAI Codex cloud-based coding agent launched,OpenAI,Enterprise & Developer Tools,Added,https://openai.com/index/introducing-codex/,2
+2025,GPT-5 released,OpenAI,Foundation Models,Added,https://openai.com/index/introducing-gpt-5/,3
+2025,EU AI Act governance provisions and penalty regime take effect,European Union,Governance & Society,Added,https://www.dlapiper.com/en-us/insights/publications/2025/08/latest-wave-of-obligations-under-the-eu-ai-act-take-effect,2
+2025,DeepSeek-R1 paper — reasoning via pure RL without human labels,DeepSeek,Research Breakthroughs,Added,https://arxiv.org/abs/2501.12948,3
+2025,Claude Sonnet 4.5 released,Anthropic,Foundation Models,Added,https://www.anthropic.com/news/claude-sonnet-4-5,2
+2025,Google Gemini 3 Pro released with Deep Think reasoning,Google,Foundation Models,Added,https://blog.google/products/gemini/gemini-3/,3
+2025,Claude Opus 4.5 released,Anthropic,Foundation Models,Added,https://www.anthropic.com/news/claude-opus-4-5,2
+2025,"Anthropic publishes Claude's constitution (""Soul Document"")",Anthropic,Governance & Society,Added,https://www.anthropic.com/research/claude-character,2
+2025,"GPT-5.2 released (Instant, Thinking, Pro variants)",OpenAI,Foundation Models,Added,https://openai.com/index/introducing-gpt-5-2/,2
+2025,"SoftBank finalizes $40B investment in OpenAI ($300B valuation)",SoftBank; OpenAI,Governance & Society,Added,https://www.cnbc.com/2025/12/30/softbank-openai-investment.html,2
+2026,"DeepSeek mHC paper — Manifold-Constrained Hyper-Connections (first major architecture shift since Transformers)",DeepSeek,Research Breakthroughs,Added,https://arxiv.org/abs/2512.24880,3
+2026,"DeepMind TRecViT — Recurrent Video Transformer for long-range visual understanding",Google DeepMind,Research Breakthroughs,Added,https://arxiv.org/abs/2412.14294,2
+2026,"AMI Labs founded by Yann LeCun to build World Models (~$3.5B valuation)",AMI Labs; Yann LeCun,Research Breakthroughs,Added,https://techcrunch.com/2026/01/23/whos-behind-ami-labs-yann-lecuns-world-model-startup/,2
 2026,Prism AI-native workspace for scientists,OpenAI,AI Products,Added,https://openai.com/index/introducing-prism/,1
-2026,GPT-5.2 powers advanced scientific reasoning,OpenAI,Foundation Models,Added,https://openai.com/index/introducing-prism/,1
+2026,"Claude Opus 4.6 released (1M token context, agent teams for parallel coding)",Anthropic,Foundation Models,Added,https://www.anthropic.com/news/claude-opus-4-6,2
+2026,"Google Gemini 3.1 Pro released (ARC-AGI-2 score 77.1%)",Google,Foundation Models,Added,https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/,2
+2026,"OpenClaw (ex-Clawdbot/Moltbot) open-source AI agent goes viral; creator acquired by OpenAI",Peter Steinberger; OpenAI,AI Products,Added,https://www.cnbc.com/2026/02/15/openclaw-creator-peter-steinberger-joining-openai-altman-says.html,2
+2026,"Anthropic refuses Pentagon demand to remove AI safeguards; designated supply chain risk",Anthropic; US Department of War,Governance & Society,Added,https://www.anthropic.com/news/statement-department-of-war,3

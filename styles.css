@@ -18,7 +18,6 @@
     --year-margin-right: 60px;
     --event-card-width: 220px;
     --event-gap: 30px;
-    --year-marker-top: -30px;
     
     /* Animation durations */
     --transition-fast: 0.2s;
@@ -109,15 +108,18 @@ header h1 {
 
 .year-marker {
     position: absolute;
-    top: var(--year-marker-top);
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--year-color);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: color var(--transition-normal) ease, transform var(--transition-normal) ease;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 5.5rem;
+    font-weight: 900;
+    color: #10b981;
+    opacity: 0.12;
+    letter-spacing: -0.03em;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    white-space: nowrap;
 }
 
 .year-events {
@@ -480,49 +482,34 @@ header h1 {
     font-size: 0.7rem;
 }
 
-/* Parallax Background Logo – refined watermark, centered on timeline */
-.parallax-bg {
+/* Fixed bottom-right Model Basics link */
+.model-basics-fab {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    pointer-events: none;
-    overflow: hidden;
-    background-color: var(--bg);
+    bottom: 56px;
+    right: 20px;
+    z-index: 200;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    padding-right: clamp(2%, 40px, 6%);
-    /* Offset so logo center aligns with timeline (below header/controls) */
-    padding-top: 12vh;
-    box-sizing: border-box;
+    gap: 6px;
+    padding: 8px 14px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    color: var(--year-color);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s, box-shadow 0.15s;
 }
 
-/* Gradient mask: logo fades in from the right; left side (behind cards) is softer */
-.parallax-bg::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, var(--bg) 0%, var(--bg) 25%, transparent 55%, transparent 100%);
-    z-index: 1;
-    pointer-events: none;
+.model-basics-fab:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-hover);
 }
 
-.bg-logo {
-    max-width: min(900px, 55vw);
-    max-height: 70vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    object-position: right center;
-    opacity: 0.16;
-    filter: grayscale(100%) brightness(0.88);
-    mix-blend-mode: luminosity;
-    will-change: transform;
-    transition: opacity 0.3s ease, transform 0.2s ease;
-}
 
 
 /* Bottom timeline scrubber – neutral “position” control, distinct from timeline nodes */
@@ -636,13 +623,8 @@ header h1 {
     
     .event-card::before,
     .event-content,
-    .year-marker,
-    .bg-logo {
+    .year-marker {
         transition: none !important;
-    }
-    
-    .bg-logo {
-        will-change: auto !important;
     }
 }
 
@@ -708,11 +690,6 @@ select:focus-visible {
         font-size: 0.75rem;
     }
     
-    .bg-logo {
-        max-width: min(700px, 50vw);
-        max-height: 60vh;
-        opacity: 0.12;
-    }
 }
 
 /* Mobile: up to 767px */
@@ -769,8 +746,7 @@ select:focus-visible {
     }
     
     .year-marker {
-        font-size: 0.65rem;
-        top: -25px;
+        font-size: 4rem;
     }
     
     .year-events {
@@ -811,17 +787,6 @@ select:focus-visible {
         width: 100%;
     }
     
-    /* Hide or reduce parallax logo on mobile */
-    .bg-logo {
-        max-width: min(500px, 45vw);
-        max-height: 50vh;
-        opacity: 0.08;
-    }
-    
-    .parallax-bg {
-        padding-right: clamp(1%, 20px, 4%);
-        padding-top: 8vh;
-    }
     
     /* Timeline scrubber - adjust for mobile */
     .timeline-scrubber-wrap {
@@ -930,10 +895,6 @@ select:focus-visible {
         font-size: 0.7rem;
     }
     
-    .bg-logo {
-        max-width: min(400px, 40vw);
-        opacity: 0.06;
-    }
 }
 
 /* Large screens: 1440px and up */
