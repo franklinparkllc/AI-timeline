@@ -372,6 +372,13 @@
   source: Original
   link: https://mitpress.mit.edu/books/age-intelligent-machines
   weight: 1
+- year: 1990
+  event: Elman Networks (Simple Recurrent Networks) — first recurrent architecture with true context units, giving neural networks explicit sequence memory
+  people: Jeffrey Elman (UC San Diego)
+  category: Research Breakthroughs
+  source: Added
+  link: https://onlinelibrary.wiley.com/doi/abs/10.1207/s15516709cog1402_1
+  weight: 2
 - year: 1991
   event: DART supply chain optimization used in Gulf War
   people: DARPA
@@ -392,6 +399,13 @@
   category: Research Breakthroughs
   source: Original
   link: https://gwern.net/doc/reinforcement-learning/model-free/1992-williams.pdf
+  weight: 2
+- year: 1993
+  event: Penn Treebank released — annotated corpus of Wall Street Journal text that became the gold standard for NLP parsing and tagging benchmarks for a decade
+  people: Mitchell Marcus; Beatrice Santorini; Mary Ann Marcinkiewicz (University of Pennsylvania)
+  category: Research Breakthroughs
+  source: Added
+  link: https://aclanthology.org/J93-2004/
   weight: 2
 - year: 1993
   event: Polly vision-enabled behavior-based robot
@@ -710,6 +724,13 @@
   source: Added
   link: https://arxiv.org/abs/1301.3781
   weight: 2
+- year: 2013
+  event: Variational Autoencoders (VAE) — introduced the learned latent space concept, enabling generative models to sample and interpolate in a continuous representation
+  people: Diederik Kingma; Max Welling (University of Amsterdam)
+  category: Generative AI
+  source: Added
+  link: https://arxiv.org/abs/1312.6114
+  weight: 3
 - year: 2014
   event: DeepFace achieves near-human face verification
   people: Yaniv Taigman; Ming Yang; Marc'Aurelio Ranzato; Lior Wolf (Facebook/TAU)
@@ -744,6 +765,13 @@
   category: Research Breakthroughs
   source: Added
   link: https://arxiv.org/abs/1409.3215
+  weight: 2
+- year: 2014
+  event: Gated Recurrent Units (GRU) — a streamlined alternative to LSTM that powered early neural machine translation and seq2seq models
+  people: Kyunghyun Cho; Bart van Merrienboer; Yoshua Bengio et al.
+  category: Research Breakthroughs
+  source: Added
+  link: https://arxiv.org/abs/1406.1078
   weight: 2
 - year: 2014
   event: Neural machine translation attention mechanism
@@ -822,6 +850,13 @@
   source: Original
   link: https://venturebeat.com/ai/googles-self-driving-cars-have-driven-over-1-million-miles/
   weight: 1
+- year: 2015
+  event: Deep Unsupervised Learning using Nonequilibrium Thermodynamics — introduced the forward/reverse diffusion process as a generative framework, the conceptual origin of modern diffusion models
+  people: Jascha Sohl-Dickstein; Eric Weiss; Niru Maheswaranathan; Surya Ganguli (Stanford; Google Brain)
+  category: Research Breakthroughs
+  source: Added
+  link: https://arxiv.org/abs/1503.03585
+  weight: 3
 - year: 2016
   event: BPE adopted for NLP tokenization (subword units for rare words in neural
     machine translation)
@@ -894,6 +929,13 @@
   link: https://cloud.google.com/blog/products/ai-machine-learning/google-supercharges-machine-learning-tasks-with-custom-chip
   weight: 2
 - year: 2017
+  event: NVIDIA Volta V100 — first GPU with Tensor Cores (dedicated hardware matrix-multiply units), making Transformer-scale training practically feasible
+  people: NVIDIA
+  category: Hardware & Infrastructure
+  source: Added
+  link: https://www.nvidia.com/en-us/data-center/volta-gpu-architecture/
+  weight: 2
+- year: 2017
   event: Capsule Networks introduced
   people: Geoffrey Hinton
   category: Research Breakthroughs
@@ -927,6 +969,13 @@
   category: Foundation Models
   source: Added
   link: https://openai.com/index/language-unsupervised/
+  weight: 2
+- year: 2018
+  event: GLUE benchmark — unified multi-task NLP evaluation suite that defined the BERT era and drove rapid progress in language understanding
+  people: Alex Wang et al. (NYU; University of Washington; DeepMind)
+  category: Research Breakthroughs
+  source: Added
+  link: https://arxiv.org/abs/1804.07461
   weight: 2
 - year: 2018
   event: BERT (Bidirectional Encoder Representations from Transformers)
@@ -963,6 +1012,20 @@
   source: Added
   link: https://nvidianews.nvidia.com/news/nvidia-introduces-ampere-architecture-for-next-generation-computing
   weight: 2
+- year: 2019
+  event: StyleGAN — photorealistic face synthesis via style-based generator; "This Person Does Not Exist" demonstrated GANs could reach near-perfect perceptual realism
+  people: Tero Karras; Samuli Laine; Timo Aila (NVIDIA)
+  category: Generative AI
+  source: Added
+  link: https://arxiv.org/abs/1812.04948
+  weight: 2
+- year: 2019
+  event: Score-based generative modeling via estimated gradients of the data distribution using annealed Langevin dynamics — foundational work connecting score functions to generative modeling
+  people: Yang Song; Stefano Ermon (Stanford University)
+  category: Research Breakthroughs
+  source: Added
+  link: https://arxiv.org/abs/1907.05600
+  weight: 2
 - year: 2020
   event: GPT-3 released (175B parameters)
   people: Tom Brown et al. (OpenAI)
@@ -978,12 +1041,26 @@
   link: https://deepmind.google/discover/blog/alphafold-a-solution-to-a-50-year-old-grand-challenge-in-biology/
   weight: 3
 - year: 2020
+  event: Denoising Diffusion Probabilistic Models (DDPM) — connected diffusion to denoising score matching, enabling high-quality image synthesis and making diffusion models practical
+  people: Jonathan Ho; Ajay Jain; Pieter Abbeel (UC Berkeley)
+  category: Research Breakthroughs
+  source: Added
+  link: https://arxiv.org/abs/2006.11239
+  weight: 3
+- year: 2020
   event: DALL-E 1 announced
   people: Aditya Ramesh et al. (OpenAI)
   category: Generative AI
   source: Added
   link: https://openai.com/index/dall-e/
   weight: 2
+- year: 2020
+  event: The Pile — 800GB open-source training corpus enabling non-corporate LLM research
+  people: Leo Gao et al. (EleutherAI)
+  category: Research Breakthroughs
+  source: Added
+  link: https://arxiv.org/abs/2101.00027
+  weight: 1
 - year: 2020
   event: Switch Transformer (1.6T parameters)
   people: William Fedus et al. (Google)
@@ -1033,6 +1110,13 @@
   source: Added
   link: https://ai.facebook.com/blog/ai-research-supercluster/
   weight: 1
+- year: 2021
+  event: Structured State Spaces (S4) — first sequence model to match Transformers on long-range tasks; direct precursor to Mamba
+  people: Albert Gu; Karan Goel; Christopher Ré (Stanford University)
+  category: Research Breakthroughs
+  source: Added
+  link: https://arxiv.org/abs/2111.00396
+  weight: 2
 - year: 2022
   event: ChatGPT launched (November 30) - fastest growing consumer app
   people: OpenAI
@@ -1040,6 +1124,27 @@
   source: Added
   link: https://openai.com/blog/chatgpt/
   weight: 3
+- year: 2022
+  event: High-Resolution Image Synthesis with Latent Diffusion Models — diffusion in learned latent space with cross-attention conditioning; technical foundation for Stable Diffusion
+  people: Robin Rombach; Andreas Blattmann; Dominik Lorenz; Patrick Esser; Björn Ommer (University of Heidelberg)
+  category: Research Breakthroughs
+  source: Added
+  link: https://arxiv.org/abs/2112.10752
+  weight: 3
+- year: 2022
+  event: DALL-E 2 paper — hierarchical text-conditional image generation using diffusion in CLIP embedding space, demonstrating strong text-image alignment
+  people: Aditya Ramesh; Prafulla Dhariwal; Alex Nichol; Casey Chu; Mark Chen (OpenAI)
+  category: Generative AI
+  source: Added
+  link: https://arxiv.org/abs/2204.06125
+  weight: 3
+- year: 2022
+  event: Imagen — photorealistic text-to-image diffusion using large pre-trained T5 language models for text encoding; introduced DrawBench evaluation benchmark
+  people: Chitwan Saharia et al. (Google Research)
+  category: Generative AI
+  source: Added
+  link: https://arxiv.org/abs/2205.11487
+  weight: 2
 - year: 2022
   event: DALL-E 2 released publicly
   people: OpenAI
@@ -1501,7 +1606,7 @@
   category: Foundation Models
   source: Added
   link: https://github.com/deepseek-ai/DeepSeek-V3
-  weight: 2
+  weight: 3
 - year: 2024
   event: ChatGPT Pro subscription ($200/month) launched
   people: OpenAI
