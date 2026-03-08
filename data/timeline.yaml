@@ -527,6 +527,13 @@
   source: Original
   link: https://web.media.mit.edu/~cynthiab/research/robots/kismet/overview/overview.html
   weight: 1
+- year: 2000
+  event: Neural Probabilistic Language Model — learns distributed word representations to combat curse of dimensionality (presented at NIPS 2000; published in JMLR 2003)
+  people: Yoshua Bengio; Réjean Ducharme; Pascal Vincent (Université de Montréal)
+  category: Foundation Models
+  source: Original
+  link: https://www.jmlr.org/papers/volume3/bengio03a/bengio03a.pdf
+  weight: 2
 - year: 2001
   event: Echo state network developed
   people: Herbert Jaeger (Jacobs_University_Bremen)
@@ -548,13 +555,7 @@
   source: Added
   link: https://www.cs.cornell.edu/courses/cs6784/2010sp/lecture/10-LaffertyEtAl01.pdf
   weight: 2
-- year: 2001
-  event: Neural Probabilistic Language Model
-  people: Yoshua Bengio (Université_de_Montréal)
-  category: Foundation Models
-  source: Original
-  link: https://www-labs.iro.umontreal.ca/~vincentp/Publications/lm_nips2000.pdf
-  weight: 2
+
 - year: 2002
   event: iRobot Roomba autonomous floor cleaning robot
   people: iRobot
