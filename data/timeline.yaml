@@ -1856,3 +1856,35 @@
   source: Added
   link: https://www.anthropic.com/news/statement-department-of-war
   weight: 3
+- year: 2026
+  event: GPT-5.4 released with Pro and Thinking variants; first AI to surpass human-level
+    computer use (75% OSWorld vs 72.4% human), 1M token context via API
+  people: OpenAI
+  category: Foundation Models
+  source: Added
+  link: https://openai.com/index/introducing-gpt-5-4/
+  weight: 2
+- year: 2026
+  event: NVIDIA unveils Vera Rubin platform at GTC 2026 — six new chips, 10x perf/watt
+    over Blackwell; Jensen Huang projects $1T in orders through 2027
+  people: NVIDIA; Jensen Huang
+  category: Hardware & Infrastructure
+  source: Added
+  link: https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer
+  weight: 2
+- year: 2026
+  event: White House releases National AI Policy Framework with legislative recommendations;
+    proposes federal preemption of state AI laws
+  people: White House
+  category: Governance & Society
+  source: Added
+  link: https://www.whitehouse.gov/wp-content/uploads/2026/03/03.20.26-National-Policy-Framework-for-Artificial-Intelligence-Legislative-Recommendations.pdf
+  weight: 2
+- year: 2026
+  event: OpenAI shuts down Sora citing unsustainable costs (~$1M/day, $2.1M lifetime
+    revenue); Disney partnership collapses
+  people: OpenAI; Sam Altman
+  category: AI Products
+  source: Added
+  link: https://techcrunch.com/2026/03/29/why-openai-really-shut-down-sora/
+  weight: 2
