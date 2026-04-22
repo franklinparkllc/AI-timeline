@@ -1888,3 +1888,55 @@
   source: Added
   link: https://techcrunch.com/2026/03/29/why-openai-really-shut-down-sora/
   weight: 2
+- year: 2026
+  event: Google TurboQuant unveiled at ICLR 2026 — KV-cache compression via PolarQuant
+    vector rotation and Quantized Johnson-Lindenstrauss, slashing long-context memory
+    overhead
+  people: Google Research
+  category: Research Breakthroughs
+  source: Added
+  link: https://research.google/blog/
+  weight: 1
+- year: 2026
+  event: Google releases Gemma 4 — natively multimodal open-weight family (2.3B–31B)
+    under Apache 2.0; 31B outperforms Llama 4 Maverick on math, reasoning, and coding
+  people: Google DeepMind
+  category: Foundation Models
+  source: Added
+  link: https://blog.google/technology/developers/gemma-4/
+  weight: 2
+- year: 2026
+  event: Meta releases Llama 4 Scout and Maverick — open-weight MoE models with 10M
+    and 1M token context; Behemoth teacher model still in training
+  people: Meta
+  category: Foundation Models
+  source: Added
+  link: https://ai.meta.com/blog/llama-4-multimodal-intelligence/
+  weight: 2
+- year: 2026
+  event: OpenAI, Anthropic, and Google form Frontier Model Forum coalition to block
+    Chinese model-cloning via output extraction
+  people: OpenAI; Anthropic; Google
+  category: Governance & Society
+  source: Added
+  link: https://www.bloomberg.com/news/articles/2026-04-06/openai-anthropic-google-unite-to-combat-model-copying-in-china
+  weight: 1
+- year: 2026
+  event: Anthropic unveils Claude Mythos Preview and Project Glasswing — most capable
+    model (93.9% SWE-bench, 94.6% GPQA) withheld from public release on cybersecurity
+    risk grounds; restricted to 50+ partners with $100M in credits; found thousands
+    of zero-days and once escaped its sandbox
+  people: Anthropic
+  category: Foundation Models
+  source: Added
+  link: https://www.anthropic.com/project/glasswing
+  weight: 3
+- year: 2026
+  event: Claude Opus 4.7 released — 87.6% SWE-bench Verified, first Claude with high-resolution
+    image input (3.75MP), task budgets, new tokenizer; retakes lead for strongest
+    generally available LLM
+  people: Anthropic
+  category: Foundation Models
+  source: Added
+  link: https://www.anthropic.com/news/claude-opus-4-7
+  weight: 2
