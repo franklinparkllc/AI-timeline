@@ -1906,6 +1906,15 @@
   link: https://blog.google/technology/developers/gemma-4/
   weight: 2
 - year: 2026
+  event: Cursor 3 launched — agent-first coding platform rebuilt around AI-agent orchestration
+    with Agents Window for parallel cloud agents; competes directly with Claude Code
+    and OpenAI Codex
+  people: Anysphere (Cursor)
+  category: Enterprise & Developer Tools
+  source: Added
+  link: https://www.cursor.com/
+  weight: 2
+- year: 2026
   event: Meta releases Llama 4 Scout and Maverick — open-weight MoE models with 10M
     and 1M token context; Behemoth teacher model still in training
   people: Meta
@@ -1939,4 +1948,39 @@
   category: Foundation Models
   source: Added
   link: https://www.anthropic.com/news/claude-opus-4-7
+  weight: 2
+- year: 2026
+  event: GPT-Rosalind released — OpenAI's first domain-specialized frontier reasoning
+    model for life sciences (drug discovery, genomics, protein engineering); gated to
+    trusted partners including Amgen, Moderna, and Allen Institute; top score on BixBench
+    bioinformatics benchmark
+  people: OpenAI
+  category: Foundation Models
+  source: Added
+  link: https://openai.com/index/introducing-gpt-rosalind/
+  weight: 2
+- year: 2026
+  event: GPT-5.5 released — major gains in agentic coding, computer use, and knowledge
+    work; GPT-5.5 Instant replaces prior default as standard ChatGPT model (May 5)
+  people: OpenAI
+  category: Foundation Models
+  source: Added
+  link: https://openai.com/index/introducing-gpt-5-5/
+  weight: 2
+- year: 2026
+  event: DeepSeek V4-Pro released under MIT license — 1.6 trillion parameters (49B
+    active), 1M-token context window; largest open-weight model at time of release
+  people: DeepSeek
+  category: Foundation Models
+  source: Added
+  link: https://github.com/deepseek-ai/DeepSeek-V4
+  weight: 2
+- year: 2026
+  event: EU AI Act omnibus deal reached (May 7) — high-risk AI compliance deadlines
+    extended to 2027–28; non-consensual deepfake generation added as prohibited practice;
+    EU-level regulatory sandbox established
+  people: European Union
+  category: Governance & Society
+  source: Added
+  link: https://www.whitecase.com/insight-alert/eu-agrees-digital-omnibus-deal-simplify-ai-rules
   weight: 2
