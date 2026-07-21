@@ -1984,3 +1984,94 @@
   source: Added
   link: https://www.whitecase.com/insight-alert/eu-agrees-digital-omnibus-deal-simplify-ai-rules
   weight: 2
+- year: 2026
+  event: White House Executive Order 'Promoting Advanced AI Innovation and Security'
+    signed — establishes a voluntary frontier-model review framework and an AI cybersecurity
+    clearinghouse for vulnerability coordination; bars mandatory model licensing (June 2)
+  people: White House; Donald Trump
+  category: Governance & Society
+  source: Added
+  link: https://www.dlapiper.com/en-us/insights/publications/2026/06/promoting-advanced-ai-innovation-and-security-executive-order-top-points
+  weight: 2
+- year: 2026
+  event: Apple unveils next-generation Apple Intelligence and Siri AI at WWDC 2026
+    — a profoundly more capable, conversational assistant with cross-app personal context;
+    Apple Foundation Models on Cloud built in collaboration with Google (June 8)
+  people: Apple
+  category: AI Products
+  source: Added
+  link: https://www.apple.com/newsroom/2026/06/apple-introduces-siri-ai-a-profoundly-more-capable-and-personal-assistant/
+  weight: 2
+- year: 2026
+  event: Anthropic releases Claude Fable 5 and Mythos 5 — first publicly available
+    models in the Mythos-class tier; Mythos scores ~98% on advanced biology benchmarks
+    and is gated via Project Glasswing (June 9)
+  people: Anthropic
+  category: Foundation Models
+  source: Added
+  link: https://www.anthropic.com/project/glasswing
+  weight: 2
+- year: 2026
+  event: US government orders Anthropic to suspend Claude Fable 5 and Mythos 5 (June
+    12), three days after launch, over vulnerability-discovery and national-security
+    concerns; Anthropic disables both globally. The Commerce Department lifts the order
+    June 30 and Fable 5 returns July 1, while Mythos 5 stays restricted to US-approved
+    organizations under Project Glasswing
+  people: Anthropic; US Department of Commerce
+  category: Governance & Society
+  source: Added
+  link: https://www.cnn.com/2026/06/13/business/anthropic-mythos-model-national-security
+  weight: 3
+- year: 2026
+  event: SpaceX to acquire Anysphere (Cursor) for $60B in stock — the largest startup
+    acquisition on record, giving xAI and Grok a coding engine and developer distribution
+    (June 16)
+  people: SpaceX; Anysphere
+  category: Governance & Society
+  source: Added
+  link: https://techcrunch.com/2026/06/16/spacex-to-acquire-cursor-for-60b-in-stock-days-after-blockbuster-ipo/
+  weight: 2
+- year: 2026
+  event: xAI ships Grok 4.3 with a 1M-token context window on AWS Bedrock; the 6-trillion-parameter
+    Grok 5 slips past its Q2 window and remains unreleased (June 17)
+  people: xAI
+  category: Foundation Models
+  source: Added
+  link: https://www.nxcode.io/resources/news/grok-5-release-date-latest-news-2026
+  weight: 1
+- year: 2026
+  event: OpenAI and Broadcom reveal the 'Jalapeño' custom inference ASIC — an LLM-serving
+    chip focused on performance-per-watt (June 24)
+  people: OpenAI; Broadcom
+  category: Hardware & Infrastructure
+  source: Added
+  link: https://www.aicritique.org/us/2026/07/02/ai-developments-in-june-2026-major-releases-products-research-and-policy/
+  weight: 1
+- year: 2026
+  event: OpenAI previews GPT-5.6 Sol, Terra, and Luna — flagship Sol built for complex
+    reasoning, extended coding, and agentic workflows with a ~3.7x code-generation
+    gain on Terminal-Bench 2.1; initially limited to ~20 government-vetted partners
+    before general release July 9 (June 26)
+  people: OpenAI
+  category: Foundation Models
+  source: Added
+  link: https://openai.com/index/previewing-gpt-5-6-sol/
+  weight: 2
+- year: 2026
+  event: South Korea announces an $880B, 10-year national investment in semiconductors,
+    AI infrastructure, and robotics; Samsung and SK Hynix commit $518B toward new chip
+    fabrication sites
+  people: South Korea; Samsung; SK Hynix
+  category: Governance & Society
+  source: Added
+  link: https://www.buildfastwithai.com/blogs/ai-news-today-july-3-2026
+  weight: 2
+- year: 2026
+  event: xAI releases Grok 4.5 — a 1.5-trillion-parameter mixture-of-experts model
+    with ~25% fewer output tokens, trained in part on Cursor interaction data (July
+    9)
+  people: xAI
+  category: Foundation Models
+  source: Added
+  link: https://llm-stats.com/llm-updates
+  weight: 1
