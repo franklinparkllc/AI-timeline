@@ -601,7 +601,8 @@ header {
     white-space: nowrap;
 }
 
-.toolbar-stats .timeline-version {
+.toolbar-stats .timeline-version,
+.toolbar-stats .timeline-date {
     opacity: 0.6;
     font-size: 0.7rem;
 }

@@ -2,6 +2,7 @@
 """
 Generate interactive HTML timeline from YAML data
 """
+from datetime import date
 from html import escape
 import yaml
 from pathlib import Path
@@ -124,6 +125,10 @@ def generate_html(events: List[Dict[str, str]], output_path: Path, version: int 
         version: Version number for the timeline
     """
     
+    # Build date stamped into the page on every regeneration
+    today = date.today()
+    build_date = f"{today:%b} {today.day}, {today.year}"
+
     # Get unique categories for filtering
     categories = sorted(set(e['category'] for e in events if e['category']))
     
@@ -172,6 +177,7 @@ def generate_html(events: List[Dict[str, str]], output_path: Path, version: int 
             <div class="toolbar-stats">
                 <span id="eventCount">{len(events)}</span> events
                 <span class="timeline-version" aria-hidden="true"> · v.{version}</span>
+                <span class="timeline-date"> · updated {build_date}</span>
             </div>
         </div>
 
