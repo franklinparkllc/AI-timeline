@@ -2075,3 +2075,46 @@
   source: Added
   link: https://llm-stats.com/llm-updates
   weight: 1
+- year: 2026
+  event: DARPA and the US Air Force fly an operational F-16 under AI control at Eglin
+    AFB under the VENOM program — flight controls and sensors automated without changing
+    the jet's core software, letting the pilot toggle between human and AI control
+    mid-flight (July 16)
+  people: DARPA; US Air Force
+  category: Autonomous Systems
+  source: Added
+  link: https://www.darpa.mil/news/2026/darpa-us-air-force-fly-ai-controlled-f-16
+  weight: 2
+- year: 2026
+  event: Moonshot AI publishes Kimi K3 open weights — 2.8-trillion-parameter mixture-of-experts
+    (104B active), native vision, 1M-token context; largest open-weight model released
+    to date, under a custom license gating commercial inference above $20M revenue
+    (July 26)
+  people: Moonshot AI
+  category: Foundation Models
+  source: Added
+  link: https://www.tomshardware.com/tech-industry/artificial-intelligence/moonshot-releases-2-8-trillion-parameter-kimi-k3
+  weight: 2
+- year: 2026
+  event: OpenAI announces that Astra, its unreleased next major model, solved ten
+    mathematics and theoretical-CS problems open for a decade or more — including
+    the first explicit construction of a non-sofic group and a disproof of Connes's
+    rigidity conjecture — publishing Lean 4 proof certificates and a 249-page manuscript
+    for roughly $2,000 of compute; mathematicians criticize the press-release-first
+    disclosure (August 1)
+  people: OpenAI
+  category: Research Breakthroughs
+  source: Added
+  link: https://the-decoder.com/openai-announces-its-next-major-model-astra-by-dropping-ten-previously-unsolved-math-solutions/
+  weight: 3
+- year: 2026
+  event: EU AI Act Article 50 transparency duties become enforceable and the AI Office
+    gains supervision powers (August 2), with fines up to €15M or 3% of global turnover;
+    Anthropic responds by embedding invisible machine-readable watermarks in new Claude
+    models' text and C2PA provenance metadata on file outputs — applied worldwide,
+    not only in the EU (August 11)
+  people: European Union; Anthropic
+  category: Governance & Society
+  source: Added
+  link: https://techcrunch.com/2026/08/11/anthropic-says-it-will-watermark-text-generated-by-its-ai-models/
+  weight: 2
