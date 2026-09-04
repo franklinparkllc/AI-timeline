@@ -26,7 +26,7 @@ python3 -m http.server 8000
 ```bash
 python3 scripts/generate_timeline.py   # 1. rebuild index.html; bumps version + stamps today's date
 git add -A && git commit -m "..."      # 2. commit yaml + index.html + timeline_version.txt together
-git tag v$(cat timeline_version.txt)   # 3. tag with the timeline version, e.g. v59
+V=v$(cat timeline_version.txt); git tag -a $V -m "$V — ..."   # 3. annotated tag, e.g. v59
 git push origin main --follow-tags     # 4. push commit and tag
 ```
 
@@ -36,6 +36,8 @@ Both are rendered into the toolbar as `N events · v.59 · updated Sep 4, 2026`.
 
 Tags are named `v<timeline_version>` so a tag maps 1:1 to the version shown on the page.
 A release is only complete when `index.html`, `timeline_version.txt`, and the tag all agree.
+The tag must be **annotated** (`-a`) — `--follow-tags` silently skips lightweight tags.
+Doc- or tooling-only commits don't need a release; only content and rendering changes do.
 
 ## Architecture
 
