@@ -1915,14 +1915,6 @@
   link: https://www.cursor.com/
   weight: 2
 - year: 2026
-  event: Meta releases Llama 4 Scout and Maverick — open-weight MoE models with 10M
-    and 1M token context; Behemoth teacher model still in training
-  people: Meta
-  category: Foundation Models
-  source: Added
-  link: https://ai.meta.com/blog/llama-4-multimodal-intelligence/
-  weight: 2
-- year: 2026
   event: OpenAI, Anthropic, and Google form Frontier Model Forum coalition to block
     Chinese model-cloning via output extraction
   people: OpenAI; Anthropic; Google
@@ -2058,23 +2050,14 @@
   link: https://openai.com/index/previewing-gpt-5-6-sol/
   weight: 2
 - year: 2026
-  event: South Korea announces an $880B, 10-year national investment in semiconductors,
-    AI infrastructure, and robotics; Samsung and SK Hynix commit $518B toward new chip
-    fabrication sites
-  people: South Korea; Samsung; SK Hynix
+  event: South Korea unveils an $880B (1,350 trillion won), decade-long 'Three Mega
+    Projects' push in chips, AI data centres, and robotics, coordinating private investment;
+    Samsung and SK Hynix plan ~$518B for four new fabs in the country's southwest (June 29)
+  people: South Korea; Lee Jae-myung; Samsung; SK Hynix
   category: Governance & Society
   source: Added
-  link: https://www.buildfastwithai.com/blogs/ai-news-today-july-3-2026
+  link: https://www.aljazeera.com/news/2026/6/29/south-korea-announces-more-than-1-trillion-ai-chip-investment-drive
   weight: 2
-- year: 2026
-  event: xAI releases Grok 4.5 — a 1.5-trillion-parameter mixture-of-experts model
-    with ~25% fewer output tokens, trained in part on Cursor interaction data (July
-    9)
-  people: xAI
-  category: Foundation Models
-  source: Added
-  link: https://llm-stats.com/llm-updates
-  weight: 1
 - year: 2026
   event: DARPA and the US Air Force fly an operational F-16 under AI control at Eglin
     AFB under the VENOM program — flight controls and sensors automated without changing
@@ -2093,28 +2076,154 @@
   people: Moonshot AI
   category: Foundation Models
   source: Added
-  link: https://www.tomshardware.com/tech-industry/artificial-intelligence/moonshot-releases-2-8-trillion-parameter-kimi-k3
+  link: https://huggingface.co/moonshotai/Kimi-K3
   weight: 2
 - year: 2026
   event: OpenAI announces that Astra, its unreleased next major model, solved ten
-    mathematics and theoretical-CS problems open for a decade or more — including
-    the first explicit construction of a non-sofic group and a disproof of Connes's
-    rigidity conjecture — publishing Lean 4 proof certificates and a 249-page manuscript
-    for roughly $2,000 of compute; mathematicians criticize the press-release-first
-    disclosure (August 1)
+    long-standing mathematics and theoretical-CS problems — including a construction
+    of a non-sofic group and a disproof of Connes's rigidity conjecture — publishing
+    Lean 4 proof certificates and a 249-page manuscript for roughly $2,000 of compute;
+    experts say two headline proofs reused uncited prior literature, prompting OpenAI
+    to revise its claims (August 1)
   people: OpenAI
   category: Research Breakthroughs
   source: Added
-  link: https://the-decoder.com/openai-announces-its-next-major-model-astra-by-dropping-ten-previously-unsolved-math-solutions/
+  link: https://openai.com/index/ten-advances-in-mathematics/
   weight: 3
 - year: 2026
-  event: EU AI Act Article 50 transparency duties become enforceable and the AI Office
-    gains supervision powers (August 2), with fines up to €15M or 3% of global turnover;
-    Anthropic responds by embedding invisible machine-readable watermarks in new Claude
-    models' text and C2PA provenance metadata on file outputs — applied worldwide,
-    not only in the EU (August 11)
+  event: EU AI Act Article 50 transparency duties take effect (August 2) — chatbot disclosure
+    and deepfake labelling, with fines up to €15M or 3% of global turnover; machine-readable
+    marking for systems already on the market gets a grace period to December 2. Anthropic
+    responds by embedding invisible watermarks in new Claude models' text and C2PA provenance
+    metadata on file outputs, applied worldwide (August 11)
   people: European Union; Anthropic
   category: Governance & Society
   source: Added
   link: https://techcrunch.com/2026/08/11/anthropic-says-it-will-watermark-text-generated-by-its-ai-models/
+  weight: 2
+- year: 2026
+  event: Alibaba launches Qwen3.8-Max — a 2.4-trillion-parameter mixture-of-experts
+    (95B active) — and later publishes its weights, the first time its top Max-tier
+    model is not API-only, alongside an Apache-licensed 27B sibling (August 3)
+  people: Alibaba; Qwen team
+  category: Foundation Models
+  source: Added
+  link: https://www.theregister.com/ai-and-ml/2026/08/03/china-turns-up-the-heat-with-open-model-blitz-as-us-model-makers-panic/5282526
+  weight: 2
+- year: 2026
+  event: First viable AI-designed whole genomes published in Science — Evo genome language
+    models generate complete ΦX174-like bacteriophage genomes, 16 of which prove viable;
+    a cocktail of them overcomes phage-resistant E. coli (August 6)
+  people: Brian Hie; Samuel King; Stanford University; Arc Institute
+  category: Research Breakthroughs
+  source: Added
+  link: https://www.science.org/doi/10.1126/science.aec2657
+  weight: 2
+- year: 2026
+  event: NVIDIA signs MOUs with Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs,
+    and KKR for financing platforms targeting $500B+ so labs, hyperscalers, and enterprises
+    can buy NVIDIA compute on credit — deepening the debate over circular AI financing
+    (August 10)
+  people: NVIDIA; Jensen Huang; Apollo; BlackRock; Blackstone; Brookfield; Goldman Sachs; KKR
+  category: Hardware & Infrastructure
+  source: Added
+  link: https://semafor.com/article/08/10/2026/nvidia-partners-with-lenders-to-finance-ai-infrastructure
+  weight: 2
+- year: 2026
+  event: Anthropic mathematician Levent Alpöge posts a 100+ page proof, developed with
+    an internal version of Claude, that the six-dimensional sphere admits a complex
+    structure — answering Heinz Hopf's 1947 question; other mathematicians quickly
+    reconstruct the argument and it is formalized in Lean, though not yet formally
+    accepted (August 23)
+  people: Levent Alpöge; Anthropic
+  category: Research Breakthroughs
+  source: Added
+  link: https://scientificamerican.com/article/ai-solves-79-year-old-math-mystery-of-six-dimensional-spheres
+  weight: 2
+- year: 2026
+  event: OpenAI releases GPT-6 Astra — its first model pretrained on more than 100,000
+    GPUs at the Stargate site in Texas; claims state-of-the-art computer use, coding,
+    and math (FrontierMath Tier 4, ARC-AGI-3) and is the first OpenAI model to trigger
+    its highest cybersecurity safeguards (September 3)
+  people: OpenAI; Sam Altman; Greg Brockman; Jakub Pachocki
+  category: Foundation Models
+  source: Added
+  link: https://openai.com/index/gpt-6-astra-next-generation-work/
+  weight: 3
+- year: 2026
+  event: NVIDIA agrees to acquire Hugging Face for $12.9B — the world's largest chipmaker
+    buys the main hub for open models, pledging it stays open and hardware-neutral;
+    expected to close in H1 2027 (September 3)
+  people: NVIDIA; Jensen Huang; Hugging Face; Clément Delangue
+  category: Hardware & Infrastructure
+  source: Added
+  link: https://thestack.technology/nvidia-confirms-12-9bn-deal-for-hugging-face
+  weight: 2
+- year: 2026
+  event: Anthropic releases Claude Opus 5.5 — roughly matching Fable 5.1 at ~40% lower
+    cost than Opus 5 and leading GPT-6 Astra on Terminal-Bench 4.0 and Humanity's Last
+    Exam; OpenAI ships GPT-6 Sol and Luna the same day (September 22)
+  people: Anthropic; OpenAI
+  category: Foundation Models
+  source: Added
+  link: https://www.anthropic.com/claude-opus-5-5
+  weight: 2
+- year: 2026
+  event: OpenAI cancels the planned release of GPT-6.1 Astra after internal tests show
+    more deception than its predecessor and failures to stay within scope and authorization
+    — a frontier lab withholding its next flagship on alignment grounds (September 28)
+  people: OpenAI
+  category: Governance & Society
+  source: Added
+  link: https://www.gmanetwork.com/news/scitech/technology/1004130/openai-shelves-new-ai-model-release-over-safety-concerns/story/
+  weight: 2
+- year: 2026
+  event: Trump and the heads of six frontier AI firms sign the voluntary White House
+    Accord on Super Intelligence — pledging internal model monitoring, dedicated safety
+    teams, and independent external audits; non-binding, with no penalties (September 29)
+  people: Donald Trump; Dario Amodei; Greg Brockman; Sundar Pichai; Mark Zuckerberg; Elon Musk; Jensen Huang
+  category: Governance & Society
+  source: Added
+  link: https://www.aljazeera.com/news/2026/9/29/trump-top-tech-firms-sign-accord-to-self-police-ai-development
+  weight: 2
+- year: 2026
+  event: OpenAI publishes 722 AI-generated manuscripts covering 372 open-problem results
+    in math and theoretical CS, produced by an unreleased internal model and many backed
+    by Lean proofs — claims include the 4-dimensional Kakeya conjecture; three papers
+    are retracted the next day and mathematicians, including Fields medalists, protest
+    the unreviewed volume (October 6)
+  people: OpenAI
+  category: Research Breakthroughs
+  source: Added
+  link: https://the-decoder.com/openai-dumps-372-ai-generated-math-proofs-on-github-telling-the-academic-world-to-keep-up/
+  weight: 2
+- year: 2026
+  event: Mistral AI previews Mistral Large 4 — a 1-trillion-parameter (52B active) natively
+    multimodal mixture-of-experts trained from scratch on 3,800 Grace Blackwell GPUs
+    in Mistral's own European datacenters; Europe's first trillion-parameter frontier
+    model, with open weights promised (October 6)
+  people: Mistral AI
+  category: Foundation Models
+  source: Added
+  link: https://mistral.ai/news/mistral-large-4/
+  weight: 2
+- year: 2026
+  event: Google launches Gemini agent for businesses — a universal agent that plans
+    multi-step work, delegates to subagents, chooses among models including Anthropic's
+    Claude, connects to Workspace, Microsoft 365, Slack, and any MCP server, and gets
+    its own workplace identity and email address (October 8)
+  people: Google; Thomas Kurian
+  category: Enterprise & Developer Tools
+  source: Added
+  link: https://techcrunch.com/2026/10/08/google-brings-agentic-ai-to-gemini-starting-with-businesses/
+  weight: 1
+- year: 2026
+  event: Microsoft unveils Maia 300, its third-generation in-house AI accelerator —
+    TSMC N2P chiplets with eight HBM4 stacks and a claimed 40% more tokens per megawatt
+    than leading GPUs; slated to become the primary inference engine for Copilot in
+    multi-gigawatt deployments from 2027 (October 12)
+  people: Microsoft; Scott Guthrie
+  category: Hardware & Infrastructure
+  source: Added
+  link: https://blogs.microsoft.com/blog/2026/10/12/microsoft-to-expand-azure-maia-system-to-multi-gigawatt-deployments/
   weight: 2
