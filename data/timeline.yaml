@@ -2227,3 +2227,32 @@
   source: Added
   link: https://blogs.microsoft.com/blog/2026/10/12/microsoft-to-expand-azure-maia-system-to-multi-gigawatt-deployments/
   weight: 2
+- year: 2026
+  event: Google makes Gemini 4 Argon generally available — first released September
+    30 only to vetted cyber defenders through its Fairwind Program, the model opens
+    to developers and enterprises via the Gemini API, AI Studio, Antigravity, the Gemini
+    app, and AI Mode in Search, with a 1M-token unified context window (October 13)
+  people: Google; Google DeepMind
+  category: Foundation Models
+  source: Added
+  link: https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/
+  weight: 2
+- year: 2026
+  event: Meta releases Muse Spark Open — open weights for an 816B-parameter (42B active)
+    model built for coding and agentic work, which Meta calls the most capable US open-weight
+    model to date; the Muse Model License restricts some commercial use (October 15)
+  people: Meta; Alexandr Wang
+  category: Foundation Models
+  source: Added
+  link: https://thenewstack.io/meta-muse-spark-open/
+  weight: 2
+- year: 2026
+  event: Anthropic commits 5% of its shares to a new Anthropic Public Benefit Fund, pending
+    stockholder approval — growing by 2% for each 50% rise in company value above a
+    baseline and barred from lobbying or political giving; with earlier pledges, roughly
+    20% of Anthropic's equity is dedicated to the public good (October 18)
+  people: Anthropic
+  category: Governance & Society
+  source: Added
+  link: https://www.anthropic.com/news/public-benefit-fund
+  weight: 2
